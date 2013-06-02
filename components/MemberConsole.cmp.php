@@ -194,14 +194,13 @@ class component_MemberConsole extends SK_Component
                 'class' => "icon_recorder"
             );
         }
-        if ( SK_Config::section('chuppo')->enable_chuppo_recorder && app_Features::isAvailable(21) ) {
-            $console_menu[] = array(
-                'label'	=> $lang->text("profile_unregister"),
-                'href'	=> SK_Navigation::href("profile_unregister"),
-                'active'=> $doc_key == "profile_unregister",
-                'class' => "profile_unregister"
-            );
-        }
+        
+        $console_menu[] = array(
+            'label'	=> SK_Language::section("nav_doc_item.titles")->text("profile_unregister"),
+            'href'	=> SK_Navigation::href("profile_unregister"),
+            'active'=> $doc_key == "profile_unregister",
+            'class' => "profile_unregister"
+        );
 
         return $console_menu;
     }
