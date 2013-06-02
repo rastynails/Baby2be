@@ -67,6 +67,5 @@
 			<p align="center">{button action=$form->active_action label=%.forms._actions.save}</p>
 		{/form}
 	{/block}
-	<a class="profile_unregister" href="{document_url doc_key="profile_unregister"}">{text %.nav_doc_item.profile_unregister}</a>
 	{/container}
 {/canvas}
