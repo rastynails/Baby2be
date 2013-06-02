@@ -52,7 +52,7 @@ class nav_profile
 
 	public function profile( array $params )
 	{
-        $url = SITE_URL."member/profile.html";
+        $url = SITE_URL."member/profile.php";
 
 		if (isset($params["profile_id"])) {
 			$username = app_Profile::username((int)$params["profile_id"], true);
