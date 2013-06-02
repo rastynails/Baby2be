@@ -1,0 +1,74 @@
+
+.drag-and-drop
+{
+    margin: 0;
+    padding: 0;
+}
+
+.drag-and-drop ol
+{
+    padding-left: 32px;
+}
+
+.drag-and-drop li
+{
+    list-style-type: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid white;
+}
+
+.placeholder
+{
+    outline: 1px dashed #4183C4;
+    height: 21px;
+}
+
+.mjs-nestedSortable-error
+{
+    background: #fbe3e4;
+    border-color: transparent;
+}
+
+.td-caption
+{
+    width: 40%;
+    color: #485F75;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.template
+{
+    display: none;
+}
+
+.country
+{
+    height: 15px;
+    padding: 4px;
+    overflow-y: hidden;
+}
+
+.country-list
+{
+    height: 500px;
+    overflow-y: auto;
+    outline: 1px solid black;
+}
+
+.brd
+{
+    outline: 1px solid black;
+}
+
+.watchdog_caption td {
+	border:1px solid transparent;
+	padding: 7px 0px 7px 12px;
+}
+.watchdog_caption td.td-caption {
+	padding: 0px 12px 0px 0px;
+}

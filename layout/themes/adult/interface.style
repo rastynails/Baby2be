@@ -1,0 +1,296 @@
+$body {
+	background: #3d3d3d;
+}
+
+$a_link {
+	color: #f23c13;
+}
+
+$content{
+	float:left;
+	background: #dae3e4;
+	border: none;
+	margin-top: none;
+	width: 822px;
+	padding: 4px;
+	color: #3e413d;
+}
+
+.bread_crumb{
+	padding-left:4px;
+}
+
+#page_content_header {
+	color: #3E413D;
+}
+
+$blog_manage_list {
+	margin: 0 4px;
+}
+
+$sidebar {
+	float:right;
+	margin: 0;
+}
+
+.block_cap_corner {
+	background: none;
+}
+
+.block_cap {
+	background: image(block_cap.jpg) repeat-x;
+	border: none;
+	margin-top: 10px;
+}
+
+$highlight_color {
+	color: #fff;
+}
+
+.photo_block .highlight,
+.profile_activity span,
+.block_body .highlight{
+	color: #F23C13;
+}
+
+.block_body {
+	background-color: none;
+	padding: 4px 2px;
+	border: 1px solid #3e413d;
+}
+
+.block {
+	background: none;
+	margin: 0 0 14px;
+}
+
+.block_body .list_info{
+	background: #eee;
+}
+
+$base_font{
+	color: #3E413D;
+}
+
+#footer {
+	width: 830px;
+}
+
+.field_mileage .tab {
+	display:inline;
+	margin:0 2px;
+	padding:4px;
+	cursor: pointer;
+}
+
+.field_mileage .content_container {
+	margin: 2px;
+}
+
+.important_tips .block li {
+	background: image(tips_arrow.png) no-repeat scroll 0 3px;
+	padding-left: 20px;
+}
+
+.profile_thumb {
+	border:1px solid #333;
+}
+
+$tip {
+	border-top: none;
+	background: none;
+}
+
+$floatbox_container {
+	background: #DAE3E4;
+}
+
+.floatbox_container .block_info {
+	background: none;
+	border: none;
+	color: #666;
+}
+
+$floatbox_header {
+	background: black;
+}
+
+$table_block_cap {
+	background: #333;
+	border: 1px solid #666;
+	color:#E38E11;
+}
+
+.block_info {
+	background:#444444 image(info.png) no-repeat scroll 3px 3px;
+	color: #ccc;
+}
+
+.sidebar .block_null .block_body {
+	margin: 0px;
+	padding: 0px;
+}
+
+$button {
+	background: #f2a81d;
+	color: #222;
+}
+
+$form_th{
+	background: #555;
+	color: #FCE562;
+}
+
+$table{
+	color:#ccc;
+}
+
+.paging {
+	margin-left: 4px;
+}
+
+$item {
+	border-color: #333;
+	color: #3E413D;
+}
+
+.forum_group_list .list_item, .forum_group_list .list_item td,
+.forum_post_list .block_body {
+	background: #eee;
+}
+
+div.narrow {
+	width: 40%; 
+}
+
+.block_toolbar{
+	background: #222;
+	border:none;
+	margin: 0px;
+}
+
+$active_field_mileage {
+	background: #330000;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #660000;
+	border-bottom: none;
+	color: #fff;
+}
+
+$tab_field_miliage{
+	background: #131313;
+}
+
+.field_mileage .active {
+	padding:4px 5px 2px;
+	color: #fff;
+	background: #444;
+}
+
+$tab {
+	background: #888;
+	padding: 2px 5px 1px 5px;
+}
+
+.field_mileage .region {
+	color: #fff;
+}
+
+.field_mileage .country {
+	color: #fff;
+}
+
+.suggest_cont {
+	background: #fff;
+}
+
+.video_view .narrow {
+	width: 39%;
+}
+
+$content_field_mileage {
+	background:#330000 none repeat scroll 0 0;
+	border:1px solid #660000;
+	color: #fff;
+}
+
+$small_font {
+	background: #222;
+}
+
+$footer_style {
+	width: 830px;
+	float: left;
+}
+
+.forum_search_result .quotetop,
+.forum_post_list .quotetop 
+{
+	background: #777 image(css_img_quote.png) no-repeat scroll right center;
+	border-color: #aaa;
+	border-style: dotted dotted none solid;
+	border-width: 1px 1px 0 4px;
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 8px auto 0;
+	padding: 3px;
+}
+
+.forum_search_result .quotemain,
+.forum_post_list .quotemain 
+{
+	background:#444 none repeat scroll 0 0;
+	border-color: #777;
+	border-style:none dotted dotted solid;
+	border-width:0 1px 1px 4px;
+	color:#FFFFFF;
+	margin:0 auto 8px;
+	padding:4px;
+}
+
+.tooltip {
+	background: #fff;
+}
+
+#footer a {
+	color: #FCE562;
+}
+
+#footer {
+	color: #fff;
+}
+.floatbox_container .block_body {
+	border: none;
+	margin: 0px;
+}
+.floatbox_container .floatbox_header {
+	margin: 0px;
+}
+.select_language,.fbc_button {
+	float: right;
+}
+.profile_list_ads {
+	width: 817px;
+}
+.newsfeed_formatter_wrap .text_formatter {
+	top: -32px;
+}
+body .import_container table.form td.label {
+	color: #fff;
+}
+body .import_container table.form tr.list_odd td.label,
+body .import_container table.form tr.list_odd td.value {
+	color: #333;
+}
+body .import_container table.form td.check << $item {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.splash_screen_cont .block_body {
+	background: #DAE3E4;
+}
+.search_result_count {
+	margin-left: 4px;
+}

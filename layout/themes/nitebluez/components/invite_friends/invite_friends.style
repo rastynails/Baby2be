@@ -1,0 +1,37 @@
+.invite_col1,.invite_col2 {
+	width: 49%;
+	margin-bottom: 5px;
+}
+.invite_col1 {
+	float: left;
+}
+.invite_col2{
+	float: right;
+}
+
+.invite_import {
+	float: left;
+	font-size: 11px;
+}
+.invite_btn {
+	float: right;
+}
+.invite_col1 textarea,.invite_col2 textarea {
+	width: 93%;
+}
+.invite_col1 label,
+.invite_col2 label {
+	display: block;
+	min-height: 30px;
+}
+.fb_float_right {
+	float: right;
+	padding-top: 7px;
+}
+.list_odd .address {
+	color: #fff;
+}
+table.form td.check {
+	border-bottom: 1px solid #97A4A9;
+	border-color: #97A4A9;
+}

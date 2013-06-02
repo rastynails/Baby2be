@@ -1,0 +1,221 @@
+.small
+{
+    font-size:11px;
+    line-height:14px;
+}
+
+.smallmargin
+{
+    margin-bottom: 10px;
+}
+
+ul.newsfeed {
+    padding:5px 0 0 5px;
+}
+.newsfeed_avatar {
+    float:left;
+    height:45px;
+    margin-right:-45px;
+    width:45px;
+}
+.newsfeed_avatar img {
+    height:45px;
+    width:45px;
+}
+.newsfeed_body {
+    margin-left:45px;
+    padding-left:10px;
+    position:relative;
+}
+.newsfeed .newsfeed_item {
+    list-style-image:none;
+    position: relative;
+}
+.newsfeed_toolbar {
+    float:none;
+}
+.newsfeed .comments_list {
+    margin-bottom:0;
+}
+.newsfeed_remove {
+    display:none;
+    position:absolute;
+    right:0;
+    top:5px;
+}
+.newsfeed_body:hover .newsfeed_remove {
+    display:block;
+}
+.newsfeed_delimiter {
+    border:none;
+    height:1px;
+    margin-bottom:0px;
+}
+.newsfeed_doublesided_stdmargin {
+    margin:14px 0;
+}
+.newsfeed_likes {
+    margin-bottom:3px;
+}
+.newsfeed_tooltip .tail {
+    background-position:30px 0;
+}
+.newsfeed_placeholder {
+    background-position:center 5px;
+    height:30px;
+}
+.newsfeed_view_more_c {
+    text-align:center;
+}
+.newsfeed_string {
+    max-width:600px;
+}
+.newsfeed_item_picture {
+    float:left;
+    margin-right:2%;
+    width:60px;
+}
+.newsfeed_large_image .newsfeed_item_picture {
+    max-width:150px;
+    width:38%;
+}
+.newsfeed_large_image .newsfeed_item_content {
+    max-width:390px;
+    width:60%;
+}
+.newsfeed_item_picture img {
+    width:100%;
+}
+.newsfeed_item_content {
+    float:left;
+    max-width:440px;
+    min-width:50px;
+    width:70%;
+}
+.newsfeed_features {
+	padding-top: 3px;
+	max-width:450px;
+}
+.newsfeed_feedback_counter {
+    padding:2px 0px;
+}
+
+.miniic_comment {
+    background: image(miniic_comment.png) no-repeat 0px 2px;
+}
+
+.miniic_heart {
+    background: image(miniic_heart.png) no-repeat 1px 2px;
+}
+
+.miniicon_control {
+    background-repeat:no-repeat;
+    display:inline-block;
+    line-height:9px;
+    padding:1px 0 2px 14px;
+}
+
+.newsfeed_userlist_info
+{
+    float: left;
+    margin: 5px;
+    
+}
+
+.newsfeed_userlist_info .newsfeed_userlist_picture
+{
+    width: 100px;
+}
+
+.newsfeed_userlist_info .newsfeed_userlist_data
+{
+    text-align: center;
+}
+.cursor_pointer
+{
+    cursor: pointer;
+}
+
+
+.newsfeed_content .list_cont ul.list {
+	padding: 0px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.newsfeed_content .item {
+	width:60px;
+	height:75px;
+	overflow: hidden;
+	font-size:11px;
+	display: block;
+	float:left;
+	margin:0 4px 5px 0;
+}
+
+.newsfeed_content .item img, .profile_list_cont .item .image {
+	width:60px;
+	height:60px;
+}
+
+.newsfeed_content .item a{
+	display: block;
+}
+
+.newsfeed_content .item {
+	text-align: center;
+}
+/*--------------------- Comment Bubble ---------------------*/
+.nf_wrap {
+	padding: 10px 0px 0px;
+	background: image(nf_tail.png) no-repeat 21px 0px;
+}
+.nf_block_cap {
+	padding-left: 4px;
+	background: image(nf_block_cap.png) no-repeat;
+}
+.nf_block_cap_r {
+	padding-right: 4px;
+	background: image(nf_block_cap_r.png) no-repeat right top;
+}
+.nf_block_cap_c {
+	background: image(nf_block_body.png) repeat;
+	height: 4px;
+}
+.nf_block_body {
+	padding: 5px;
+	background: image(nf_block_body.png) 0px 0px;
+}
+.nf_block_bot {
+	padding-left: 4px;
+	background: image(nf_block_bot.png) no-repeat;
+}
+.nf_block_bot_r {
+	padding-right: 4px;
+	background: image(nf_block_bot_r.png) no-repeat right top;
+}
+.nf_block_bot_c {
+	background: image(nf_block_body.png) repeat;
+	height: 4px;
+}
+.nf_wrap .newsfeed_likes .block_cap_c {
+	min-height: 0px;
+	height: 6px;
+	padding: 0px;
+	font-size: 6px;
+	line-height: 6px;
+}
+/*----------------------*/
+
+.newsfeed_content {
+	overflow-x: auto;
+	overflow-y: visible;
+	padding-bottom: 5px;
+}
+.newsfeed_content .clearfix:after {
+	content: " ";
+}
+.remark img
+{
+    max-width: 100%;
+}

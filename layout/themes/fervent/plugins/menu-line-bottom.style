@@ -1,0 +1,15 @@
+ul.menu-line-bottom {
+	background: none;
+	font-size: 10px;
+	color: #584e4e;
+	padding-top:33px
+}
+ul.menu-line-bottom a {
+	font-size: 10px;
+	color: #540808;
+	text-transform: uppercase;
+}
+ul.menu-line-bottom a:hover,
+body #footer ul.menu-line-bottom a.active {
+	color:#df0007;
+}

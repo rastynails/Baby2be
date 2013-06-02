@@ -1,0 +1,3 @@
+.active img {
+	border-color: #bd0e00;
+}

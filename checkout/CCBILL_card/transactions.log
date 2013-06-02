@@ -1,0 +1,10 @@
+Request(Time: 2010-09-27 01:52:01 LINE: 16): https://datalink.ccbill.com/data/main.cgi?startTime=20100926010101&endTime=20100927010101&transactionTypes=NEW,REBILL&clientAccnum=12345&clientSubacc=0000&username=--&password=--
+Response(LINE: 24): Error: Invalid client account number provided.
+Rebill array(LINE: 39): Array
+(
+    [0] => Array
+        (
+            [type] => Error: Invalid client account number provided.
+        )
+
+)

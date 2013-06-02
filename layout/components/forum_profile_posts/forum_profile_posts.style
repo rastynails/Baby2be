@@ -1,0 +1,12 @@
+.small {
+	font-size:11px;
+}
+
+.post_stamp {
+	line-height:1.4;
+	margin:0 0 10px;
+}
+
+.brd_bottom {
+	list-style-type:disc;
+}

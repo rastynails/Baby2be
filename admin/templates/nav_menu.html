@@ -1,0 +1,79 @@
+{* Admin interface: Menu items manage *}
+{include file='inc/_header.html'}
+
+<div class="pr_top_add_field">
+    <a href="{$smarty.const.URL_ADMIN}nav_menu_create.php">Create Menu Item</a>
+</div>
+
+{block_page}
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" id="nav_menu">
+        <thead>
+            <th colspan="20" id="nav_menu_cap" >
+                Menu items display for different membership types
+            </th>
+        </thead>
+    </table>
+
+    <ol class="drag-and-drop brd">
+        <li>
+            <div style="font-weight: bold;" class="clearfix">
+                <div class="left-side">
+                    <div style="width: 15px" class="left-side brd">&nbsp;</div>
+                    <div class="left-side brd">Name</div>
+                </div>
+
+                <div class="right-side">
+                    {foreach from=$memberships_arr item=membership}
+                        <div class="left-side brd">
+                            {text section='membership.types' key=$membership.membership_type_id}
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <br />
+
+    <form action="{$smarty.const.URL_ADMIN}nav_menu.php" method="POST">
+        <ol id="sort-table" class="drag-and-drop brd">
+            {foreach from=$all_menu key=menu_name item=menu}
+                <li class="no-nesting">
+                    <input type="hidden" name="menu_id" value="{$menu.menu_id}" />
+                    <div class="title-clearfix title" style="min-height: 31px;">
+                        <div class="left-side">
+                            <div style="width: 15px;" class="left-side brd">&nbsp;</div>
+                            <div class="left-side brd">{text section='nav_menu_item' key=$menu_name}</div>
+                        </div>
+
+                        <div class="right-side">
+                            {foreach from=$memberships_arr item=membership}
+                                <div style="color: transparent;" class="left-side brd">
+                                    <div style="visibility: hidden;">
+                                        {text section='membership.types' key=$membership.membership_type_id}
+                                    </div>
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                    </li>
+                    {print_items menu_items=$menu.menu highlight=$smarty.capture.light parent_name=$menu_name memberships_arr=$memberships_arr}
+             {/foreach}
+        </ol>
+        
+        <div class="pr_top_add_field">
+            {if $not_base_item}
+                <div style="float: left">
+                    <input type="submit" class="submit" name="delete" value="Delete Items" onclick="return CheckDeleteItemInput( document.forms[0] );" />
+                </div>
+            {/if}
+
+            <div style="float: right">
+                <input type="submit" class="submit" name="save" value="Save permissions" />
+            </div>
+        </div>
+    </form>
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

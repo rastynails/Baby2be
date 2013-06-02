@@ -1,0 +1,85 @@
+{include file='inc/_header.html'}
+
+{block_page}
+<div class="clearfix">
+<div style="width: 59%; float: left;">
+<form method="post" enctype="multipart/form-data">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <th colspan="2">
+            Add slide
+        </th>
+        </thead>
+        <tbody>
+        <tr class="tr_2">
+            <td width="32%">Choose slide image:</td><td><input type="file" name="slide_image" /></td>
+        </tr>
+        <tr class="tr_1">
+            <td>Label: </td><td><input type="text" name="label" value="" style="width: 250px;" /></td>
+        </tr>
+        <tr class="tr_2">
+            <td>URL: </td><td><input type="text" name="url" value="" style="width: 250px;" /></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2"><input type="submit" name="add_slide" value="Upload" /></td>
+        </tr>
+        </tfoot>
+    </table>
+</form>
+</div>
+
+<div style="width: 39%; float: right;">
+    {print_configs section='slideshow'}
+</div>
+
+</div>
+
+<br /><br />
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <thead>
+    <th colspan="2">
+        Slides
+    </th>
+    </thead>
+    <tbody>
+    {foreach from=$slides item='s' name='sl'}
+    <tr class="tr_{cycle values=2,1}">
+        <td>
+            {if $s.label}<b>Label:</b> {$s.label}<br />{/if}
+            {if $s.url}<b>URL:</b> <a href="{$s.url}">{$s.url}</a><br />{/if}<br />
+            <img src="{$s.imageUrl}" style="max-width: 400px;" />
+        </td>
+        <td width="6%" class="actions">
+            <div style="padding-left: 3px;">{if !$smarty.foreach.sl.first}<a class="up up-enb" href="{$smarty.const.URL_ADMIN}slideshow.php?move=up&id={$s.id}"></a>{/if}</div>
+            <a class="delete" rel="{$s.id}" href="javascript://"></a><br />
+            <div style="padding-left: 5px;">{if !$smarty.foreach.sl.last}<a class="down down-enb" href="{$smarty.const.URL_ADMIN}slideshow.php?move=down&id={$s.id}"></a>{/if}</div>
+        </td>
+    </tr>
+    {foreachelse}
+        <tr class="tr_2">
+            <td colspan="2">No slides added</td>
+        </tr>
+    {/foreach}
+    </tbody>
+</table>
+<script>
+{literal}
+jQuery(function() {
+    jQuery(".actions .delete").click(function(){
+        var id = jQuery(this).attr("rel");
+        if ( confirm("Are you sure?") )
+        {
+            document.location.href = "{/literal}{$smarty.const.URL_ADMIN}{literal}slideshow.php?delete-slide-id=" + id;
+        }
+
+        return false;
+    });
+});
+{/literal}
+</script>
+{/block_page}
+
+{include file='inc/_footer.html'}

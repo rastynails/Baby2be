@@ -1,0 +1,3 @@
+.profile_list_cont .list {
+	padding-left: 7px;
+}

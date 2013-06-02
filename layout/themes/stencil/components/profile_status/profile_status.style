@@ -1,0 +1,18 @@
+.status_bg .block_cap {
+	position: relative;
+}
+.profile_status_toggle {
+	float: right;
+}
+.profile_status_toggle a {
+	display: block;
+	padding: 0px 6px;
+}
+.profile_status td {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+.user_status_curr_value {
+	font-family: Arial, sans-serif;
+	font-style: regular;
+}

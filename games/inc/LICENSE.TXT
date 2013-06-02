@@ -1,0 +1,23 @@
+Terms & Conditions:
+
+These terms apply if you are licensing the SWF files of Flash games from Novel Games Limited.
+
+1. License Agreement: This License provides a perpetual (unless terminated as provided herein), non-exclusive, non-transferable license of a version of the Game(s) modified/branded specifically for the Licensee. The Licensee will be provided with an SWF file of the Game(s). The Licence does not include the source code or source graphics files for the Game. (See 4: Ownership).
+
+2. Permitted Uses: The Licensee can redistribute the SWF files of the Game(s), this includes listing the Game(s) in the Licensee's website(s), putting the Games in third party websites, or putting the Game(s) in any device.
+
+3. Restrictions on Use: The Licensee can not attempt to modify, create a derivative work of, recreate, generate, reverse engineer, translate, disassemble, decompile, decipher, create derivative works of, circumvent any technological controls on, or otherwise attempt to derive source code, for any portion or version of the Game.
+
+4. Ownership: Ownership, Title to, and ownership of, the Game(s) and all copies thereof, and all information supplied by Novel Games Limited relating to the Game(s), regardless of type or form (including all rights in patents, copyrights, trademarks and trade secrets applicable thereto) will at all times remain with Novel Games Limited. This license does not constitute a sale of the Game(s) or any portion or copy thereof, including but not limited to source code, graphics and sound files). You may not claim intellectual ownership of the Game(s).
+
+5. Support from Novel Games Limited: Novel Games Limited will provide reasonable support for the deployment of the Game(s) for the Licensee. Novel Games Limited will also provide unlimited free bug fixes, but updates will not be provided. Novel Games Limited will preserve the final right to judge whether a support request is reasonable or whether a certain problem is a bug.
+
+6. Limitation of Warranty: THE WARRANTY SET FORTH IN THIS SECTION CONSTITUTES THE ONLY WARRANTY MADE BY Novel Games Limited WITH RESPECT TO THE Game. IT IS IN LIEU OF ALL OTHER WARRANTIES OR CONDITIONS, WRITTEN OR ORAL, STATUTORY, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY IMPLIED WARRANTIES AGAINST INFRINGEMENT OF THIRD PARTY PROPERTY RIGHTS, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE OR ARISING FROM A COURSE OF DEALING, TRADE USAGE OR TRADE PRACTICE. SPECIFICALLY, BUT WITHOUT LIMITATION, Novel Games Limited MAKES NO WARRANTY THAT OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE, OR WILL CONFORM TO ANY RELIABILITY OR PERFORMANCE STANDARDS. ALL MATERIALS PROVIDED TO THE LICENSEE UNDER THIS AGREEMENT ARE PROVIDED "AS IS."
+
+7. Limitation of Liability: IN NO EVENT SHALL Novel Games Limited BE LIABLE UNDER ANY CLAIM, DEMAND, OR ACTION ARISING OUT OF, OR RELATING TO, THE SOFTWARE, OR FOR Novel Games Limited'S PERFORMANCE (OR LACK THEREOF) UNDER THIS AGREEMENT, FOR ANY SPECIAL, INDIRECT, INCIDENTAL, PUNITIVE, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, OR ANY INDIRECT DAMAGES FOR LOSS OF BUSINESS, DAMAGE TO PROPERTY (INCLUDING, WITHOUT LIMITATION, LOSS OR DAMAGE TO ANY DATA, SOFTWARE, HARDWARE OR NETWORK OF LICENSEE OR LICENSEE'S EMPLOYEES, AGENTS OR CONTRACTORS), WHETHER OR NOT LICENSEE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH CLAIM, DEMAND, OR ACTION. 
+
+8. Indemnification: Licensee shall defend, indemnify and hold harmless Novel Games Limited and its successors and assigns, and its employees and agents from and against any and all liabilities, losses, damages, claims, suits and expenses, arising from any use of the Game(s). 
+
+9. Termination: Novel Games Limited may terminate this Agreement if Licensee is in default of any of the terms and conditions of this Agreement, and termination is effective if Licensee fails to correct such default within fourteen (14) days after written notice thereof by Novel Games Limited.
+
+10. Use of Novel Games name: Licensee may not use the Novel Games name, trademarks, service marks, or logos on any commercial or promotional materials without the express written consent of Novel Games Limited.

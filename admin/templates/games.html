@@ -1,0 +1,173 @@
+{include file='inc/_header.html'}
+
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}games.php" method="POST" >
+<table style="width: 100%;">
+    <thead>			
+        <tr>
+			<th id="games_form_table_install_cell" colspan="3">Novel games</th>
+		</tr>
+    </thead>
+    <tbody>
+        {foreach from=$all_novel_games item='game'}
+        <tr>
+            <td>
+                <input type="checkbox" name="novel_game[{$game.id}]" id="novel_game[{$game.id}]" value="1" {if $game.is_enabled}checked="checked" title="Enabled"{else}title="Disabled"{/if} />
+            </td>
+            <td {if !$game.is_enabled}class="disabled"{/if}>
+                {$game.name}
+            </td>
+            <td {if !$game.is_enabled}class="disabled"{/if}>
+                {$game.description}
+            </td>
+        </tr>
+        {/foreach}
+        <tr>
+            <td colspan="4" align="right">
+                <input id="novel_games_submit_btn" type="submit" name="set_novel_games" value="Save" class="submit" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+{/block_page}
+
+{block_page}
+<table>
+    <thead>			
+        <tr>
+			<th id="games_form_table_install_cell" colspan="3">How to install games</th>
+		</tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                To integrate a game copy the game embed code from the catalog to the 'Add new game' form, and fill-in the 'Name' and 'Description' fields.
+            </td>
+        </tr>
+        <tr><th id="new_games_form_table_head_cell" colspan="3">Mochimedia</th></tr>
+        <tr>
+            <td>
+                To integrate games from <a href="www.mochimedia.com">www.mochimedia.com</a> you should <a href="https://www.mochimedia.com/register">register</a> first.<br />
+                Then follow the instructions for domain verification at the <a href="https://www.mochimedia.com/pub/settings" >'Publisher Settings'</a> page<br />
+                Replace Mochimedia games codes with your account code<br />
+                That is required if you need players statistics for your domain.<br />
+                You can find the game catalog at the <a href="https://www.mochimedia.com/pub/catalog" >'Game Catalog'</a> page.<br />
+                You can find complete documentation at the <a href="https://www.mochimedia.com/support/pub_docs" >'Publisher Documentation'</a>.
+            </td>
+        </tr>
+        <tr>
+            <td><b>Here are a few free game-providers:</b></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.freeonlinegames.com">http://www.freeonlinegames.com</a>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.freeworldgroup.com">http://www.freeworldgroup.com</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{/block_page}
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}games.php" method="POST" onsubmit="return CheckForm_create_game(this);">
+<table id="new_games_template_form_table" cellspacing="1" align="center" class="table">
+		<thead>
+			<tr>
+				<th id="new_games_form_table_head_cell" colspan="3">Add new game</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td id="new_games_form_table_games_name_left_cell" align="right">
+					<label for="name">Name</label>
+				</td>
+				<td id="new_games_form_table_games_name_right_cell">
+					<input type="text" name="games_name" id="games_name" value="{$smarty.post.games_name}" class="input_text" />
+				</td>
+			</tr>
+			<tr>
+				<td id="new_games_form_table_description_left_cell" align="right">
+					<label for="games_description">Description</label>
+				</td>
+				<td id="new_games_form_table_description_right_cell">
+					<textarea name="games_description" cols="80" rows="3" id="games_description">{$smarty.post.games_description}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td id="new_games_form_table_html_code_left_cell" align="right">
+					<label for="games_code">Embed code</label>
+				</td>
+				<td id="new_games_form_table_html_code_right_cell">
+					<textarea name="games_code" cols="80" rows="10" id="games_code">{$smarty.post.games_code}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="right">					
+					<input id="new_games_submit_btn" type="submit" name="create" value="Create" class="submit" />
+				</td>
+			</tr>
+		</tbody>
+</table>
+</form>
+{/block_page}
+
+{if $all_games}
+{block_page}
+
+<table id="existing_games_tbl" cellspacing="0" cellpadding="0" align="center" class="table">
+	<thead>
+		<tr>
+			<th id="existing_games_tbl_head_cell" colspan="3">Existing games</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+    
+    
+	{foreach from=$all_games item='game'}
+		<form action="{$smarty.const.URL_ADMIN}games.php" method="POST">
+		<input type="hidden" name="game_id" value="{$game.game_id}" />
+		<tr class="config_section">
+			<td colspan="2">
+				<div class="float_left">
+					<input type="text" class="input_text" name="games_name" id="games_name_{$game.game_id}" value="{$game.name}" />
+				</div>
+				<div class="float_right">
+					<input type="submit" name="save" value="Save" class="submit" onclick="return CheckForm_edit_game( '{$game.game_id}' )"/>
+					<input type="submit" name="delete" value="Delete" class="submit" onclick="return ConfirmForm_delete_game('{$game.name}')"/>
+				</div>
+			</td>
+		</tr>
+		
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td colspan="2">
+				<table>
+					<tr>
+						<td>
+							<textarea name="games_description" cols="80" rows="3" id="games_description_{$game.game_id}">{$game.description}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<textarea name="games_code" cols="80" rows="10" id="games_code_{$game.game_id}">{$game.code}</textarea>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</form>
+	{/foreach}
+	</tbody>
+	
+</table>
+
+
+{/block_page}
+{/if}
+<br clear="all" />
+{include file='inc/_footer.html'}

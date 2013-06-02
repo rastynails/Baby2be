@@ -1,0 +1,58 @@
+{include file='inc/_header.html'}
+
+{block_page}
+	Activated template: <b>{$active_theme.title}</b><br /><br />
+	<table width="100%">
+	<form method="post" id="markup_form">
+		<input type="hidden" name="theme_name" value="{$active_theme.theme_name}" />
+		<input type="hidden" name="action" id="form_action" value="save_code" />
+		<thead><tr><td colspan="2">Customize home page markup:</td></tr></thead>
+		<tbody>
+			<tr>
+				<td colspan="2"><textarea rows="40" style="width:100%; height: 500px;" name="page_code">{$active_theme.home_page_code}</textarea></td>
+			</tr>
+			<tr>
+				<td align="left"><input type="button" value="Reset" onclick="confirmPageReset()" /></td>
+				<td align="right"><input type="button" value="Save" onclick="savePageCode()" /></td>
+				</td>
+			</tr>
+			</tbody>
+	</form>
+	</table>	
+{/block_page}
+
+<div style="width: 90%; margin: 0 auto">
+{block_page}
+	{literal}
+	<table>
+	<thead>
+		<tr>
+			<td>List of available components</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2">
+		<td>
+		{component MemberHomeLinks}<br />
+		{component ProfileGiftList}<br />
+		{component SavedLists}<br />
+        {component LatestActivity}<br />
+        {component InviteFriends}<br />
+        {component ImportantTips}<br />
+        {component ProfileStatus}<br />
+        {component IndexNews count=5}<br />
+        {component QuickSearch}<br />
+        {component IndexCommentsOverview}<br />
+        {component Shoutbox}<br />
+        {component TotalMembersOnline}<br />
+        {component SiteNewsfeed}<br />
+        {component OnlineUsersMap}
+		</td>
+		</tr>
+	</tbody>
+	</table>
+	{/literal}
+{/block_page}
+</div>
+
+{include file='inc/_footer.html'}

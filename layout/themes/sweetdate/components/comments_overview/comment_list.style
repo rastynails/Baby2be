@@ -1,0 +1,7 @@
+/* Comment list CSS */
+
+.feature_comment_list {
+    margin-top: 0px;
+    background: #f0f0f0;
+    padding: 6px 6px;
+}

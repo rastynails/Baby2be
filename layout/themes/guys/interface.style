@@ -1,0 +1,166 @@
+#content{
+	min-height:685px;
+	color:#605e5e;
+}
+
+$content{
+	float:left;
+}
+
+#page_canvas{
+	width:1000px;
+}
+
+$body{
+	background:transparent image(bg.gif) repeat;
+}
+
+.page-gradient{
+	background: transparent image(gradient.png) repeat-x;
+}
+
+.page-wrap{
+	background:transparent image(bg-wrap.png) no-repeat center top fixed;
+}
+
+.content-wrap{
+	background:#d1a304 image(bg_cont.gif) repeat-x;
+	padding: 0px 3px;
+}
+
+.block_body{
+	background-color:#FBFCFA;
+}
+
+.block_cap{
+	background:transparent image(bg_cap.gif) repeat-x;
+	height:35px;
+	border:none;
+} 
+
+.block_cap_c{
+	line-height:25px;
+}
+.block_cap_title {
+	color: #fff;
+}
+
+.block_bottom{
+	background:transparent image(block_bot_l.png) no-repeat top left;
+	padding-left:9px;
+}
+
+.block_bottom_r{
+	background:transparent image(block_bot_r.png) no-repeat top right;
+	padding-right: 9px;
+}
+
+.block_bottom_c{
+	background:transparent image(block_bot_c.png) repeat-x top right;
+	height:14px;
+}
+
+body input[type=submit], 
+body input[type=button]{
+	background:transparent image(bg_button.gif) repeat-x;
+	border:1px solid #0690d8;
+	height:27px;
+	padding:0px 10px 2px;
+}
+
+body input[type=submit]:hover, 
+body input[type=button]:hover{
+	border: none;
+}
+
+#page_canvas h1, #page_canvas h2, #page_canvas h3{
+	color:#fff;
+}
+
+.member_console .block_body,
+.member_console .block_bottom,
+.member_console .block_bottom_r,
+.member_console .block_bottom_c{
+	background:none;
+}
+
+.hot_list .block_body,
+.hot_list .block_bottom,
+.hot_list .block_bottom_r,
+.hot_list .block_bottom_c{
+	background:none;
+}
+
+body a:link, 
+body a:visited, 
+body .a_fake{
+	color:#0E4D01;
+}
+
+body .footer_menu{
+	margin-top:0px;
+	padding-bottom:12px;
+}
+
+body .paging a:link, 
+body .paging a:visited{
+	border:1px solid #9ced87;
+}
+
+.list_item, .list_item td{
+	background-color:#fff;
+}
+
+.feed_day{
+	background:#fff;
+}
+
+.block_toolbar{
+	padding:1px 10px;
+}
+
+.payment_selection{
+	background:#fff;
+}
+
+
+.profile_notice_cont  a:link, 
+.profile_notice_cont a:visited, 
+.profile_notice_cont .a_fake{
+	color:red;
+}
+
+body .floatbox_container{
+	border:4px solid #4C8E1F;
+}
+
+.floatbox_container .block_bottom_c {
+	height:auto;
+	background:none;
+}
+
+.floatbox_container input[type=submit], 
+.floatbox_container input[type=button]{
+	margin-top:4px;
+}
+.memberhome_hrefs_cont .block_body_c{
+	padding-bottom:5px;
+}
+
+#footer{
+	background: transparent image(footer.png) no-repeat;
+	height:34px;
+}
+.select_language,.fbc_button {
+	float: left;
+}
+body .newsfeed_comment_list .block_cap {
+	display: block;
+}
+body .newsfeed_comment_list .block_cap_c {
+	min-height: 2px;
+	height: 2px;
+}
+.contact_importer_buttons {
+	padding-top: 2px;
+}

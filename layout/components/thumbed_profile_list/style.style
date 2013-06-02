@@ -1,0 +1,6 @@
+.thumb_list div{
+	float:left;
+	width:60px;
+	margin:4px;
+	overflow:hidden;
+}

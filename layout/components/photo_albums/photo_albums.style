@@ -1,0 +1,24 @@
+.photo_albums .list .item {
+	float: left;
+	margin: 2px 4px;
+}
+
+.photo_albums {
+	padding: 5px;
+}
+
+.photo_albums .list {
+	padding: 2px;
+}
+
+.photo_albums .list .item .thumb{
+	height: 100px;
+	width: 100px;
+}
+
+.photo_albums .list .item .label{
+	height: 30px;
+	width: 100px;
+	text-align: center;
+	overflow: hidden;
+}

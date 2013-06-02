@@ -1,0 +1,224 @@
+{* Admin interface: affiliate *}
+{include file='inc/_header.html'}
+
+<div style="width:55%; float:left">
+{block_page}
+<form action="" method="POST">
+<table id="affilate_tbl" cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="affilate_tbl_head_cell" colspan="2">Affiliate</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td id="affilate_tbl_full_name_left_cell" width="30%">Full name</td>
+			<td id="affilate_tbl_full_name_right_cell">
+				<div id="field_name">{$affiliate_info.full_name}</div>
+				<div id="input_name" style="display:none;"><input type="text" name="aff_info[full_name]" value="{$affiliate_info.full_name}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_tbl_password_left_cell">Password</td>
+			<td id="affilate_tbl_password_right_cell">
+				<div id="field_password">{$affiliate_info.password}</div>
+				<div id="input_password" style="display:none;"><input type="text" name="aff_info[password]" value="{$affiliate_info.password}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_tbl_email_left_cell">Email</td>
+			<td id="affilate_tbl_email_right_cell">
+				<div id="field_email">{$affiliate_info.email}</div>
+				<div id="input_email" style="display:none;"><input type="text" name="aff_info[email]" value="{$affiliate_info.email}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td id="affilate_tbl_im_left_cell">IM</td>
+			<td id="affilate_tbl_im_right_cell">
+				<div id="field_im">{$affiliate_info.im}</div>
+				<div id="input_im" style="display:none;"><input type="text" name="aff_info[im]" value="{$affiliate_info.im}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_tbl_phone_left_cell">Phone</td>
+			<td id="affilate_tbl_phone_right_cell">
+				<div id="field_phone">{$affiliate_info.phone}</div>
+				<div id="input_phone" style="display:none;"><input type="text" name="aff_info[phone]" value="{$affiliate_info.phone}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td id="affilate_tbl_address_left_cell">Address</td>
+			<td id="affilate_tbl_address_right_cell">
+				<div id="field_address">{$affiliate_info.address}</div>
+				<div id="input_address" style="display:none;"><textarea name="aff_info[address]">{$affiliate_info.address}</textarea></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_tbl_payment_details_left_cell">Payment details</td>
+			<td id="affilate_tbl_payment_details_right_cell">
+				<div id="field_payment_details">{$affiliate_info.payment_details}</div>
+				<div id="input_payment_details" style="display:none;"><textarea name="aff_info[payment_details]">{$affiliate_info.payment_details}</textarea></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_tbl_email_status_left_cell">Email status</td>
+			<td id="affilate_tbl_email_status_right_cell">{if $affiliate_info.email_verified == 'yes'}verified{else}unverified{/if}</td>
+		</tr>
+		<tr class="tr_1">
+			<td id="affilate_tbl_status_left_cell">Status</td>
+			<td id="affilate_tbl_status_right_cell">
+				<div id="field_status">{if $affiliate_info.active == 'yes'}<font color="Green">active</font>{else}<font color="Red">inactive</font>{/if}</div>
+				<div id="input_status" style="display:none;">
+					<select name="aff_info[active]">
+						<option value="yes"{if $affiliate_info.active == 'yes'} selected{/if}>active</option>
+						<option value="no"{if $affiliate_info.active == 'no'} selected{/if}>inactive</option>
+					</select>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div id="field_delete" style="float: right">&nbsp;&nbsp;<a href="javascript://" onclick="confirmDelete('{$smarty.const.URL_ADMIN}affiliate_list.php?delete_affiliate={$affiliate_info.affiliate_id}');">[delete]</a></div>
+				<div id="field_edit"><a href="javascript://" onclick="ShowAffiliateInputFields( true );">[edit]</a></div>
+				<div id="input_btn" style="display:none; float: right">&nbsp;&nbsp;<input type="submit" value="save" /></div>
+				<div id="input_cancel" style="display:none;"><a href="javascript://" onclick="ShowAffiliateInputFields( false );">[cancel]</a></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+<div  style="width:42%; float: right">
+{block_page}
+<table id="payout_statistics_table" cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th id="payout_statistics_table_head_cell" colspan="3">Payout statistics</th>
+		</tr>
+		<tr>
+			<td id="payout_statistics_table_subhead_amount">Amount</td>
+			<td id="payout_statistics_table_subhead_date">Date</td>
+			<td id="payout_statistics_table_subhead_updated">Date updated</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$affiliate_payments item='payment' name='payment_count'}
+		<tr {if $smarty.foreach.payment_count.last}class="{cycle values=tr_1_cp,tr_2_cp}" {highlight} onclick="window.location.href='affiliate.php?affiliate_id={$affiliate_id}&payment_id={$payment.payment_id}'"{else}class="{cycle values=tr_1,tr_2}"{/if}>
+			<td>{$payment.amount|string_format:"%.2f"}</td>
+			<td>{$payment.time_stamp|date_format:"%b %e/%y %H:%M"}</td>
+			<td>{if $payment.edited_time_stamp == 0}No{else}{$payment.edited_time_stamp|date_format:"%b %e/%y %H:%M"}{/if}</td>
+		</tr>
+	{/foreach}
+	{if $smarty.foreach.payment_count.total < 1}
+		<tr class="tr_1">
+			<td id="payout_statistics_table_no_payouts_cell" colspan="3" align="center">No payouts made</td>
+		</tr>
+	{/if}
+	</tbody>
+</table>
+
+<br clear="all" />
+
+<table id="totals_table" align="center" cellspacing="1" width="200" style="margin-top: 10px; margin-bottom: 10px;">
+	<tbody>
+		<tr>
+			<td id="totals_table_paid_left">Total paid</td>
+			<td id="totals_table_paid_right">{$total_paid|string_format:"%.2f"}</td>
+		</tr>
+		<tr>
+			<td id="totals_table_balance_left">Total balance</td>
+			<td id="totals_table_balance_right">{$total_balance|string_format:"%.2f"}</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<form action="{$smarty.const.URL_ADMIN}affiliate.php?affiliate_id={$affiliate_id}" method="post" onsubmit="return checkIsDecimal( 'pay_sum', 'Enter correct paid amount.' );">
+{if $payment_info.payment_id != ''}<input type="hidden" name="payment_id" value="{$payment_info.payment_id}" />{/if}
+{if $payment_info.payment_id != ''}<div style="float:right;"><a href="?affiliate_id={$affiliate_id}">new</a></div><br />{/if}
+<table id="register_payout_table" align="center" style="width:100%;">
+	<thead>
+		<tr>
+			<th colspan="2">{if $payment_info.payment_id != ''}Edit Payout{else}Register Payout{/if}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td id="register_payout_table_amount_left_cell">Amount:</td>
+			<td id="register_payout_table_amount_right_cell"><input type="text" id="pay_sum" name="pay_sum"{if $payment_info.payment_id != ''} value="{$payment_info.amount}"{/if} /></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td id="register_payout_table_bottom_cell" colspan="2" align="right"><input type="submit" value="Save" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+{block_page}
+<div class="info_table">
+    <form enctype="multipart/form-data" method="POST">
+        <table cellspacing="1" align="left" width="60%">
+            <thead>
+            <tr>
+                <th colspan="2">Add banner</th>
+            </tr>
+            <tr><td colspan="2"></td></tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Choose image file:</td>
+                <td><input type="file" name="banner_image" /> <input type="submit" name="add_banner" value="Upload" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+{if $banners}
+<br clear="all" />
+<br clear="all" />
+
+<div class="info_table">
+    <table cellspacing="1" align="left" width="100%">
+        <thead>
+        <tr>
+            <th colspan="2">Banners</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach from=$banners item='b'}
+        <tr class="tr_{cycle values='1,2'}">
+            <td>
+                Image preview: <br />
+                <img src="{$b.image_url}" /><br /><br />
+                Banner code:<br />
+                <textarea style="width: 600px">{$b.code}</textarea>
+            </td>
+            <td align="center">
+                <a href="javascript://" onclick="if ( confirm('Are you sure you want to delete this banner?') ) document.location.href='{$smarty.const.URL_ADMIN}affiliate.php?affiliate_id={$affiliate_id}&delete-banner={$b.id}';">Delete</a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</div>
+{/if}
+<br clear="all" />
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

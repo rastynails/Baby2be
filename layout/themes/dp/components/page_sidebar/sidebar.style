@@ -1,0 +1,36 @@
+/* Sidebar CSS Styles */
+
+.sidebar a:link,
+.sidebar a:visited
+{
+}
+
+.sidebar .block
+{
+	margin-bottom: 10px;
+	background: none;
+}
+
+.sidebar .block_cap
+{
+	height: 16px;
+}
+
+.sidebar .block_cap h3
+{
+ 	font-family: << $base_font;
+	font-size: 10px;
+}
+
+.sidebar input.text
+{
+	width: 93%;
+}
+
+.sidebar .profile_notice_cont ul li{
+	color: #000;
+}
+
+.sidebar .profile_notice_cont ul li a{ 
+	color: #8D2D00;
+}

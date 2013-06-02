@@ -1,0 +1,24 @@
+.my_profile_menu_cont .menu-vertical a.active {
+	font-weight: bold;
+}
+.my_profile_menu_cont ul.menu-vertical {
+	margin: 10px 0px 0px 15px;
+}
+.my_profile_menu_cont ul.menu-vertical li {
+	list-style-type: none;
+}
+.my_profile_menu_cont ul.menu-vertical li a {
+	color: #fff;
+	font-size: 18px;
+	font-family: Arial;
+	text-decoration: underline;
+}
+.my_profile_menu_cont ul.menu-vertical li a:hover {
+	text-decoration: none;
+}
+
+.my_profile_menu_cont ul.menu-vertical li a.active {
+	font-weight: normal;
+	color: #e1ff97;
+	text-decoration: none;
+}

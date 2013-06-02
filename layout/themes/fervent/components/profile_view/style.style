@@ -1,0 +1,32 @@
+.delete_cmp,.edit_cmp {
+	width: 25px;
+	height: 25px;
+	background-position: 0px 0px;
+	margin: 0px 0px 0px 1px;
+}
+.search_btns_wrap {
+	float: left;
+	background: image(menu_block.png) no-repeat right 0px;
+	padding-right: 6px;
+	line-height: 25px;
+}
+.search_btns {
+	background: image(menu_block_tail.gif) no-repeat 0px 0px;
+}
+.search_btns a {
+	display: inline-block;
+	font-size: 11px;
+}
+.search_btns a:hover {
+	text-decoration: none;
+}
+.phv_block .block_body {
+	padding: 0px 6px 0px 8px;
+}
+.phv_block .block_cap_c {
+	min-height: 6px;
+	padding: 0px;
+}
+.report_btn {
+	float: right;
+}

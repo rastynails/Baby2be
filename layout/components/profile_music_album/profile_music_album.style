@@ -1,0 +1,13 @@
+
+.music_thumb_list .music_thumb
+{
+	font-size: 11px;
+	float: left;
+	width: 100px;
+	margin: 0px 2px 2px 2px;
+	text-align: center;
+	overflow: hidden;
+}
+.music_title {
+	padding: 5px 0px;
+}

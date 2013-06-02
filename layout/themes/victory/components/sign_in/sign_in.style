@@ -1,0 +1,12 @@
+.sign_in_cont-line, .sign_in_cont-no_block label {
+	color: #06242f;
+}
+
+.sign_in_cont-line, .sign_in_cont-no_block {
+	margin-left:24px;
+	margin-top:15px;
+	width:200px;
+}
+.sign_in_cont-no_block .forgot_password { 
+	width: 130px;
+}

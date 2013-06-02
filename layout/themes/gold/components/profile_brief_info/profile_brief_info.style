@@ -1,0 +1,36 @@
+
+.brief_info_cont {
+	float: left;
+	margin-bottom: 10px;
+}
+
+.brief_info_thumb {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.member_actions div
+{
+	float: left;
+}
+
+div.member_actions a {
+	background-color: #feeacd;
+	float: left;
+	font-size: 11px;
+	margin-right: 2px;
+	margin-bottom: 4px;
+	padding: 5px 7px;
+}
+
+div.member_actions a:hover {
+	background-color: #FED599;
+}
+
+.report_btn {
+	text-align: right;
+	padding-bottom: 5px;
+}
+

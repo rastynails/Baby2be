@@ -1,0 +1,67 @@
+.main_menu ul.menu-tabs {
+	min-height: 48px;
+	text-align: center;
+	padding: 0px 6px;
+}
+.main_menu ul.menu-tabs li.tab a {
+	line-height: 47px;
+	text-transform: uppercase;
+	padding: 0px 0px 0px 0px;
+	margin-bottom: 3px;
+}
+.main_menu ul.menu-tabs li.tab a span {
+	line-height: 47px;
+	padding: 0px 15px;
+}
+ul.menu-tabs {
+	background: image(bg_menu.png) repeat-y 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+ul.menu-tabs li.tab a {
+	font-family: 'Ubuntu', Trebuchet MS, Helvetica, Arial, Verdana, Sans Serif;
+	color: #0799BB;
+	font-size: 15px;
+	font-weight: bold;
+	border-right: 1px solid #dee1e2;
+}
+ul.menu-tabs li.tab a span {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+ul.menu-tabs li.first a,
+ul.menu-tabs li.first a span {
+	border-left: none;
+}
+ul.menu-tabs li.last a,
+ul.menu-tabs li.last a span {
+	border-right: none;
+}
+ul.menu-tabs li.tab a,
+ul.menu-tabs li.tab a span,
+ul.menu-tabs li.tab a.active span,
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span {
+	background: none;
+}
+ul.menu-tabs li.tab a.active {
+	background: image(menu_tabs_active.gif) repeat-x 0px 0px;
+}
+ul.menu-tabs li.first a.active {
+	border-left: 1px solid #dee1e2;
+}
+ul.menu-tabs li.first a.active span {
+	border-left: 1px solid #fff;
+}
+ul.menu-tabs li.last a.active {
+	border-right: 1px solid #dee1e2;
+}
+ul.menu-tabs li.last a.active span {
+	border-right: 1px solid #fff;
+}
+ul.menu-tabs li.tab a:hover {
+	background: image(menu_tabs_hover.gif) repeat-x 0px 0px;
+}
+ul.menu-tabs li.tab a.active,
+ul.menu-tabs li.tab a:hover {
+	color: #0799BB;
+}

@@ -1,0 +1,17 @@
+
+<div>
+    {if not $params.single}
+        <div class="language_tab_cont">
+            {foreach from=$params.languages key=lang_id item=lang}
+                <div class="{if $lang->default}active_{/if}lang_tab" onclick="SK_CustomPageEditor.getAddInstance().changeTab(this, {$lang_id})" style="cursor:pointer;">{$lang->abbrev}</div>
+            {/foreach}
+        </div>
+        <br clear='all'>
+    {/if}
+
+    <div class="lang_value_contener">
+        {foreach from=$params.languages key=lang_id item=lang}
+            <textarea class='lang_val_input' name='{$params.name}[{$lang_id}]' style="width: 97%;height: 150px; display:none;">{text section=$params.section key=$params.key lang_id=$lang_id}</textarea>
+        {/foreach}
+    </div>
+</div>

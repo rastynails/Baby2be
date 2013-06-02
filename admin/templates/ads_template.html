@@ -1,0 +1,101 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+
+{block_page}
+
+<form action="{$smarty.const.URL_ADMIN}ads_template.php" method="POST" onsubmit="return CheckForm_create_template(this);">
+<table id="new_ads_template_form_table" cellspacing="1" align="center" class="table">
+		<thead>
+			<tr>
+				<th id="new_ads_form_table_head_cell" colspan="3">Create new ads</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td id="new_ads_form_table_ads_name_left_cell" align="right">
+					<label for="ads_name">Ads name</label>
+				</td>
+				<td id="new_ads_form_table_ads_name_right_cell">
+					<input type="text" name="ads_name" id="ads_name" value="{$smarty.post.ads_name}" class="input_text" />
+				</td>
+			</tr>
+			<tr>
+				<td id="new_ads_form_table_html_code_left_cell" align="right">
+					<label for="ads_code">HTML code</label>
+				</td>
+				<td id="new_ads_form_table_html_code_right_cell">
+					<textarea name="ads_code" cols="80" rows="10" id="ads_code">{$smarty.post.ads_code}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="ads_preview" style="display:none;" class="ads_tpl_view"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="right">
+					<input id="btn_preview" class="f_btn" accesskey="v" type="button" onclick="ads_preview()" />
+					<input id="new_ads_submit_btn" type="submit" name="create" value="Create" class="submit" />
+				</td>
+			</tr>
+		</tbody>
+</table>
+</form>
+{/block_page}
+
+{block_page}
+{if $all_templates}
+<table id="existing_ads_tbl" cellspacing="0" cellpadding="0" align="center" class="table">
+	<thead>
+		<tr>
+			<th id="existing_ads_tbl_head_cell" colspan="3">Existing Ads</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+    
+    
+	{foreach from=$all_templates item='template'}
+		<form action="{$smarty.const.URL_ADMIN}ads_template.php" method="POST">
+		<input type="hidden" name="template_id" value="{$template.template_id}" />
+		<tr class="config_section">
+			<td colspan="2">
+				<div class="float_left">
+					<input type="text" class="input_text" name="ads_name" id="ads_name_{$template.template_id}" value="{$template.name}" />
+				</div>
+				<div class="float_right">
+					<input type="submit" name="save" value="Save" class="submit" onclick="return CheckForm_edit_template( '{$template.template_id}' )"/>
+					<input type="submit" name="delete" value="Delete" class="submit" onclick="return ConfirmForm_delete_template('{$template.name}')"/>
+				</div>
+			</td>
+		</tr>
+		
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td colspan="2">
+				<table>
+					<tr>
+						<td>
+							<textarea name="ads_code" cols="80" rows="10" id="ads_code_{$template.template_id}">{$template.code}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" >
+							<div class="ads_tpl_view">
+								{$template.code}
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</form>
+	{/foreach}
+	</tbody>
+	
+</table>
+{/if}
+
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

@@ -1,0 +1,38 @@
+{*  Theme: Heaven  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/heaven/httpdocs/index/index.style"}
+
+<div id="page_canvas">
+	{component PageHeader}
+	<div id="content">
+		<div class="promo_block clearfix">
+			<div class="promo">
+				{text %.promo.promo_index_heaven}
+			</div>
+			<div class="index_buttons">
+				<div class="index_buttons_bg clearfix">
+					<a class="index_join" href="{document_url doc_key=join_profile}"> </a>
+					<a class="index_signin" href="{document_url doc_key=sign_in}"> </a>
+				</div>
+			</div>
+			<div class="index_quick_search">{component QuickSearch type="index"}</div>
+		</div>
+		<div class="float_half_left" >
+			{component IndexVideo lists='latest|toprated' active='toprated'}
+			{component ForumLastTopics count=2}
+			{component BlogIndexList}
+			{component EventIndexCalendar}
+		</div>
+		<div class="float_half_right">
+			{component Shoutbox}
+			{component IndexProfileList count=10 lists="featured|online|new" active="featured"}
+			{component IndexPhotoList count=10 lists="latest"}
+		</div>
+		<div id="footer">{component PageFooter}</div>
+		{ads pos='bottom'}
+	</div>
+</div>
+
+{/canvas}

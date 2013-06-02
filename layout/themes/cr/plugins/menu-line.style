@@ -1,0 +1,25 @@
+.menu-line {
+	list-style: none;
+	color: #015FB6;
+	font-size:11px;
+	text-align:right;
+	background:none;
+	padding-top:10px;
+	width: 830px;
+	float: left;
+}
+
+.menu-line a
+{
+	color: #333333;
+	text-align:center;
+}
+
+.menu-line li.line_menu_item {
+	display: inline;
+}
+
+.menu-line a.active
+{
+	font-weight:bold;
+}

@@ -1,0 +1,103 @@
+{include file='inc/_header.html'}
+{if $notice}
+    <div class="page_notice">
+        {$notice}
+    </div>
+{/if}
+{block_page}
+	<div class="additional_settings">
+		{*print_configs section='facebook_connect'*}
+
+
+                <form method="POST" action="{$smarty.const.URL_ADMIN}fbconnect_settings.php">
+                    <input type="hidden" value="facebook_connect" name="section">
+                    <table align="left" width="99%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                        <thead>
+                            <tr>
+                                <td colspan="2">Facebook App Settings</td>
+                            </tr>
+			</thead>
+                        <tbody>
+                            <tr class=" {cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    APP ID
+                                </td>
+                                <td class="config_value">
+                                    <input type="text" class="input_text" value="{$configs.app_id.value}" name="app_id">
+				</td>
+                            </tr>
+                            <tr class="{cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    API Secret
+				</td>
+				<td class="config_value">
+                                    <input type="text" class="input_text" value="{$configs.api_secret.value}" name="api_secret">
+				</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table align="left" width="99%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                        <thead>
+                            <tr>
+                                <td colspan="2">Facebook Connect</td>
+                            </tr>
+			</thead>
+                        <tbody>
+                            <tr class="{cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    Enabled
+				</td>
+                                <td class="config_value">
+                                    <input type="checkbox" {if $configs.enabled.value}checked=""{/if} name="enabled" value="1">
+            			</td>
+                            </tr>
+                            <tr class=" {cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    Allow profile synchronization
+				</td>
+				<td class="config_value">
+                                    <input type="checkbox" {if $configs.allow_synchronize.value}checked=""{/if} name="allow_synchronize" value="1">
+				</td>
+                            </tr>
+                            <tr class="{cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    Profiles registered via Facebook Connect must fill in required fields
+                                </td>
+                                <td class="config_value">
+                                    <input type="checkbox" {if $configs.fields_required.value}checked=""{/if} name="fields_required" value="1">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table align="left" width="99%" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <td colspan="2">Facebook Invite</td>
+                            </tr>
+			</thead>
+                        <tbody>
+                            <tr class=" {cycle values='tr_1,tr_2'}">
+                                <td class="config_description">
+                                    Enabled
+				</td>
+				<td class="config_value">
+                                    <input type="checkbox" {if $configs.enable_invite.value}checked=""{/if} name="enable_invite" value="1">
+				</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="submit" class="submit" value="Save" name="save_configs">
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+	</div>
+
+{/block_page}
+
+{include file='inc/_footer.html'}

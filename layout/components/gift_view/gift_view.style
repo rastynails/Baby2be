@@ -1,0 +1,17 @@
+
+.gift_image{
+    float: left;
+    width: 102px;
+    padding-right: 10px;
+    margin-right: -100px;
+    padding-top: 10px;
+}
+
+.gift_info{
+    margin-left: 110px;
+}
+
+.gift_comment{
+    text-align: left;
+    padding: 10px 0px;
+}

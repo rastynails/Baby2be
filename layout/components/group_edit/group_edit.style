@@ -1,0 +1,10 @@
+
+.moderators li {
+	list-style-type: circle;
+	list-style-position: outside;
+}
+
+input.mod_add_input {
+	width: 230px;
+}
+

@@ -1,0 +1,64 @@
+.memhome_link 
+{
+	float:left;
+	padding:0 0 10px;
+	width:49%;
+}
+
+.my_match, .birthdate, .block_list, .new_members, .bookmarks, .friend-list, .location,
+.who_view, .moderator, .my_groups, .mailbox, .speed_dating, .bookmark_me {
+	padding-left: 21px;
+	font-size: 13px;	
+}
+
+.my_match{
+	background: image(my_matches.png) no-repeat;
+}
+
+.birthdate{
+	background: image(birthday.png) no-repeat;
+}
+
+.block_list {
+	background: image(block_list.png) no-repeat;
+}
+
+.new_members {
+	background: image(new_member.png) no-repeat;
+}
+
+.bookmarks {
+	background: image(bookmarks.png) no-repeat;
+}
+
+.speed_dating {
+	background: image(speed_dating.png) no-repeat;
+}
+
+.friend-list{
+	background: image(friends.png) no-repeat;
+}
+
+.location{
+	background: image(neighbourhood.png) no-repeat;
+}
+
+.who_view {
+	background: image(eye.png) no-repeat;
+}
+
+.moderator{
+	background: image(star_medal.png) no-repeat;
+}
+
+.my_groups{
+	background: image(my_groups.png) no-repeat;
+}
+
+.mailbox{
+	background: image(small_mailbox.png) no-repeat scroll 0 3px;
+}
+
+.bookmark_me {
+	background: image(mhome_bookmark_me.png) 0 0 no-repeat;
+}

@@ -1,0 +1,54 @@
+{*  Theme: Dream Date *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/dreamdate/httpdocs/index/index.style"}
+<div class="top_shad clearfix">
+	{component NavigationInventoryLine}
+	{component FBCButton}{component SelectLanguage}
+	{ads pos='top'}
+</div>
+<div id="page_canvas">
+	<div class="page_canvas_r">
+		<div class="page_canvas_c">
+			<div id="content" style="padding: 0; width: 100%; float: none;">
+				{component NavigationMenuMain}
+				<a class="logo" href="{$smarty.const.SITE_URL}"></a>
+				<div class="clearfix" style="height: 233px; padding:0px 30px;">
+					<div style="width: 204px; float: left">
+						{component SignIn}
+						<a class="index_join" href="{document_url doc_key=join_profile}" title="{text %.label.dd_index_join_btn}">{text %.label.dd_index_join_btn}</a>
+					</div>
+					<div style="width: 34%; float: right; margin-top: -68px;">{component QuickSearch type=index}</div>
+				</div>
+				<div class="rhombs clearfix">
+					<div style="width:206px;height:85px;background:url({$smarty.const.URL_LAYOUT}themes/dreamdate/img/index_pink.png) no-repeat;float:left"></div>{component ProfileListLine sex=1 count=10}<a style="float:left; width: 32px;height: 90px;background:url({$smarty.const.URL_LAYOUT}themes/dreamdate/img/index_arr_pink.png) no-repeat right 0px;" href="{document_url doc_key='latest_members' sex=1}"></a>
+					<div style="width:206px;height:85px;background:url({$smarty.const.URL_LAYOUT}themes/dreamdate/img/index_blue.png) no-repeat;float:left"></div>{component ProfileListLine sex=2 count=10}<a style="float:left; width: 32px;height: 90px;background:url({$smarty.const.URL_LAYOUT}themes/dreamdate/img/index_arr_blue.png) no-repeat right 0px;" href="{document_url doc_key='latest_members' sex=2'}"></a>
+				</div>
+				{component ForumLastTopics type=line count=3}
+				<div class="clearfix" style="padding: 5px;">
+					<div class="float_half_left">
+						{component IndexPhotoList lists = 'top_rated|most_commented|latest|most_viewed' count=8}
+					</div>
+					<div class="float_half_right">
+						{component IndexProfileList lists="featured|online|new" count=8}
+					</div>
+				</div>
+				<div class="green_bottom clearfix">
+					<div class="float_half_left" style="width: 437px">
+						<div class="green_cap">{text %.promo.promo_index_dd_cap}</div>
+						{text %.promo.promo_index_dd}
+					</div>
+					<div class="float_half_right" style="width: 437px; overflow: hidden">
+						<div class="green_cap">{text %.blogs.blog_index_cap}</div>
+						{component BlogIndexList lists="latest" count=3}
+					</div>
+				</div>
+			</div>
+			<div id="footer">{component PageFooter}</div>
+		</div>
+	</div>
+	{ads pos='bottom'}
+</div>
+
+{/canvas}

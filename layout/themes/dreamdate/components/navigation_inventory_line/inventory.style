@@ -1,0 +1,17 @@
+/* Inventory Line CSS Styles*/
+
+.inventory_line
+{
+	margin: 0px auto 10px;
+	text-align: right;
+	color: #666;
+	font-size: << $small_font;
+	width: 700px;
+	float: right;
+}
+
+.inventory_line a
+{
+	text-align: center;
+	color: #FDC85D;
+}

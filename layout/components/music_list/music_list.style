@@ -1,0 +1,26 @@
+{* music List CSS styles *}
+
+.music_list {
+	padding: 0px 0px 10px;
+}
+
+.music_info {
+	float: right;
+	margin-left: -115px;
+	width: 115px;
+}
+
+.music_thumb {
+	float: left;
+	margin-right: -100px;
+	width: 100px;
+	background: image(music_list.gif) no-repeat;
+	height: 75px;
+}
+
+.music_body {
+	margin-left: 110px;
+	margin-right: 115px;
+	width: 290px;
+	overflow: hidden;
+}

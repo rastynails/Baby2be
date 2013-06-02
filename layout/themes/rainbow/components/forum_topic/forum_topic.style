@@ -1,0 +1,22 @@
+.forum_topic .list_item,
+.forum_topic .list_item td {
+	border-bottom: none;
+}
+.forum_topic .expandable_menu {
+	top: -43px;
+}
+.forum_topic .expandable_menu .block_cap_c {
+	padding-right: 0px;
+}
+.forum_topic .block_cap_c {
+	padding-right: 181px;
+}
+.forum_topic .expandable_menu .block_bottom {
+	display: none;
+}
+.forum_topic .expandable_menu .block_body_c {
+	border-bottom: 1px solid #f6f6f6;
+}
+.forum_topic .ctr_btn {
+	border-color: transparent;
+}

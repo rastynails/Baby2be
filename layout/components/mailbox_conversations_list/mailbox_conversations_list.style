@@ -1,0 +1,17 @@
+/* MailboxConversation CSS styles*/
+
+.new_msg
+{
+	background: image(new_msg_icon.png) no-repeat center center;
+}
+
+.replied_msg
+{
+	background: image(replied_msg_icon.png) no-repeat center center;
+}
+
+.actions
+{
+	width: 75px;
+	font-size: 11px;
+}

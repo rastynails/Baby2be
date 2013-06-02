@@ -1,0 +1,9 @@
+tr.form_item td.label,
+table.form td.value {
+	width: 30%;
+	text-align: center;
+}
+
+.list_odd {
+	background-color: << .block_info;
+}

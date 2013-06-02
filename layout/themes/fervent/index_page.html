@@ -1,0 +1,39 @@
+{*  Theme: Fervent  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/fervent/httpdocs/index/index.style"}
+
+<div id="page_canvas">
+	<div class="index_page_header">
+        <div class="shadow_top"><div class="shadow_bottom">
+			<div class="page_header_wrap">
+				{component PageHeader}
+				<div class="index_quick_search">{component QuickSearch type="index"}</div>
+			</div>
+        </div>
+		<div class="main_menu_wrap">
+			{component NavigationMenuMain}
+		</div></div>
+    </div>
+    <div class="index_content_wrap">
+        <div id="content">
+            <div class="float_half_one" >
+                {component IndexVideo lists='latest|toprated' active='toprated'}
+                {component IndexPhotoList count=10 lists="latest"}
+            </div>
+            <div class="float_half_two">
+                {component ForumLastTopics count=2}
+                {component Shoutbox}
+                {component IndexProfileList count=10 lists="featured|online|new" active="featured"}            
+            </div>
+            <div class="float_half_tree">
+                {component EventIndexCalendar}
+                {component BlogIndexList}    
+            </div>
+        </div>
+    </div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

@@ -1,0 +1,104 @@
+
+.sign_in_cont .field input,
+.sign_up_cont .field input
+{
+	width:93%;
+}
+.sign_up_cont .field input[type=checkbox] {
+	width: auto;
+	margin-right: 5px;
+	vertical-align: bottom;
+}
+
+
+.floatbox_body .block_toolbar {
+	margin: -4px;
+}
+
+.floatbox_body .block {
+	margin: 0;
+}
+
+.sign_in_cont-line .field {
+	float: left;
+	padding: 2px;
+}
+
+.sign_in_cont-line .button {
+	padding-top: 16px;
+}
+
+.sign_in_cont-line {
+	position: relative;
+}
+
+.sign_in_cont-line .forgot_password {
+	left:80px;
+	position:absolute;
+	top:20px;
+	width:120px;
+}
+
+.sign_in_cont-line, .sign_in_cont-no_block {
+	position: relative;
+}
+
+.sign_in_cont-no_block .forgot_password {
+	position:absolute;
+	bottom:2px;
+	left:2px;
+	width:80%;
+}
+.profile_not_loggedin .sidebar .sign_in_cont .block_cap,
+.profile_not_loggedin .sidebar .sign_in_cont .block_toolbar,
+.profile_not_loggedin .sidebar .sign_in_cont .block_body,
+.profile_not_loggedin .sidebar .sign_in_cont .block {
+	background: none;
+	border: none;
+}
+.sidebar .sign_in_cont .input_name {
+	background: image(sign_up_input_tail.gif) no-repeat right top;
+	padding: 0px 10px 0px 0px;
+}
+.sidebar .sign_in_cont .input_pass {
+	background: image(sign_up_input_tail.gif) no-repeat right top;
+	padding: 0px 10px 0px 0px;
+}
+#page_canvas .sidebar .sign_in_cont input[type=text], #page_canvas .sidebar .sign_in_cont input[type=password] {
+	border: none;
+	background: transparent image(sign_up_input.gif) no-repeat left top;
+	padding: 5px 0px 6px 10px;
+	margin: 0px;
+
+}
+.sign_in_btn, .remember {
+	float: left;
+}
+.sign_in_btn {
+	margin-right: 17px;
+	width: 69px;
+}
+.sidebar .sign_in_btn input{
+	background: image(sign_in_btn.png) no-repeat;
+	border: none;
+	width: 69px;
+	color: #fff;
+	font-weight: bold;
+	height: 23px;
+	line-height: 19px;
+	padding: 0px 0px 3px;
+}
+.sidebar .sign_in_btn input:hover{
+	border: none;
+}
+
+.sidebar .sign_in_cont .field label,.sidebar .sign_in_cont .remember label  {
+	font-size: 10px;
+}
+.sidebar .sign_in_cont .field {
+	margin-bottom: 4px;
+}
+.sidebar .sign_in_cont .fb_content .clearfix {
+	padding-left: 2px;
+	padding-top: 5px;
+}

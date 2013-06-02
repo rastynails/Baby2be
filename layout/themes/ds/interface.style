@@ -1,0 +1,324 @@
+$base_font {
+	color: #aeaeae;
+}
+
+$body {
+	background: image(background.jpg) repeat;
+}
+
+$a_link {
+	color: #bad735;
+}
+
+$a_hover {
+	color: #FF5D5D;
+}
+
+$content{
+	background: #0a0a0a image(content_bg.jpg) repeat-x 0 143px;
+	width:822px;
+	color: #aeaeae;
+	padding: 0 4px;
+}
+
+$bread_crumb{
+	margin-top:5px;
+	margin-left:4px;
+}
+
+#content h1 {
+	color: #ff5d5d;
+}
+
+td {
+	color: #aeaeae;
+}
+
+$form_th {
+	background: #BAD735;
+	color: #333;
+}
+
+.forum_group_list table.form th,
+.forum_group_list .field_form th{
+	background:#bad735;
+}
+
+$blog_manage_list {
+	margin: 0 4px;
+}
+
+$sidebar {
+	margin-top: 185px;
+}
+
+#content .paging a:link, 
+#content .paging a:visited {
+	color: #000;
+}
+
+.block_cap {
+	border-top: 1px solid #787878;
+	border-bottom: 1px solid #000;
+	background: #3b3b3b image(block_cap_arr.png) no-repeat 5px center;
+	padding-left: 12px;
+}
+
+.block_cap_title {
+	color: #fee489;
+}
+
+.block_toolbar {
+	background: #3b3b3b;
+	border-top: 1px solid #6e6e6e;	
+}
+
+.list_block .list_info {
+	background:none;
+}
+
+.indicator ul.simple li {
+	color: #3b3b3b;
+}
+
+.indicator ul.simple li b{
+	color: #fb736f;
+	text-decoration: underline;
+}
+
+$highlight_color {
+	color: #fff;
+}
+
+.block {
+	background: #3b3b3b;
+}
+
+.block_body {
+	background: #3b3b3b;
+	margin-bottom: 14px;
+	border-top: 1px solid #6e6e6e;	
+}
+
+$button {
+	background: #3d1c14 image(button.jpg) repeat-x bottom;
+	border: 1px solid #363636;
+	color: #363636;
+}
+
+$table{
+	color: #363636;
+}
+
+.memberhome_hrefs_cont .block,
+.memberhome_hrefs_cont .block_cap,
+.memberhome_hrefs_cont .block_body,
+.important_tips .block,
+.important_tips .block_cap,
+.important_tips .block_body {
+	background: none;
+	border: none;
+}
+
+.memberhome_hrefs_cont .block_cap,
+.important_tips .block_cap {
+	padding-left: 2px;
+}
+
+.block_info{
+	background-color:#444;
+}
+
+.profile_thumb {
+	border: 1px solid #444;
+}
+
+$floatbox_container {
+	background: #3b3b3b;
+	border: 4px solid #ddd;
+}
+
+.tip .block_body {
+	color: #3b3b3b;
+}
+
+.unregister_profile{
+	background: #ddd;
+	padding-bottom: 7px;
+}
+
+.tooltip table{
+	background: #aaa;
+{
+
+$table_block_cap {
+	background: #fff;
+	border: 1px solid #none;
+	color:#E38E11;
+}
+
+$paging_a {
+	border: 1px solid #2C7BBF;
+	color: #f2e0ba;
+}
+
+$item {
+	border-color: #aaa;
+	color:#aeaeae;
+}
+
+.list_item, .list_item td  {
+	background: #3b3b3b;
+}
+
+$active_field_mileage {
+	background: #fff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #363535;
+	border-bottom: none;
+	color: #363535;
+}
+
+$region_field_mileage{
+	background:#4ea4d9 none repeat scroll 0 0;
+	border:1px solid #163573;
+	color:#FFFFFF;
+}
+
+$small_font{
+	font-size: 11px;
+	border: 1px solid #163573;
+	background-color: #1f5aa6; 
+	color: #fff;
+}
+
+$small {
+	color: #363535;
+}
+
+$thumb_text_list_td_listing {
+	color: #363535;
+}
+
+$user_date {
+	color: #363535;
+}
+
+$subject_message {
+	color: #363535;
+}
+
+$video_list {
+	
+}
+.field_mileage .tab_container .active {
+	background-color: #4ec3ff;
+	border:1px solid #363535;
+	border-bottom: none;
+	color: #000;
+}
+
+$border {
+	background-color: #4ec3ff;
+	border:1px solid #363535;
+
+}
+
+.field_mileage table.form td.label {
+	color: #000;
+}
+
+.tab_content {
+	color: #000;
+}
+$tab {
+	border-bottom: none;
+	background: #fee489;
+	border:1px solid #363535;
+	color: #555;
+}
+
+.field_mileage .country_list .country {
+	background: #555;
+	border: none;
+}
+
+.field_mileage select {
+	width: 130px;
+}
+
+.select_language {
+	color: #fff;
+}
+
+#footer {
+	width: 830px;
+	background: #3b3b3b;
+	float: right;
+	color: #aeaeae;
+	text-align: center;
+}
+
+.forum_search_result .quotetop,
+.forum_post_list .quotetop 
+{
+	background:#aaa image(css_img_quote.png) no-repeat scroll right center;
+	border-color:#555;
+	border-style:dotted dotted none solid;
+	border-width:1px 1px 0 4px;
+	color:#FFFFFF;
+	font-size:10px;
+	font-weight:bold;
+	margin:8px auto 0;
+	padding:3px;
+}
+
+.forum_search_result .quotemain,
+.forum_post_list .quotemain 
+{
+	background:#eee none repeat scroll 0 0;
+	border-color: #aaa;
+	border-style:none dotted dotted solid;
+	border-width:0 1px 1px 4px;
+	color:#363636;
+	margin:0 auto 8px;
+	padding:4px;
+}
+
+.suggest_cont ul li {
+	background: #666;
+}
+
+
+.bread_crumb b{
+	color: #eee !important;
+}
+
+.chat_input_container .chat_send_btn{
+	width: 97px;
+}
+
+.bread_crumb{
+	color: #eee;
+}
+.floatbox_container .block_body {
+	margin: 0px;
+	border: none;
+
+}
+.floatbox_header .block_cap_c {
+	padding-left: 7px;
+}
+.select_language,.fbc_button {
+	float: right;
+}
+.profile_list_ads {
+	width: 817px;
+}
+.newsfeed_add_comment_form .block_cap {
+	background-image: none;
+}
+.newsfeed_formatter_wrap .text_formatter {
+	top: -29px;	
+}

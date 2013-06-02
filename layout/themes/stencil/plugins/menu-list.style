@@ -1,0 +1,21 @@
+ul.menu-list {
+	padding: 0px;
+	color: #AAABB3;
+}
+ul.menu-list li.item {
+	padding: 2px 4px 2px 2px;
+	margin: 0px;
+}
+#page_canvas ul.menu-list li.item a {
+	padding: 0px;
+	background: none;
+	font-weight: bold;
+	color: #000;
+}
+ul.menu-list li.item a:hover {
+	color: #000;
+}
+#page_canvas ul.menu-list li.item a.active {
+	color: #000;
+	text-decoration: none;
+}

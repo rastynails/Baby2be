@@ -1,0 +1,158 @@
+{* Admin interface: finance *}
+{include file='inc/_header.html'}
+
+<div style="width: 72%; float: left">
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}transaction_list.php" method="POST" name="SearchForm" onsubmit="return CheckForm();">
+<input type="hidden" name="refunded" value="{$include_arr.refunded}" />
+<input type="hidden" name="deleted" value="{$include_arr.deleted}" />
+<input type="hidden" name="approval" value="{$include_arr.approval}" />
+
+<table cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="finance_search_tbl_title" colspan="3">Search</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td rowspan="2"><input type="radio" id="order" name="transaction_search_type" value="order"{if $search_type == "order"} checked{/if} /></td>
+			<td id="finance_search_tbl_order_number_cell"><label for="order">Order number</label></td>
+			<td><input type="text" id="order_number" maxlength="35" name="order" size="25" value="{$order}" onclick="getElementById('order').checked=true" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td id="finance_search_tbl_payment_provider_cell"><label for="order">Payment provider</label></td>
+			<td><select name="payment_provider" onchange="getElementById('order').checked=true">
+				{section loop=$payment_providers name=pp}
+					<option value="{$payment_providers[pp].fin_payment_provider_id}" {if $payment_providers[pp].fin_payment_provider_id == $payment_provider}selected{/if}>{$payment_providers[pp].name}</option>
+				{/section}
+				</select>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td><input type="radio" id="profile" name="transaction_search_type" value="profile" {if $search_type == "profile"}checked {/if}/></td>
+			<td id="finance_search_tbl_username_or_email_cell"><label for="profile">Member Username or Email</label></td>
+			<td><input type="text" id="profile_name" maxlength="40" name="profile" size="25" value="{$profile}" onclick="getElementById('profile').checked=true" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td><input type="radio" id="date" name="transaction_search_type" value="date"{if $search_type == "date"} checked{/if} /></td>
+			<td id="finance_search_tbl_date_from_to_cell"><label for="date">Order date</label></td>
+			<td>
+			from <input type="text" id="date_from" maxlength="10" name="date_from" size="10" title="format: YYYY-mm-dd" value="{$date_from}" onclick="getElementById('date').checked=true" />
+			to <input type="text" id="date_to" maxlength="10" name="date_to" size="10" title="format: YYYY-mm-dd" value="{$date_to}" onclick="getElementById('date').checked=true" />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" align="right" colspan="3"><input type="submit" value="Search" />&nbsp; </td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+<div style="width: 25%; float:right">
+{block_page}
+<table align="center" cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Statistics</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="finance_stats_tbl_total_cell">Total:</td>
+			<td align="right"><b>{$total}</b></td>
+		</tr>
+		<tr>
+			<td id="finance_stats_tbl_total_refunded">Refunded:</td>
+			<td align="right"><b>{$refunded}</b></td>
+		</tr>
+		<tr>
+			<td id="finance_stats_tbl_fines_cell">Fines:</td>
+			<td align="right"><b>{$fines}</b></td>
+		</tr>
+		<tr>
+			<td id="finance_stats_tbl_result_cell">Result:</td>
+			<td align="right"><b>{$total-$refunded-$fines}</b></td>
+		</tr>
+	</tbody>
+</table>
+{/block_page}
+</div>
+<br clear="all" />
+{block_page}
+
+<center>
+<form action="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}" method="post" name="on_page_form">
+Results: {math equation="$on_page*$page-$on_page+1" assign=v}<b>{if $number == 0}0{else}{$v}{/if}</b>-{if $page*$on_page < $number}{math equation="page*$on_page" page=$page assign=v}<b>{$v}</b>{else}<b>{$number}</b>{/if}  
+| Total: <b>{$number}</b>	 
+| Results per page: 
+<select name="on_page" onchange="javascript: document.forms['on_page_form'].submit();">
+{html_options options=$on_page_arr selected=$on_page}
+</select>
+</form>
+{if $page != 1}<a href="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page=1&on_page={$on_page}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}">First</a> | {/if}
+{if $page > 1}<a href="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$page-1}&on_page={$on_page}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}">Previous</a> | {/if}
+{counter start=0 skip=1 print=false}
+{foreach from=$arr item=element}
+{math equation="3-count+page" count=$count page=$page assign=d}
+{if $d < 0}{math equation="7-7" assign=d}{/if}
+{math equation="4-page" page=$page assign=d2}
+{if $d2 < 0}{math equation="7-7" assign=d2}{/if}
+	{if ($page >= $element && $page - $element < 4 + $d) || ($page < $element && $element - $page < 4 + $d2) }
+		{if $page == $element} [<b>{$element}</b>] {else} <b><a href="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$element}&on_page={$on_page}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}">{$element}</a></b> {/if}
+	{/if}
+	{counter assign=i print=false}
+{/foreach}
+{if $page < $i} | <a href="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$page+1}&on_page={$on_page}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}">Next</a>{/if}
+{if $page < $count} | <a href="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$count}&on_page={$on_page}&refunded={$include_arr.refunded}&deleted={$include_arr.deleted}&approval={$include_arr.approval}">Last</a>{/if}
+</center>
+
+
+<div align="right">
+	<form action="{$smarty.const.URL_ADMIN}transaction_list.php?transaction_search_type={$search_type}&order={$order}&payment_provider={$payment_provider}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&on_page={$on_page}" method="post" name="include_form">
+	<input type="hidden" name="refunded" value="no" />
+	<input type="hidden" name="deleted" value="no" />
+	<input type="hidden" name="approval" value="no" />
+	<input type="checkbox" name="refunded" value="yes" onclick="document.include_form.submit();"{if $include_arr.refunded == 'yes'} checked{/if} /> <span id="finance_transaction_list_select_refunded_label">Refunded</span>
+	<input type="checkbox" name="deleted" value="yes" onclick="document.include_form.submit();"{if $include_arr.deleted == 'yes'} checked{/if} /> <span id="finance_transaction_list_select_deleted_label">Deleted</span>
+	<input type="checkbox" name="approval" value="yes" onclick="document.include_form.submit();"{if $include_arr.approval == 'yes'} checked{/if} /> <span id="finance_transaction_list_select_approval_label">Approval</span>
+	</form>
+</div>
+<table align="left" width="100%">
+	<thead>
+		<tr>
+			<th colspan="7" id="finance_transaction_list_tbl_title_thead">Transactions</th>
+		</tr>
+		<tr>
+			<td id="finance_transaction_list_tbl_order_id_cell">Order ID</td>
+			<td id="finance_transaction_list_tbl_payment_provider_cell">Payment Provider</td>
+			<td id="finance_transaction_list_tbl_member_cell">Member</td>
+			<td id="finance_transaction_list_tbl_amount_cell">Amount</td>
+			<td id="finance_transaction_list_tbl_membership_type_cell">Membership type</td>
+			<td id="finance_transaction_list_tbl_order_date_cell">Order date</td>
+			<td id="finance_transaction_list_tbl_status_cell">Status</td>
+		</tr>
+	</thead>
+	<tbody>
+	{section loop=$trans name=tr}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td><a href="{$smarty.const.URL_ADMIN}transaction.php?provider_id={$trans[tr].fin_payment_provider_id}&order={$trans[tr].payment_provider_order_number}">{$trans[tr].payment_provider_order_number}</a></td>
+			<td>{edit_lang_values_btn section='components.payment_selection' key=$trans[tr].fin_payment_provider_id}</td>
+			<td>{if $trans[tr].username == ''}Deleted{else}<a href="{profile_url profile_id=$trans[tr].profile_id}">{$trans[tr].username}</a>{/if}</td>
+			<td>{$trans[tr].amount}</td>
+			<td>{if $trans[tr].membership_type_id == ''}Deleted{else}{edit_lang_values_btn section='membership.types' key=$trans[tr].membership_type_id}{/if}</td>
+			<td>{$trans[tr].order_stamp|date_format:"%b %e %y, %H:%M"}</td>
+			<td>{if $trans[tr].amount_fine != ''}<font color="#BB6333">refunded</font>{elseif $trans[tr].status == 'deleted'}<font color="Red">deleted</font>{else}approval{/if}</td>
+		</tr>
+	{/section}
+	</tbody>
+</table>
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

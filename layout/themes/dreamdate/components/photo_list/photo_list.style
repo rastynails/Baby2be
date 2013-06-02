@@ -1,0 +1,47 @@
+.photo_block {
+	float:left;
+	margin:5px 8px 0 0;
+	width:32%;
+	background: #f3f3e8;
+}
+
+.photo_cont {
+	height: 100px;
+	width: 100px;
+}
+
+.details_cont {
+	padding-left: 10px;
+	width: 113px;
+	height: 115px;
+	overflow: hidden;
+}
+
+.clr_fix {
+	clear: both;
+	height: 0px;
+}
+.photo_block .block {
+	margin: 0px;
+	padding: 10px;
+}
+.photo_block .small {
+	font-size: 10px;
+}
+.photo_bot {
+	display: inline-block;
+	padding-top: 10px;
+}
+.photo_bot a {
+	text-decoration: underline;
+}
+.photo_bot a:hover {
+	text-decoration: none;
+}
+
+.inactive_rate_list, .active_rate_list {
+	margin-bottom: 6px;
+}
+#content .photo_list .paging {
+	padding-top: 5px;
+}

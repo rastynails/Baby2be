@@ -1,0 +1,116 @@
+{include file='inc/_header.html'}
+
+{literal}
+<style>
+	.answer{
+		background: #fff url('/layout/img/topic_check.png') no-repeat center center;
+	}
+	
+	#poll_edit_form table tbody tr td{
+		padding: 7px;;
+	}
+	
+</style>
+
+<script>
+PollForm = function(){
+	this.addAnswer = function(){
+		var $tr = $jq('#new_answer_tr');
+		
+		var answer_txt = $jq('#new_answer_txt').attr('value');
+
+		var idd = 'v'+(new Date()).valueOf();
+
+		var trHTML ='<tr>'+
+			'<td class="side answer">'+
+			'</td>'+
+			'<td class="side"><input id="'+idd+'" type="text" name="new_answer[]" value= "" /></td>'+
+			'<td class="side"><a href="javascript://" onclick="f.deleteAnswer( $jq(this).parent().parent() );">[-]</a></td>'+
+			'</tr>';
+
+		$jq(trHTML).insertBefore($tr);
+
+		$jq('#'+idd).attr('value', answer_txt);
+		$jq('#new_answer_txt').attr('value', '');
+		$jq('#new_answer_chbx').attr('checked', '');
+	}
+
+	this.deleteAnswer = function($tr){
+		$tr.remove();
+	}
+}
+f = new PollForm();
+</script>
+{/literal}
+
+
+<form method="post" id="poll_edit_form">
+<input type="hidden" name="command" value="addTest" />
+<table>
+	<tbody>
+		<tr>
+			<td colspan="3" align="center">
+				<b>Edit</b>
+			</td>
+		</tr>
+	</tbody>		
+	<tbody>
+		<tr>
+			<td class="corner_left_t">
+				Q:
+			</td>
+			<td class="side" style="font-weight: bold;">
+				{lang_values_input
+						section='polls'
+						key="poll_`$test.id`_question"
+						name="question"
+						id="poll_`$test.id`_question"
+						}
+			</td>
+			<td class="corner_right_t">
+			</td>
+		</tr>
+		{foreach from=$test.answers item='answer'}
+		<tr>
+			<td class="side answer">
+			</td>
+
+			<td class="side">
+				{lang_values_input
+						section='polls'
+						key="poll_`$answer.pollId`_answer_`$answer.id`"
+						name="poll_`$answer.pollId`_answer_`$answer.id`"
+						id="poll_`$answer.pollId`_answer_`$answer.id`"
+						}
+			</td>
+			<td class="side">
+				<a href="{$smarty.const.URL_ADMIN}poll.php?poll={$test.id}&answer={$answer.id}&action=delete">[-]</a>
+			</td>
+		</tr>
+		{/foreach}
+		<tr id="new_answer_tr">
+			<td class="side">
+			</td>
+
+			<td class="side">
+				<input id="new_answer_txt" type="text" />
+			</td>
+			<td class="side">
+				<a href="javascript://" onclick="f.addAnswer()">[+]</a>
+			</td>
+		</tr>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td class="corner_left_b"></td>
+			<td class="side">
+				<input name="command" type="submit" value="save" />
+			</td>
+			<td class="corner_right_b"></td>
+		</tr>
+	</tfoot>	
+</table>
+</form>
+
+{include file='inc/_footer.html'}

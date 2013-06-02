@@ -1,0 +1,122 @@
+ul.menu-ajax-block {
+	background: none;
+	height: 24px;
+	padding: 4px 0px 0px 0px;
+}
+ul.menu-ajax-block li.active {
+	height: 22px;
+	background: #7a948f;
+	border-color: #4b6564 #99b2ae #99b2ae #4c6564;
+}
+ul.menu-ajax-block li.tab {
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #aac2bd #4c6565 #4c6565 #aac2bd;
+	height: 22px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 2px 0px 0px;
+	background: #90aaa4;
+}
+ul.menu-ajax-block li.tab:hover {
+	background: #7a948f;
+	border-color: #99b2ae #4c6564 #4c6564 #99b2ae;
+}
+ul.menu-ajax-block li.tab a {
+	height: 22px;
+	line-height: 20px;
+	padding: 0px 5px;
+	color: #fff;
+}
+ul.menu-ajax-block li.tab a:active, 
+ul.menu-ajax-block li.tab a.active {
+	background-color: transparent;
+}
+ul.menu-ajax-block li.tab a:hover {
+	background-color: transparent;
+	text-decoration: none;
+}
+ul.menu-ajax-block li.tab a.latest {
+	padding-left: 18px;
+	background: image(menu_ico_latest.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.latest:hover {
+	background-image: image(menu_ico_latest_act.png);
+}
+ul.menu-ajax-block li.active a.latest {
+	background-image: image(menu_ico_latest_act.png);
+}
+ul.menu-ajax-block li.tab a.toprated,
+ul.menu-ajax-block li.tab a.popular {
+	padding-left: 15px;
+	background: image(menu_ico_top.png) no-repeat 3px 50%;
+}
+ul.menu-ajax-block li.tab a.toprated:hover,
+ul.menu-ajax-block li.tab a.popular:hover {
+	background-image: image(menu_ico_top_act.png);
+}
+ul.menu-ajax-block li.active a.toprated,
+ul.menu-ajax-block li.active a.popular {
+	background-image: image(menu_ico_top_act.png);
+}
+ul.menu-ajax-block li.tab a.most_popular {
+	padding-left: 14px;
+	background: image(menu_ico_most.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.most_popular:hover {
+	background-image: image(menu_ico_most_act.png);
+}
+ul.menu-ajax-block li.active a.most_popular {
+	background-image: image(menu_ico_most_act.png);
+}
+ul.menu-ajax-block li.tab a.featured {
+	padding-left: 17px;
+	background: image(menu_ico_feat.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.featured:hover {
+	background-image: image(menu_ico_feat_act.png);
+}
+ul.menu-ajax-block li.active a.featured {
+	background-image: image(menu_ico_feat_act.png);
+}
+ul.menu-ajax-block li.tab a.new {
+	padding-left: 17px;
+	background: image(menu_ico_new.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.new:hover {
+	background-image: image(menu_ico_new_act.png);
+}
+ul.menu-ajax-block li.active a.new {
+	background-image: image(menu_ico_new_act.png);
+}
+ul.menu-ajax-block li.tab a.online {
+	padding-left: 14px;
+	background: image(menu_ico_online.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.online:hover {
+	background-image: image(menu_ico_online_act.png);
+}
+ul.menu-ajax-block li.active a.online {
+	background-image: image(menu_ico_online_act.png);
+}
+ul.menu-ajax-block li.tab a.events {
+	padding-left: 19px;
+	background: image(menu_ico_events.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.events:hover {
+	background-image: image(menu_ico_events_act.png);
+}
+ul.menu-ajax-block li.active a.events {
+	background-image: image(menu_ico_events_act.png);
+}
+ul.menu-ajax-block li.tab a.calendar {
+	padding-left: 19px;
+	background: image(menu_ico_calendar.png) no-repeat 2px 50%;
+}
+ul.menu-ajax-block li.tab a.calendar:hover {
+	background-image: image(menu_ico_calendar_act.png);
+}
+ul.menu-ajax-block li.active a.calendar {
+	background-image: image(menu_ico_calendar_act.png);
+}
+
+

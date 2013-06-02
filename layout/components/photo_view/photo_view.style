@@ -1,0 +1,29 @@
+.preview {
+	text-align: center;
+	position: relative;
+	padding-bottom: 40px;
+}
+
+.preview .password {
+	position: absolute;
+	bottom: 10px;
+	right: 25%;
+}
+
+.preview_cont {
+	padding_bottom: 10px;
+}
+
+.empty {
+	background: #C1C1C1 image(upload_photo_empty_active.gif) center no-repeat;
+}
+
+.no_permited {
+	height: 100px;
+	width: 100%;
+	padding-top: 30px;
+}
+
+.carousel_preloader {
+	height: 70px;
+}

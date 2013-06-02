@@ -1,0 +1,142 @@
+{* Admin interface: Skadate services *}
+{include file='inc/_header.html'}
+
+<div style="width: 60%; float: left">
+{block_page}
+<form action="" method="POST">
+<table id="autocrop_access_table" align="left" style="width:100%;">
+	<thead>
+		<tr>
+			<td id="autocrop_access_table_head_cell" colspan="2">Manage Service access</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="autocrop_access_table_enable_autocrop_left_cell">
+				<label for="enable_autocrop_checkbox">Enable autocrop service</label>
+			</td>
+			<td id="autocrop_access_table_enable_autocrop_right_cell">
+				<input id="enable_autocrop_checkbox" type="checkbox" name="enable_autocrop_service" value="1" {if $_config.enable_autocrop_service}checked{/if} onclick="manageAutoCropAccess( this.checked );" />
+			</td>
+		</tr>
+		<tr>
+			<td id="autocrop_access_table_info_cell" colspan="2">
+				Make sure that you already have an account <br /> on <a href="http://www.facejuggle.com/"><b>FaceJuggle.com</b></a>
+				and specify your login info below
+				<br />
+				<br />
+				FaceJuggle makes high quality thumbnails automatically cropping faces on member photos.<br />
+				FaceJuggle is an effective tool to raise your signup and subscription rates.<br /> For more info visit <a href="http://www.facejuggle.com/"><b>www.facejuggle.com</b></a>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td id="autocrop_access_table_name_left_cell">
+				<label for="autocrop_username">Name</label>
+			</td>
+			<td id="autocrop_access_table_name_right_cell">
+				<input type="text" id="autocrop_username" name="autocrop_username" value="{$_config.autocrop_username}" class="input_text" {if !$_config.enable_autocrop_service}disabled{/if} />
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td id="autocrop_access_table_password_left_cell">
+				<label for="autocrop_password">Password</label>
+			</td>
+			<td id="autocrop_access_table_password_right_cell">
+				<input type="text" id="autocrop_password" name="autocrop_password" value="{$_config.autocrop_password}" class="input_text" {if !$_config.enable_autocrop_service}disabled{/if} />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td id="autocrop_access_table_bottom_cell" colspan="2">
+				<input type="submit" name="save" value="Save" class="submit" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+{if $_config.enable_autocrop_service}
+<div style="width: 38%; float: right">
+{block_page}
+<form action="" method="POST" >
+<table width="100%">
+<thead>
+	<tr>
+		<td colspan="2">
+			View service statistics
+		</td>
+	</tr>
+</thead>
+<tbody>
+	<tr class="tr_2">
+		<td>
+			From
+		</td>
+		<td>
+			{html_select_date field_array="start_date" end_year=-2 time=$_stat_info_start_stamp}
+		</td>
+	</tr>
+	<tr class="tr_1">
+		<td>
+			To
+		</td>
+		<td>
+			{html_select_date field_array="end_date" time=$_stat_info_end_stamp}
+		</td>
+	</tr>
+</tbody>
+<tfoot>
+	<tr>
+		<td colspan="2">
+			<input type="submit" name="view_stat" value="View Service Statistic" class="submit" />
+		</td>
+	</tr>
+</tfoot>
+{if $_stat_info}
+
+		<thead>
+			<tr>
+				<td colspan="2">
+					Service Statistic
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="tr_2">
+				<td>
+					from
+				</td>
+				<td>
+					<b>{$_stat_info_start_stamp|date_format}</b>
+				</td>
+			</tr>
+			<tr class="tr_1">
+				<td>
+					to
+				</td>
+				<td>
+					<b>{$_stat_info_end_stamp|date_format}</b>
+				</td>
+			</tr>
+			<tr class="tr_2">
+				<td>
+					thumbs
+				</td>
+				<td>
+					<b>{$_stat_info}</b>
+				</td>
+			</tr>
+		</tbody>
+{/if}
+</table>
+</form>
+{/block_page}
+</div>
+{/if}
+<br clear="all" />
+<div class="clr"></div>
+
+{include file='inc/_footer.html'}

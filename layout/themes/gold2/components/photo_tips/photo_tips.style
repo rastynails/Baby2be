@@ -1,0 +1,49 @@
+.example_bad, .example_good {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.example_bad .image_one, 
+.example_bad .image_several, 
+.example_good .image_one, 
+.example_good .image_several {
+	height:70px;
+	margin:5px 0 5px 5px;
+	width:62px;
+}
+
+.example_bad .image_one {
+	background: image(upload_photo_bad_small.png) no-repeat scroll 0 0;
+}
+
+.example_bad .image_several {
+	background: image(upload_photo_bad_several.png) no-repeat scroll 0 0;
+}
+
+.example_good .image_one {
+	background: image(upload_photo_good_one.png) no-repeat scroll 0 0;
+}
+
+.example_good .image_several {
+	background: image(upload_photo_good_two.png) no-repeat scroll 0 0;
+}
+
+.photo_tips .center_block {
+	margin-top: 0px;
+}
+
+.photo_tips .narrow {
+	width: 37%;
+	padding-right: 10px;
+}
+
+.photo_tips .wide {
+	width: 58%;
+}
+
+.photo_tips .hide_btn {
+	padding-right: 20px;
+}
+.photo_tips .example_txt{
+	clear:both;
+}

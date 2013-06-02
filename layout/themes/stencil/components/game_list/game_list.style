@@ -1,0 +1,10 @@
+.game_descr {
+	height: 70px;
+}
+.game_cont {
+	margin-bottom: 12px;
+	height: 136px;
+}
+.game_odd {
+	margin-right: 10px;
+}

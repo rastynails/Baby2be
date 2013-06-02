@@ -1,0 +1,54 @@
+ul.menu-tabs {
+	background: image(main_menu.gif) repeat-x;
+	margin: 0px;
+	padding: 0px 0px 2px 0px;
+	text-align: center;
+}
+
+ul.menu-tabs li.tab {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+#page_canvas .main_menu ul.menu-tabs li.tab a {
+	text-decoration: none;
+}
+.main_menu ul.menu-tabs li.tab a {
+	padding: 0px 0px 0px 9px;
+	color: #fff;
+	background: none;
+	font-size: 18px;
+	margin-right: 1px;
+}
+
+.main_menu ul.menu-tabs li.tab a:hover,
+.main_menu ul.menu-tabs li.tab a:active,
+.main_menu ul.menu-tabs li.tab a.active {
+	background: transparent image(tab_l.png) no-repeat left top;
+}
+
+.main_menu ul.menu-tabs li.tab a span {
+	padding: 0px 9px 0px 0px;
+	background: none;
+	height:37px;
+	line-height: 33px;
+	text-decoration: underline;
+}
+
+ul.menu-tabs li.tab a.active span << ~ {
+}
+
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span << ~ {
+}
+
+.main_menu ul.menu-tabs li.tab a:hover span,
+.main_menu ul.menu-tabs li.tab a:active span,
+.main_menu ul.menu-tabs li.tab a.active span {
+	color: #fff;
+	background: transparent image(tab_r.png) no-repeat right top;
+}
+.main_menu {
+	height: 39px;
+}

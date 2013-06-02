@@ -1,0 +1,87 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+<div style="float:left;width:70%;">
+{block_page}
+{literal}
+<script>
+	jQuery(document).ready(function(){
+		dp = jQuery('#qq').DatePicker({
+			flat: true,
+			date: {/literal}'{$updateDate}'{literal},
+			current: {/literal}'{$updateDate}'{literal},
+			calendars: 1,
+			starts: 1,
+			onChange: function(val){
+				jQuery('#update_date').attr('value', val);
+			}
+		});
+	});
+</script>
+{/literal}
+<center>
+<b>Sitemap</b><br /><br />
+</center>
+
+<form method="post">
+<input type="hidden" name="command" value="sitemap_generateOrUpdate" />
+	<table style="border: 1px solid #DFDFDF" width="100%">
+		<tr>
+			<td>
+				Generate/Update <b style="color:#007E96">{$smarty.const.SITE_URL}sitemap.xml -  {if $showDownloadLink}[<a style="color:#599C53" href="?download=y">download</a>]{/if}</b><br />
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<input type="submit" value="generate" />
+			</td>
+		</tr>
+	</table>
+</form>
+<br />
+<center>
+
+	<b>Sitemap Auto Update/Submit Settings:</b><br /><br />
+<div style="border: 1px solid #DFDFDF; padding: 5px;">
+	<div style="color: #485F75; padding: 3px; margin-top: 3px; border: 1px dotted #DFDFDF;">
+	Note:
+	You should manually submit the sitemap.xml to Search Engines (Google, Yahoo) first, before activating sitemap auto update on Search Engine (Google, Yahoo).
+	</div><br />
+
+	<p id="qq"></p>
+	<form method="POST" width="100%" style="display: block;">
+		<input type="hidden" name="command" value="sitemap_set_autoUpdate_settings" />
+		<input id="update_date" type="hidden" name="date" value="{$updateDate}" />
+		<table style="border: 1px solid #DFDFDF; ">
+			<tr>
+				<td>
+					Yes, I manually submitted sitemap.xml to Google for the very first time.
+				</td>
+				<td>
+					<input type="checkbox" name="google_manuallySubmitedFirst" {if $doPingGoogle == 1}checked="checked"{/if} />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Yes, I manually submitted sitemap.xml to Yahoo for the very first time.
+				</td>
+				<td>
+					<input type="checkbox" name="yahoo_manuallySubmitedFirst" onclick="jQuery('#yahoo_appId_tr').toggle();" {if $doPingYahoo == 1}checked="checked"{/if} />
+				</td>
+			</tr>
+			<tr id="yahoo_appId_tr" style="display:{if $doPingYahoo}block{else}none{/if};">
+				<td colspan="2">
+					appId<br />
+					<input id="yahoo_appId_tr" type="text" name="yahoo_appId" value="{$yahoo_app}" style="width: 400px;" />
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="update" />
+	</form><br style="clear:both" />
+
+</center>
+</div>
+{/block_page}
+</div>
+<br clear="all" />
+
+{include file='inc/_footer.html'}

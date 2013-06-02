@@ -1,0 +1,4 @@
+.photo_list_cont ul li.item{
+	margin:1px 5px 1px 1px; 
+}
+

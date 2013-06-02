@@ -1,0 +1,223 @@
+{include file='inc/_header.html'}
+<style>
+{literal}
+.left_half, .right_half {
+    float: left;
+}
+
+.left_half {
+    width: 465px;
+}
+
+.list_c {
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 13px;
+    position: relative;
+}
+
+.right_half {
+    width: 310px;
+    margin-left: 10px;
+}
+
+.photo_list {
+}
+
+.photo_list .item {
+    text-align: center;
+}
+
+.photo_list .item img {
+    max-width: 360px;
+}
+
+.request_code {
+    font-size: 16px;
+    padding: 2px;
+}
+
+.responce_c {
+    padding: 10px 1px;
+    text-align: center;
+}
+
+.item {
+    border: 1px solid #FFF;
+}
+
+.checked .item {
+    border: 1px dashed #F0F0F0;
+}
+
+.bottom_c {
+    margin-top: 15px;
+}
+
+.check_all_c {
+    float: left;
+    padding-left: 12px;
+}
+
+.controls_c {
+    padding-right: 10px;
+    float: right;
+}
+
+.status_active {
+    background-color: #B6EFB3;
+}
+
+.status_suspended {
+    background-color: #FFCFCF;
+}
+
+.status_approval {
+    background-color: #FFF79F;
+}
+
+.legent_item {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+}
+
+.reponce_image_c img {
+    max-width: 275px;
+}
+
+.reponce_image_c {
+    text-align: center;
+}
+
+.profile_link_c {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #CCC;
+}
+
+.profile_link_c a {
+    font-size: 16px;
+}
+
+.photo_auth_mark {
+    
+}
+
+{/literal}
+</style>
+<script type="text/javascript">
+{literal}
+jQuery(function(){
+	jQuery('#checkall').click(function(){
+		jQuery('.check').attr('checked', this.checked);
+	});
+});
+{/literal}
+</script>
+
+<div class="top_legend">
+{block_page}
+    Here you can check if a user's photos are authentic. If a member sends you a verification photo of himself \ herself holding a unique system-generated code written on a piece of paper you can set their profile photos status as 'Verified'.
+{/block_page}
+</div>
+<div class="left_half">
+	{block_page}
+	    <form method="post">
+			<div class="list_c">
+			   <table class="photo_list">
+				   {foreach from=$photos item=photo key=id}
+				      <tr>
+				          <td width="10%" class="status_{$photo.status}">
+				              <input type="checkbox" class="check" value="{$id}" id="check_{$id}" name="photos[]" />
+				          </td>
+				          <td width="90%" class="item">
+				              <div style="position: relative; width: 360px">
+				                  {if $photo.authed}
+					                   <div class="photo_auth_mark" style="position: absolute; top: 10px; left: 10px">
+                                         <img src="{$photo_auth_icon}" />
+					                   </div>
+					              {/if}
+					              <label for="check_{$id}">
+			                        <img src="{$photo.view_photo_url}" />
+			                      </label>
+		                      </div>
+		                  </td>
+				      </tr>
+				   {foreachelse}
+				       <tr>
+				          <td colspan="2" class="no_content"></td>
+				       </tr>
+				   {/foreach}
+			   </table>
+			 </div>
+			 <div class="bottom_c">
+				 <div class="check_all_c">
+				     <input type="checkbox" id="checkall">
+				 </div>
+				 <div class="controls_c">
+					<input type="submit" value="Verify" name="auth"/> |
+					<input type="submit" value="Make Unverified" name="unauth"/> |
+					<input type="submit" name="delete_photo" value="delete"> | 
+					<select name="photo_status">
+					    <option value="active">active</option>
+					    <option value="approval">approval</option>
+					    <option value="suspended">suspended</option>
+					</select>
+					<input type="submit" name="set_status" value="set status">
+				 </div>
+				 <div style="clear: both" ></div>
+			 </div>
+		 </form>
+	{/block_page}
+</div>
+<div class="right_half">
+    {block_page}
+        {if $request}
+            <div class="profile_link_c">
+                <a href="{$profile.url}">{$profile.username}</a>
+            </div>
+            <div class="request_code">
+                Generated number: <span>{$request->code}</span>
+            </div>
+            
+            {if $responcePhotoUrl}
+                <div class="reponce_image_c">
+                    <img src="{$responcePhotoUrl}" />
+                </div>
+            {/if}
+            
+            <div class="responce_c">
+                <form method="post"><input type="submit" name="send_request" value="Send Request Again"></form>
+            </div>
+        {else}
+            <form method="post"><input type="submit" name="send_request" value="Send Request"></form>
+        {/if}
+    {/block_page}
+    <br />
+    {block_page}
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td width="30%">Active</td>
+                    <td> <div class="legent_item status_active"></div></td>
+                </tr>
+                <tr>
+                    <td>Approval</td>
+                    <td> <div class="legent_item status_approval"></div></td>
+                </tr>
+                <tr>
+                    <td>Suspended</td>
+                    <td> <div class="legent_item status_suspended"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    {/block_page}
+</div>
+<div style="clear: both"></div>
+
+
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,71 @@
+html body {
+	background: #F2C000 image(bg_index.jpg) repeat-x;
+}
+
+.quick_search {
+	margin: 20px 0 0;
+}
+
+.quick_search .block_cap,
+.quick_search .block_body,
+.quick_search .block {
+	background: none;
+	border: none;
+	color: #000;
+}
+
+.quick_search .block_cap .block_cap_title {
+	color: #1a5df7;
+}
+
+.quick_search .block_cap .block_cap_title {
+	margin: 2px 2px 2px 60px
+}
+
+.quick_search input[type=submit] {
+	width:88px;
+	height: 34px;
+	background: image(button_index.png) no-repeat 2px 3px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#page_canvas #footer {
+	background:transparent none;
+	height: 66px;
+	padding-right:0px;
+	width:830px;
+	text-align:center;
+	margin:0px auto;
+}
+
+#content #footer .footer_menu {
+margin-top:0px;
+}
+
+#content .float_half_left,
+#content .float_half_right {
+	width:46%;
+	margin-top: 10px;
+}
+
+
+.profile_list_cont {
+	margin-left: 0px;
+	height: 185px;
+}
+.index_photo_list .profile_list_cont ul.list {
+	padding-left: 4px;
+}
+.index_photo_list .profile_list_cont .item {
+	margin-riht 3px;
+}
+.index_photo_list .photo_list_cont ul {
+    padding-left: 8px;
+}
+.index_photo_list .photo_list_cont ul li.item {
+    margin-right: 3px;
+}
+.photo_list_cont {
+	height: 185px;
+}

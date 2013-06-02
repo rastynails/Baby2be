@@ -1,0 +1,61 @@
+{* admin Profile Message Scam Keywords template *}
+
+{include file='inc/_header.html'}
+
+<div style="width: 50%">
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="command" value="edit_keyword" />
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th id="profile_message_keyword_title_thead_cell" colspan="2"> Filter Keywords </th>
+		</tr>
+	</thead>
+	
+	<tbody>
+	{foreach from=$keywords item=keyword}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><input type="text" name="keywords[{$keyword.keyword_id}]" value="{$keyword.keyword}" size="50" maxlength="250" /></td>
+			<td width="12%"><a href="{$smarty.const.URL_ADMIN}profile_message_keyword.php?command=delete_keyword&keyword_id={$keyword.keyword_id}" class="delete"></a></td>
+		</tr>
+	{/foreach}
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<input type="submit" class="submit" value="Edit" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+<br clear="all" />
+
+<form action="" method="POST" onsubmit="
+	if ( /^.+$/.test( this.elements['keyword'].value ) ) 
+		return true;
+	alert('Please correct the keyword');
+	this.elements['keyword'].select();
+	return false;
+	">
+<input type="hidden" name="command" value="add_keyword" />
+<table cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<td colspan="2"> <b>Add a new keyword</b> </td>
+		</tr>
+		<tr>
+			<td><input type="text" name="keyword" size="50" maxlength="250" /></td>
+			<td><input type="submit" class="submit" value="Add" /></td>
+		</tr>
+	</tbody>
+
+</table>
+</form>
+
+
+{include file='inc/_footer.html'}

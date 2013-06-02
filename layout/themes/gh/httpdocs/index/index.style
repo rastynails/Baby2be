@@ -1,0 +1,14 @@
+.quick_search .block_body,
+.quick_search .block_cap,
+.quick_search .block_cap h3,
+.quick_search .block_cap_corner,
+.quick_search .block_bottom_corner {
+	background: none;
+	border: none;
+	color: #f2e0ba;
+}
+
+.quick_search {
+	margin: 20px 15px 10px 15px;
+	width: 300px;
+}

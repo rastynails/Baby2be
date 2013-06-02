@@ -1,0 +1,69 @@
+{* Admin Profile photos manager Template *}
+<html>
+
+<head>
+	<script src="{$smarty.const.URL_STATIC}jquery.js" type="text/javascript"></script>
+	<script src="{$smarty.const.URL_STATIC}interface.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var $jq = jQuery.noConflict();
+	</script>
+	
+	{foreach from=$_required_js_files item='js_file'}
+		<script src="{$js_file}" type="text/javascript"></script>
+	{/foreach}
+	{if $header_js_code}
+	<script type="text/javascript">{$header_js_code}</script>
+	{/if}
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.URL_ADMIN_CSS}admin.css" />
+</head>
+
+<body {if $_js_onload}onload="{$_js_onload}"{/if} style="background: #DFDFDF">
+
+<div style="width: 300px; margin: 0px auto;">{paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}</div>
+		{foreach from=$conversations item='conv'}
+		<table width="100%">
+		<thead>
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td colspan="2">Conversation initiator</td>
+				<td>Conversation messages</td>
+			</tr>
+		</thead>
+		<tbody>
+		<tr style="vertical-align: top;" class="{cycle values='tr_1,tr_2'}">
+			<td width="60" style="border-bottom: 1px solid #fff">
+				{if $conv.is_system eq 'yes'}
+					<div class="system_msg_icon">System message</div>
+				{else}
+					<img src="{$conv.thumb}" width="70" />
+				{/if}
+			</td>
+			<td width="100" style="border-bottom: 1px solid #fff">
+				{if $conv.is_system eq 'yes'}
+					system message
+				{else}
+					<b>{if $conv.username}<a href="profile.php?profile_id={$conv.sender_id}" target="_blank">{$conv.username}</a>{else}Deleted member{/if}</b>
+					<br />
+					To:
+					<b>{if $conv.recipient}<a href="profile.php?profile_id={$conv.recipient_id}" target="_blank">{$conv.recipient}</a>{else}Deleted member{/if}</b>
+				{/if}
+				<br /><br />Started: <br />{$conv.conversation_ts|date_format:"%b %e %y, %H:%M"}
+			</td>
+			<td class="subject_message list_item" style="background: #fff">
+				Subject: <b>{$conv.subject|out_format:"mailbox"|smile}</b><br />
+				<table width="100%">
+				{foreach from=$conv.mails item='msg' name='ms'}
+				<tr style="vertical-align: top">
+					<td width="60">{if $conv.is_system eq 'no'}<img src="{$msg.thumb}" width="55" />{/if}</td>
+					<td width="80"><a href="profile.php?profile_id={$msg.sender_id}" target="_blank">{$msg.username}</a><br />{$msg.time_stamp|date_format:"%b %e %y, %H:%M"}</td>
+					<td {if !$smarty.foreach.ms.last}style="border-bottom: 1px solid #ddd"{/if}>{$msg.text|out_format:"mailbox"|smile}</td>
+				</tr>
+				{/foreach}
+				</table>		
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		{/foreach}
+	<div style="width: 300px; margin: 0px auto;">{paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}</div>	
+</body>
+</html>

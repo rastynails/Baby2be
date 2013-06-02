@@ -1,0 +1,18 @@
+.sidebar .sign_in_cont .fb_button .fb_button_text {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.sidebar .sign_in_cont .fb_button {
+	padding-top: 0;
+}
+
+.fbc_button {
+	display: inline-block;
+	margin-top: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.fbc_synch_c .fbc_button {
+	float: none;
+}

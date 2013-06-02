@@ -1,0 +1,49 @@
+{* Theme: Dark Passion *}
+{* Author: Skadate *}
+{literal}
+<style>
+body {
+	background: black url({/literal}{$smarty.const.URL_LAYOUT}{literal}themes/dp/img/DP_bg.png) no-repeat center -25px;
+}
+#content {
+    border: none;
+    margin-top: 0px;
+}
+ul.menu-line-bottom {
+	background: transparent url({/literal}{$smarty.const.URL_LAYOUT}{literal}themes/dp/img/DP_bottom_menu_index.png) no-repeat center top;
+}
+.inventory_line .menu-line {
+    margin: 0px;
+}
+</style>
+{/literal}
+{canvas index}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+    {component NavigationInventoryLine}
+    <div id="content" style="background: transparent">
+		<div style="width: 100%; margin-bottom: 10px;">
+			<div class="clearfix">
+				<div style="background: url({$smarty.const.URL_LAYOUT}themes/dp/img/logo.gif) no-repeat; width:375px; height: 76px; margin-top:0px; margin-left:0px; float: right;"></div>
+				<div class="float_left">{component FBCButton}{component SelectLanguage}</div>
+			</div>
+			<div style="width: 400px; margin-bottom: 10px; height: 556px; background:url({$smarty.const.URL_LAYOUT}themes/dp/img/DP_couple.png) no-repeat right; float: left;"></div>
+			<div class="float_half_right">
+					{component QuickSearch}
+					<div style="width: 49%; float: left;">
+						{component SignIn}
+					</div>
+					<div style="width: 49%; float: right;">
+						{component SignUp}
+					</div>
+			</div>
+		</div>
+		<div class="float_half_left" >
+		{*component IndexVideo lists='latest|toprated' active='toprated'*}
+		</div>
+	</div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

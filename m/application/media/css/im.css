@@ -1,0 +1,26 @@
+
+body {
+	margin: 0px;
+	padding: 3px;
+	background: #fdfdfd;
+	color: #333333;
+	font-family: "Verdana";
+	font-size: 13px;
+}
+
+.my_username {
+	color: #3333CC;
+}
+
+.opp_username {
+	color: #CC3333;
+}
+
+.small {
+	font-size: 80%;
+}
+
+.offline {
+	padding: 60px 5px;
+	text-align: center;
+}

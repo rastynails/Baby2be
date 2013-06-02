@@ -1,0 +1,53 @@
+{* Admin Language Tree *}
+
+{include file='inc/_header.html'}
+
+<div id="admin_lang_tree_container">
+	<ul class="branch_bundle"></ul>
+	<div id="admin_lang_tree_controls" class="tfoot_td" style="text-align: left">
+	{if $smarty.const.DEV_MODE}
+		<input type="button" id="create_lang_section_btn" class="submit" value="Create" disabled />
+		<input type="button" id="edit_lang_section_btn" class="submit" value="Edit" disabled />
+		<input type="button" id="delete_lang_section_btn" class="submit" value="Delete" disabled />
+	{/if}
+	</div>
+</div>
+	
+
+
+<div id="admin_lang_key_table_container" style="width: 540px;">
+	<table>
+		<thead>
+			<tr>
+				<td width="134">key</td>
+				<td width="252">value</td>
+			</tr>
+		</thead>
+		
+		<tbody></tbody>
+		
+		<tfoot>
+			<tr>
+				<td colspan="2" style="text-align: none">
+					{if $smarty.const.DEV_MODE}
+					<div style="float: left">
+						<input type="button" id="new_lang_key_btn" class="submit" value="New Key" disabled />
+						<input type="button" id="edit_lang_key_btn" class="submit" value="Edit Key" disabled />
+						<input type="button" id="delete_lang_key_btn" class="submit" value="Delete Key" disabled />
+					</div>
+					{/if}
+					{if is_demo_mode()}
+					<div style="float: right">
+						<input type="button" id="edit_lang_key_values_btn" class="submit" value="Edit Values" disabled />
+					</div>
+					{/if}
+					<br clear="all" />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

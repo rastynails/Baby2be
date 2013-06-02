@@ -1,0 +1,47 @@
+{*  Theme: Dating Shine *}
+{*  Author: Skadate  *}
+
+{canvas index}
+<div id="page_canvas" style="width:830px; margin: 0 auto;">
+	{ads pos='top'}
+	<div id="content" style="padding: 0; width: 830px;">
+		{component PageHeader}
+		{component NavigationSubMenu level=1}
+		<div style="width: 100%; height: 597px;">
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/ds/img/index_1.jpg) no-repeat; width:830px; height: 189px; float: left; margin-top: 26px;">
+				<div style="color: #aeaeae; width: 264px; float: left; text-align: justify; margin-left: 36px; margin-top: 40px;">
+					{text %.promo.promo_index_ds} 
+				</div>
+				<div style="width: 248px; float: right; margin-right: 36px; margin-top: 40px;">{component SignIn type="no_block"}</div>
+			</div>
+
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/ds/img/index_forum.jpg) no-repeat; width:196px; height: 408px; float: left;">
+				<a href="{document_url doc_key="forum_group_list"}" style="width: 100px; margin-left: 26px; margin-top: 96px; padding: 161px 0 0px 45px; display: block;"></a>
+			</div>
+
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/ds/img/index_video.jpg) no-repeat; width:227px; height: 408px; float: left;">
+				<a href="{document_url doc_key="toprated_video"}" style="color:#fff; margin-top: 213px; margin-left: 26px; padding: 161px 0 0px 45px; display: block; width: 100px;"></a>
+			</div>
+
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/ds/img/index_events.jpg) no-repeat; width:236px; height: 408px; float: left;">
+				<a href="{document_url doc_key="events"}" style="color:#fff; margin-top: 213px; margin-left: 50px; padding: 161px 0 0px 45px; display: block; width: 100px;"></a>
+			</div>
+
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/ds/img/index_photo.jpg) no-repeat; width:171px; height: 408px; float: left;">
+				<a href="{document_url doc_key="top_rated_photo"}" style="width: 100px; margin-top: 96px; padding: 161px 0 0px 45px; display: block;"></a>
+			</div>
+		</div>
+		<div class="float_half_left" style="margin-left: 4px;">
+			{component IndexPhotoList lists="latest|top_rated" active="latest" count = 12}
+			{component BlogIndexList lists="latest" count=4}
+		</div>
+		<div class="float_half_right" style="margin-right: 4px;">
+			{component IndexProfileList lists="featured|new" active="new" count = 12}
+			{component IndexVideo lists='latest|toprated' active='toprated'}
+		</div>
+	</div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+
+{/canvas}

@@ -1,0 +1,100 @@
+{* Admin Language Tree *}
+
+{include file='inc/_header.html'}
+
+<div style="float:left; width: 28%">
+{block_page}
+<div id="admin_lang_tree_container">
+	
+	<ul class="branch_bundle"></ul>
+	
+	{if $smarty.const.DEV_MODE}
+	<div id="admin_lang_tree_controls" class="tfoot_td" style="text-align: left">
+		<input type="button" id="create_lang_section_btn" class="submit" value="Create" disabled />
+		<input type="button" id="edit_lang_section_btn" class="submit" value="Edit" disabled />
+		<input type="button" id="delete_lang_section_btn" class="submit" value="Delete" disabled />
+	</div>
+	{/if}
+</div>
+{/block_page}
+
+<div style="float: left;">
+<form method="post">
+	{block_page}
+		<div style="font-size: 10px; line-height: 14px; margin-bottom: 10px">
+			Compiled Components php,<br />
+			Forms javascript handlers,<br />
+			Language cache, themes merged<br />
+			CSS and images crops.
+		</div>
+		<input name="action" type="hidden" value="clear_all_compiled" />
+		<input type="submit" value="Clear Compiled Resources + Cache" />
+	{/block_page}
+</form>
+</div>
+
+</div>
+
+<div style="float:right; width:70%">
+{block_page}
+
+<div id="admin_lang_key_table_container">
+	<table id="admin_lang_key_table">
+		{*<thead>
+			<tr>
+				<td>key</td>
+				<td>value</td>
+			</tr>
+		</thead>*}
+		
+		<tbody id="admin_lang_key_table_loading" style="display: none">
+			<tr><td colspan="2">
+				<span class="loading">Loading...</span>
+			</td></tr>
+		</tbody>
+		
+		<tbody>
+			<tr><td colspan="2" class="no_section_selected">No section selected</td></tr>
+		</tbody>
+		
+		<tr id="lang_key_controls" style="display: none">
+			<td colspan="2">
+				<div style="float: left">
+					{if $smarty.const.DEV_MODE}
+						<input type="button" id="edit_lang_key_btn" class="submit" value="Edit Key" disabled />
+						<input type="button" id="delete_lang_key_btn" class="submit" value="Delete Key" disabled />
+					{/if}
+				</div>
+				
+				<div style="float: right">
+					{if isAdminAuthed(false)}
+                        <input type="button" id="edit_lang_key_values_btn" class="submit" value="Edit Values" disabled />
+                    {else}
+                        <input type="button" class="submit" value="Edit Values" onclick="alert('No changes made. Demo mode.'); return false;"/>
+                    {/if}
+				</div>
+				<br clear="all" />
+			</td>
+		</tr>
+		
+		<tfoot>
+			<tr>
+				<td colspan="2">
+					<div style="float: left">
+					{if $smarty.const.DEV_MODE}
+						<input type="button" id="new_lang_key_btn" class="submit" value="New Key" disabled />
+					{/if}
+					</div>
+					<br clear="all" />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	
+</div>
+
+{/block_page}
+</div>
+<br clear="all" />
+
+{include file='inc/_footer.html'}

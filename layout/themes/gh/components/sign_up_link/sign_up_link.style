@@ -1,0 +1,11 @@
+.link_container {
+	background-color:#8A3803;
+	font-size: << $large_font;
+	font-weight: bold;
+	padding: 13px;	
+	text-align: center;
+}
+
+.link_container a:hover{
+	color:#fff;
+}

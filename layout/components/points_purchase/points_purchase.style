@@ -1,0 +1,35 @@
+
+.providers{
+    text-align: center;
+    padding: 7px;    
+}
+
+.provider_logos{
+    padding: 5px;
+    text-align: center;
+}
+
+.package{
+    padding: 6px;
+}
+
+.package_info{
+    padding-left: 25px;
+    font-size: 11px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tr_1 td,
+.tr_2 td{
+    padding: 4px;
+}
+
+.tr_2{
+    background-color: << .block_info->background-color; 
+}
+
+.scost{
+    text-align: right;
+    width: 15%;
+}

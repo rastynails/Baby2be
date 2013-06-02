@@ -1,0 +1,11 @@
+.my_photo_albums {
+	padding: 5px;
+}
+
+.left_part {
+    width: 65%
+}
+
+.right_part {
+    width: 34%
+}

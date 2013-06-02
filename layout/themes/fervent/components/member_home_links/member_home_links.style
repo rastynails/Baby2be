@@ -1,0 +1,93 @@
+.memberhome_hrefs_cont .block_body {
+	padding: 0px 14px 0px;
+}
+
+.memhome_link {
+	font-size: 11px;
+	color: #463131;
+}
+
+.memhome_link a {
+	font-size: 13px;
+	line-height: 15px;
+	display: inline-block;
+	text-decoration: none;
+	color: #463131;
+	padding-bottom: 2px;
+}
+
+.memhome_link a:hover {
+	text-decoration: underline;
+	color: #df0007;
+}
+
+.my_match {
+	background-image: image(mhome_mymatches.gif);
+	background-position: -1px 0px;
+}
+
+.mailbox {
+	background-image: image(mhome_mailbox.gif);
+	background-position: -1px 0px;
+}
+
+.bookmarks {
+	background-image: image(mhome_bookmarks.gif);
+	background-position: -1px -1px;
+}
+
+.block_list {
+	background-image: image(mhome_blocked.gif);
+	background-position: -1px -1px;
+}
+
+.friend-list {
+	background-image: image(mhome_myfriends.gif);
+	background-position: -1px -1px;
+}
+
+.birthdate {
+	background-image: image(mhome_birth.gif);
+	background-position: -1px -2px;
+}
+
+.location {
+	background-image: image(mhome_myneigh.gif);
+	background-position: -1px -1px;
+}
+
+.new_members {
+	background-image: image(mhome_new.gif);
+	background-position: -1px -1px;
+}
+
+.who_view {
+	background-image: image(mhome_who.gif);
+	background-position: -1px 1px;
+}
+
+.my_groups {
+	background-image: image(mhome_groups.gif);
+	background-position: -1px -1px;
+}
+
+.moderator {
+	background-image: image(mhome_moder.gif);
+	background-position: 2px 0px;
+}
+
+.speed_dating {
+	background-image: image(mhome_speed.gif);
+	background-position: 0px 0px;
+}
+
+.bookmark_me {
+	background: image(mhome_bookmark_me.gif) 0 0 no-repeat;
+}
+
+.my_match, .birthdate, .block_list, .new_members, 
+.bookmarks, .friend-list, .location, .who_view, 
+.moderator, .my_groups, .mailbox, .speed_dating, 
+.bookmark_me {
+	padding-left: 22px;
+}

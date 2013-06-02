@@ -1,0 +1,25 @@
+/* component QuickSearch */
+
+.quick_search ul {
+	margin-left: 15%;
+}
+
+.quick_search li
+{
+	list-style: none;
+	text-align: left;
+}
+
+.quick_search hr {
+	background: << $hr;
+	border: 0 none;
+	clear: both;
+	height: 1px;
+}
+
+.quick_search .field_mileage .content_container {
+	border: none;
+}
+.quick_search ul.input_group {
+	min-height: 15px;
+}

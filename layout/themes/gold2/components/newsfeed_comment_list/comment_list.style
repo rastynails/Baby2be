@@ -1,0 +1,75 @@
+/* Comment list CSS */
+
+.newsfeed_comment_list .list_thumb {
+	width: 40px;
+	margin-right: -40px;
+}
+
+.newsfeed_comment_list .list_block {
+	margin-left: 40px;
+}
+
+.newsfeed_comment_list .list_info {
+    position: relative;
+	height: 32px;
+	padding: 5px 0 0 0;
+	margin-bottom: 8px;
+}
+
+html body .del_link {
+	text-align: right;
+	float: none;
+	width: auto;
+	position: absolute;
+	right: 0px;
+	top: 5px;
+}
+
+.comment_stat {
+	float: left;
+	width: 78%;
+}
+.newsfeed_comment_list .block_cap {
+	display: none;
+	height: auto;
+}
+.newsfeed_comment_list .block_cap_r {
+	height: auto;
+}
+.newsfeed_comment_list .block_cap_c {
+	height: auto;
+	min-height: 4px;
+}
+
+.newsfeed_comments .block_cap,
+.newsfeed_comments .block_cap_r,
+.newsfeed_comments .block_cap_c,
+.newsfeed_comments .block_body,
+.newsfeed_comments .block_bottom,
+.newsfeed_comments .block_bottom_r,
+.newsfeed_comments .block_bottom_c {
+	background: none;
+	background-color: transparent;
+	border: none;
+}
+
+div.newsfeed .newsfeed_comments .block_body {
+	padding: 5px 14px 0px;
+}
+.newsfeed_add_comment .newsfeed_comment_list block_cap,
+.newsfeed_add_comment .newsfeed_comment_list .block_cap_r,
+.newsfeed_add_comment .newsfeed_comment_list .block_cap_c{
+	height: 0px;
+	padding: 0;
+	margin: 0;
+	min-height: 0px;
+}
+
+.newsfeed_comments_view_all {
+	font-size: 11px;
+}
+
+.newsfeed_add_comment_form .block_expand, 
+.newsfeed_add_comment_form .block_collapse {
+	margin-top: 5px;
+}

@@ -1,0 +1,3 @@
+.expandable_menu .block_body {
+	background: #ccc;
+}

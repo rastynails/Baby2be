@@ -1,0 +1,22 @@
+.sign_up_cont input[type=submit] {
+	width: 107px;
+	height: 46px;
+	padding: 0px;
+	background: image(sign_up_btn.png) no-repeat;
+ 	-moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+	-moz-box-shadow:none;
+	border: none;
+}
+
+body .sign_up_cont input[type=submit]:disabled {
+	background: image(sign_up_btn.png) no-repeat;
+	border: none;
+}
+body .sign_up_cont input[type=submit]:hover {
+	background: image(sign_up_btn.png) no-repeat;
+	border: none;
+}
+.sign_up_cont p.right {
+	padding-top: 7px;
+}

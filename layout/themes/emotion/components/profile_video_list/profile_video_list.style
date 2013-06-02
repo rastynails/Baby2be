@@ -1,0 +1,9 @@
+
+div.narrow {
+	width: 42%; 
+}
+
+
+div.wide {
+	width: 57%; 
+}

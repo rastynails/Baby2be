@@ -1,0 +1,24 @@
+a.content:link {
+    color: #013057;
+    text-decoration: underline;
+    }
+a.content:visited {
+    color: #570101;
+    text-decoration: underline;
+    }
+a.content:hover {
+    color: #CC3300;
+    text-decoration: underline;
+    }
+a.content:active {
+    color: #CC3300;
+    text-decoration: underline;
+    }
+li {
+	margin-bottom: 10px;
+}
+pre {
+	background-color: #DDDDDD;
+	font-size: 12px;
+	padding: 10px;
+}

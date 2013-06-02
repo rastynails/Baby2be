@@ -1,0 +1,28 @@
+.list_cont ul.list {
+	padding: 0px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.simple_list .item {
+	width:60px;
+	height:75px;
+	overflow: hidden;
+	font-size:11px;
+	display: block;
+	float:left;
+	margin:0 4px 5px 0;
+}
+
+.simple_list .item img, .profile_list_cont .item .image {
+	width:60px;
+	height:60px;
+}
+
+.simple_list .item a{
+	display: block;
+}
+
+.simple_list .item {
+	text-align: center;
+}

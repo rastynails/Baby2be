@@ -1,0 +1,8 @@
+.expandable_menu .block_body {
+	background: #E5F3F6;
+}
+.expandable_menu .block_cap,
+.expandable_menu .block_cap_r,
+.expandable_menu .block_cap_c {
+	height: 30px;
+}

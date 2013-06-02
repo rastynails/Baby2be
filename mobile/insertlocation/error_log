@@ -1,0 +1,4 @@
+[26-Mar-2013 09:16:34] PHP Parse error:  syntax error, unexpected ',', expecting ')' in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 1790
+[26-Mar-2013 09:16:43] PHP Parse error:  syntax error, unexpected ',', expecting ')' in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 1790
+[26-Mar-2013 09:22:43] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_FUNCTION in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 5877
+[26-Mar-2013 09:33:13] PHP Parse error:  syntax error, unexpected T_ECHO in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 8833

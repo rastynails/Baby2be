@@ -1,0 +1,35 @@
+.signin_signup_delimitr {
+	display: none;
+}
+
+.sign_in_document
+{
+	margin:0 auto 0px;
+	padding-top: 47px;
+	width:878px;
+}
+
+.sign_in_document .float_half_right, .sign_in_document .float_half_left
+{
+	width:26%;
+}
+.sign_in_open{
+	width: 361px;
+	height: 183px;
+	margin: 0 auto;
+}
+
+.bread_crumb {
+	display: none;
+}
+.sign_in_document .block_toolbar {
+	background: none;
+	border: none;
+	text-align: left;
+}
+
+.sign_in_document .sign_in_cont h3,
+.sign_in_document .sign_up_cont h3 {
+	color:#fd075d;
+	font-weight: bold;
+}

@@ -1,0 +1,7 @@
+/* component QuickSearch */
+.quick_search hr {
+	background:#222 none repeat scroll 0 0;
+	border:0 none;
+	clear:both;
+	height:1px;
+}

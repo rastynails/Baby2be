@@ -1,0 +1,43 @@
+{* Language search tpl *}
+
+<div style="width: 40%">
+{block_page}
+<form action="language_search.php" method="get" onsubmit="return checkLanguageSearch(this)">
+<input name="command" type="hidden" value="search" />
+<table>
+	<thead>
+		<tr>
+			<td id="lang_search_table_head_cell">Language search</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr class="tr_1">
+			<td id="lang_search_input_cell">
+				<input id="lang_search_input" name="phrase" type="text" class="input_text" size="38" value="{$smarty.get.phrase}" />
+			</td>
+		</tr>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td id="lang_search_table_bottom_cell">
+				<div style="float: left">
+					<label id="lang_search_keys_chbox_label">
+						<input name="search_key" type="checkbox" class="checkbox_L" value="1"{if $smarty.get.search_key} checked{/if} />keys
+					</label>
+					<label id="lang_search_values_chbox_label">
+						<input name="search_value" type="checkbox" class="checkbox_L" value="1"{if $smarty.get.search_value} checked{/if} />values
+					</label>
+				</div>
+				<div style="float: right">
+					<input id="lang_search_btn" type="submit" class="submit" value="Go &raquo;" />
+				</div>
+			</td>
+		</tr>
+	</tfoot>
+	
+</table>
+</form>
+{/block_page}
+</div>

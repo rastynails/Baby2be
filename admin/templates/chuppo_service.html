@@ -1,0 +1,176 @@
+{* Admin interface: Skadate services *}
+{include file='inc/_header.html'}
+
+{block_page}
+<form method="get">
+	<span class="forum_group_name">Select chat</span>
+	<select name="service" onchange="this.form.submit();">
+		<option selected="selected" value="chuppo">Chuppo Chat</option>
+		<option value="123_chat">123 Flash Chat</option>
+	</select>
+</form>
+{/block_page}
+
+<div style="float: left; width: 58%">
+<form action="" method="POST" >
+<input type="hidden" name="section" value="chuppo" />
+{block_page}
+<table>
+	<thead>
+		<tr>
+			<td id="chuppo_app_tbl_head_cell" colspan="2">Enable applications</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td valign="top" width=40%>
+				{$_config.vhost.description}
+			</td>
+			<td>
+				<input type="text" name="{$_config.vhost.name}" value="{$_config.vhost.value}" size="40"/>
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td valign="top" width=40%>
+				{$_config.enable_chuppo_chat.description}
+			</td>
+			<td valign="top">
+				{if $_config.enable_chuppo_chat.value}
+					<input type="checkbox" name="{$_config.enable_chuppo_chat.name}" checked value="1" />	
+				{else}
+					<input type="checkbox" name="{$_config.enable_chuppo_chat.name}" value="1" />	
+				{/if}
+				<br />
+				<table cellspacing="0">
+				<tr><td>{$_config.chat_swf.description}</td><td><input type="text" name="{$_config.chat_swf.name}" value="{$_config.chat_swf.value}" class="input_text" /></td></tr>
+				<tr><td>{$_config.chat_skin.description}</td><td><input type="text" name="{$_config.chat_skin.name}" value="{$_config.chat_skin.value}" class="input_text" /></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td valign="top">
+				{$_config.enable_chuppo_im.description}
+			</td>
+			<td valign="top">
+				{if $_config.enable_chuppo_im.value}
+					<input type="checkbox" name="{$_config.enable_chuppo_im.name}" checked value="1" />	
+				{else}
+					<input type="checkbox" name="{$_config.enable_chuppo_im.name}" value="1" />	
+				{/if}
+				<br />
+				<table cellspacing="0">
+				<tr><td>{$_config.im_swf.description}</td><td> <input type="text" name="{$_config.im_swf.name}" value="{$_config.im_swf.value}" class="input_text" /></td></tr>
+				<tr><td>{$_config.im_skin.description}</td><td>	<input type="text" name="{$_config.im_skin.name}" value="{$_config.im_skin.value}" class="input_text" /></td></tr>
+				<tr><td>{$_config.useron_swf.description}</td><td> <input type="text" name="{$_config.useron_swf.name}" value="{$_config.useron_swf.value}" class="input_text" /></td></tr>
+				<tr><td>{$_config.useron_skin.description}</td><td>	<input type="text" name="{$_config.useron_skin.name}" value="{$_config.useron_skin.value}" class="input_text" /></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td valign="top">
+				{$_config.enable_chuppo_recorder.description}
+			</td>
+			<td valign="top">
+				{if $_config.enable_chuppo_recorder.value}
+					<input type="checkbox" name="{$_config.enable_chuppo_recorder.name}" checked value="1" />	
+				{else}
+					<input type="checkbox" name="{$_config.enable_chuppo_recorder.name}" value="1" />	
+				{/if}
+				<br />
+				<table cellspacing="0">
+				<tr><td>{$_config.recorder_swf.description}</td><td> <input type="text" name="{$_config.recorder_swf.name}" value="{$_config.recorder_swf.value}" class="input_text" /></td></tr>
+				<tr><td>{$_config.player_swf.description}</td><td><input type="text" name="{$_config.player_swf.name}" value="{$_config.player_swf.value}" class="input_text" /></td></tr>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<input id="chuppo_app_settings_submit_btn" type="submit" name="save_configs" value="Save" class="submit" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+{/block_page}
+</form>
+</div>
+
+<div style="float: right; width:40%">
+{block_page}
+<table id="gender_equivalence_tbl">
+	<thead>
+		<tr>
+			<td id="gender_equivalence_tbl_head_cell" colspan="3">Set gender equivalence for Chuppo app</td>
+		</tr>
+		<tr>
+			<td id="gender_equivalence_tbl_subhead_sex_cell">Sex</td>
+			<td id="gender_equivalence_tbl_subhead_chuppo_gender_cell">Chuppo gender</td>
+			<td id="gender_equivalence_tbl_subhead_action_cell"></td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$chuppo_gender_list item=gender_info}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td>{$sex_labels[$gender_info.sex]}</td>
+			<td>{$gender_info.chuppo_gender}</td>
+			<td width="15px">
+				<a class="delete" title="delete gender" href="{$smarty.const.URL_ADMIN}chat_services.php?service=chuppo&delete_gender={$gender_info.sex}"></a>
+			</td>
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				This option is available <br />only for Chuppo Chat/IM
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+{if $sex_list}
+<br class="clr" />
+<form action="{$smarty.const.URL_ADMIN}chat_services.php?service=chuppo" method="POST">
+<table class="chuppo_aplications" width="35%">
+	<thead>
+		<tr><td id="add_gender_tbl_head_cell" colspan="2"  class="section_name">Add gender</td></tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td id="add_gender_tbl_sex_left_cell">
+				<label for="add_gender_sex_select">Sex</label>
+			</td>
+			<td id="add_gender_tbl_sex_right_cell">
+				<select id="add_gender_sex_select" name="sex">
+				{foreach from=$sex_list item=sex_info}
+					<option value="{$sex_info.value}">{$sex_labels[$sex_info.value]}</option>
+				{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td id="add_gender_tbl_gender_left_cell">
+				<label for="add_gender_gender_input">Gender</label>
+			</td>
+			<td id="add_gender_tbl_gender_right_cell">
+				<input id="add_gender_gender_input" type="text" name="chuppo_gender" class="input_text" />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td id="add_gender_tbl_bottom_cell" colspan="2">
+				<input type="submit" name="add_gender" value="Add" class="submit" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/if}
+{/block_page}
+</div>
+
+<div class="clr"></div>
+{include file='inc/_footer.html'}

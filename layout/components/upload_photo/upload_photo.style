@@ -1,0 +1,187 @@
+.details_cont {
+	float: left;
+}
+.photo_list_container {
+	float: right;
+}
+
+.details_cont {
+	margin: 1px 1px 1px 0px;
+}
+
+.photo_list_container {
+	margin: 1px 0px 1px 1px;
+}
+
+.photo_list .slot {
+	cursor: pointer;
+	display: block;
+	float: left;
+	border: << $border;
+	height: 80px;
+	margin: 3px;
+}
+
+.empty {
+	background: << $photo_empty_active;
+}
+
+.photo_list .empty {
+	width: 80px;
+}
+
+.photo_list {
+    overflow: hidden;
+}
+
+.photo_list .slot img {
+	height: 80px;
+}
+
+.photo_list .active img {
+	height: 86px;
+}
+
+.photo_list .active {
+	height: 86px;
+	margin: 0px;
+}
+
+.photo_details_container .empty {
+	height: 250px;
+	padding: 10px;
+	background-image: image(upload_photo_empty_no_txt.gif);
+}
+
+.photo_list .empty_active {
+	background: << $photo_empty;
+	border: << $border;
+	height: 86px;
+	width: 86px;
+	margin: 0px;
+}
+
+
+.details_cont .preview {
+	margin: 0 auto;
+	position: relative;
+}
+
+.upload_form {
+	position: relative;
+}
+
+.upload_form .form {
+	position: absolute;
+	bottom: 5px;
+}
+
+.photo_description {
+	padding-top: 5px;
+}
+
+.password input[type=text] {
+	width: 110px;
+}
+
+.add_info_table td {
+	padding: 5px 2px;
+}
+
+.photo_info {
+    overflow: hidden;
+}
+
+.photo_info .status_cont {
+	padding: 5px;
+	float: left;
+}
+
+.photo_info .photo_auth {
+    padding: 5px;
+    float: right;
+}
+
+.photo_info .photo_auth .authed {
+    color: << $active;
+}
+
+.photo_info .approval {
+	color: << $approval;
+}
+
+.photo_info .active {
+	color: << $active;
+}
+
+.photo_info .suspended {
+	color: << $suspended;
+}
+
+.upload_photo .preloader {
+	position: absolute;
+	top: -250px;
+	width: 250px;
+}
+
+.permalink {
+	float: left;
+}
+
+.upload_photo .list_preloader {
+	width: 100%;
+	background: #AAA;
+	opacity: 0.1;
+	top: 0;
+	z-index: 100;
+	height: 100%;
+}
+
+*+html .upload_photo .list_preloader {
+	filter:alpha(Opacity=10);
+}
+
+.general_label {
+	font-style: italic;
+	font-weight: bold
+}
+
+.album_select_cont {
+	padding: 2px 0;
+	margin: 2px 0;
+}
+
+.details_cont .image_controls {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    overflow: hidden;
+}
+
+.details_cont .image_controls .rotate_cw, .details_cont .image_controls .rotate_ccw {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    float: left;
+}
+
+.details_cont .image_controls .rotate_ccw {
+    background: image(rotate_ccw.png) center no-repeat;
+}
+
+.details_cont .image_controls .rotate_cw {
+    background: image(rotate_cw.png) center no-repeat;
+}
+
+.details_cont .preview:hover .image_controls {
+    display: block;
+} 
+
+.details_cont .preview .image_controls {
+    display: none;
+}
+
+.image_in_progress {
+    background: image(image_progress.gif) center no-repeat;    
+    margin: 0 auto;    
+}

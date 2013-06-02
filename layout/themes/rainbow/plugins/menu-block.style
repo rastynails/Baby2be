@@ -1,0 +1,79 @@
+ul.menu-block {
+	background: image(menu_block.png) no-repeat right 0px;
+	height: auto;
+	padding: 0px;
+}
+ul.menu-block li.active {
+	height: 25px;
+	background: none;
+}
+ul.menu-block li.tab {
+	border-left: 1px solid #eee;
+	height: 25px;
+	padding: 0px 0px 0px 3px;
+}
+ul.menu-block li.first {
+	border-left: none;
+	padding-left: 6px;
+	background: image(menu_block_tail.gif) no-repeat left 0px;
+}
+ul.menu-block li.tab a {
+	height: 25px;
+	line-height: 25px;
+	padding: 0px 5px;
+}
+ul.menu-block li.active a,
+ul.menu-block li.active a.active {
+	color: #acacac;
+	background-color: transparent;
+}
+ul.menu-block li.tab a:hover {
+	background-color: transparent;
+	text-decoration: none;
+	color: #0799bb;
+}
+ul.menu-block li.tab a.latest {
+	padding-left: 16px;
+	background: image(menu_ico_latest.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.toprated,
+ul.menu-block li.tab a.top_rated,
+ul.menu-block li.tab a.most_popular {
+	padding-left: 12px;
+	background: image(menu_ico_top.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.featured {
+	padding-left: 16px;
+	background: image(menu_ico_feat.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.new {
+	padding-left: 15px;
+	background: image(menu_ico_new.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.online {
+	padding-left: 14px;
+	background: image(menu_ico_online.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.events {
+	padding-left: 16px;
+	background: image(menu_ico_events.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.calendar {
+	padding-left: 16px;
+	background: image(menu_ico_calendar.gif) no-repeat left 50%;
+}
+ul.menu-block li.tab a.most_commented {
+	padding-left: 19px;
+	background: image(menu_ico_discuss.gif) no-repeat left 50%;
+
+}
+ul.menu-block li.tab a.most_viewed {
+	padding-left: 19px;
+	background: image(menu_ico_viewed.gif) no-repeat left 50%;
+
+}
+
+
+
+
+

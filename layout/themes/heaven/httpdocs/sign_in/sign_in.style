@@ -1,0 +1,77 @@
+.sign_in_bg {
+	width: 965px;
+	margin: 0px auto;
+	background: image(sign_in_bg.jpg) no-repeat center 285px;
+	min-height: 683px;
+}
+.signin_signup_delimitr {
+	float: left;
+	width: 123px;
+	padding-top: 4px;
+	text-align: center;
+	font-weight: bold;
+	height: 300px;
+	background: image(sign_in_or.jpg) no-repeat center 46px;
+}
+
+.sign_in_document {
+	margin:0px;
+	width:auto;
+	font-size: 11px;
+	color: #103e6d;
+}
+.bg_stretch {
+	padding: 100px 3px 0px;
+}
+.sign_in_document .float_half_right {
+	width:549px;
+}
+.sign_in_document .float_half_left {
+	width:286px;
+}
+.sign_in_document .center_block {
+	width:100%;
+}
+.sign_in_document .sign_up_cont .input_bg,
+.sign_in_document .sign_in_cont .input_bg {
+	background: image(sign_in_input_tail.png) no-repeat;
+	padding-left: 6px;
+}
+.sign_in_document .sign_up_cont input[type=text],
+.sign_in_document .sign_up_cont input[type=password],
+.sign_in_document .sign_in_cont input[type=text],
+.sign_in_document .sign_in_cont input[type=password] {
+	background: image(sign_in_input.png) no-repeat right top;
+	border: none;
+	height: 16px;
+	padding: 7px 5px;
+}
+.sign_in_document .sign_up_cont .float_left,
+.sign_in_document .sign_up_cont .float_right {
+	width: 250px;
+}
+.sign_in_document .sign_in_cont .clearfix {
+	padding-top: 9px;
+}
+.sign_in_document .sign_in_cont .block_cap_c,
+.sign_in_document .sign_up_cont .block_cap_c {
+	padding-left: 11px;
+}
+.sign_in_document .sign_in_cont .block_body,
+.sign_in_document .sign_up_cont .block_body {
+	padding: 0px 16px 10px 18px;
+}
+.sign_in_document .sign_up_cont .block_body_c {
+	padding-top: 7px;
+}
+.sign_in_document .sign_in_cont .block_toolbar {
+	padding: 0px 18px 0px 0px;
+}
+.sign_in_document .sign_up_cont .field_agree {
+	width: 158px;
+	padding-top: 20px;
+}
+.sign_in_document .sign_up_cont p.right {
+	width: 70px;
+	padding-top: 18px;
+}

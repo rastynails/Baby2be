@@ -1,0 +1,22 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+<div style="float:left;width:70%;">
+{block_page}
+<table style="width:100%;">
+          <thead>
+          <th>Blogs Configs</th>
+            </thead>
+          <tbody>
+            <tr>
+              <td> {print_configs section='blogs.listing'} </td>
+            </tr>
+            <tr>
+                <td>{print_configs section='site.additional.tags'}</td>
+            </tr>
+          </tbody>
+        </table>
+{/block_page}
+</div>
+<br clear="all" />
+
+{include file='inc/_footer.html'}

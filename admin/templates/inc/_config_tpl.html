@@ -1,0 +1,123 @@
+{$js_checker.body}
+
+<script>
+	{$additional_js}
+</script>
+
+<form action="{$smarty.server.REQUEST_URI}" method="POST" onsubmit="return {$js_checker.name}(this)" >
+<input type="hidden" name="section" value="{$section_name}">
+{if  $exclude}
+    <input type="hidden" name="exclude" value="{$exclude}" />
+{/if}
+<table align="left" cellpadding="0" cellspacing="0" width="99%">
+	<thead>
+		{if $section_label}
+		<tr>
+			<td colspan="2">{$section_label}</td>
+		</tr>
+		{/if}
+	</thead>
+	<tbody>
+		{foreach from=$configs item=config_info}
+			{if $config_info.presentation != 'hidden'}
+				{if $config_info.presentation==text}
+					<tr class="{cycle values="tr_1, tr_2"}">
+						<td colspan="2">
+							<textarea name="{$config_info.name}" class="text_presentation">{$config_info.value}</textarea>
+						</td>
+					</tr>
+				{else}
+					<tr class="{cycle values="tr_1, tr_2"}">
+						<td class="config_description">
+							{$config_info.description}
+						</td>
+						<td class="config_value{if $config_info.invalidated} config_invalid{/if}" >
+						{if in_array($config_info.presentation, array('varchar'))}
+							<input type="text" name="{$config_info.name}" value="{$config_info.value}" class="input_text" />
+						{elseif in_array($config_info.presentation, array('float', 'integer'))}
+							<div style="float: left">
+								<input type="text" size="10" name="{$config_info.name}" class="{$config_info.presentation}_config" value="{$config_info.value}" class="input_text" />
+							</div>
+							<div class="controls" style="float: left; width: 11px; height: 20px">
+								<a class="up increase_btn"></a>
+								<a class="down decrease_btn"></a>
+							</div>
+						{elseif $config_info.presentation == checkbox}
+							<input type="checkbox" value='1' name="{$config_info.name}" {if $config_info.value}checked{/if} />
+						{elseif $config_info.presentation == select}
+							<select name="{$config_info.name}">
+							{foreach from=$config_info.values item=value_info}
+								<option value="{$value_info.value}" {if $value_info.value==$config_info.value}selected{/if}>{$value_info.label}</option>
+							{/foreach}
+							</select>
+						{elseif $config_info.presentation == 'palette'}
+						
+							<div id="{$config_info.name}_palette_cont">
+								{strip}
+									<script>
+										$jq('#{$config_info.name}_palette_cont').ready(function(){ldelim}
+											{$config_info.js_definition|strip}									
+										{rdelim});
+										
+									</script>
+								{/strip}
+								<input name="{$config_info.name}" type="hidden" value="{$config_info.value}" />
+								<div style="float:left;">
+									<center>Available:</center>
+									<select class="admissible_values" multiple="" size="6" style="width: 100px;" onclick="{$config_info.name}_palette.selectedNodeDeselect();" ></select>
+								</div>
+								
+								<div style="float:left; height: 100px; padding-top: 13px;">
+									<img style="border: 1px solid #354A5F; margin: 2px 2px 1px 2px;" src="{$smarty.const.URL_ADMIN_IMG}right.png" onclick="{$config_info.name}_palette.move2selected();"></img><br />
+									<img style="border: 1px solid #354A5F; margin: 1px 2px;" src="{$smarty.const.URL_ADMIN_IMG}left.png" onclick="{$config_info.name}_palette.move2available();"></img><br />
+									<img style="border: 1px solid #354A5F; margin: 1px 2px;" src="{$smarty.const.URL_ADMIN_IMG}up.png" onclick="{$config_info.name}_palette.moveUp();" ></img><br />
+									<img style="border: 1px solid #354A5F; margin: 1px 2px;" src="{$smarty.const.URL_ADMIN_IMG}down.png" onclick="{$config_info.name}_palette.moveDown();"></img><br />
+								</div>
+								<div style="float:left;">
+									<center>Selected:</center>
+									<select class="selected_values" multiple="" size="6" style="width: 100px; float:left;" onclick="({$config_info.name}_palette)//.availableNodeDeselect()"></select>							
+								</div>
+							</div>
+						{elseif $config_info.presentation == 'color'}
+							{strip}
+								<script>
+									$jq(document).ready(function(){ldelim}
+										{$config_info.js_definition|strip}									
+									{rdelim});
+									
+								</script>
+							{/strip}
+							<div id="pc-{$config_info.name}">
+								<span class="text_formatter">
+									<div class="color_picker_input">#<input type="text" maxlength="6" size="6" name="{$config_info.name}" /></div>
+									<a href="javascript://" id="id-{$config_info.name}" class="color_p_btn"></a>
+									<br clear="all" />
+								</span>	
+								
+								<div style="position: relative;">
+									<div class="color_picker" style="display: none;">
+										{foreach from=$config_info.colors item=color}
+											<div class="color_col" title="{$color}" style="background-color: #{$color}"></div>
+										{/foreach}
+									</div>
+								</div>
+							</div>
+						{/if}			
+						</td>
+					</tr>
+				{/if}
+			{/if}
+			{/foreach}
+		</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="save_configs" value="Save" class="submit"/>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+<br clear="all">	
+
+	

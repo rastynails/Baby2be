@@ -1,0 +1,170 @@
+.brd
+{
+    padding: 8px;
+    border-left: 1px solid white;
+}
+
+.brd_2
+{
+    padding: 0 8px;
+    height: 31px;
+    line-height: 30px;
+    border-left: 1px solid white;
+}
+
+.drag-and-drop
+{
+    margin: 0;
+    padding: 0;
+}
+
+.drag-and-drop ol
+{
+    padding-left: 32px;
+}
+
+.drag-and-drop li
+{
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid white;
+}
+
+.left-side
+{
+    float: left;
+}
+
+.right-side
+{
+    float: right;
+}
+
+.div-val
+{
+    color: transparent;
+    text-align: center;
+}
+
+.title
+{
+    background-color: #666666;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: none;
+}
+
+.clearfix:after,
+.title-clearfix:after{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.handler_1
+{
+    cursor: pointer;
+    background: none repeat scroll 0 0 #DFDFDF;
+    color: #485F75;
+}
+
+.handler_2
+{
+    cursor: pointer;
+    background: none repeat scroll 0 0 #EFEFEF;
+    color: #375D81;
+}
+
+.placeholder
+{
+    outline: 1px dashed #4183C4;
+}
+
+.mjs-nestedSortable-error
+{
+    background: #fbe3e4;
+    border-color: transparent;
+}
+
+.pro-text-hieght
+{
+    line-height: 30px;
+}
+
+.pro-center
+{
+    text-align: center;
+    height: 15px;
+}
+
+.pro-title
+{
+    background-color: #666666;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pro-hidden
+{
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+}
+
+.up,
+.down
+{
+    background-repeat: no-repeat;
+    border: 0 solid #9F9F9F;
+    display: block;
+    float: left;
+    height: 14px;
+    margin: 0 2px;
+    width: 11px;
+}
+
+.up-dis
+{
+    background-position: 2px 2px;
+    cursor: default;
+    background-image: url("../img/arr_up_i.gif");
+}
+
+.up-enb
+{
+    background-position: 2px 2px;
+    cursor: default;
+    background-image: url('../img/arr_up.gif');
+}
+
+.up-enb:hover
+{
+    background-image: url('../img/arr_up_h.gif');
+    background-position: 2px 1px;
+}
+
+.down-dis
+{
+    background-image: url("../img/arr_down_i.gif");
+    cursor: default;
+    background-position: 0 2px;
+}
+
+.down-enb
+{
+    background-image: url("../img/arr_down.gif");
+    background-position: 0 2px;
+}
+
+.down-enb:hover
+{
+    background-image: url('../img/arr_down.gif');
+    background-position: 0px 3px;
+}

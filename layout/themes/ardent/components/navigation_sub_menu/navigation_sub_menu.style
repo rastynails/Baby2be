@@ -1,0 +1,10 @@
+.submenu_wrap {
+	background-color: #001636;
+}
+
+.submenu_wrap .submenu {
+	width: 1000px;
+	margin: 0px auto;
+	border: none;
+	padding: 0px;
+}

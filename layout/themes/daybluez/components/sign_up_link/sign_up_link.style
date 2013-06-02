@@ -1,0 +1,17 @@
+.link_container {
+	background: transparent;
+}
+.sign_up_link .block_cap_c {
+	min-height: 6px;
+	padding: 0px;
+}
+.sign_up_link .block_cap_c br {
+	height: 1px;
+	line-height: 1px;
+}
+.sidebar .sign_up_link .block_body {
+	padding: 0px;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #516a69 #8ba7a5 #8aa6a4 #516a69;
+} 

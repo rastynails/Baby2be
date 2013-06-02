@@ -1,0 +1,63 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+{literal}
+<script>
+	jQuery(function(){
+		
+		jQuery('#checkall').click(function(){
+			  jQuery('.flist_checkbox:checkbox').attr('checked', this.checked);
+		});
+	});
+</script>
+{/literal}
+{block_page}
+
+<form action="{$smarty.const.URL_ADMIN}ads_binding.php" method="POST" >
+<table id="ads_binding_table" cellspacing="1" align="center" class="table" width="100%">
+	<thead>
+		<tr>
+			<th id="ads_binding_table_head_title_cell" colspan="20">Ads Bind</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr class="config_section">
+			<td id="ads_binding_table_head_left_cell">Document\Ads Position</td>
+		{foreach from=$positions item='position'}
+			<td id="ads_binding_table_head_position_{$position.id}_cell" align="center">
+				<div class="position_name">{$position.name}</div>
+				<div class="position_img_container">
+					<img src="{$smarty.const.URL_ADMIN_IMG}ads_pos_{$position.position_id}.gif" width="40" height="40" />
+				</div>
+			</td>
+		{/foreach}
+		</tr>
+		{capture name=highlight}
+		{highlight}
+		{/capture}
+		{print_doc documents=$doc_structure positions=$positions highlight=$smarty.capture.highlight}
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td id="ads_binding_table_bottom_cell" align="right" colspan="20">
+				<div style="float: left"><input type="checkbox" id="checkall" /> Check All</div>
+				<b>With selected: </b>
+			 	<select id="ads_binding_table_template_select" name="template_set_id" />
+		 		{foreach from=$all_template_sets item='template_set'}
+		 			<option value="{$template_set.template_set_id}">{$template_set.name}</option>
+		 		{/foreach}
+			 	</select>
+			 	<input id="ads_binding_table_set_template_btn" type="submit" name="set_template" value="Assign set" class="submit" /> |
+			 	<input id="ads_binding_table_empty_btn" type="submit" name="empty" value="Empty" class="submit" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

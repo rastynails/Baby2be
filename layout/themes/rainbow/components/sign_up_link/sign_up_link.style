@@ -1,0 +1,30 @@
+.link_container {
+	background: transparent;
+}
+.sign_up_link .block_cap {
+	border-bottom: none;
+	background-image: image(block_cap_l_w.png);
+}
+.sign_up_link .block_cap_r {
+	background-image: image(block_cap_r_w.png);
+}
+.sign_up_link .block_cap_c {
+	height: 6px;
+	min-height: 0px;
+	padding: 0px;
+	background-image: image(block_cap_c_w.png);
+}
+.sign_up_link .block_cap_c br {
+	height: 1px;
+	line-height: 1px;
+}
+.sign_up_link .block_body {
+}
+.sidebar .sign_up_wrap {
+	position: absolute;
+	top: -66px;
+	width: 190px;
+}
+.sidebar .sign_up_link {
+	position: relative;
+}

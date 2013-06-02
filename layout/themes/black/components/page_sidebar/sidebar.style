@@ -1,0 +1,49 @@
+/* Sidebar CSS Styles */
+
+.sidebar{
+	float: right;
+	margin-top: 14px;
+	padding-right: 4px;
+}
+
+.sidebar a:link,
+.sidebar a:visited
+{
+}
+
+.sidebar .block
+{
+	margin-bottom: 10px;
+	background:#5c5c5c;
+	border: none;
+}
+
+.sidebar .block_toolbar
+{
+	background:#333;
+	border: none;
+}
+
+.sidebar ul.simple li {
+	color:#555555;
+}
+
+.sidebar ul.simple li a b{
+	color:#000;
+}
+
+.sidebar .block_cap
+{
+	height: 18px;
+}
+
+.sidebar .block_cap h3
+{
+ 	font-family: << $base_font;
+	font-size: 10px;
+}
+
+.sidebar input.text
+{
+	width: 93%;
+}

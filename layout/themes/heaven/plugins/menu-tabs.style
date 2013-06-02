@@ -1,0 +1,188 @@
+.main_menu ul.menu-tabs {
+	height: 40px;
+}
+.main_menu ul.menu-tabs li.tab a {
+	line-height: 35px;
+	padding: 0px 2px 5px 20px;
+}
+.main_menu ul.menu-tabs li.tab a span {
+	line-height: 35px;
+	padding: 0px 6px 0px 4px;
+}
+ul.menu-tabs {
+	background: image(menu.png) no-repeat 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+ul.menu-tabs li.tab a {
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+}
+ul.menu-tabs li.tab a span {
+	border-right: 1px solid #37628f;
+}
+ul.menu-tabs li.last a span {
+	border-right: none;
+}
+ul.menu-tabs li.tab a,
+ul.menu-tabs li.tab a span,
+ul.menu-tabs li.tab a.active span,
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span {
+	background: none;
+}
+ul.menu-tabs li.tab a.active,
+ul.menu-tabs li.tab a:hover {
+	color: #409df1;
+	background: none;
+}
+ul.menu-tabs li.tab a.memberhome,
+ul.menu-tabs li.tab a.index {
+	background: image(main_menu_ico_home.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.active a.memberhome,
+ul.menu-tabs li.tab a.memberhome:hover,
+ul.menu-tabs li.active a.index,
+ul.menu-tabs li.tab a.index:hover {
+	background: image(main_menu_ico_home_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.my_profile {
+	background: image(main_menu_ico_profile.png) no-repeat 4px 13px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.my_profile,
+ul.menu-tabs li.tab a.my_profile:hover {
+	background: image(main_menu_ico_profile_active.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.tab a.main_searc {
+	background: image(main_menu_ico_search.png) no-repeat 4px 12px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.main_searc,
+ul.menu-tabs li.tab a.main_searc:hover {
+	background: image(main_menu_ico_search_active.png) no-repeat 4px 12px;
+}
+ul.menu-tabs li.tab a.members {
+	background: image(main_menu_ico_members.png) no-repeat 4px 10px;
+	padding-left: 16px;
+}
+ul.menu-tabs li.active a.members,
+ul.menu-tabs li.tab a.members:hover {
+	background: image(main_menu_ico_members_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.photo {
+	background: image(main_menu_ico_photo.png) no-repeat 4px 11px;
+}
+ul.menu-tabs li.active a.photo,
+ul.menu-tabs li.tab a.photo:hover {
+	background: image(main_menu_ico_photo_active.png) no-repeat 4px 11px;
+}
+ul.menu-tabs li.tab a.music {
+	background: image(main_menu_ico_music.png) no-repeat 4px 13px;
+	padding-left: 16px;
+}
+ul.menu-tabs li.active a.music,
+ul.menu-tabs li.tab a.music:hover {
+	background: image(main_menu_ico_music_active.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.tab a.video {
+	background: image(main_menu_ico_video.png) no-repeat 4px 9px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.video,
+ul.menu-tabs li.tab a.video:hover {
+	background: image(main_menu_ico_video_active.png) no-repeat 4px 9px;
+}
+ul.menu-tabs li.tab a.blogs {
+	background: image(main_menu_ico_blogs.png) no-repeat 4px 12px;
+}
+ul.menu-tabs li.active a.blogs,
+ul.menu-tabs li.tab a.blogs:hover {
+	background: image(main_menu_ico_blogs_active.png) no-repeat 4px 12px;
+}
+ul.menu-tabs li.tab a.forum {
+	background: image(main_menu_ico_forum.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.active a.forum,
+ul.menu-tabs li.tab a.forum:hover {
+	background: image(main_menu_ico_forum_active.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.tab a.chat {
+	background: image(main_menu_ico_chat.png) no-repeat 4px 13px;
+	padding-left: 19px;
+}
+ul.menu-tabs li.active a.chat,
+ul.menu-tabs li.tab a.chat:hover {
+	background: image(main_menu_ico_chat_active.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.tab a.groups {
+	background: image(main_menu_ico_groups.png) no-repeat 4px 11px;
+	padding-left: 19px;
+}
+ul.menu-tabs li.active a.groups,
+ul.menu-tabs li.tab a.groups:hover {
+	background: image(main_menu_ico_groups_active.png) no-repeat 4px 11px;
+}
+ul.menu-tabs li.tab a.buy_membership {
+	background: image(main_menu_ico_subscribe.png) no-repeat 4px 10px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.buy_membership,
+ul.menu-tabs li.tab a.buy_membership:hover {
+	background: image(main_menu_ico_subscribe_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.main_sign_in_item {
+	background: image(main_menu_ico_signin.png) no-repeat 4px 11px;
+	padding-left: 19px;
+}
+ul.menu-tabs li.active a.main_sign_in_item,
+ul.menu-tabs li.tab a.main_sign_in_item:hover {
+	background: image(main_menu_ico_signin_active.png) no-repeat 4px 11px;
+}
+ul.menu-tabs li.tab a.main_join_profile_item {
+	background: image(main_menu_ico_join.png) no-repeat 4px 10px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.main_join_profile_item,
+ul.menu-tabs li.tab a.main_join_profile_item:hover {
+	background: image(main_menu_ico_join_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.events {
+	background: image(main_menu_ico_events.png) no-repeat 4px 10px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.events,
+ul.menu-tabs li.tab a.events:hover {
+	background: image(main_menu_ico_events_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.games {
+	background: image(main_menu_ico_games.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.active a.games,
+ul.menu-tabs li.tab a.games:hover {
+	background: image(main_menu_ico_games_active.png) no-repeat 4px 13px;
+}
+ul.menu-tabs li.tab a.classifieds {
+	background: image(main_menu_ico_class.png) no-repeat 4px 10px;
+	padding-left: 19px;
+}
+ul.menu-tabs li.active a.classifieds,
+ul.menu-tabs li.tab a.classifieds:hover {
+	background: image(main_menu_ico_class_active.png) no-repeat 4px 10px;
+}
+ul.menu-tabs li.tab a.mailbox {
+	background: image(main_menu_ico_mailbox.png) no-repeat 4px 11px;
+	padding-left: 18px;
+}
+ul.menu-tabs li.active a.mailbox,
+ul.menu-tabs li.tab a.mailbox:hover {
+	background: image(main_menu_ico_mailbox_active.png) no-repeat 4px 11px;
+}
+ul.menu-tabs li.tab a.polls {
+	background: image(main_menu_ico_polls.png) no-repeat 4px 10px;
+	padding-left: 17px;
+}
+ul.menu-tabs li.active a.polls,
+ul.menu-tabs li.tab a.polls:hover {
+	background: image(main_menu_ico_polls_active.png) no-repeat 4px 10px;
+}

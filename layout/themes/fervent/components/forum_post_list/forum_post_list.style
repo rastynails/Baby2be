@@ -1,0 +1,45 @@
+.post_list
+{
+	margin-bottom :10px;
+}
+table.post_list tr td{ background: #fae2cd; }
+
+.forum_thumb
+{
+	width: 70px;
+	text-align: center;
+	padding: 20px 5px 5px;
+	vertical-align: top;
+}
+
+.time,
+.system_buttons
+{
+	text-align: right;
+	padding: 4px 2px;
+}
+
+.report
+{
+	margin-left: 2px;
+	float: right;
+}
+
+.topic_is_closed << .no_content
+{
+	color: << $suspended;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.topic_notify
+{
+	float: right;
+	margin-bottom:15px;
+}
+
+#page_canvas a.forum_pm {
+    background: transparent image(small_mailbox.png) no-repeat left;
+    padding: 2px 0px 2px 20px;
+    text-decoration: none;
+}

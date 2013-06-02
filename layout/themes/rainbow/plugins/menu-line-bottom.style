@@ -1,0 +1,13 @@
+ul.menu-line-bottom {
+	background: none;
+	font-size: 11px;
+	color: #fff;
+}
+ul.menu-line-bottom a {
+	font-size: 11px;
+	color: #fff;
+}
+ul.menu-line-bottom a:hover,
+body #footer ul.menu-line-bottom a.active {
+	color:#5c5d60;
+}

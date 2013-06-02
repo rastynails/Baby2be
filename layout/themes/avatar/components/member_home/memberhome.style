@@ -1,0 +1,8 @@
+
+.memberhome .float_half_left {
+	width:53%;
+}
+
+.memberhome .float_half_right{
+	width:46%
+} 

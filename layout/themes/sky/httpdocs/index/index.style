@@ -1,0 +1,12 @@
+.quick_search .block_body,
+.quick_search .block_cap,
+.quick_search .block_cap_r,
+.quick_search .block_cap_c {
+	background: none;
+	border: none;
+	color: #fff;
+}
+
+.quick_search {
+	margin: 20px 15px 10px 15px;
+}

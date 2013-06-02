@@ -1,0 +1,361 @@
+{* Admin Language Keys Template *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+<div style="width: 57%; float: left">
+
+<form method="post">
+<input name="command" type="hidden" value="save_configs" />
+<table cellspacing="1" align="left">
+
+	<thead>
+		<tr><th id="languages_tbl_head_cell" colspan="4">Languages</th></tr>
+		<tr>
+			<td id="languages_tbl_subhead_name_cell">Name</td>
+			<td id="languages_tbl_subhead_name_cell">Abbr</td>
+			<td id="languages_tbl_subhead_missing_labels_cell">Missing values</td>
+			<td id="languages_tbl_subhead_default_cell">Default</td>
+			<td id="languages_tbl_subhead_enabled_cell">Enabled</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		{foreach from=$languages key='id' item='lang'}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><a class="lang_href" href="?lang_id={$lang.lang_id}">{$lang.label}</a></td>
+			<td><a class="lang_href" href="?lang_id={$lang.lang_id}">{$lang.abbrev}</a></td>
+			<td align="right">
+			{if $lang.miss_values}
+				<a class="red" href="{$smarty.const.URL_ADMIN}language_search.php?command=missing&language_id={$lang.lang_id}">{$lang.miss_values}</a>
+			{else}
+				<i class="inactive">none</i>
+			{/if}
+			</td>
+			<td align="center">
+				<input name="def_lang_id" type="radio" class="r_ch_lang" value="{$lang.lang_id}"{if $lang.lang_id == $lang_configs} checked="checked"{/if} />
+			</td>
+			<td align="center">
+				<input id="lang_statuses_{$id}" name="lang_statuses[{$id}]" type="checkbox" class="r_ch_lang" value="1"{if $lang.enabled == 1} checked="checked"{/if} />
+			</td>
+		</tr>
+		{/foreach}
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td colspan="5">
+				<input id="languages_settings_save_btn" type="submit" class="submit" value="Save" />
+			</td>
+		</tr>
+	</tfoot>
+	
+</table>
+</form>
+</div>
+
+<div style="float: right; width: 40%; padding-top:22px">
+<form method="post" onsubmit="return checkLangName()">
+<input name="command" type="hidden" value="add_new_lang" />
+<table cellspacing="1">
+	<thead>
+		<tr>
+			<td id="new_language_tbl_head_cell" colspan="2">
+				<label for="new_language_input">New language</label>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td>Label</td><td><input id="new_language_input" name="lang_name" type="text" class="input_text" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td>Abbreviation</td><td><input id="new_language_abbr" name="lang_abbr" type="text" class="input_text" /></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr><td colspan="2"><input id="new_language_add_btn" type="submit" class="submit" value="Add" /></td></tr>
+	</tfoot>
+</table>
+</form>
+</div>
+
+<br clear="all" />
+{/block_page}
+
+
+{if $selected_language}
+{block_page}
+<table cellspacing="1" align="left">
+	<thead>
+		<tr><th id="selected_language_tbl_head_cell" colspan="2">{$selected_language.label} language</th></tr>
+		<tr><td id="selected_language_tbl_subhead_cell" colspan="2">Actions</td></tr>
+	</thead>
+	
+	<tbody>
+		<form method="POST">
+			<input name="command" type="hidden" value="rename_lang" />
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td id="selected_language_rename_input_cell">
+					<input id="selected_language_rename_input" name="lang_name" type="text" class="input_text" value="{$selected_language.label}" />
+				</td>
+				<td id="selected_language_rename_btn_cell">
+					<input id="selected_language_rename_btn" type="submit" class="submit" value="Rename" />
+				</td>
+			</tr>
+		</form>
+	</tbody>
+	<tfoot>		
+		<tr>
+			<td colspan="2">
+				<input id="selected_language_delete_btn" type="button" class="submit" value="Delete language" onclick="deleteLanguage( '{$selected_language.id}', '{$selected_language.label}' )" />
+			</td>
+		</tr>		
+	</tfoot>
+</table>
+{/block_page}
+{/if}
+
+{block_page}
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Language autoselect
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input id="enableAutoSel" type="checkbox" {if $auto_sel} checked="checked" {/if} value="1" />&nbsp;Enable
+                </td>
+            </tr>
+        </thead>
+    </table>
+
+    <table id="autoSelPanel" style="display: none;">
+        <tbody>
+            <tr>
+                <td colspan="3">
+                    <select name="languages">
+                        <option value="0" selected="selected">select language</option>
+                        {foreach from=$languages item='lang'}
+                            <option value="{$lang.lang_id}">{$lang.label}</option>
+                        {/foreach}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-caption">Default countries available for selected language</td>
+                <td></td>
+                <td class="td-caption">Optional countries for the default list of available countries</td>
+            </tr>
+            <tr>
+                <td>
+                    <ol id="fixedCountry" class="drag-and-drop country-list">
+                    </ol>
+                </td>
+                <td style="text-align: center;">
+                    <ol style="display: none">
+                        <li class="template">
+                            <div class="country">
+                                <input type="hidden" name="code" />
+                                <input type="checkbox" />&nbsp;<span></span>
+                            </div>
+                        </li>
+                    </ol>
+                    <div>
+                        <input type="button" name="move-to-left-all" value="&lt;&lt;" /><br /><br />
+                        <input type="button" name="move-to-left" value="&nbsp;&lt;&nbsp;" /><br /><br />
+                        <input type="button" name="move-to-right" value="&nbsp;&gt;&nbsp;" /><br /><br />
+                        <input type="button" name="move-to-right-all" value="&gt;&gt;" />
+                    </div>
+                </td>
+                <td>
+                    <ol id="freeCountry" class="drag-and-drop country-list">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{/block_page}
+
+{block_page}
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">
+				Language tools
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td valign="top">
+				<form action="{$smarty.const.URL_ADMIN}langs_manage.php" method="POST" >
+				
+				<table width="100%">
+					<thead>
+						<tr>
+							<td>
+								Generate language dump file
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<select name="language_id">
+									<option value="0">select language</option>
+									{foreach from=$_all_lang_info_arr item=lang}
+										<option value="{$lang->lang_id}">{$lang->label}</option>
+									{/foreach}
+								</select>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<input type="submit" name="generate_dump" value="Generate dump" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				
+				</form>
+
+				{if $lang_dumps}
+				<br class="clr" />
+
+				<form action="{$smarty.const.URL_ADMIN}langs_manage.php" method="POST" >
+				
+				<table width="100%">
+					<thead>
+						<tr>
+							<td>
+								Dump manager
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<select name="dump_filename">
+									<option value="0">select file</option>
+									{foreach from=$lang_dumps item=dump_file}
+										<option value="{$dump_file}">{$dump_file}</option>
+									{/foreach}
+								</select>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<input type="submit" name="delete_dump" value="Delete dump" class="submit" />
+								<input type="submit" name="download_dump" value="Download dump" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				
+				</form>
+				{/if}
+			</td>
+			<td width="50%" valign="top">
+			<form enctype="multipart/form-data" action="{$smarty.const.URL_ADMIN}langs_manage.php" method="POST" >
+				
+				<table width="100%">
+					<thead>
+						<tr>
+							<td>
+								Upload dump file
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="file" name="upload_lang_dump" />
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<input type="submit" name="upload_dump" value="Upload" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				
+				</form>
+			<br />
+				<form action="{$smarty.const.URL_ADMIN}langs_manage.php" method="POST" >
+				
+				<table width="100%">
+					<thead>
+						<tr>
+							<td>
+								Import
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<select name="dump_file">
+									<option value="0">select file</option>
+									{foreach from=$lang_dumps item=dump_file}
+										<option value="{$dump_file}">{$dump_file}</option>
+									{/foreach}
+								</select>
+								<br />
+								<br />
+								<input type="radio" name="import_type" id="insert_type" value="insert" checked onclick="manageLanguageImportType( 'insert' );" /> <label for="insert_type">insert as a new language</label>
+								<table>
+									<tr>
+										<td>Lable</td><td><input type="text" id="new_lang_label" name="new_lang_label" class="input_text" /></td>
+									</tr>
+									<tr>
+										<td>Abbreviation</td><td><input type="text" id="new_lang_abr" name="new_lang_abr" maxlength="5" size="4" class="input_text" /></td>
+									</tr>
+								</table>
+
+
+
+								<input type="radio" name="import_type" id="update_type" value="update" onclick="manageLanguageImportType( 'update' );" /> <label for="update_type">update existing language </label>
+								<select name="edit_lang_id" id="updated_lang_id" disabled>
+									{foreach from=$_all_lang_info_arr item=lang}
+										<option value="{$lang->lang_id}">{$lang->label}</option>
+									{/foreach}
+								</select>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<input type="submit" name="import_lang" value="Import language" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				
+				</form>
+
+				<br />
+
+			</td>
+		</tr>
+	</tbody>
+</table>
+{/block_page}
+
+{block_page}
+    {print_configs section='site.additional.profile' exclude='allow_lang_switch' caption='Additional Settings'}
+{/block_page}
+
+{include file='inc/_footer.html'}
+

@@ -1,0 +1,58 @@
+{* Admin interface: Menu items manage *}
+{include file='inc/_header.html'}
+<div class="pr_top_add_field">
+	<a href="{$smarty.const.URL_ADMIN}nav_doc_create.php">Create New Document</a>
+</div>
+
+{block_page}
+                
+<table width="100%" cellpadding="0" cellspacing="0" border="0" id="nav_doc">
+	<thead>
+		<th colspan="5" id="nav_doc_cap" >
+			Documents Hierarchy (Sitemap)
+		</th>
+		<tr>
+			<td width="10px">
+			
+			</td>
+			<td width="200px" align="center" id="nav_doc_name_cap" >
+				Name
+			</td>
+			<td align="center" id="nav_doc_guest_available_cap" >
+				Available for Guest
+			</td>
+			<td align="center" id="nav_doc_member_available_cap" >
+				Available for Member
+			</td>
+			<td id="nav_doc_status_cap" >
+				Active
+			</td>
+		</tr>
+	</thead>
+	<tbody id="menu_sort">
+	<form action="{$smarty.const.URL_ADMIN}nav_doc.php" method="POST" >
+	{capture name=light}
+		{highlight}
+	{/capture}
+	{print_documents documents=$documents highlight=$smarty.capture.light}	
+	<tfoot>	
+		<tr>
+			{if $not_base_exist}
+				<td colspan="2">
+					<input type="submit" class="submit" name="delete" value="Delete Items" onclick="return CheckDeleteDocInput( document.forms[0] );" />
+				</td>
+			{/if}
+			<td colspan="20" align="right">
+				<input type="submit" class="submit" name="save" value="Save permissions" />
+			</td>
+		</tr>
+	</tfoot>
+	</form>
+	</tbody>
+</table>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

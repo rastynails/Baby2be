@@ -1,0 +1,122 @@
+{* admin Member Reports *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+	<table width="42%">
+		<thead>
+			<tr><td colspan="2" id="view_profile_summary_cap" >Reported member: <b><a href="profile.php?profile_id={$full_profile_info.profile_id}" title="administrate profile">{$full_profile_info.username}</a></b> &nbsp;{$full_profile_info.age} y/o</td></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td align="left">
+					<div id="profile_thumb_content">
+						<img src="{$full_profile_info.thumb_href}" />
+					</div>
+				</td>
+				<td valign="top" align="left">
+					{if $full_profile_info.country}
+						<div class="profile_card_item" id="view_profile_location_info" >
+							from 
+							<b>{$full_profile_info.country}</b>
+							<b>{$full_profile_info.state}</b>
+							<b>{$full_profile_info.city}</b>
+							{if $full_profile_info.zip}
+							, <b>{$full_profile_info.zip}</b>
+							{/if}
+						</div>
+					{/if}
+					<div class="profile_card_item" id="view_profile_status_info" >
+						Status: <b>{$full_profile_info.status}</b>						
+						{if $_profile.activity_info.online}
+							<label class="label_profile_status_active" style="padding: 0px;">online now</label>
+						{elseif $_profile.activity_info.item}
+							{$_profile.activity_info.item_num} {text key=activity_`$_profile.activity_info.item` prefix='profile'}</td>
+						{/if}
+						<br />
+						Activity:
+							{if $full_profile_info.activity_info.online}
+								<b>online now</b>
+							{elseif $full_profile_info.activity_info.item}
+								<b>{$full_profile_info.activity_info.item_num} {text key=active_ago_`$full_profile_info.activity_info.item` section='i18n.date'}</b>
+							{else}
+								<b>hided</b>
+							{/if}
+						</div>
+					<div class="profile_card_item" id="view_profile_join_date_info" >
+						Join date: <b>{$full_profile_info.join_stamp|date_format:"%D"}</b>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<br />								
+	{foreach from=$reports item='type'}
+	<form action="" method="post" id="reports_form_{$type.type}">
+	<input type="hidden" name="command" />
+	<input type="hidden" name="content" value="{$type.type}" />
+	
+	<table cellspacing="1" width="100%">
+	<thead>
+		<tr><th colspan="4"><b>Reports type: {$type.type}</b></th></tr>
+		<tr>
+			<td width="4%">&nbsp;</td>
+			<td>Content</td>
+			<td width="33%">Reports</td>
+			<td width="10%">Date</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$type.reports item='rep'}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><input type="checkbox" name="reports[]" value="{$rep.entity_id}" /></td>
+			<td>
+			{if $type.type eq 'profile'}
+				<a href="profile.php?profile_id={$rep.owner_id}">view profile</a>
+			{elseif $type.type eq 'video'}
+				<iframe id="profile_media_frame" class="profile_photo_frame" style="width: 425px; height: 344px" src="frame_reported_video.php?profile_id={$rep.owner_id}&media_id={$rep.entity_id}"></iframe>
+			{elseif $type.type eq 'blog'}
+				<a href="{$smarty.const.SITE_URL}member/blog_post_view.php?postId={$rep.entity_id}">{$rep.content|truncate:180}</a>
+			{elseif $type.type eq 'photo'}
+				<img src="{$smarty.const.URL_USERFILES}preview_{$rep.owner_id}_{$rep.entity_id}_{$rep.index}.jpg" />
+			{elseif $type.type eq 'forum'}
+				<a href="{$smarty.const.SITE_URL}forum/topic.php?topic_id={$rep.forum_topic_id}#{$rep.entity_id}">{$rep.content|truncate:180}</a>
+			{elseif $type.type eq 'classifieds'}
+				<a href="{$smarty.const.SITE_URL}classifieds/item.php?item_id={$rep.forum_topic_id}{$rep.entity_id}">{$rep.content|truncate:180}</a>
+			{elseif $type.type eq 'message'}
+				{$rep.content}
+			{/if}
+			</td>
+			<td style="vertical-align:top">{$type.type} reported <b>{$rep.num}</b> time{if $rep.num > 1 }s{/if}:<br /><br />
+			{foreach from=$rep.reasons item='reason'}
+			<a href="profile.php?profile_id={$reason.reporter_id}"><b>{$reason.username}</b></a>: {$reason.reason}<br />
+			{/foreach}
+			
+			
+			</td>
+			<td align="center">{$rep.ts|date_format:"%b %e %y, %H:%M"}</td>
+		</tr>
+		{/foreach}
+		</tbody>
+		<tfoot>
+		<tr>
+			<td colspan="4">
+				{if $type.type eq 'profile' || $type.type eq 'blog' || $type.type eq 'forum' || $type.type eq 'message' || $type.type eq 'classifieds'}
+					<input type="button" class="submit" value="Dismiss selected reports" onclick="checkDismiss('{$type.type}')" />					
+				{elseif $type.type == 'photo' || $type.type eq 'video'}
+					With selected:
+					<input type="button" class="submit" value="Delete" onclick="checkDelete('{$type.type}')" />
+					<input type="button" class="submit" value="Suspend" onclick="checkSuspend('{$type.type}')" />
+					<input type="button" class="submit" value="Dismiss Report" onclick="checkDismiss('{$type.type}')" />
+				{/if}
+			</td>
+		</tr>
+		</tfoot>
+</table>
+</form>
+<br />
+{/foreach}
+{/block_page}
+
+{include file='inc/_footer.html'}

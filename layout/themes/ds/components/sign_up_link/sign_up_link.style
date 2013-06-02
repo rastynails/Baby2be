@@ -1,0 +1,7 @@
+.link_container {
+	background-color: #626262;
+	font-size: << $large_font;
+	font-weight: bold;
+	padding: 13px;	
+	text-align: center;
+}

@@ -1,0 +1,29 @@
+/* Comment list CSS */
+
+.comment_list .list_thumb {
+	width: 40px;
+	argin-right: -40px;
+}
+
+.comment_list .list_block {
+	margin-left: 40px;
+}
+
+.comment_list .list_info {
+	height: 32px;
+}
+
+.del_link {
+	text-align: right;
+	float: right;
+	width: 20%;
+}
+
+.comment_stat {
+	float: left;
+	width: 78%;
+}
+
+.item_list .list_thumb {
+	overflow: hidden;
+}

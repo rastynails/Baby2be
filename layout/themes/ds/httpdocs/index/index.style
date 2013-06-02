@@ -1,0 +1,22 @@
+.index_sp_events a:hover,
+.index_sp_profiles a:hover,
+.index_sp_photos a:hover,
+.index_sp_blogs a:hover{
+	text-decoration: none;
+}
+
+.index_sp_events a:hover {
+	background: image(index_a_hover.png) no-repeat 34px 184px;
+}
+
+.index_sp_profiles a:hover {
+	background: image(index_a_hover.png) no-repeat 2px 173px;
+}
+
+.index_sp_photos a:hover {
+	background: image(index_a_hover.png) no-repeat 11px 182px;
+}
+
+.index_sp_blogs a:hover {
+	background: image(index_a_hover.png) no-repeat 11px 182px;
+}

@@ -1,0 +1,13 @@
+.menu-list a.active,
+.menu-list a.active:hover {
+	background: none;
+	font-weight: normal;
+}
+.menu-list a,
+.menu-list a:hover {
+	color: #3c77ad;
+	font-size: 11px;
+	text-decoration: none;
+	font-weight: bold;
+	background: none;
+}

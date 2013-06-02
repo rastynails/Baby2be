@@ -1,0 +1,8 @@
+.submenu 
+{
+	border-bottom:1px solid #EEEEEE;
+	font-size:11px;
+	padding:10px 0;
+	text-align:center;
+}
+

@@ -1,0 +1,15 @@
+.link_container {
+	background: #000;
+}
+#page_canvas .link_container a {
+	color: #fff;
+}
+.sign_up_link .block_body,
+.sign_up_link .block_body_r,
+.sign_up_link .block_body_c {
+	padding: 0px;
+	background: none;
+}
+.sign_up_link .block_bottom_c {
+	height: 0px;
+}

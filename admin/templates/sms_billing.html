@@ -1,0 +1,154 @@
+{* Admin Payment Providers Template *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+<table>
+	<thead>
+		<tr><th>SMS Payment Providers</th></tr>
+	</thead>
+</table>
+<br />	
+
+<div style="width: 49%; float: left">
+	{foreach from=$provider_arr item='provider'}
+		<div class="sms_prov{if $provider.active}_active{/if}">
+			<div class="sms_prov_header{if $provider.active}_active{/if}">{$provider.description}</div>
+		
+			<div id="provider_{$provider.sms_provider_id}">
+				<table width="100%">
+				<tbody>
+					<tr class="tr_1">
+						<td width="25%"><b>Status</div></td>
+						<td>
+							<div style="float: left; padding: 2px">{if $provider.active}Active{else}Inactive{/if}</div>
+							<div style="float: right">
+								<form method="post" action="">
+									<input type="hidden" name="command" value="{if $provider.active}disable{else}activate{/if}" />
+									<input type="hidden" name="provider_id" value="{$provider.sms_provider_id}" />
+									<input type="hidden" name="status" value="{if $provider.status=='active'}active{else}inactive{/if}" />
+									<input type="submit" value="{if $provider.active}Disable{else}Activate{/if}" />
+								</form>
+							</div>
+						</td>
+					</tr>
+					<form id="provider_form_{$provider.sms_provider_id}" action="" method="post">
+					<input type="hidden" name="command" value="save" />
+					<input type="hidden" name="provider_id" value="{$provider.sms_provider_id}" />
+					
+					<tr class="tr_2">
+						<td style="vertical-align: top; font-weight: bold">Label</td>
+						<td>{edit_lang_values_btn section='sms_billing.providers' key=$provider.sms_provider_id}</td>
+					</tr>
+					<tr class="tr_1">
+						<td><b>{$provider.mk_title}</b></td>
+						<td><input type="text" value="{$provider.merchant_key}" name="merchant_key" /></td>
+					</tr>
+					<tr class="tr_2">
+						<td><b>Fields</b></td>
+						<td>
+							{foreach from=$provider.fields item='field'}
+								<div class="sms_field_desc">{$field.description}:</div>
+									{if $field.type == 'text'}
+										<input id="field_{$provider.sms_provider_id}_{$field.field_name}" type="text" name="fields[{$field.field_name}]" value="{$field.value}" />
+									{elseif $field.type == 'password'}
+										<input id="field_{$provider.sms_provider_id}_{$field.field_name}" type="password" name="fields[{$field.field_name}]" value="{$field.value}" />
+									{elseif $field.type == 'checkbox'}
+										<input type="hidden" name="fields[{$field.field_name}]" value="" />
+										<input id="field_{$provider.sms_provider_id}_{$field.field_name}" type="checkbox" name="fields[{$field.field_name}]" {if $field.value}checked="checked"{/if} />
+									{elseif $field.type == 'select'}
+										<select id="field_{$provider.sms_provider_id}_{$field.field_name}" name="fields[{$field.field_name}]">
+										{foreach from=$field.values item='value'}
+											<option {if $value==$field.value}selected="selected"{/if}>{$value.label}</option>
+										{/foreach}
+										</select>
+									{/if}
+								<br />
+							{/foreach}
+						</td>
+					</tr>
+					<tr><td colspan="2" style="padding: 3px; text-align: right"><input type="submit" value="Save" /></td></tr>
+					</form>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	<br /><br />
+	{/foreach}
+	<br clear="all" />
+</div>
+
+<div style="float: right; width: 49%"> 
+<table width="100%">
+<form method="post">
+<input type="hidden" name="command" value="save_services" />
+	<thead>
+		<tr><th colspan="4">SMS Services</th></tr>
+		<tr>
+			<td>Service name</td>
+			<td>Service cost</td>
+			<td>Active</td>
+			<td width="15">Edit</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$service_arr item='service'}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td>{$service.description}</td>
+			<td><input type="text" name="services[{$service.service_key}][cost]" value="{$service.cost}" /></td>
+			<td><input type="checkbox" name="services[{$service.service_key}][active]" value="{$service.active}" class="flist_checkbox" {if $service.active}checked="checked"{/if}></td>
+			<td style="padding: 3px"><a href="{$smarty.const.URL_ADMIN}sms_billing.php?service={$service.service_key}" class="open_forum_edit_cont" style="margin: 0 auto; float: none"></td>		
+		</tr>
+	{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4"><input type="submit" value="Save" /></td>
+		</tr>
+	</tfoot>
+</form>
+</table>
+<br />
+<br />
+
+{if $service_info && $services_fields} 
+<table width="100%">
+<form method="post" action="{$smarty.const.URL_ADMIN}sms_billing.php?service={$service_info.service_key}">
+<input type="hidden" name="command" value="save_services_fields" />
+	<thead>
+		<tr><th colspan="4">SMS service "{$service_info.description}" configs</th></tr>
+		<tr>
+			<td>Config</td>
+			<td>Value</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$services_fields item='sf'}
+			<tr class="{cycle values=tr_1,tr_2}">
+				<td>{$sf.description}</td>
+				<td>
+				{if $sf.type == 'text'}
+					<input id="field_{$sf.sms_provider_id}_{$sf.field_name}" type="text" name="sf[{$sf.field_name}]" value="{$sf.value}" />
+				{elseif $sf.type == 'password'}
+					<input id="field_{$sf.sms_provider_id}_{$sf.field_name}" type="password" name="sf[{$sf.field_name}]" value="{$sf.value}" />
+				{elseif $sf.type == 'checkbox'}
+					<input type="hidden" name="sf[{$sf.field_name}]" value="" />
+					<input id="field_{$sf.sms_provider_id}_{$sf.field_name}" type="checkbox" name="sf[{$sf.field_name}]" {if $sf.value}checked="checked"{/if} />
+				{/if}
+				</td>
+			</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr><td colspan="2"><input type="submit" value="Save" /></td></tr>
+	</tfoot>
+</form>
+</table>
+{/if}
+</div>
+<br />
+
+{/block_page}
+
+{include file='inc/_footer.html'}

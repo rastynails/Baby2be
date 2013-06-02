@@ -1,0 +1,21 @@
+table.change_pass td.label
+{
+	width : 48%;
+}
+
+table.change_pass td.value
+{
+	width : 52%;
+}
+
+table.change_pass td input[type=button],
+table.change_pass td input[type=submit]
+{
+	margin-right : 12px;
+}
+
+.centered_form
+{
+	width: 60%;
+	margin: 0 auto;
+}

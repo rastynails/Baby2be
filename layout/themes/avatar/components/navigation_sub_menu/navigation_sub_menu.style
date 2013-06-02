@@ -1,0 +1,16 @@
+.submenu 
+{	
+	font-size:11px;
+	padding:10px 0;
+	text-align:center;
+	background: transparent image(sub_menu.png) no-repeat center top;
+	width:1016px;
+	float: left;
+	border: none;
+	margin: -5px 0px 0px;
+}
+
+
+.submenu a:link, .submenu a:visited, .submenu .a_fake{
+	color:#fff;
+}

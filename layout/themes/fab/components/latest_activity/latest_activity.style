@@ -1,0 +1,13 @@
+.feed_day_cap {
+	border: none;
+	font-weight: normal;
+}
+.feed {
+	border-bottom: 1px solid #45596c;
+	padding: 4px;
+}
+.feed_time {
+	float: right;
+	font-size: 9px;
+	color: #6b7c8c;
+}

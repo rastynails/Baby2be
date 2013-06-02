@@ -1,0 +1,21 @@
+/* -- component page header -- */
+
+.page_header {
+	background: image(page_header.jpg) no-repeat left 33px;
+	margin: 0 0px;
+	width: auto;
+	float: none;
+	height: 144px;
+}
+
+.logo {
+	padding: 19px 0px 0px;
+	margin: 0px 0 0 22px;
+	height: 51px;
+	background: image(logo.png) no-repeat 0px 19px;
+	width: 266px;
+	float: left;
+}
+.profile_loggedin .page_header {
+	background: image(page_header_member.jpg) no-repeat left 33px;
+}

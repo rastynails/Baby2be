@@ -1,0 +1,7 @@
+.brd_bottom{
+	border-bottom:1px solid #eee;
+}
+
+.brd_bottom td{
+	padding:4px 0;
+}

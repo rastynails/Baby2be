@@ -1,0 +1,37 @@
+{include file='inc/_header.html'}
+
+<div class="tpl_page">
+{block_page}
+	<table width="100%">
+		<thead><tr style="text-align: center"><td>Template details</td><td>Available templates</td></tr></thead>
+		<tbody>
+		<tr>
+			<td width="180" style="border-right: 1px solid #7F7F7F">
+				<div id="tpl_details" class="tpl_details tpl_active">
+				<form method="post">
+					<input type="hidden" name="theme_name" />
+					<div id="tpl_name" class="tpl_name"><b>{$active_theme.title}</b></div>
+					<img src="{$active_theme.thumb}" width="160px" /><br /><br />
+					<span id="info">Author: <b>{$active_theme.author}</b></span><br /><br />
+					<div style="text-align: center; height: 20px"><input type="submit" style="display: none" name="activate" id="submit_theme" value="Activate" /></div>
+				</form>
+				</div>
+			</td>
+			<td style="padding-left: 7px;">
+			<div id="thumb_list">
+			{foreach from=$themes item='theme'}
+				<a href="javascript://" rel="{$theme.theme_name}" class="tpl_node{if $theme.is_active eq 'yes'} tpl_active{/if}">
+					<div class="tpl_name">{$theme.title}</div>
+					<img src="{$theme.thumb}" width="100px" />
+					<span style="display:none">Author: <b>{$theme.author}</b></span>
+				</a>
+			{/foreach}
+			</div>			
+			</td>
+		</tr>
+		</tbody>
+	</table>
+{/block_page}
+</div>
+
+{include file='inc/_footer.html'}

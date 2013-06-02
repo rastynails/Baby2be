@@ -1,0 +1,30 @@
+
+.group_cont {
+	width: 49%;
+	float: left;
+	margin-bottom: 10px;
+	height: 130px;
+}
+
+.group_thumb {
+	float: left; width: 90px; 
+	margin-right: -90px;
+}
+
+.group_info {
+	float: left; 
+	margin-left: 100px;
+	width: 74%;
+	overflow: hidden;
+}
+.group_descr {
+	height: 60px;
+	overflow: hidden;
+}
+.group_odd {
+	margin-right: 15px;
+}
+
+.group_stat {
+	padding-top: 4px;
+}

@@ -1,0 +1,11 @@
+.chat_rooms_container .block-active .block_cap {
+	background-color: transparent;
+}
+.chat_windows_container {
+	margin: 0px;
+	padding: 2px;
+	background: #fff;
+}
+.chat_windows_cell .block_cap {
+	width: 604px;
+}

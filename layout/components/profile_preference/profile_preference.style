@@ -1,0 +1,11 @@
+.profile_preference table.form td.value {
+	width:10%;
+}
+
+.profile_preference table.form td.label {
+	width:89%;
+}
+
+.profile_preference .description {
+	padding: 2px 0 2px 0;
+}

@@ -1,0 +1,115 @@
+#content {
+	float: left;
+	width: 1000px;
+}
+#page_canvas {
+	background: image(promo.png) no-repeat center 50px;
+}
+.promo {
+	min-height: 290px;
+	padding-bottom: 10px;
+}
+.angel_blue {
+	position: absolute;
+	width: 110px;
+	height: 104px;
+	right: -44px;
+	top: -46px;
+	background: image(angel_blue.png) no-repeat;
+}
+.index_join {
+	background:image(join.png) no-repeat 0px 0px; 
+	display: block; 
+	width: 281px; 
+	height: 283px; 
+	text-decoration: none;
+}
+.page_header .float_left {
+	float: right;
+}
+.quick_search_index {
+	color: #393939;
+}
+.quick_search_index b label {
+}
+.quick_search_index label {
+	font-size: 11px;
+}
+.quick_search_index input[type=text],
+.quick_search_index input[type=password] {
+	background-color:#cdebf5;
+}
+.quick_search_index .block {
+	margin: 0px;
+}
+.quick_search_index .block_cap_title {
+	color: #22789d;
+	font-size: 13px;
+}
+.quick_search_index .block_cap {
+	height: auto;
+	background: image(cap_blue_l.png) no-repeat;
+	border: none;
+	padding-left: 8px;
+	border-bottom: 1px solid #fff;
+}
+
+.quick_search_index .block_cap_r {
+	background: image(cap_blue_r.png) no-repeat right top;
+	padding-right: 8px;
+	height: auto;
+}
+
+.quick_search_index .block .block_cap_c {
+	background: image(cap_blue_c.png) repeat-x;
+	height: 20px;
+	padding: 2px 0px 0px 0px;
+}
+.quick_search_index .block_body {
+	padding: 3px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	background: #A9D4E2 none;
+	font-size: 11px;
+}
+
+.quick_search_index .block_bottom {
+	padding-left: 8px;
+	background: image(bottom_blue_l.png) no-repeat;
+}
+
+.quick_search_index .block_bottom_r {
+	padding-right: 8px;
+	background: image(bottom_blue_r.png) no-repeat right top;
+}
+.quick_search_index .block_bottom_c {
+	background: image(bottom_blue_c.gif) repeat-x;
+	height: 9px;
+}
+.quick_search_index hr {
+	display: none;
+}
+.quick_search_index br {
+	display: none;
+}
+.quick_search_index ul {
+	padding: 0px;
+}
+.quick_search_index ul li {
+	padding: 0px;
+}
+.quick_search_index .clearfix {
+	padding: 2px 0px 3px 15%;
+}
+.quick_search_index input[type=submit] {
+	background-image: image(button_blue.gif);
+	background-color: #5abde4;
+	color: #22789d;
+	border-color: #008cc5;
+}
+.quick_search_index .field_mileage {
+	margin: 0px;
+}
+.quick_search_index .field_mileage select {
+	width: 120px;
+}

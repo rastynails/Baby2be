@@ -1,0 +1,13 @@
+{include file='inc/_header.html'}
+
+{block_page}
+{print_configs section=profile_registration}
+{/block_page}
+
+{block_page}
+    {print_configs section='site.additional.profile' exclude='suspend_registration,invited_to_friends,profile_review_enabled' caption='Profile Settings'}
+    {print_configs section='site.automode' exclude='set_profile_status_on_join'}
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

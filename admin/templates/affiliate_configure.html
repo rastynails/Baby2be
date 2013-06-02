@@ -1,0 +1,53 @@
+{* Admin interface: affiliate settings *}
+{include file='inc/_header.html'}
+
+{block_page}
+<form action="" method="post" onsubmit="return validateAffiliateConfigureForm( this );">
+<table id="affilate_settings_table" cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="affilate_settings_table_head_cell" colspan="2">Settings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td id="affilate_settings_table_time_interval_left_cell">Time interval (in seconds) within which no clicks/signups are counted from one IP</td>
+			<td id="affilate_settings_table_time_interval_right_cell"><input type="text" id="period" name="settings[period]" value="{$interval}" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_settings_table_amount_per_click_left_cell">Amount per Click</td>
+			<td id="affilate_settings_table_amount_per_click_right_cell"><input type="text" id="traffic_amount" name="settings[traffic_amount]" value="{$traffic_amount}" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td id="affilate_settings_table_amount_per_signup_left_cell">Amount per Signup</td>
+			<td id="affilate_settings_table_amount_per_signup_right_cell"><input type="text" id="registration_amount" name="settings[registration_amount]" value="{$registration_amount}" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_settings_table_amount_per_subscr_left_cell">Amount per Subscription</td>
+			<td id="affilate_settings_table_amount_per_subscr_right_cell"><input type="text" id="subscription_amount" name="settings[subscription_amount]" value="{$subscription_amount}" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td id="affilate_settings_table_precent_per_subscr_left_cell">Percent per Subscription</td>
+			<td id="affilate_settings_table_precent_per_subscr_right_cell"><input type="text" id="subscription_percent" name="settings[subscription_percent]" value="{$subscription_percent}" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td id="affilate_settings_table_commission_type_left_cell">Commission type for Subscriptions</td>
+			<td id="affilate_settings_table_commission_type_right_cell">
+				<select name="settings[subscription_type_value]" id="affilate_settings_table_commission_type_select">
+					<option value="subscription_amount"{if $subscription_type == 'subscription_amount'} selected{/if}>Amount</option>
+					<option value="subscription_percent"{if $subscription_type != 'subscription_amount'} selected{/if}>Percent</option>
+				</select>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td id="affilate_settings_table_bottom_cell" colspan="2"><input type="submit" value="Update" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+<br clear="all" />
+
+{include file='inc/_footer.html'}

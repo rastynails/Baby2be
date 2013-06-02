@@ -1,0 +1,18 @@
+
+table.thumb_text_list td.conv_status {
+	width: 280px;
+	font-size: << $small_font;
+}
+
+.mess img {
+	display: block;
+	max-width: 550px;
+}
+
+.mess img.smile {
+	display: inline;
+}
+
+.make_report {
+	text-align: right;
+}

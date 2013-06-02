@@ -1,0 +1,20 @@
+
+.user_status_curr_value {
+	margin: 2px;
+	font-family: Tahoma;
+	font-style: italic;
+	line-height: 26px;
+}
+
+.username_label {
+	margin-right: 4px;
+}
+
+.user_status_form input[type=text] {
+	width: 200px;
+}
+
+.user_status_form .b_control {
+    margin-right: 2px;
+    height: 22px;
+}

@@ -1,0 +1,106 @@
+{* Admin interface: list of membership services *}
+{include file='inc/_header.html'}
+
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}service_list.php" method="POST" onsubmit="javascript: return CheckServiceForm(this);">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<thead>
+		<th id="membership_service_list_title_thead_cell" colspan="6">
+			Membership Service List
+		</th>
+		<tr>
+			<td width="30px">&nbsp;</td>
+			<td id="membership_service_list_name_cell">Name</td>
+			<td id="membership_service_list_description_cell">Description</td>
+			<td id="membership_service_list_free_for_all_cell">Free for all</td>
+			<td id="membership_service_list_show_on_diagram_cell" width="1">Show on Membership Diagram</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$services item=service name=services}
+	{if $service.active}
+	<tr class="{cycle values='tr_1,tr_2'}">
+		<td>
+			{if !$smarty.foreach.services.first}
+				<a class="arr_up" href="{$smarty.const.URL_ADMIN}service_list.php?service_key={$service.membership_service_key}&move_order=up"></a>
+			{else}
+				<div class="arr_up_i"></div>
+			{/if}
+			{if !$smarty.foreach.services.last}
+				<a class="arr_down" href="{$smarty.const.URL_ADMIN}service_list.php?service_key={$service.membership_service_key}&move_order=down"></a>
+			{else}
+				<div class="arr_down_i"></div>
+			{/if}
+		</td>
+		<td>
+			{edit_lang_values_btn section=membership.services key=$service.membership_service_key}
+		</td>
+		<td>
+			{$service.description}
+		</td>
+		<td align="center">
+			{if $service.is_promo=='yes'}
+				{assign var=checked value=" checked"}
+			{else}
+				{assign var=checked value=""}
+			{/if}
+			<input type="hidden" name="s_promo[{$service.membership_service_key}]" value="no" />
+			<input type="checkbox" name="s_promo[{$service.membership_service_key}]" value="yes"{$checked} />
+		</td>
+		<td align="center">
+			{if $service.show == 'yes'}
+				{assign var=checked value=" checked"}
+			{else}
+				{assign var=checked value=""}
+			{/if}
+			<input type="hidden" name="show[{$service.membership_service_key}]" value="no" />
+			<input type="checkbox" name="show[{$service.membership_service_key}]" value="yes"{$checked} />
+		</td>
+	</tr>
+	{/if}
+	{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5">
+				<input type="submit" value="Save" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+{/block_page}
+
+
+{block_page}
+<table width="100%">
+	<thead>
+		<tr>
+			<th id="membership_service_list_comments_title_thead" colspan="2">Unavailable service comments</th>
+		</tr>
+		<tr>
+			<td>Your comment</td>
+			<td>Description</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td>{edit_lang_values_btn section='membership' key='service_no_permission'}</td>
+			<td id="membership_service_list_comments_no_permission_right_cell">Member has no permissions to use the service</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td>{edit_lang_values_btn section='membership' key='service_no_permission_for_alert'}</td>
+			<td id="membership_service_list_comments_no_permission_alert_right_cell">Member has no permissions to use the service (alert window)</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td>{edit_lang_values_btn section='membership' key='service_permission_no_credits_for_alert'}</td>
+			<td id="membership_service_list_comments_no_credits_alert_right_cell">Not enough credits to use the service (alert window)</td>
+		</tr>
+	</tbody>
+</table>
+
+{/block_page}
+<br clear="all" />
+
+{include file='inc/_footer.html'}

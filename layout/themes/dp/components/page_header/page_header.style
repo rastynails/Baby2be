@@ -1,0 +1,15 @@
+/* -- component page header -- */
+
+.page_header {
+	margin: 10px auto 0px;
+	height: 131px;
+	width: 830px;
+	background: transparent image(header.jpg) no-repeat scroll 512px 34px;
+	float:left;
+}
+
+.logo {
+	padding: 25px;
+	height: 53px;
+	background: image(logo.gif) no-repeat;
+}

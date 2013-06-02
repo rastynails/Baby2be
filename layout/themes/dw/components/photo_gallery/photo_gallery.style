@@ -1,0 +1,241 @@
+/* Carusel */
+
+/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+.jcarousel-container {
+    position: relative;
+}
+
+.jcarousel-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.jcarousel-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0px;
+    padding: 0px;
+}
+
+.jcarousel-list li,
+.jcarousel-item {
+    float: left;
+    list-style: none;
+    /* We set the width/height explicitly. No width/height causes infinite loops. */
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.jcarousel-item img {
+	padding: 1px;
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {
+    z-index: 3;
+    display: none;
+}
+
+.jcarousel-prev {
+    z-index: 3;
+    display: none;
+}
+
+/* skin */
+
+.jcarousel-skin .jcarousel-container {
+    border: none;
+}
+
+.jcarousel-skin .jcarousel-container-horizontal {
+    width: 280px;
+    padding: 20px;
+}
+
+.jcarousel-skin .jcarousel-container-vertical {
+    width: 52px;
+    height: 245px;
+    padding: 40px 20px;
+}
+
+.jcarousel-skin .jcarousel-clip-horizontal {
+    width:  100%;
+    height: 52px;
+}
+
+.jcarousel-skin .jcarousel-clip-vertical {
+    width:  52px;
+    height: 245px;
+}
+
+.jcarousel-skin .jcarousel-item {
+    width: 52px;
+    height: 52px;
+}
+
+.jcarousel-skin .jcarousel-item-horizontal {
+    margin-right: 5px;
+}
+
+.jcarousel-skin .jcarousel-item-vertical {
+    margin-bottom: 5px;
+}
+
+.jcarousel-skin .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+    
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin .jcarousel-next-horizontal {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    width: 13px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent image(next-horizontal.png) no-repeat;
+    background-position: -6px 0;
+}
+
+.jcarousel-skin .jcarousel-next-horizontal:hover {
+    background-position: -22px 0;
+}
+
+.jcarousel-skin .jcarousel-next-horizontal:active {
+    background-position: -38px 0;
+}
+
+.jcarousel-skin .jcarousel-next-disabled-horizontal,
+.jcarousel-skin .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -54px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    width: 13px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent image(prev-horizontal.png) no-repeat 0 0;
+    background-position: -52px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal:hover {
+    background-position: -36px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-horizontal:active {
+    background-position: -20px 0;
+}
+
+.jcarousel-skin .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -4px 0;
+}
+
+/**
+ *  Vertical Buttons
+ */
+.jcarousel-skin .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent image(next-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin .jcarousel-next-vertical:hover {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin .jcarousel-next-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin .jcarousel-next-disabled-vertical,
+.jcarousel-skin .jcarousel-next-disabled-vertical:hover,
+.jcarousel-skin .jcarousel-next-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}
+
+.jcarousel-skin .jcarousel-prev-vertical {
+    position: absolute;
+    top: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent image(prev-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin .jcarousel-prev-vertical:hover {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin .jcarousel-prev-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin .jcarousel-prev-disabled-vertical,
+.jcarousel-skin .jcarousel-prev-disabled-vertical:hover,
+.jcarousel-skin .jcarousel-prev-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}
+
+.preview {
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+.preview .image {
+	width: 100%;
+	height: 250px;
+	position: relative;
+}
+
+.active img {
+	padding: 0px;
+	border: 1px solid #00ff00;
+}
+
+.image .password_cont {
+	position: absolute;
+	bottom: 10px;
+	padding:10px;
+	right:40px;
+}
+
+.carousel_cont {
+	height: 100px;
+	margin-top: 47px;
+}

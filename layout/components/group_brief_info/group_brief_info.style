@@ -1,0 +1,19 @@
+
+.group_image {
+	float: left; width: 90px; 
+	margin-right: -90px;
+}
+
+.group_descr {
+	float: left; 
+	margin-left: 100px;
+	width: 87%;	
+}
+
+.group_descr h3 {
+	padding: 4px 0;
+}
+
+.group_actions {
+	text-align: right;
+}

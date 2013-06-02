@@ -1,0 +1,68 @@
+.sign_in_bg{
+	background: none;
+	width: 830px;
+	height: 304px;
+}
+
+
+.signin_signup_delimitr
+{
+	float: left;
+	width: 8%;
+	padding-top: 4px;
+	text-align: center;
+	font-weight: bold;
+	height: 300px;
+}
+
+.sign_in_document
+{
+	margin:40px auto;
+	width:574px;
+}
+
+.sign_in_document .float_half_right, .sign_in_document .float_half_left
+{
+	width:44%;
+}
+
+.sign_in_cont .block,
+.sign_in_cont .block_cap,
+.sign_in_cont .block_body,
+.sign_in_cont .block_toolbar {
+	background: none;
+	border:none;
+	width: 200px;
+	margin: auto;
+}
+
+.sign_in_cont .block_cap h3{
+	padding-top: 3px;
+	color: #06242f;
+}
+
+.sign_in_sign_in {
+	background: image(sign_in_sign_in.png) no-repeat;
+	width: 246px;
+	height: 175px;
+}
+
+.sign_up_cont .block,
+.sign_up_cont .block_cap,
+.sign_up_cont .block_body {
+	background: none;
+	border:none;
+	width: 200px;
+	margin: auto;
+}
+
+.sign_up_cont .block_cap h3{
+	padding-top: 3px;
+	color: #06242f;
+}
+
+.sign_up_on_sign{
+	background: image(index_sign_up.png) no-repeat;
+	width: 246px;
+	height: 256px;
+}

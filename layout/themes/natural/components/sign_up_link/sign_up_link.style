@@ -1,0 +1,24 @@
+.link_container {
+	background: #60A857 image(sign_up_link.png) no-repeat right bottom;
+	font-size: << $large_font;
+	font-weight: bold;
+	padding: 0px 30px 0px 7px;	
+	text-align: center;
+	color: #fff;
+	line-height: 24px;
+}
+.link_container a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+}
+.sign_up_link {
+	margin-top: -13px;
+	margin-right: 3px;
+}
+.sidebar .sign_up_link .block_body {
+	padding: 0px;
+}
+.sidebar .sign_up_link .block_null .block_bottom{
+	display: none;
+}

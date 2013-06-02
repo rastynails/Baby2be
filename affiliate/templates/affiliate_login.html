@@ -1,0 +1,41 @@
+{* Affiliate interface: Login *}
+{include file='inc/_header.html'}
+
+<form action="{$smarty.const.URL_AFFILIATE}affiliate_login.php" method="post" onsubmit="return checkAffiliateLoginForm( this );">
+<table cellspacing="1" align="left" width="50%">
+	<thead>
+		<tr>
+			<th colspan="2"> Sign in </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Email</td>
+			<td><input type="text" name="affiliate_email" /></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="affiliate_pass" /></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="submit" value="Sign in" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+<br clear="all" />
+<br clear="all" />
+
+<div>Forgot password?</div>
+<div>
+<form action="{$smarty.const.URL_AFFILIATE}affiliate_login.php" method="post" onsubmit="return checkIsCorrectEmail( this.forgot_email, 'Please type correct email.');">
+	Email: <input type="text" name="forgot_email" />
+	&nbsp;&nbsp;<input type="submit" value="Send password" />
+</form>
+</div>
+<br clear="all" />
+
+{include file='inc/_footer.html'}

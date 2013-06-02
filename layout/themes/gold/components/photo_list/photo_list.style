@@ -1,0 +1,8 @@
+.photo_block {
+	float:left;
+	margin:5px 8px 0 0;
+	width:250px;
+}
+.details_cont {
+	width: 139px;
+}

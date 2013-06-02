@@ -1,0 +1,41 @@
+.index .quick_search .block,
+.index .quick_search .block_body,
+.index .quick_search .block_cap_corner,
+.index .quick_search .block_bottom_corner {
+	background: none;
+	border: none;
+	padding: 9px 4px;
+}
+
+.index .sign_in_cont .block_cap h3,
+.index .quick_search .block_cap h3 {
+	color: #fff;
+}
+.index .quick_search .block_cap {
+	padding: 5px 4px;
+	background: none;
+	border: none;
+
+}
+
+.quick_search {
+	margin: 20px 15px 10px 15px;
+}
+
+.index .sign_in_cont .block,
+.index .sign_in_cont .block_body,
+.index .sign_in_cont .block_cap,
+.index .sign_in_cont .block_toolbar,
+.index .sign_in_cont .block_cap_corner,
+.index .sign_in_cont .block_bottom_corner {
+	background: none;
+	border: none;
+	color: #fff;
+}
+
+.index_photo_list .block_body {
+	height: 79px;
+}
+.index .quick_search {
+	margin: 0px;
+}

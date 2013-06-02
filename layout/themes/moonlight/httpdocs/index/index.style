@@ -1,0 +1,131 @@
+#content{
+	width:1000px;
+	background:none;
+	padding:0px;
+}
+
+
+body .page_header{
+	width:1000px;
+}
+
+
+body #footer{
+	background: transparent image(index_footer.png) no-repeat;
+	height: 61px;
+	margin-bottom:5px;
+	width:1000px;
+}
+
+.photo1{
+	background: transparent image(couple1.png) no-repeat;
+	float:left;
+	width:331px;
+	height:250px;
+	margin-right:4px;
+	padding-bottom:4px;
+}
+
+.photo2{
+	background: transparent image(couple2.jpg) no-repeat;
+	float:left;
+	width:331px;
+	height:250px;
+	margin-right:3px;
+	padding-bottom:4px;
+}
+
+.photo3{
+	background: transparent image(couple3.png) no-repeat;
+	float:left;
+	width:331px;
+	height:250px;
+	padding-bottom:4px;
+}
+
+.index_profile_list .block{
+	margin-bottom:0px;
+}
+
+.grey_block .grey_block_cap{
+	background: transparent image(gray_block_top_l.png) no-repeat left;
+	padding-left:6px;
+	height:6px;
+}
+
+.grey_block .grey_block_cap_r{
+	background: transparent image(gray_block_top_r.png) no-repeat right;
+	padding-right:6px;
+	height:6px;
+}
+
+.grey_block .grey_block_cap_c{
+	background: transparent image(gray_block_top_c.gif) repeat-x left;
+	height:6px;
+}
+
+.grey_block .grey_block_body{
+	background: #e2e2e2 image(gray_block_body.jpg) repeat-x bottom;
+	min-height:283px;
+}
+
+.grey_block .grey_block_body_c {
+	padding: 0px 19px;
+}
+.grey_block .grey_block_bottom{
+	background: transparent image(gray_block_bottom_l.png) no-repeat left bottom;
+	padding-left:6px;
+	height:6px;
+}
+
+.grey_block .grey_block_bottom_r{
+	background: transparent image(gray_block_bottom_r.png) no-repeat right bottom;
+	padding-right:6px;
+	height:6px;
+}
+
+.grey_block .grey_block_bottom_c{
+	background: transparent image(gray_block_bottom_c.gif) repeat-x bottom;
+	height:6px;
+}
+.grey_block .float_half_left,
+.grey_block .float_half_right {
+	margin-top:12px;
+}
+
+.index_more{
+	margin-right:11px;
+}
+
+.metall_box{
+	background: #ccc image(metall_box.jpg) repeat-x;
+	height:123px;
+	width:988px;
+	margin:0 auto;
+}
+.sign_in_box{
+	background: transparent image(sign_in.png) no-repeat center top;
+	height: 50px;
+	padding-top:39px;
+	margin-top:11px;
+	color:#fff;
+	margin-right:17px;
+}
+
+.search_link{
+	background: transparent image(link_pic.png) no-repeat left top;
+	height:111px;
+	padding-right:7px;
+	padding-top:11px;
+}
+
+
+.metall_box .float_half_left{
+	margin-bottom:0px;
+	background:transparent  image(metall_box_line.gif) no-repeat right center;
+}
+
+
+body #footer{
+	margin-top: -3px;
+}

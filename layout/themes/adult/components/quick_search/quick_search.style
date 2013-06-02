@@ -1,0 +1,13 @@
+/* component QuickSearch */
+.quick_search li
+{
+	list-style:none;
+	display:inline;
+}
+
+.quick_search hr {
+	background:none;
+	border:0 none;
+	clear:both;
+	height:1px;
+}

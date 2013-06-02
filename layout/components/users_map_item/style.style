@@ -1,0 +1,32 @@
+.users_map_item {
+	font-size: 11px;
+	font-family: Tahoma, "Geneva CY", sans-serif;
+	padding: 6px 3px 3px 3px;
+	color: #3b3c3c;
+}
+.users_map_item .profile_list_thumb {
+    float: left;
+    margin-right: -50px;
+    padding-right: 8px;
+    text-align: center;
+    width: 50px;
+    background: image(loc_avatar_bg.png) no-repeat 0px 0px;
+}
+.users_map_item .profile_list_info {
+    margin-left: 50px;
+    padding-left: 8px;
+}
+.users_map_item .loc_value {
+	padding-top: 5px;
+}
+.users_map_item .profile_thumb_wrapper {
+	display: inline-block;
+	padding: 4px 0px 6px 2px;
+	margin-bottom: 5px;
+	height: 40px;
+	width: 40px;
+}
+.loc_username a {
+	color: #2a80ae;
+	font-weight: bold;
+}

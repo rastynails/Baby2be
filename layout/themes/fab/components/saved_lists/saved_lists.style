@@ -1,0 +1,42 @@
+.list_container {
+	background-color: #395064;
+}
+.search_padding .saved_lists .list_container {
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #60758b #28384a #28384a #60758b;
+	width: 198px;
+}
+.search_padding .saved_lists .block_body {
+	border:none;
+	padding: 0px 3px;
+}
+.search_padding .saved_lists .block_cap {
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	background: #3e5368;
+	border-color: #60758b #28384a #28384a #60758b;
+}
+.search_padding .saved_lists .block_cap_r,
+.search_padding .saved_lists .block_cap_c {
+	border: none;
+	margin:0px;
+}
+.search_padding .saved_lists .block_cap_c {
+	padding: 0 3px 0px 6px;
+}
+.search_padding .saved_lists .block_cap_title {
+	width: 160px;
+	font-size: 13px;
+	font-weight: normal;
+}
+.search_padding .saved_lists,
+.search_padding .saved_lists .block {
+	margin: 0px;
+}
+.memberhome .list_container {
+    background-color: transparent;
+}
+.search_padding .block_expand {
+	margin-top: 6px;
+}

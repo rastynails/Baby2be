@@ -1,0 +1,8 @@
+.simple_list ul.list {
+	padding-left: 2px;
+}
+.simple_list .item {
+	width:62px;
+	height:77px;
+	margin-right: 2px;
+}

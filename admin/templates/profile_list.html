@@ -1,0 +1,209 @@
+{* Admin Profile List Template *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+<div class="profile_list_result_nav">
+	Results: {$db_results} |
+	Total: {$total_results_num} |
+	Results per page: {$rpp_select}
+</div>
+
+<div class="profile_list_page_nav">
+Pages: {$navigation_pages}
+</div>
+
+<a href="javascript://" onclick="show_node('popup_fields')"><b>Customize</b></a>
+
+{block_popup title="Select fields to be displayed in profile list" width=400 left=0 node="popup_fields"}
+<form method="post" action="{$smarty.server.REQUEST_URI}">
+<table width="100%">
+	<thead>
+		<tr>
+			<td width="50%">Base fields</td><td width="50%">Extended fields</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			{foreach from=$default_fields item='field'}
+				<input type="checkbox" name="fields_arr[]" class="checkbox" value="{$field.name}" id="field_{$field.name}" {if $field.checked eq 'yes' || $field.checked eq 'always'} checked="checked"{/if} {if $field.checked eq 'always'}disabled="disabled"{/if} /> <label for="field_{$field.name}">{$field.name}</label><br />
+			{/foreach}
+			</td>
+			<td>
+			{foreach from=$extend_fields item='field'}
+				<input type="checkbox" name="fields_arr[]" class="checkbox" value="{$field.name}" id="field_{$field.name}" {if $field.checked eq 'yes'} checked="checked"{/if} /> <label for="field_{$field.name}">{$field.name}</label><br />
+			{/foreach}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr><td colspan="2"><input type="submit" name="update_fields" value="Save" class="submit" /></td></tr>
+	</tfoot>
+</table>
+</form>
+{/block_popup}
+
+<br /><br />
+
+<form name="profiles" action="{$smarty.server.REQUEST_URI}" method="POST">
+<input type="hidden" name="action" id="action" value="" />
+<div style="overflow-x:auto; width: 758px;">
+<table width="100%">
+	<thead>
+		<tr><th colspan="{$field_count}">Profile List</th></tr>
+		<tr>
+			<td></td>
+			{foreach from=$checked_fields key='_f' item='_fl'}
+			<td>{strip}<a href="{make_url}_sf={$_fl}&_so={if $sort_field eq $_fl}{if $sort_order eq 'asc'}desc{elseif $sort_order eq 'desc'}asc{else}asc{/if}{else}asc{/if}{/make_url}">
+			{/strip}{$_fl}</a>{if $sort_field eq $_fl} <img src="img/{if $sort_order eq 'asc'}arr_up{elseif $sort_order eq 'desc'}arr_down{/if}.gif" />{/if}</td>
+			{/foreach}
+		</tr>
+	</thead>
+
+	<tbody>
+	{foreach from=$profiles key='_id' item='_profile'}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td class="chbox_container"><input name="profiles_arr[]" type="checkbox" class="checkbox" value="{$_profile.fields[0].profile_id}" /></td>
+			{foreach from=$checked_fields key='_f' item='_fl'}
+            			{if $_fl eq 'reviewed' || $_fl eq 'has_photo' || $_fl eq 'has_media' || $_fl eq 'featured' || $_fl eq 'has_music' || $_fl eq 'i_agree_with_tos' || $_fl eq 'i_am_at_least_18_years_old'}
+					<td {if $_profile.fields[$_f].$_fl eq 'y' || $_profile.fields[$_f].$_fl eq 1}class="td_mark"{/if}>&nbsp;</td>
+				{elseif $_fl eq 'username'}
+					<td><a href="{$_profile.href}" title="{$_profile.fields[$_f].$_fl}">{$_profile.fields[$_f].$_fl|truncate:15}</a></td>
+				{elseif $_fl eq 'status'}
+					<td class="profile_status_{$_profile.fields[$_f].$_fl}">{$_profile.fields[$_f].$_fl}</td>
+				{elseif $_fl eq 'email_verified'}
+					<td class="email_verified_{$_profile.fields[$_f].$_fl}">{$_profile.fields[$_f].$_fl}</td>
+				{elseif $_fl eq 'join_stamp'}
+					<td>{$_profile.fields[$_f].$_fl|date_format:"%b %e %y, %H:%M"}</td>
+				{elseif $_fl eq 'activity_stamp'}
+					<td align="center">
+					{if $_profile.fields[$_f].$_fl.online}
+						<label class="label_profile_status_active" style="padding: 0px;">online now</label>
+					{elseif $_profile.fields[$_f].$_fl.item}
+						{$_profile.fields[$_f].$_fl.item_num} {text section="profile.labels" key=activity_`$_profile.fields[$_f].$_fl.item`}</td>
+					{/if}
+					</td>
+				{else}
+					<td>{$_profile.fields[$_f].$_fl}</td>
+				{/if}
+			{/foreach}
+		</tr>
+	{/foreach}
+
+	{if $profiles}
+		<tr>
+			<td class="chbox_container">
+				<input type="checkbox" name="check_all" onclick="checkAll( this.form, this.checked );" />
+			</td>
+		</tr>
+	{/if}
+	</tbody>
+</table>
+</div>
+<br />
+<div class="group_profile_state_cont">
+	With selected:
+
+
+	{block_popup title="Send Message" width=428 node="popup_send_message" bottom=8 left=0}
+		<table width="100%">
+			<tbody>
+				<tr class="tr_1">
+					<td>Subject</td>
+					<td><input type="text" name="msg_subject" id="msg_subject" class="input_text" /></td>
+					<td rowspan="2" align="center">Variables
+						<p style="text-align:left;">
+							{literal}{$site_name}{/literal} <br />
+							{literal}{$site_url}{/literal}<br />
+							{literal}{$site_brand_name}{/literal}<br />
+							{literal}{$site_email_main}{/literal}<br />
+							{literal}{$site_email_billing}{/literal}<br />
+							{literal}{$site_email_support}{/literal}<br />
+							{literal}{$profile_username}{/literal}<br />
+							{literal}{$profile_email}{/literal}<br />
+							{literal}{$unsubscribe_url}{/literal}<br />
+						</p>
+					</td>
+				</tr>
+				<tr class="tr_2">
+					<td>Text</td>
+					<td><textarea name="msg_txt" id="msg_txt" rows="8" cols="30"></textarea></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><label for="ignore">Ignore "Unsubscribe"</label> <input type="checkbox" name="ignore_unsubscribe" id="ignore" /></td>
+					<td><input type="button" name="send_msg" class="submit" value="Send message" onclick="return checkSendProfileMsgForm(this.form);"/></td>
+				</tr>
+			</tfoot>
+		</table>
+	{/block_popup}
+	<input type="button" class="submit" value="Send message" onclick="show_node( 'popup_send_message' )" />
+
+	{block_popup title="Give membership" width=330 node="popup_give_membership" bottom=8 left=0}
+		<table width="100%">
+			<thead>
+				<tr><td>Membership</td><td>Period</td><td>Units</td></tr>
+			</thead>
+			<tbody>
+			{foreach name='membership_types' from=$membership_types item=membership}
+				<tr class="{cycle values='tr_1,tr_2'}">
+					<td>
+						<input type="radio" id="membership_type" name="membership_type" value="{$membership.membership_type_id}" {if $smarty.foreach.membership_types.first}checked{/if}/>
+						<label for="membership_type">{text section='membership.types' key=$membership.membership_type_id}</label>
+					</td>
+					{if $membership.type=='subscription' || $membership.type=='trial'}
+						{if $membership.limit=='limited'}
+							<td><input type="text" class="input_text" name ="numbers[{$membership.membership_type_id}]" id="numbers[{$membership.membership_type_id}]" /></td>
+							<td>
+							<select name="units[{$membership.membership_type_id}]">
+								<option value="days">day(s)</option>
+								<option value="months">month(s)</option>
+							</select>
+							</td>
+						{else}
+						<td colspan="2"></td>
+						{/if}
+					{elseif $membership.type=='credits'}
+					<td colspan="2" style="text-align: left;"><input type="text" name="numbers[{$membership.membership_type_id}]" id="numbers[{$membership.membership_type_id}]" />  credits</td>
+					{/if}
+				</tr>
+			{/foreach}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3"><input type="button" name="set_membership" value="Set membership" class="submit" onclick="return ValidateGiveMembershipFormNew(this.form);"  /></td>
+				</td>
+			</tfoot>
+		</table>
+	{/block_popup}
+	<input type="button" class="submit" value="Give membership" onclick="show_node( 'popup_give_membership' )" />
+	<input type="button" name="send_verify_email" value="Send verification mail" onclick="return checkSendVerifyMail(this.form);" />
+
+
+	{block_popup title="Set Status" width=200 node="popup_set_status" bottom=8 left=0}
+		<select name="profilelist_status">
+			<option value="active" >active</option>
+			<option value="on_hold" >on hold</option>
+			<option value="suspended" >suspended</option>
+		</select>
+		<br />
+		<input type="checkbox" name="set_reviewed" id="set_reviewed" checked value="1" />
+		<label for="set_reviewed">set as "Reviewed"</label>
+		<input type="button" name="set_status" value="Set" class="btn" onclick="return checkSetStatus(this.form);" />
+	{/block_popup}
+	<input type="button" class="submit" value="Set status" onclick="show_node( 'popup_set_status' );" />
+
+	{block_popup title="Set Status" width=200 node="popup_delete_profile" bottom=8 left=0}
+        <input type="checkbox" name="delete_with_content" id="delete_with_content" checked value="1" />
+        <label for="set_reviewed">With content</label>
+        <input type="button" name="delete_profiles" value="Delete" class="btn" onclick="return confirmDelete(this.form);" />
+    {/block_popup}
+	<input type="button" value="Delete" class="submit" onclick="show_node( 'popup_delete_profile' );" />
+</div>
+</form>
+
+{/block_page}
+{include file='inc/_footer.html'}

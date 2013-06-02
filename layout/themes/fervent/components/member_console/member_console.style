@@ -1,0 +1,154 @@
+.thumb_container {
+	width: 100%;
+	height: 100%;
+	background: none;
+}
+
+.member_console .profile_thumb_wrapper {
+	display: block;
+	padding: 0px 0px 10px 0px;
+}
+
+html body .delete_thumb {
+	display: block;
+	padding: 0 0 3px;
+	color: #5a4e4e;
+	font-size: 10px;
+}
+
+.membership_container {
+	padding: 3px 0 10px;
+	font-weight: bold;
+
+}
+
+.member_console .sign_out {
+	background: #de2024 image(button.gif) repeat-x left top;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a00308;
+	color: #fff;
+	font-weight: normal;
+	font-size: 14px;
+	display: block;
+	padding: 7px 18px 5px 18px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-family: "Ubuntu", Arial;
+	font-weight: lighter;
+}
+
+.member_console .sign_out:hover {
+	text-decoration: none;
+	background-color: #da1c21;
+	border: 1px solid #ec2227;
+	background-image: none;
+	border-top: 1px solid #a00308;
+	border-left: 1px solid #a00308;
+}
+
+.my_profile_menu .block_body {
+	padding: 0px 14px 10px;
+}
+
+.my_profile_menu_cont ul.menu-vertical {
+	padding: 0px;
+}
+
+.my_profile_menu_cont ul.menu-vertical li {
+	list-style-type: none;
+	float: left;
+	width: 160px;
+}
+
+.my_profile_menu_cont ul.menu-vertical li a {
+	display: inline-block;
+	line-height: 17px;
+	text-decoration: none;
+	margin-left: 22px;
+	color: #463131;
+	font-size: 13px;
+}
+
+.my_profile_menu_cont ul.menu-vertical li a:hover {
+	text-decoration: underline;
+	color: #df0007;
+}
+
+.my_profile_menu_cont .icon_profile_view {
+	background: image(member_ico_myprofile.gif) no-repeat 2px 6px;
+}
+
+.my_profile_menu_cont .icon_profile_edit {
+	background: image(member_ico_eprofile.gif) no-repeat 1px 4px;
+}
+
+.my_profile_menu_cont .icon_photo_upload {
+	background: image(member_ico_myphoto.gif) no-repeat 1px 3px;
+}
+
+.my_profile_menu_cont .icon_my_music {
+	background: image(member_ico_mymusic.gif) no-repeat 3px 4px;
+}
+
+.my_profile_menu_cont .icon_my_video {
+	background: image(member_ico_myvideo.gif) no-repeat 2px 2px;
+}
+
+.my_profile_menu_cont .icon_manage_blog {
+	background: image(member_ico_myblog.gif) no-repeat 0px 4px;
+}
+
+.my_profile_menu_cont .icon_recorder {
+	background: image(member_ico_recorder.gif) no-repeat 0px 4px;
+}
+
+.new_items a {
+	background: none;
+	width: 58px;
+	margin: 0px;
+	padding: 0px 0px 15px;
+	font-size: 11px;
+	color: #463131;
+	font-size: 12px;
+}
+
+.new_items a div {
+	height: 40px;
+	padding-bottom: 8px;
+}
+
+.new_items .photo {
+    background-image: image(add_ico_photo.jpg);
+    background-position: center center;
+}
+
+.new_items .blog {
+    background-image: image(add_ico_blog.jpg);
+    background-position: center center;
+}
+
+.new_items .event {
+    background-image: image(add_ico_event.jpg);
+    background-position: center center;
+}
+
+.new_items .video {
+    background-image: image(add_ico_video.jpg);
+    background-position: center center;
+}
+
+.new_items .invite_friend {
+    background-image: image(add_ico_invite.jpg);
+    background-position: center center;
+}
+
+.new_items .forum {
+    background-image: image(add_ico_forum.jpg);
+    background-position: center center;
+}
+
+ul.menu-vertical li.item {
+	padding: 3px 0 0;
+}

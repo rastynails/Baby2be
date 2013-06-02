@@ -1,0 +1,17 @@
+.forum_add_topic .block_cap {
+	background: #e6e6d8 none;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	color: #000;
+}
+.forum_add_topic .block_cap_r,
+.forum_add_topic .block_cap_c {
+	background: transparent none;
+	border: none;
+}
+.forum_add_topic .block_cap_title {
+	color: #000;
+}
+.forum_add_topic .block_body {
+	background: #f4f3e9;
+}

@@ -1,0 +1,132 @@
+{include file='inc/_header.html'}
+{if $notice}
+    <div class="page_notice">
+        {$notice}
+    </div>
+{/if}
+
+{if $unit=="admin"}
+
+        {block_page}
+            <div class="additional_settings">
+                <div style="text-align: right">
+                    <a href="javascript://" onclick="{if $isEmailChanged}{literal}new SK_FloatBox({$title: 'Change Passowrd', $contents: jQuery('#change_password_c')});{/literal}{else}alert('Before changing the password you must change the default admin email address to the valid one.'); return false;{/if}">Change Password</a>
+                </div>
+                {foreach from=$sections item='section'}
+                    {print_configs section=$section}
+                {/foreach}
+
+            </div>
+
+        {/block_page}
+
+	<div style="display: none;">
+            <div class="additional_settings" id="change_password_c" >
+               <form method="post">
+                <table>
+                    <tbody>
+
+                        <tr class="tr_1">
+                            <td>Old Password</td>
+                            <td><input type="password" name="old_password" /></td>
+                        </tr>
+
+                        <tr class="tr_2">
+                            <td>New Password</td>
+                            <td><input type="password" name="new_password" /></td>
+                        </tr>
+
+                        <tr class="tr_1">
+                            <td>Confirm new Password</td>
+                            <td><input type="password" name="re_new_password" /></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" align="right"><input type="submit" name="change_pass" value="Change" /></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </form>
+            </div>
+	</div>
+{elseif $unit=="splash_screen"}
+        {block_page}
+                <div>
+                    <table width="100%">
+                       <thead>
+		                <tr>
+		                    <td colspan="2">Splash Screen Text</td>
+		                </tr>
+		        </thead>
+                        <tbody>
+
+                            <tr class="tr_1"  >
+                                <td width="25%">Splash screen text</td>
+                                <td width="75%">{edit_lang_values_btn section=txt key=splash_screen_txt}</td>
+                            </tr>
+
+                            <tr class="tr_2" ">
+                                <td width="25%">'Enter' button label</td>
+                                <td width="75%">{edit_lang_values_btn section=txt key=splash_screen_btn}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                {foreach from=$sections item='section'}
+                    {print_configs section=$section}
+                {/foreach}
+
+            {/block_page}
+{elseif $unit =="additional.groups"}
+    {block_page}
+        <div class="additional_settings">
+            {foreach from=$sections item='section'}
+                {print_configs section=$section}
+            {/foreach}
+        </div>
+    {/block_page}
+{elseif $unit =="additional.mailbox"}
+    {block_page}
+        <div class="additional_settings">
+            {print_configs section='site.additional.mailbox'}
+            {print_configs section='site.additional.profile' exclude='send_welcome_letter,send_mail_when_reviewed,send_onjoin_mail,birthday_congratulation_email' caption='Notifications Settings'}
+        </div>
+    {/block_page}
+{elseif $unit == 'additional'}
+    {block_page}
+        <div class="additional_settings">
+            {print_configs section='site.additional.profile' exclude='allow_emailverify_no_access,allow_emailverify_undefined_access,allow_lang_switch,captcha_on_join,invited_to_friends,not_reviewed_profile_access,send_mail_when_reviewed,send_onjoin_mail,send_welcome_letter,suspend_registration,enable_no_follow,profile_review_enabled,birthday_congratulation_email:^'}
+            {print_configs section='site.additional.profile_list' exclude='search_distance_unit,quick_search_location_type,intellectual_search,hot_list_limit,display_looking_for_hotlist,display_photo_count:^'}
+            {print_configs section='site.additional.profile_list' exclude='search_distance_unit,quick_search_location_type,intellectual_search' caption='Search settings'}
+            {print_configs section='site.additional.profile_list' exclude='hot_list_limit,display_looking_for_hotlist' caption='Hotlist settings'}
+            {print_configs section='site.additional.speed_dating'}
+            {print_configs section='site.additional.tips'}
+            {print_configs section='site.additional.googlemaps'}
+        </div>
+    {/block_page}
+{elseif $unit == 'access'}
+    {block_page}
+        <div class="additional_settings">
+            {print_configs section='site.additional.profile' exclude='allow_emailverify_no_access,allow_emailverify_undefined_access,not_reviewed_profile_access' caption=' '}
+        </div>
+    {/block_page}
+{elseif $unit == 'official'}
+    {block_page}
+        <div class="additional_settings">
+            {print_configs section='site.official'}
+            {print_configs section='site.site_status'}
+        </div>
+    {/block_page}
+{else}
+    {block_page}
+        <div class="additional_settings">
+        {foreach from=$sections item='section'}
+                {print_configs section=$section exclude='set_profile_status_on_join:^'}
+        {/foreach}
+        </div>
+    {/block_page}
+{/if}
+{include file='inc/_footer.html'}

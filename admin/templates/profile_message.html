@@ -1,0 +1,72 @@
+{* admin Profile Messages template *}
+
+{include file='inc/_header.html'}
+
+{literal}
+<script>
+    jQuery(function(){
+        
+        jQuery('#checkall').click(function(){
+              jQuery('.checkinput').attr('checked', this.checked);
+        });
+    });
+</script>
+{/literal}
+
+<div style="width:60%;">
+	{block_page}
+		{print_configs section='mailbox.spam_filter'}
+	{/block_page}
+</div>
+
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="command" id="command_field" />
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<td>&nbsp;</td>
+			<td> Sender </td>
+			<td> Recipient </td>
+			<td> Received </td>
+			<td> Subject </td>
+			<td> Text </td>
+		</tr>
+	</thead>
+	
+	<tbody>
+	{foreach from=$messages item=message}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><input type="checkbox" name="messages[]" value="{$message.id}" class="checkinput" /></td>
+			<td><a href="{$smarty.const.URL_ADMIN}profile.php?profile_id={$message.sender_id}">{$message.sender_name}</a>&nbsp;&nbsp;({$message.count})</td>
+			<td>
+			{foreach from=$message.recipients item=recipient}
+				<a href="{$smarty.const.URL_ADMIN}profile.php?profile_id={$recipient.id}">{$recipient.name}</a><br />
+			{/foreach}
+			</td>
+			<td>{$message.time_stamp|date_format:"%b %e %y, %H:%M"}</td>
+			<td>{$message.subject}</td>
+			<td>{$message.text}</td>
+		</tr>
+	{/foreach}
+	
+	</tbody>
+
+	<tfoot>
+		<tr>
+		    <td style="text-align: left">
+                <input type="checkbox" id="checkall">
+            </td>
+			<td colspan="5">
+				<input type="button" class="submit" value="Delete" onclick="$('command_field').value = 'delete_spam'; this.form.submit();" />&nbsp;&nbsp;&nbsp;
+				<input type="button" class="submit" value="Approve" onclick="$('command_field').value = 'approve_spam'; this.form.submit();" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

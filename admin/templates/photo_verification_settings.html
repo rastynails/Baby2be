@@ -1,0 +1,33 @@
+{include file='inc/_header.html'}
+
+<div style="width: 300px">
+{block_page}
+    <form name='membership_icon_upload_form' enctype="multipart/form-data"  action="" method="POST">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th colspan="5">"Verified Photo" Icon</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2" width="30%" align="center">
+                    {if $icon_url}
+                        <img src="{$icon_url}"><br /><br />
+                        <a href="{$smarty.const.URL_ADMIN}photo_verification_settings.php?command=delete-icon">delete</a>
+                    {/if}
+                </td>
+                <td width="70%">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+                    <input type="file" name="icon_file" class="input_file" >
+                </td>
+            </tr>
+                <tr><td class="tfoot_td"><input type="submit" class="submit" value="Upload"></td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+{/block_page}
+</div>
+{include file='inc/_footer.html'}

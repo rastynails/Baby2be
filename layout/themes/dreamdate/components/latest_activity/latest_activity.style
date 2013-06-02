@@ -1,0 +1,10 @@
+.feed_day_cap {
+	background: #e6e6d8 none repeat scroll 0 0;
+	border-color:#DFDFDF;
+	border-style:solid;
+	border-width:1px 0 0;
+	color:#000;
+	font-size:11px;
+	font-weight:bold;
+	padding:2px 2px 2px 4px;
+}

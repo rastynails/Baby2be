@@ -1,0 +1,73 @@
+#content{
+	background:transparent image(bg_index.jpg) no-repeat center 129px;
+	width:1000px;
+}
+
+.quick_search{
+	width: 288px;
+	margin:0px;
+	color:#fff;
+}
+
+.quick_search .block_cap{
+	display:none;
+}
+
+body .quick_search hr{
+	background:none transparent;
+}
+
+.quick_search .block_cap,
+.quick_search .block_body,
+.quick_search .block_bottom,
+.quick_search .block_bottom_c,
+.quick_search .block_bottom_r,
+.quick_search .block_toolbar,
+
+.index_photo_list .block_cap,
+.index_photo_list .block_body,
+.index_photo_list .block_bottom,
+.index_photo_list .block_bottom_c,
+.index_photo_list .block_bottom_r,
+.index_photo_list .block_toolbar{
+	background:none;
+}
+
+.index_photo_list{
+	min-height:260px;
+}
+
+.index_photo_list .block{
+	margin:0px;
+}
+
+.index_photo_list .block_bottom_c{
+	height:auto;
+}
+
+.index_photo_list ul.menu-block{
+	padding-top:1px;
+} 
+
+.index_photo_list ul.menu-block li.active{
+	background:none;
+} 
+
+.block_cap_title{
+	margin-left:216px;
+	margin-top:3px;
+} 
+
+#page_canvas .index_photo_list h3{
+	color:#fee600;
+	text-shadow:1px 1px 0 #105802;
+	font-size:14px;
+}
+
+body .quick_search input[type=submit], 
+body .quick_search input[type=button]{
+	background: transparent image(search_button.png) no-repeat;
+	border:none;
+	width:93px;
+	height:36px;
+}

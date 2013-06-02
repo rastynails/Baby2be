@@ -1,0 +1,4 @@
+.action_buttons {
+	height: 30px;
+	padding: 2px;
+}

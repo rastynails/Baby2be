@@ -1,0 +1,14 @@
+.post_count, .topic_count 
+{
+	width:60px;
+}
+
+.last_post 
+{
+	width:170px;
+}
+table.form th,
+.field_form th
+{
+	background: #963030;
+}

@@ -1,0 +1,161 @@
+{* Admin interface: virtual gifts*}
+{include file='inc/_header.html'}
+
+{block_page}
+
+{if $action == 'edit'}<div class="pr_top_add_field"><a href="{$smarty.const.URL_ADMIN}virtual_gifts.php">Create New Template</a></div>{/if}
+
+<div style="width: 55%; float: left;">
+<table align="left" width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Virtual Gift Templates</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+            <td colspan="2" style="text-align: right;">
+                Category:
+                 <select id="cat_select" style="width: 150px;" onchange="selectCategory(this, '{$smarty.const.URL_ADMIN}virtual_gifts.php')">
+                    <option value="">All</option>
+                    {foreach from=$categories item='cat'}
+                        <option value="{$cat.id}"{if $cat.id == $cat_id} selected="selected"{/if}>{$cat.title}</option>
+                    {/foreach}
+                </select>
+            </td>
+        </tr>
+		{foreach from=$gifts_list item='gift'}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td width="33%" align="center">
+				<a href="javascript://" onclick="editTemplate({$gift.tpl_id});">
+				    <img src="{$gift.picture}" width="100px" />
+				</a>
+			</td>
+			<td style="vertical-align: top">
+                <div style="position: relative">
+                    <div style="position: absolute; width: 47px; right: 0px;">
+                        <a class="edit" title="edit" href="javascript://" onclick="editTemplate({$gift.tpl_id});"></a>
+                        <a class="delete" title="delete" href="javascript://" onclick="deleteTemplate({$gift.tpl_id});"></a>
+                    </div>
+				    <b>Status:</b> {$gift.status}<br />
+				    <b>Credits cost:</b> {$gift.credits}
+				    {if $gift.category_id}<br /><b>Category:</b> {$gift.category}{/if}
+				</div>
+				<div style="display: none" id="edit_cont-{$gift.tpl_id}">
+    				<form method="post" enctype="multipart/form-data">
+    				    <input type="hidden" name="action" value="edit" />
+    				    <input type="hidden" name="id" value="{$gift.tpl_id}" />
+    				    
+    				    <table>
+    				    <tbody>
+				        <tr class="{cycle values='tr_1,tr_2'}">
+				            <td>Category:</td>
+				            <td>
+				                <select name="category" style="width: 125px;">
+				                    {foreach from=$categories item='cat'}
+				                        <option value="{$cat.id}"{if $cat.id == $gift.category_id} selected="selected"{/if}>{$cat.title}</option>
+				                    {/foreach}
+				                </select>
+				            </td>
+				        </tr>
+				        <tr class="{cycle values='tr_1,tr_2'}">
+				            <td>Credits cost:</td>
+				            <td><input type="text" name="credits" value="{$gift.credits}" /></td>
+				        </tr>
+				        <tr class="{cycle values='tr_1,tr_2'}">
+				            <td>Status:</td>
+				            <td>
+				                <select name="status">
+				                    <option value="1" {if $gift.status=='active'}selected{/if}>active</option>
+				                    <option value="0" {if $gift.status=='inactive'}selected{/if}>inactive</option>
+				                </select>
+				            </td>
+				        </tr>
+				        <tr class="{cycle values='tr_1,tr_2'}">
+				            <td colspan="2">
+				                {if $gift.picture}
+				                    <img src="{$gift.picture}" width="100" /><br /><br />Change Image:<br /> 
+				                {/if}
+				                <input name="picture" type="file" class="input_file" />
+				            </td>
+				        </tr>
+                        </tbody>
+					    <tfoot>
+					        <tr>
+					            <td colspan="2">
+					                <input type="submit" value="Save" />
+					            </td>
+					        </tr>
+					    </tfoot>
+					    </table>
+    				</form>
+				</div>
+			</td>
+		</tr>
+		{/foreach}
+	</tbody>
+</table>
+</div>			
+
+<div style="float: right; width: 42%">
+<form enctype="multipart/form-data" action="{$smarty.const.URL_ADMIN}virtual_gifts.php" method="POST">
+<input type="hidden" name="action" value="add" />
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Create Template</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td>
+                <span><b>Category:</b></span>
+            </td>
+            <td>
+                <select name="category" style="width: 125px;">
+                    {foreach from=$categories item='cat'}
+                        <option value="{$cat.id}">{$cat.title}</option>
+                    {/foreach}
+                </select>
+                &nbsp;<a href="{$smarty.const.URL_ADMIN}virtual_gift_categories.php">add category</a>
+            </td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td><b>Credits cost:</b></td>
+            <td><input type="text" name="credits" value="{$template.credits}" /></td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+			<td>
+				<span><b>Status:</b></span>
+			</td>
+			<td>
+                <select name="status">
+                    <option value="1" {if $template.status=='active'}selected{/if}>active</option>
+                    <option value="0" {if $template.status=='inactive'}selected{/if}>inactive</option>
+                </select>			
+			</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td colspan="2">
+				<b>Image:</b><br />
+				{if $template.picture}
+					<img src="{$template.picture}"  width="100" /><br /><br />Change Image: 
+				{/if}
+				<input name="picture" type="file" class="input_file" /><br />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="Create" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+</div>
+
+{/block_page}
+
+{include file='inc/_footer.html'}

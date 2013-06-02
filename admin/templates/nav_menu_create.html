@@ -1,0 +1,106 @@
+{* Admin interface: Create menu items *}
+{include file='inc/_header.html'}
+{if $item_info.menu_item_id}
+	<div class="pr_top_add_field">
+	<a href="{$smarty.const.URL_ADMIN}nav_menu_create.php">Create new item</a>
+</div>
+{/if}
+
+<div style="width: 60%">
+{block_page}
+
+<table cellpadding="0" cellspacing="0" border="0">
+	<thead>
+		<th colspan="100">
+			{if $smarty.get.item_id}
+				Edit menu item
+			{else}
+				Create new item
+			{/if}
+		</th>
+	</thead>
+	<form action="{$smarty.const.URL_ADMIN}nav_menu_create.php" method="POST" onsubmit="return {if !$item_info.menu_item_id}CheckAddItemForm( this );{/if}" >
+	<input type="hidden" name="item_id" value="{$smarty.get.item_id}" />
+	<tbody>
+		<tr class="tr_item_main_info">
+			<td colspan="2">
+				Item info
+			</td>
+		</tr>
+		<tr class="tr_1" {highlight}>
+			<td align="right" id="nav_menu_item_name_cap" >
+				Name
+			</td>
+			<td>
+				{if $item_info.menu_item_id}
+					<b>{$item_info.name}</b>
+				{else}
+				<input type="text" class="input_text" name="item_name" id="item_name" value="{$item_info.name}" onkeyup="convert_item_name( 'item_name' )"/>
+				{/if}
+			</td>
+		</tr>
+		<tr class="tr_2" {highlight}>
+			<td align="right" id="nav_menu_item_label_cap" >
+				Label 
+			</td>
+			<td>
+					{lang_values_input name='item_label' section=nav_menu_item key=$item_info.name}
+			</td>
+		</tr>
+		<tr class="tr_1" {highlight}>
+			<td align="right" id="nav_menu_item_parent_cap" >
+				Parent menu
+			</td>
+			<td>
+				<select name="item_parent" style="width:150px" >
+					{print_select_parent menu_items=$all_menu selected=$item_info.parent_menu_item_id menu=$item_info.menu_name}
+				</select>
+			</td>
+		</tr>
+		<tr class="tr_2" {highlight}>
+			<td align="right" id="nav_menu_item_document_cap" >
+				Corresponding document
+			</td>
+			<td>
+				<select name="item_doc" />
+				{foreach from=$all_docs item=document}
+					{if $item_info.document_key == $document.document_key}
+						<option value="{$document.document_key}" selected>{$document.url}</option>
+					{else}
+						<option value="{$document.document_key}" >{$document.url}</option>
+					{/if}
+				{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr class="tr_item_main_info">
+			<td colspan="2" id="nav_menu_item_memebrship_settings" >
+				Membership types display settings
+			</td>
+		</tr>
+		{foreach from=$memberships_arr item=mem}
+			<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+				<td>
+					<label for="mem_{$mem.membership_type_id}">
+						{text section='membership.types' key=$mem.membership_type_id}
+					</label>
+				</td>
+				<td>
+					<input type="checkbox" id="mem_{$mem.membership_type_id}" name="item_membership[{$mem.membership_type_id}]" {if $mem.checked}checked{/if} />
+				</td>
+			</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" align="right">
+				<input type="submit" class="submit" name="{if $item_info.menu_item_id}save{else}create{/if}" value="{if $item_info.menu_item_id}Save{else}Create{/if}" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+{/block_page}
+</div>
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,7 @@
+.my_match, .birthdate, .block_list, 
+.new_members, .bookmarks, .friend-list,
+.location, .who_view, .moderator,
+.my_groups, .mailbox, .speed_dating {
+	font-size: 12px;
+	font-weight: bold;
+}

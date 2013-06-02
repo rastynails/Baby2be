@@ -1,0 +1,20 @@
+
+.tr_1 td,
+.tr_2 td{
+    padding: 5px;
+}
+
+.tr_2{
+    background-color: << .block_info->background-color; 
+}
+
+.my_credits .plus,
+.my_credits .minus{
+    display: table-cell;
+    background-position: center;
+}
+
+.credits{
+    font-weight: bold;
+    text-align: right;
+}

@@ -1,0 +1,13 @@
+.benefit, .available, .unavailable {
+	border-left: none;
+	border-right: none;
+	border-color: #D7DFE6;
+}
+.plan_box {
+	background-color: #758DA2;
+	color: #fff;
+}
+.td_2 {
+	background-color: #758DA2;
+	color: #fff;
+}

@@ -1,0 +1,18 @@
+.attachment_icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 14px;
+    height: 17px;
+    background-image: image(attach.png);
+}
+
+.attachments_label {
+    margin: 15px 0 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.attachment {
+    padding: 2px;
+}

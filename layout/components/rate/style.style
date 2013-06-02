@@ -1,0 +1,19 @@
+.rates_cont a.rate_item {
+	float: left;
+	width: 20px;
+	height: 20px;
+	background-image: << .inactive_rate_list;
+	background-repeat: no-repeat;
+	background-position: << .inactive_rate_list;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.rates_cont a.active {
+	background-position: 0 0;
+}
+
+.rates_cont{
+	width:100px;
+	margin:0 auto;
+}

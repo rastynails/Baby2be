@@ -1,0 +1,33 @@
+.profile_list_cont ul li{
+	display: block;
+	float:left;
+	margin:0 4px 5px 0;
+}
+
+.profile_list_cont ul {
+	padding: 1px 1px 1px 10px;
+}
+
+.profile_list_cont .item {
+	width:60px;
+	height:75px;
+	overflow: hidden;
+	font-size:11px;
+}
+
+.profile_list_cont .item img, .profile_list_cont .item .image {
+	width:60px;
+	height:60px;
+}
+
+.profile_list_cont .item a{
+	display: block;
+}
+
+.profile_list_cont .item {
+	text-align: center;
+}
+
+.content_preloader {
+	height:50px;
+}

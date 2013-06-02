@@ -1,0 +1,100 @@
+.signin_signup_delimitr {
+	display: none;
+}
+
+.sign_in_document {
+	margin:0 auto 0px;
+	padding-top: 35px;
+	width:100%;
+	min-height: 550px;
+}
+
+.sign_in_document .float_half_right,
+.sign_in_document .float_half_left {
+	width:32%;
+}
+.sign_in_open{
+	width: 361px;
+	height: 183px;
+	margin: 0 auto;
+}
+.bread_crumb {
+	display: none;
+}
+
+.sign_in_document .sign_in_cont h3,
+.sign_in_document .sign_up_cont h3 {
+	text-transform: uppercase;
+	padding-left: 3px;
+}
+.sign_in_document input[type=text],
+.sign_in_document input[type=password] {
+	line-height: 27px;
+	padding: 0px 2px;
+	height: 28px;
+	margin: 5px 0px;
+}
+.sign_in_document label {
+	font-size: 14px;
+	font-family: 'Ubuntu', Trebuchet MS, Helvetica, Arial, Verdana, Sans Serif;
+}
+.sign_in_document .sign_in_cont .block_cap_r,
+.sign_in_document .sign_up_cont .block_cap_r,
+.sign_in_document .sign_in_cont .block_cap_c,
+.sign_in_document .sign_up_cont .block_cap_c {
+	border: none;
+}
+.sign_in_document .forgot_password a {
+	text-decoration: underline;
+}
+.sign_in_document .forgot_password a:hover {
+	text-decoration: none;
+}
+body .sign_in_cont .field input {
+	width: 96%;
+}
+body .sign_up_cont .field input[type=text],
+body .sign_up_cont .field input[type=password] {
+	width: 96%;
+}
+body .sign_in_cont input[type=submit] {
+	width: 244px;
+	padding: 0px 0px;
+	margin-top: 9px;
+	height: 50px;
+	font-size: 20px;
+	color: #fff;
+	font-family: 'Ubuntu', Trebuchet MS, Helvetica, Arial, Verdana, Sans Serif;
+	background: #5fc000 image(btn_green.gif) repeat-x left top;
+	border-color: #bfe944 #a3d830 #00a600 #9ed630;
+	font-weight: bold;
+}
+body .sign_in_cont input[type=submit]:hover {
+	border-color: #00a600 #00a600 #a3d830 #9ed630;
+}
+body .sign_up_cont input[type=submit] {
+	width: 244px;
+	padding: 0px 0px;
+	margin-top: 9px;
+	height: 50px;
+	font-size: 20px;
+	color: #fff;
+	font-family: 'Ubuntu', Trebuchet MS, Helvetica, Arial, Verdana, Sans Serif;
+	background: #5fc000 image(btn_orange_small.gif) repeat-x left top;
+	border-color: #fe9928 #fb7d27 #d33b00 #f66f28;
+	font-weight: bold;
+}
+body .sign_up_cont input[type=submit]:hover {
+	border-color: #d33b00 #d33b00 #fb7d27 #f66f28;
+}
+
+.sign_in_bg {
+	background: image(bg_sign_in.png) no-repeat center 12px;
+	padding: 0px 30px;
+}
+.sign_in_bg .block_body_c {
+	padding: 10px 30px;
+}
+.field {
+	padding-bottom: 3px;
+}

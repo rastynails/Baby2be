@@ -1,0 +1,142 @@
+
+{include file='inc/_header.html'}
+<div style="float:left;width:64%;">
+
+{block_page}
+	<form action="" method="POST">
+         <input type="hidden" name="edit" value="1" />
+         <table cellspacing="1" style="width:100%;">
+           <thead>
+             <tr>
+               <th id="profile_message_keyword_title_thead_cell" colspan="2"> Badwords List </th>
+             </tr>
+           </thead>
+           <tbody>
+           <tr >
+                <td colspan="5" style="padding:0">
+                    <div id="tabs">
+
+                        <div class="{if $badword_type=='word'}active_tab{else}tab{/if}">
+
+                            <a href="{$smarty.const.URL_ADMIN}badwords.php?badword_type=word">Word</a>
+                            <div class="active_tab_no_border"></div>
+
+                        </div>
+                        <div class="{if $badword_type=='string'}active_tab{else}tab{/if}">
+
+                            <a href="{$smarty.const.URL_ADMIN}badwords.php?badword_type=string">String</a>
+                            <div class="active_tab_no_border"></div>
+
+                        </div>
+                        <div class="{if $badword_type=='regexp'}active_tab{else}tab{/if}">
+
+                            <a href="{$smarty.const.URL_ADMIN}badwords.php?badword_type=regexp">Regexp</a>
+                            <div class="active_tab_no_border"></div>
+
+                        </div>
+                </td>
+
+           </tr>
+		{if $badwords}
+
+           {foreach from=$badwords item=badword key=key}
+           <tr class="{cycle values='tr_1,tr_2'}">
+             <td>
+                 <input type="text" class="badword_input" name="badwords[{$badword->getId()}]" value="{if !empty($error_list.$key)}{$error_list.$key}{else}{$badword->getLabel()}{/if}" size="50" maxlength="250" />
+                 {if !empty($error_list.$key)}
+                    <div style="color: red;padding-top:5px;padding-bottom:5px;">Please enter a valid badword (at least 3 characters)</div></td>
+                 {/if}
+             <td width="12%"><a href="{$uri}&delete_id={$badword->getId()}" class="delete"></a></td>
+           </tr>
+           {/foreach}
+           <tr>
+           	<td colspan="5">Pages:
+               	{foreach from=$pages item='page'}
+                   	{if $page.active}<span>&nbsp;{$page.index}</span>{else}
+                       <a href="{$smarty.const.URL_ADMIN}badwords.php?page={$page.index}&badword_type={$badword_type}" style="font-weight:bold;">{$page.index}</a>&nbsp;
+                       {/if}
+                   {/foreach}
+               </td>
+           </tr>
+           </tbody>
+
+           <tfoot>
+             <tr>
+               <td colspan="2"><input type="submit" class="submit" value="Edit" />
+               </td>
+             </tr>
+           </tfoot>
+		{else}
+			<tr class="tr_1">
+				<td colspan="5">No items</td>
+			</tr>
+			</tbody>
+		{/if}
+         </table>
+   </form>
+{/block_page}
+
+{block_page}
+	<form action="" method="POST" onsubmit="if( jQuery.trim(this.badword.value).length < 3 ){literal}{alert('Please enter a valid badword (at least 3 characters)');return false;}{/literal}">
+           <input type="hidden" name="add" value="1" />
+           <table cellspacing="1" cellpadding="0">
+           	<thead>
+                   <tr>
+                     <th colspan="2">Add new badword</th>
+                   </tr>
+               </thead>
+             <tbody>
+               <tr class="tr_1">
+                 <td style="padding: 5px 10px;">
+                     Badword type
+                 </td>
+                 <td>
+                     <select name="badword_type">
+                        <option value="word">Word</option>
+                        <option value="string">String</option>
+                        <option value="regexp">Regexp</option>
+                     </select>
+                 </td>
+               </tr>
+               <tr class="tr_2">
+                    <td style="padding: 5px 10px;">
+                        Text
+                    </td>
+                    <td>
+                        <input type="text" name="badword" size="45" maxlength="250" />
+                    </td>
+               </tr>
+               <tr>
+                 <td colspan="2">
+                     <input type="submit" class="submit" value="Add" />
+                 </td>
+               </tr>
+             </tbody>
+           </table>
+         </form>
+{/block_page}
+
+</div>
+
+<div style="float:right;width:35%;">
+
+{block_page}
+	<table style="width:100%;">
+         <thead>
+         <th>Censored features</th>
+           </thead>
+         <tbody>
+           <tr>
+             <td> {print_configs section='badwords'} </td>
+           </tr>
+         </tbody>
+    </table>
+{/block_page}
+
+</div>
+<br clear="all" />
+<script type="text/javascript">
+
+</script>
+
+{include file='inc/_footer.html'}

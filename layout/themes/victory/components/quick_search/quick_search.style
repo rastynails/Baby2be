@@ -1,0 +1,3 @@
+.quick_search .field_mileage .content_container {
+	background-color:transparent;
+}

@@ -1,0 +1,56 @@
+ul.menu-tabs {
+	background: transparent image(menu.png) repeat-x left top;
+	line-height: 30px;
+	margin: 0px;
+	padding: 0px 0px 2px 0px;
+	text-align: center;
+	height:60px;
+}
+	
+ul.menu-tabs li.tab {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.menu-tabs li.tab a {
+	padding: 8px 0px 8px 9px;
+	color: white;
+	font-size:12px;
+	font-weight: normal;
+	font-family: Tahoma;
+	background: none;	
+}
+
+ul.menu-tabs li.tab a:hover {
+	color: << $highlight_color;
+	text-decoration: none;
+	background: transparent image(menu-active.png) repeat-x left top;
+}
+
+ul.menu-tabs li.tab a:active,
+ul.menu-tabs li.tab a.active {
+	background: transparent image(menu-active_hov.png) repeat-x left top;
+	text-decoration: none;
+}
+
+ul.menu-tabs li.tab a span {
+	background: none;
+	padding: 8px 9px 8px 0px;
+}
+
+ul.menu-tabs li.tab a.active span{
+	background: none;
+}
+
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span {
+	background: none;	
+}
+*+html ul.menu-tabs li.tab a {
+	padding: 0px 0px 8px 9px;
+	color: #fff;
+}
+
+

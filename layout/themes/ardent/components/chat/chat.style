@@ -1,0 +1,20 @@
+.chat_input {
+	width: 472px;
+}
+.block-active .block_cap {
+	background-color: transparent;
+}
+.chat_rooms_container .users_count {
+	padding-left: 4px;
+}
+.chat_windows_container {
+	width: 575px;
+}
+.msg_time {
+	color: #c8cabd;
+	border-color: #103555;
+	border-right: 1px solid #103555;
+}
+.msg_username {
+	color: #aabdcd !important;
+}

@@ -1,0 +1,433 @@
+{* Admin Profiles info Template *}
+{include file='inc/_header.html'}
+<div style="float: left; width: 60%">
+
+<table id="profiles_statistics_table" cellspacing="1" width="100%" >
+	<thead>
+		<tr>
+			<th id="profiles_statistics_table_head_cell" colspan="2">
+				<a class="thead_a" href="profile_list.php">Profiles Total ({$total_profiles})</a>
+			</th>
+		</tr>
+		<tr>
+			<td id="profiles_statistics_table_infra_head_left_cell">
+				<div>Online</div>
+			</td>
+			<td id="profiles_statistics_table_infra_head_right_cell">
+				<a class="thead_a" href="profile_list.php?online=1">{$online_profiles.num} ({$online_profiles.precent})</a>
+			</td>
+		</tr>
+	</thead>
+	</table>
+    <table id="profiles_statistics_table" cellspacing="1" width="100%">
+		<tr class="tr_1">
+        	<td class="corner_left_t">        	
+            	<b>Membership</b>                               
+			</td>
+			<td colspan="4" class="corner_right_t">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+			{foreach from=$memberships item='memberships_row' name='rows'} <tr>
+				{foreach from=$memberships_row key='_id' item='_mem_type' name='m'}
+					{if $smarty.foreach.m.last && $smarty.foreach.rows.first}
+                    	<td width="80" align="center">
+                    {else}
+                    	<td class="side" width="80" align="center" style="border-right: 1px solid #dfdfdf;">
+                    {/if}
+                    	{$_mem_type.label}<br />
+                    	<a href="profile_list.php?membership_type_id={$_id}"><b>{$_mem_type.profiles_num}</b> ({$_mem_type.precent})</a>
+                    </td>
+				{/foreach}</tr>
+                        
+				{/foreach}
+                </table>
+                </td>
+		</tr>
+        
+       
+		<tr class="tr_1">
+			<td class="side" width="84">
+				<b>Sex</b>
+			</td>
+            	<td colspan="4" class="side">
+                   	<table width="100%" cellpadding="0" cellspacing="1">
+                    {foreach from=$sex_stats item='sex_row' name='rows'} <tr>
+						{foreach from=$sex_row key='_id' item='_sex' name='s'}
+                        	{if $smarty.foreach.s.last}
+								<td class="side" align="center" width="95">
+                            {else}    
+                            	 <td class="side" align="center" width="95" style="border-right: 1px solid #dfdfdf;">
+                             {/if}    
+                            {$_sex.label} <br />
+                            	<a href="profile_list.php?sex={$_id}"><b>{$_sex.profiles_num}</b> ({$_sex.precent})</a>
+                            
+                            </td>
+						{/foreach}
+                        </tr>
+                        
+				{/foreach}
+                </table>
+                </td>
+				
+		</tr>
+
+        
+		<tr class="tr_1">
+	        
+            	<td class="side">
+					<b>Status</b>
+				</td>
+	                <td colspan="4" class="side">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+                   			<td class="side" align="center" width="110" style="border-right: 1px solid #dfdfdf;">Active
+                            	<br />
+                            		<a class="green" href="profile_list.php?status=active">
+										<b>{$statuses.active_num}</b> ({$statuses.active_precent})
+									</a>
+                            </td>
+                            
+							<td class="side" align="center" width="110" style="border-right: 1px solid #dfdfdf;">On hold
+                            	<br />
+                            		<a class="ice" href="profile_list.php?status=on_hold">
+										<b>{$statuses.on_hold_num}</b> ({$statuses.on_hold_precent})
+									</a>
+                            </td>
+                            
+							<td class="side" align="center" width="110">Suspended
+	                            <br />
+    	                        	<a class="red" href="profile_list.php?status=suspended">
+										<b>{$statuses.suspended_num}</b> ({$statuses.suspended_precent})
+									</a>                         
+                            </td>     
+                          </table>
+                       </td>                 
+		</tr>
+		
+		<tr class="tr_1">
+	        
+				<td class="side">
+					<b>Email Verified</b>
+				</td>
+                	<td colspan="4" class="side">
+                    	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+               				<td class="side" align="center" width="100" style="border-right: 1px solid #dfdfdf;">Yes
+                            <br />
+                            	<a class="green" href="profile_list.php?email_verified=yes">
+									<b>{$email_verified.yes_num}</b> ({$email_verified.yes_precent})
+								</a>
+                            </td>
+							<td class="side" align="center" width="92" style="border-right: 1px solid #dfdfdf;">No
+                            <br />
+                            	<a class="red" href="profile_list.php?email_verified=no">
+									<b>{$email_verified.no_num}</b> ({$email_verified.no_precent})
+								</a>
+                            </td>
+							<td class="side" align="center" width="92">Undefined
+                            <br />
+                            	<a class="ice" href="profile_list.php?email_verified=undefined">
+									<b>{$email_verified.undefined_num}</b> ({$email_verified.undefined_precent})
+								</a>
+                            </td>			
+                        </table>	
+                     </td>       
+	</tr>
+		
+		<tr class="tr_1">
+        	
+				<td class="side">
+					<b>Have Photo</b>
+				</td>
+                	<td colspan="4" class="side">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+							<td  colspan="2" class="side" align="center" style="border-right: 1px solid #dfdfdf;">Yes <br />
+                            	<a class="green" href="profile_list.php?has_photo=y">
+									<b>{$has_photos.positive_num}</b> ({$has_photos.positive_precent})
+								</a>
+                            </td>
+                            
+							<td  colspan="2" class="side" align="center">No <br />
+								<a class="red" href="profile_list.php?has_photo=n">
+									<b>{$has_photos.negative_num}</b> ({$has_photos.negative_precent})
+								</a>
+                       
+                            </td>														
+                       </table>
+                    </td>
+		</tr>
+		
+		<tr class="tr_1">
+	        
+				<td class="side">
+					<b>Have Video</b>
+				</td>
+                <td colspan="4" class="side">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+							<td   class="side" align="center" style="border-right: 1px solid #dfdfdf;">Yes <br />
+                                <a class="green" href="profile_list.php?has_media=y">
+									<b>{$has_media.media_yes_num}</b> ({$has_media.media_yes_precent})
+								</a>
+                            </td>
+							<td  class="side"align="center" >No <br />
+                            	<a class="red" href="profile_list.php?has_media=n">
+									<b>{$has_media.media_no_num}</b> ({$has_media.media_no_precent})
+								</a>
+                            </td>     
+                        </table>
+                 </td>									
+		</tr>
+		
+		<tr class="tr_1">
+	        
+				<td class="side">
+					<b>Have Mailbox Messages</b>
+				</td>
+                <td colspan="4" class="side">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+							<td   class="side" align="center" style="border-right: 1px solid #dfdfdf;">Yes <br />
+                                <a class="green" href="profile_list.php?mails=y">
+									<b>{$has_mail.yes_num}</b> ({$has_mail.yes_precent})
+								</a>
+                            </td>
+							<td  class="side"align="center" >No <br />
+                            	<a class="red" href="profile_list.php?mails=n">
+									<b>{$has_mail.no_num}</b> ({$has_mail.no_precent})
+								</a>
+                            </td>     
+                        </table>
+                 </td>									
+		</tr>
+		
+		<tr class="tr_1">
+	        	<td class="corner_left_b">
+					<b>Featured</b>
+				</td>					
+                <td colspan="10"  class="corner_right_b">
+                    	<table width="100%" cellpadding="0" cellspacing="1">
+							<td align="center" class="side" style="border-right: 1px solid #dfdfdf;">Yes <br />
+                            <a class="green" href="profile_list.php?featured=y">
+									<b>{$featured.featured_yes_num}</b> ({$featured.featured_yes_precent})
+								</a>
+                            </td>
+							<td align="center">No <br />
+                            <a class="red" href="profile_list.php?featured=n">
+									<b>{$featured.featured_no_num}</b> ({$featured.featured_no_precent})
+								</a>
+
+                            </td>		
+                            
+                        </table>
+                 </td>				
+		</tr>
+		
+
+</table>
+
+</div>
+
+<div style="float: right; width: 39%; margin-top:43px;">
+{block_page}
+      
+<table id="pending_approval_table" cellspacing="1">
+    <thead>
+        <tr><th id="pending_approval_table_head_cell" colspan="2"><div>Administration</div></th></tr>
+    </thead>
+    <tbody>
+    
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td id="pending_approval_table_profiles_left_cell">
+                <div class="review_item_label">Site Moderators</div>
+            </td>
+            <td id="pending_approval_table_profiles_right_cell">
+                <a class="review_link" href="profile_list.php?moderators=1">
+                    <b class="approval_number">{$moderators}</b>
+                </a>
+            </td>
+        </tr>
+    
+    </tbody>
+</table>      
+                
+<table id="pending_approval_table" cellspacing="1">
+	<thead>
+		<tr><th id="pending_approval_table_head_cell" colspan="2"><div>Pending approval</div></th></tr>
+	</thead>
+	<tbody>
+	{if $pending_approval.profiles}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_profiles_left_cell">
+				<div class="review_item_label">Profiles</div>
+			</td>
+			<td id="pending_approval_table_profiles_right_cell">
+				<a class="review_link" href="profile_list.php?reviewed=n">
+					<b class="approval_number">{$pending_approval.profiles}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	
+	{if $pending_approval.photos}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_photos_left_cell">
+				<div class="review_item_label">Photo</div>
+			</td>
+			<td id="pending_approval_table_photos_right_cell">
+				<a class="review_link" href="allphotos.php?photo_status=approval">
+					<b class="approval_number">{$pending_approval.photos}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	{if $pending_approval.membership_claims}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_membership_claims_left_cell">
+				<div class="review_item_label">Membership Claims</div>
+			</td>
+			<td id="pending_approval_table_membership_claims_right_cell">
+				<a class="review_link" href="trial_management.php">
+					<b class="approval_number">{$pending_approval.membership_claims}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+        {if $pending_approval.music}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_media_left_cell">
+				<div class="review_item_label">Music</div>
+			</td>
+			<td id="pending_approval_table_media_right_cell">
+				<a class="review_link" href="profile_list.php?music_status=approval">
+					<b class="approval_number">{$pending_approval.music}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	{if $pending_approval.media}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_media_left_cell">
+				<div class="review_item_label">Video</div>
+			</td>
+			<td id="pending_approval_table_media_right_cell">
+				<a class="review_link" href="profile_list.php?media_status=approval">
+					<b class="approval_number">{$pending_approval.media}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	{if $pending_approval.bg_images}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="pending_approval_table_media_left_cell">
+				<div class="review_item_label">Background Images</div>
+			</td>
+			<td id="pending_approval_table_media_right_cell">
+				<a class="review_link" href="bg_images.php">
+					<b class="approval_number">{$pending_approval.bg_images}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	{if $pending_approval.groups}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td>
+				<div class="review_item_label">Groups</div>
+			</td>
+			<td id="pending_approval_table_media_right_cell">
+				<a class="review_link" href="groups.php?status=approval">
+					<b class="approval_number">{$pending_approval.groups}</b>
+					<span class="review_inscription">review</span>
+				</a>
+			</td>
+		</tr>
+	{/if}
+	{if $pending_approval.photo_auth}
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td>
+                <div class="review_item_label">Photo Verification requests</div>
+            </td>
+            <td id="pending_approval_table_media_right_cell">
+                <a class="review_link" href="photo_verification_requests.php">
+                    <b class="approval_number">{$pending_approval.photo_auth}</b>
+                    <span class="review_inscription">review</span>
+                </a>
+            </td>
+        </tr>
+    {/if}
+	
+	</tbody>
+</table>
+<br clear="all" />
+
+<table id="profile_search_table" cellspacing="1">
+	<thead>
+		<tr><th id="profile_search_table_head_cell" colspan="3"><div>Search Profiles</div></th></tr>
+	</thead>
+	<tbody>	
+		<form action="profile_list.php" method="GET">
+		<tr class="tr_2">
+			<td id="profile_search_table_username_left_cell">
+				<label for="search_username">Username</label>
+			</td>
+			<td id="profile_search_table_username_center_cell">
+				<input id="search_username" name="search_username" type="text" class="input_text" />
+			</td>
+			<td id="profile_search_table_username_right_cell">
+				<input type="submit" class="submit" value="Go &raquo;" />
+			</td>
+		</tr>
+		</form>
+		
+		<form action="profile_list.php" method="GET">
+		<tr class="tr_1">
+			<td id="profile_search_table_email_left_cell">
+				<label for="search_email">Email</label>
+			</td>
+			<td id="profile_search_table_email_center_cell">
+				<input id="search_email" name="search_email" type="text" class="input_text" />
+			</td>
+			<td id="profile_search_table_email_right_cell">
+				<input type="submit" class="submit" value="Go &raquo;" />
+			</td>
+		</tr>
+		</form>
+		
+		<form action="profile_list.php" method="GET">
+		<tr class="tr_2">
+			<td id="profile_search_table_keyword_left_cell">
+				<label for="search_keyword">Keyword</label>
+			</td>
+			<td id="profile_search_table_keyword_center_cell">
+				<input id="search_keyword" name="search_keyword" type="text" class="input_text" />
+			</td>
+			<td id="profile_search_table_keyword_right_cell">
+				<input type="submit" class="submit" value="Go &raquo;" />
+			</td>
+		</tr>
+		</form>
+		
+		<form action="profile_list.php" method="GET">
+		<tr class="tr_1">
+			<td id="profile_search_table_profile_id_left_cell">
+				<label for="search_profile_id">ID</label>
+			</td>
+			<td id="profile_search_table_profile_id_center_cell">
+				<input id="search_profile_id" name="search_profile_id" type="text" class="input_text" />
+			</td>
+			<td id="profile_search_table_profile_id_right_cell">
+				<input type="submit" class="submit" value="Go &raquo;" />
+			</td>
+		</tr>
+		</form>		
+	</tbody>
+</table>
+{/block_page}
+</div>
+
+<br class="clr" />
+{block_page}
+	<iframe frameborder="0" class="profile_photo_frame" style="width: 700px; height: {$spot_height}px" src="{$smarty.const.SKADATE_SPOTLIGHT_FEED}"> </iframe>
+{/block_page}
+{include file='inc/_footer.html'}

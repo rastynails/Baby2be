@@ -1,0 +1,299 @@
+$base_font{
+	color:#fff;
+}
+
+$table_block_cap{
+	background: #666;
+}
+
+$a_link {
+	color:#8BD037;
+}
+
+$body {
+	background: #434343 image(black_bg.gif);
+}
+
+$canvas{
+	padding-bottom:1px;
+}
+
+$site_logo {
+	background: image(logo.png) no-repeat 22px 67px;
+}
+
+$highlight_color {
+	color: #d1d1d1;
+}
+
+$narrow {
+	width: 39%;
+}
+
+$sidebar {
+	float:right;
+}
+
+$content {
+	float: left;
+	color: #fff;
+	margin-bottom: 4px;
+	width:822px;
+	background:#070707;
+	padding: 4px;
+}
+
+.search_page {
+	width: 823px;	
+}
+
+.payment_selection{
+	margin-bottom:4px;
+}
+
+$floatbox_container {
+	background: #000;
+}
+
+.block {
+	border-right: 1px solid #252525;
+	border-left: 1px solid #252525;
+	border-bottom: 1px solid #252525;
+	margin: 0px 0px 14px 0px;
+}
+
+.block_cap {
+	background: image(block_cap.jpg) repeat-x;
+	border: none;
+}
+
+.block_body {
+	background: transparent;
+}
+
+.block_info {
+	background: image(info.png) no-repeat 3px 3px;
+	background-color: transparent;
+	border-top: none;
+}
+
+.block_toolbar {
+	border-left: 1px solid #252525;
+	border-right: 1px solid #252525;
+	background: #000;
+}
+
+.memberhome_hrefs_cont {
+	background: image(member_home.png) no-repeat;
+	padding-top: 5px;
+	padding-left: 0px
+}
+
+.memberhome_hrefs_cont .block_cap {
+	background: none;
+}
+
+.memberhome_hrefs_cont .block_cap h3{
+	color:#434343;
+}
+
+.memberhome_hrefs_cont .block {
+	border: none;
+	margin-bottom: 9px;
+}
+
+.important_tips {
+	background: image(tips.png) repeat-x;
+	height: 131px;
+	margin-bottom: 8px;
+	padding-top: 5px;
+}
+
+.tip .block_body {
+	background: none;
+	border: none;
+}
+
+.important_tips .block_cap{
+	background: none;
+	padding-left:14px;
+}
+
+.important_tips .block_cap h3{
+	color:#434343;
+}
+
+.important_tips .block{
+	background: none;
+	border:none;
+}
+
+.important_tips .block li{
+	color:#000;
+}
+
+.important_tips .block li a{
+	color:#3333cc;
+}
+$tip {
+	height:88px;
+	overflow:hidden;
+	background: #222;
+}
+
+$video_list,
+$blog_manage_list {
+	margin:0 4px;
+}
+
+$popup {
+	background-color: #666;
+}
+
+$active_field_mileage{
+	background:#333 none repeat scroll 0 0;
+	border-color:#595858 #595858;
+	border-style:solid solid none;
+	border-width:1px 1px medium;
+}
+
+$content_field_mileage {
+	background:#333 none repeat scroll 0 0;
+	border:1px solid #595858;
+}
+
+$tab_field_miliage{
+	background:#777 none repeat scroll 0 0;
+	border-color:#595858 #595858;
+	border-style:solid solid none;
+	border-width:1px 1px medium;
+
+}
+
+$small_font {
+	font-size: 11px;
+	border: 1px solid #595858;
+	background-color: #999; 
+}
+
+$suggest_cont {
+	background-color: #888;
+	border: 1px solid #999;
+}
+
+$hover_location {
+	background-color: #777;
+}
+
+$button {
+	background: image(button.gif) repeat-x;
+	border: none;
+}
+$form_th{
+	background: #333;
+}
+
+.tooltip table {
+	background: #888;
+}
+
+.field_mileage .tab_container .active {
+	background-color: #888;
+	border-bottom: none;
+}
+
+$border {
+	background-color: #888;
+}
+
+.video_list .paging a:link,
+.video_list .paging a:visited,
+.photo_list .paging a:link,
+.photo_list .paging a:visited,
+.profile_list_contener .paging a:link, 
+.profile_list_contener .paging a:visited {
+	background: none;
+}
+
+.video_list .paging a:hover, 
+.video_list .paging a.active,
+.photo_list .paging a:hover,
+.photo_list .paging a.active,
+.profile_list_contener .paging a:hover, 
+.profile_list_contener .paging a.active {
+	background: #f0f0f0;
+}
+
+$tab {
+	border-bottom: none;
+	background: #444;
+}
+
+$button_hover {
+	border:none;
+}
+
+$highlight_color{
+	color: #fff;
+}
+
+$item {
+	border-color: #444;
+}
+
+#footer{
+	padding-right: 11px;
+	padding-bottom: 11px;
+	background: #434343;
+	margin-bottom: -1px;
+	width: 819px;
+}
+
+.forum_search_result .quotetop,
+.forum_post_list .quotetop 
+{
+	background:#1F1F1F image(css_img_quote.png) no-repeat scroll right center;
+	border-color:#666666;
+	border-style:dotted dotted none solid;
+	border-width:1px 1px 0 4px;
+	color:#FFFFFF;
+	font-size:10px;
+	font-weight:bold;
+	margin:8px auto 0;
+	padding:3px;
+}
+
+.forum_search_result .quotemain,
+.forum_post_list .quotemain 
+{
+	background:#0F0F0F none repeat scroll 0 0;
+	border-color: #2F2F2F;
+	border-style:none dotted dotted solid;
+	border-width:0 1px 1px 4px;
+	color:#FFFFFF;
+	margin:0 auto 8px;
+	padding:4px;
+}
+
+.suggest_cont ul li {
+	background: #555;
+}
+
+.group .indicator {
+    color: #555555;
+}
+body .footer_menu {
+	margin-top: 0px;
+}
+.select_language,.fbc_button {
+	float: right;
+}
+.profile_list_ads {
+	width: 815px;
+}
+body .newsfeed_comment_list .block_cap {
+	display: block;
+}
+body .newsfeed_comment_list .block_cap_c {
+	min-height: 1px;
+}

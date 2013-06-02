@@ -1,0 +1,123 @@
+{* Admin Header Include Template *}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<title>{$_page.title}</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	{if $_meta_tags}
+		{foreach from=$_meta_tags item=tag}
+			{$tag}
+		{/foreach}
+	{/if}
+	<script src="{$smarty.const.URL_ADMIN_JS}jquery.js" type="text/javascript"></script>
+	<script src="{$smarty.const.URL_STATIC}interface.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var $jq = jQuery.noConflict();
+	</script>
+
+	{foreach from=$_required_js_files item='js_file'}
+		<script src="{$js_file}" type="text/javascript"></script>
+	{/foreach}
+	{if $header_js_code}
+	<script type="text/javascript">{$header_js_code}</script>
+	{/if}
+	{if $_js_onload}
+	<script type="text/javascript">
+		$jq(function() {ldelim}
+			{$_js_onload}
+		{rdelim});
+	</script>
+	{/if}
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.URL_ADMIN}css/admin.css" />
+	{foreach from=$_required_css_files item='css_file'}
+		<link type="text/css" rel="stylesheet" href="{$css_file}" />
+	{/foreach}
+
+</head>
+
+<style>
+H3.block_cap_title{ldelim}
+	border-bottom: 1px dotted #999999;
+{rdelim}
+.floatbox_body{ldelim}
+	padding: 10px;
+{rdelim}
+</style>
+
+<body>
+	<div style="display: none" id="sk-floatbox-block-prototype">
+	    <div class="floatbox_container">
+			<div class="block_cap floatbox_header">
+				<div class="block_cap_r">
+					<div class="block_cap_c">
+						<h3 class="block_cap_title">
+						</h3>
+						<a class="close_btn" href="#">x</a><br clear="all" />
+					</div>
+				</div>
+			</div>
+			<div class="floatbox_body">
+				<div class="fblock_body block_body">
+					 <div class="fblock_body_r block_body_r">
+						  <div class="fblock_body_c block_body_c">
+						  </div>
+					 </div>
+				</div>
+	        </div>
+	     <div class="floatbox_bottom">
+		<div class="block_bottom">
+		 <div class="block_bottom_r">
+		   <div class="block_bottom_c">
+		   </div>
+
+                  </div>
+		  </div>
+               </div>
+		<div class="fblock_bottom">
+			<div class="fblock_bottom_r">
+			<div class="fblock_bottom_c"></div>
+			</div>
+		</div>
+
+		</div>
+	</div>
+{$demo_header}
+<table id="base" cellspacing="0" cellpadding="0">
+	<tr>
+	   <td  align="left">
+            <a href="{$smarty.const.SITE_URL}" target="_blank">Jump to site</a>
+        </td>
+		<td align="right">
+			<a href="{$smarty.const.URL_ADMIN}logout.php">Log out</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="top">
+			<div class="header">{$_header_site_name} Administration</div>
+			<div class="powered_by_skadate"></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="menu_td"></td>
+        <td class="menu_td"><div id="tabs">{$tabs_menu}</div><div style="float:right;">{$help_manual_link}</div></td>
+	</tr>
+	<tr>
+		<td id="sidebar" valign="top">
+			{$sidebar_menu}
+		</td>
+		<td id="td_right" valign="top">
+			<table class="content_table" cellspacing="0" cellpadding="0" width="800">
+				<tr>
+				<td class="corner_left_top"></td>
+				<td class="top_side"></td>
+				<td class="corner_right_top"></td>
+				</tr>
+				<tr>
+				<td class="center_side"></td>
+				<td class="center_side"><div id="content" style="width: 790px">
+
+                	{page_messages}
+				<!-- PAGE CONTENT -->

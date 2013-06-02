@@ -1,0 +1,31 @@
+{*  Theme: Emotion     *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/emotion/httpdocs/index/index.style"}
+
+<div id="page_canvas" style=" width: 875px; margin: 0 auto;">
+	<div style="background: url({$smarty.const.URL_LAYOUT}themes/emotion/img/header.jpg) no-repeat; width: 875px; height: 106px; margin: 28px 0 0;">
+		<div class="float_left fbc_top">{component FBCButton}{component SelectLanguage}</div>  <div style="float: right; margin:-30px 23px 1px 1px;">{component SignIn type="line"}</div>
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/emotion/img/logo.png) no-repeat 30px 37px; width: 400px; height: 106px;"></div>
+	</div>
+	<div id="content" style="width: 875px; height:480px; background: url({$smarty.const.URL_LAYOUT}themes/emotion/img/bg_promo.jpg) repeat-y;    padding-left:0px;">
+			<div style=" width: 875px; height: 480px; margin: 0 auto;">
+				 <a href="{document_url doc_key="join_profile"}" style="cursor: pointer; display:block; float:left; height:479px;    width:553px;"><div style="background: url({$smarty.const.URL_LAYOUT}themes/emotion/img/bg_promo_1.jpg) repeat-y; width: 553px; height: 479px; margin-left: 8px;">
+				 </div></a>
+			   <div style="float: right; margin-right: 31px; width: 291px;">{component QuickSearch}</div>
+			</div>                
+	</div>
+	<div style="width: 812px; float:left; background: url({$smarty.const.URL_LAYOUT}themes/emotion/img/bottom.png) repeat-y; padding:10px 30px 0px;">
+		 <div class="float_half_left" >
+			{component IndexProfileList lists = 'featured|online|new' count=10}
+		 </div>
+		 <div class="float_half_right">
+			{component IndexPhotoList lists = 'top_rated|most_commented|latest|most_viewed' count=8}
+		 </div>
+	</div>
+	<div style="background:transparent url({$smarty.const.URL_LAYOUT}themes/emotion/img/bottom_b.png) no-repeat; height:41px; width:100%; float:left;"> </div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

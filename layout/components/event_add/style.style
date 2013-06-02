@@ -1,0 +1,9 @@
+.country_id select, .state_id select, .city_id select {
+	width:120px;
+}
+.state_id input[type=text],
+.city_id select input[type=text],
+.custom_location input[type=text],
+.event_date_form .city_name input[type=text]{
+	width:120px;
+}

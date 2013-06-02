@@ -1,0 +1,47 @@
+.profile_list_line .plitem {
+    float: left;
+    margin: 0px 3px 3px 0px;
+    padding: 0px 2px 2px;
+    width: 90px;
+}
+.profile_list_line .username {
+	width: 90px;
+	height: 15px;
+	overflow: hidden;
+	cursor:pointer;
+}
+.profile_list_line {
+	float: left;
+	width: 684px;
+	margin-bottom: 0px;
+}
+.pllist_cont {
+	padding: 0px;
+	height: 130px;
+	overflow: hidden;
+}
+#page_canvas .plitem .profile_thumb_wrapper {
+	color: #fff;
+	text-decoration: none;
+}
+.ul_sex_1 .img_size_90,
+.ul_sex_2 .img_size_90 {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor:pointer;
+}
+.ul_sex_1 .img_size_90 {
+	background: image(pink_frame.png) no-repeat;
+}
+.ul_sex_2 .img_size_90 {
+	background: image(blue_frame.png) no-repeat;
+}
+.profile_thumb_wrapper:hover .username {
+	text-decoration: underline;
+}
+.profile_list_line .profile_thumb_wrapper img {
+	border: none;
+}

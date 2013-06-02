@@ -1,0 +1,14 @@
+.page_header {
+	background:none;
+	height:127px;
+	margin:0px;
+	width:1000px;
+	padding-bottom: 7px;
+}
+
+.logo {
+	width:365px;
+	height:82px;
+	background-position:0px 0px;
+	margin-left: auto;
+}

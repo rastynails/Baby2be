@@ -1,0 +1,32 @@
+.fbib {
+    background: image(FacebookIcon.gif) no-repeat scroll 1px 0 #3B5998;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-left: 18px;
+}
+
+
+.fb_float_right {
+    float: right;
+    padding-top: 1px;
+}
+
+
+.gmail_float_right {
+    float: right;
+    margin-right: 6px;
+    padding-top: 1px;
+}
+
+.gib {
+    background: image(gplus_icon.png) no-repeat scroll 1px 1px #F3F3F3;
+    border: 1px solid #C4C4C4;
+    border-radius: 2px 2px 2px 2px;
+    color: #292929;
+    cursor: pointer;
+    line-height: 15px;
+    padding: 0 2px 0 18px;
+    text-transform: lowercase;
+}
+

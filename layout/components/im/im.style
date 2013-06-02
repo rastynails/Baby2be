@@ -1,0 +1,73 @@
+/* component IM styles */
+
+.im_window {
+	float: left;
+	padding: 2px;
+	overflow: auto;
+	background: #F7F7F7;
+}
+
+.im_window > ul {
+	margin: 0px;
+	padding: 1px;
+}
+
+.im_window > ul > li {
+	padding: 4px;
+}
+
+.im_window .my_msg,
+.im_window .my_msg .msg_username {
+	color: #3333CC;
+}
+
+.im_window .opp_msg,
+.im_window .opp_msg a.msg_username {
+	color: #CC3333;
+}
+
+
+.im_sidebar {
+	position: fixed;
+	z-index: 10;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	padding: 1px;
+	text-align: center;
+	border-left: << $border->border;
+	border-bottom: << $border->border;
+	background: #EFEFEF;
+	margin-top: 20px;
+}
+
+.opp_username {
+	line-height: 20px;
+}
+
+
+.im_bottom {
+	position: fixed;
+	z-index: 5;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding: 2px;
+	border-top: << $border->border;
+	border-bottom: << $border->border;
+	background: #EFEFEF;
+}
+
+
+.im_bottom_inventory .add_smile_block {
+	height:272px;
+	left:28px;
+	position:absolute;
+	top:-274px;
+	width:306px;
+	z-index:100;
+}	
+	
+.msg_text {
+	color: #000;
+}

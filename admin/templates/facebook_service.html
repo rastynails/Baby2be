@@ -1,0 +1,49 @@
+{* Admin interface: Skadate services *}
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form action="" method="POST">
+<input type="hidden" name="command" value="fb_invite_settings" />
+<table width="600px">
+	<thead>
+		<tr>
+			<th colspan="2">Facebook Invite Settings</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td>
+					ApplicationId
+				</td>
+				<td align="center" style="width: 55%">
+					<input type="text" style="width: 90%" name="invite[appId]" value="{$fbi_appId}" />
+				</td>
+				<td>
+					<a class="small" href="http://www.skalfa.com/ca/docs/introduction_management_advanced_services#facebook-invite-friends-setup-manual" >Configuration Instructions</a>
+				</td>
+			</tr>
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td>
+					Application Secret
+				</td>
+				<td align="center" style="">
+					<input type="text" style="width: 90%" name="invite[secret]" value="{$fbi_secret}" />
+				</td>
+				<td>
+				</td>								
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+        	<td></td>
+			<td colspan="2">
+				<input type="submit" value="Save" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+{include file='inc/_footer.html'}

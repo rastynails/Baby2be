@@ -1,0 +1,28 @@
+{*  Theme: Nite Bluez  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/nitebluez/httpdocs/index/index.style"}
+
+<div class="bg_spot">
+	<div class="bg_bottom">
+		<div id="page_canvas">
+			{ads pos='top'}
+			{component PageHeader}
+			<div id='content'>
+				<div class="promo_txt">{text %.promo.promo_index_nitebluez}</div>
+				<div class="clearfix">
+					<a href="{document_url doc_key=join_profile}" class="index_join"></a><div class="or">{text %.label.or}</div><a href="{document_url doc_key=sign_in}" class="index_signin"></a>
+				</div>
+				<div class='float_half_left' >
+					{component QuickSearch}
+				</div>
+			</div>
+			<div id='footer'>
+				{component PageFooter}
+				{ads pos='bottom'}
+			</div>
+		</div>
+	</div>
+</div>
+{/canvas}

@@ -1,0 +1,27 @@
+#footer .menu-line-bottom a:hover, #footer .menu-line-bottom a.active
+{
+	text-decoration:none;
+	font-weight: normal;
+	color: #fff;
+}
+
+.menu-line-bottom a
+{
+	text-decoration:underline;
+	margin-right: 4px;
+	font-size: 11px;
+}
+
+.menu-line-bottom li
+{
+	list-style:none;
+	display:inline;
+}
+
+ul.menu-line-bottom {
+	text-align: left;
+	background: none;
+	padding: 0px;
+	color: #a2a2a2a;
+	padding: 0px 0px 0px 30px;
+}

@@ -1,0 +1,3 @@
+.jcarousel-skin .jcarousel-container-horizontal {
+	width: 263px;
+}

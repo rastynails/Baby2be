@@ -1,0 +1,28 @@
+.input_c {
+    float: left;
+    margin-right: 2px;
+}
+
+.input_c .form_field_error {
+    position: absolute;
+}
+
+.button_c {
+    padding-top: 1px;
+    float: left;
+}
+
+.container_block {
+    margin: 50px auto 0px;
+    width: 400px;
+}
+
+.content_c {
+    margin: 10px auto;
+    width: 280px;
+}
+
+.fo_block {
+    text-align: center;
+    margin: 50px 0;
+}

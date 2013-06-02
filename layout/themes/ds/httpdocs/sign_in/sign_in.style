@@ -1,0 +1,30 @@
+.signin_signup_delimitr
+{
+	float: left;
+	width: 10%;
+	padding-top: 4px;
+	text-align: center;
+	font-weight: bold;
+	height: 300px;
+}
+
+.sign_in_document
+{
+	margin:0 auto;
+	width:500px;
+}
+
+.sign_in_document .float_half_right, .sign_in_document .float_half_left
+{
+	width:43%;
+}
+.sign_in_open{
+	background: image(sign_in.jpg) no-repeat;
+	width: 361px;
+	height: 183px;
+	margin: 0 auto;
+}
+
+.bread_crumb {
+	display: none;
+}

@@ -1,0 +1,769 @@
+{* Admin interface: edit profile field*}
+{include file='inc/_header.html'}
+{literal}
+<style>
+.location_label_cont
+{
+	border-bottom:1px solid #E0E0E0;
+	padding-bottom:2px;
+	width:100px;
+	margin-bottom:2px
+}
+</style>
+{/literal}
+
+<form action="{$smarty.const.URL_ADMIN}profile_field.php?{if $smarty.get.field_id}field_id={$smarty.get.field_id}{/if}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" method="POST"
+{if !$field_info.profile_field_id}
+	onsubmit="return CheckAddFieldForm();"
+{else}
+	onsubmit="return CheckEditFieldForm();"
+{/if}>
+<table class="content_profiles" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="corner_left_t"></td>
+		<td class="side"></td>
+		<td class="corner_right_t"></td>
+	</tr>
+	<tr>
+		<td class="side"></td>
+		<td class="side">
+
+<table cellspacing="1" align="left" class="table" width="600px">
+	<thead>
+		<tr>
+			<th colspan="2">
+			{if $field_info.profile_field_id}
+				Edit profile field - {$field_info.name}
+			{else}
+				Create a new profile field
+			{/if}
+			</th>
+		</tr>
+		<tr>
+			<td align="right" colspan="2">
+				<a class="go_back_pr" href="{$smarty.const.URL_ADMIN}profile_field_list.php?{if $smarty.get.f_page}f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}">Go back</a>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="30%" id="profile_field_name_label">
+				Name in latin language*
+				{if !$field_info}
+					<div class="_red_txt">( 64 symb max )</div>
+				{/if}
+			</td>
+			<td width="70%">
+			        {if $field_info.profile_field_label}
+			             {$field_info.profile_field_label}
+			        {else}
+			             <input type="text" id="new_field_name" name="new_field_name[{$default_lang_id}]" onkeyup="convert_field_name(this.value)" />
+			        {/if}
+
+				<div id="manage_confirm_href"
+					{if ($field_info.presentation == 'text' && $field_info.name != 'country_id')
+					|| $field_info.presentation == 'password'
+					|| $field_info.presentation == 'textarea'
+					|| !$field_info.profile_field_id}
+						class="confirm_href_s"
+					{else}
+						class="confirm_href_h"
+					{/if}>
+					<a href="javascript://" id="manage_confirm" class="enable_confirm_inp" onclick="manage_confirm_field();">[on/off confirm]</a>
+				</div>
+
+				<input type="hidden" name="field_confirm" id="field_confirm" {if $field_info.confirm}value="1"{/if} />
+
+			</td>
+		</tr>
+		{if !$field_info.profile_field_id}
+			<tr>
+				<td id="profile_field_dbname_label">
+					Database name*
+				</td>
+				<td>
+					<input type="text" name="new_field_db_name" value="" class="input_text" id="field_db_name" size="30" disabled />
+				</td>
+			</tr>
+		{/if}
+		{if ($field_info.presentation == 'text'
+		|| $field_info.presentation == 'password'
+		|| $field_info.presentation == 'textarea') && $field_info.confirm}
+			<tr id="confirm_tr" class="confirm_tr_s">
+				<td id="profile_field_confirmation_name_label">
+					Confirmation field name*
+				</td>
+				<td>
+					{lang_values_input section='profile_fields.confirm' key=$field_info.profile_field_id name='confirm_name'}
+				</td>
+			</tr>
+		{else}
+			<tr id="confirm_tr" class="confirm_tr_h">
+				<td id="profile_field_confirmation_name_label">
+					Confirmation field name*
+				</td>
+				<td>
+					{lang_values_input section='profile_fields.confirm' key=$field_info.profile_field_id name='confirm_name' id="confirm_name"}
+				</td>
+			</tr>
+		{/if}
+		<tr>
+			<td id="profile_field_type_label">
+				Field type*
+			</td>
+			<td id="preface">
+                                {if $field_info.name == 'match_sex'}
+
+                                <select name="field_type" onchange="manage_field_attr(this.value );">
+                                    <option value="radio" {if $field_info.presentation == "radio"}selected="selected"{/if}>radio</option>
+                                    <option value="multicheckbox" {if $field_info.presentation == "multicheckbox"}selected="selected"{/if}>multicheckbox</option>
+                                </select>
+
+                                {elseif !$field_info.base_field && $field_info.presentation!="photo_upload"}
+					<select name="field_type" onchange="manage_field_attr(this.value );">
+						{foreach from=$field_types item=field_type}
+							{if $field_type == 'text' || $field_type == 'textarea' || $field_type == 'select'
+							|| $field_type == 'checkbox' || $field_type == 'multicheckbox' || $field_type == 'radio'
+							|| $field_type == 'age_range' || $field_type == 'date' ||  $field_type == 'birthdate' || $field_type == 'url' || $field_type == 'fselect' || $field_type == 'fradio'|| $field_type == 'callto' || $field_type == 'email'}
+								{if $field_type == $field_info.presentation}
+									<option value="{$field_type}" selected>{$field_type}</option>
+								{else}
+									<option value="{$field_type}">{$field_type}</option>
+								{/if}
+							{/if}
+						{/foreach}
+					</select>
+				{else}
+					<input type="hidden" name="field_type" value="{$field_info.presentation}">
+					<b>{$field_info.presentation}</b>
+				{/if}
+			</td>
+		</tr>
+		<tr>
+			<td id="profile_field_section_label" >
+				Section*
+			</td>
+			<td>
+				<select name="field_section">
+					{foreach from=$pr_page_sections item=section}
+						{if $field_info.profile_field_section_id == $section.profile_field_section_id}
+							<option value="{$section.profile_field_section_id}" selected>{text section='profile_fields.section' key=$section.profile_field_section_id}</option>
+						{else}
+							<option value="{$section.profile_field_section_id}">{text section='profile_fields.section' key=$section.profile_field_section_id}</option>
+						{/if}
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+	{if $field_info.presentation == 'date' || $field_info.presentation == 'birthdate'}
+		{assign var=date_field_match_class value=field_value_s}
+	{else}
+		{assign var=date_field_match_class value=field_value_h}
+	{/if}
+	<tr id="date_field_match" class="{$date_field_match_class}">
+		<td id="profile_field_matchfield_label" >
+			Match this field with:
+		</td>
+		<td>
+		{if $date_field_match && !$field_info.matching}
+			<select name="match_field_date">
+				<option value="0">Not set</option>
+			{foreach from=$date_field_match item=match_field}
+				{if $field_info.match_field == $match_field.profile_field_id}
+					<option value="{$match_field.profile_field_id}" selected>{text section='profile_fields.label' key=$match_field.profile_field_id}
+				{else}
+					<option value="{$match_field.profile_field_id}">{text section='profile_fields.label' key=$match_field.profile_field_id}
+				{/if}
+			{/foreach}
+			</select>
+		{else}
+			<b>No fields to match</b>
+		{/if}
+		</td>
+	</tr>
+	{if $field_info.presentation == 'age_range'}
+		{assign var=age_range_field_match_class value=field_value_s}
+	{else}
+		{assign var=age_range_field_match_class value=field_value_h}
+	{/if}
+		<tr id="age_range_field_match" class="{$age_range_field_match_class}">
+			<td id="profile_field_mathcfor_label" >
+				The field is match for:
+			</td>
+			<td>
+				{if $field_info.matching}
+					<a href="{$field_info.matching_field_href}">{text section='profile_fields.label key=$field_info.matching} field</a>
+				{else}
+					<b>not set</b>
+				{/if}
+			</td>
+		</tr>
+
+		{if  $field_info.presentation == 'select'
+		|| $field_info.presentation == 'multiselect'
+		|| $field_info.presentation == 'multicheckbox'
+		|| $field_info.presentation == 'radio'}
+			{assign var=multi_field_match_class value=field_value_s}
+		{else}
+			{assign var=multi_field_match_class value=field_value_h}
+		{/if}
+		<tr id="multi_field_match" class="{$multi_field_match_class}">
+			<td id="profile_field_matchfield_label" >
+				Match this field with:
+			</td>
+			<td>
+			{if $multi_field_match && !$field_info.matching}
+				<select name="match_field_multi">
+					<option value="0">Not set</option>
+				{foreach from=$multi_field_match item=match_field}
+					{if $field_info.match_field == $match_field.profile_field_id}
+						<option value="{$match_field.profile_field_id}" selected>{text section='profile_fields.label' key=$match_field.profile_field_id}
+					{else}
+						<option value="{$match_field.profile_field_id}">{text section='profile_fields.label' key=$match_field.profile_field_id}
+					{/if}
+				{/foreach}
+				</select>
+			{elseif $field_info.matching}
+				This field is match for <a href="{$field_info.matching_field_href}">{text section='profile_fields.label key=$field_info.matching} field</a>
+			{else}
+				<b>No fields to match</b>
+			{/if}
+			</td>
+		</tr>
+		{if $field_info.name != 'country_id' && $field_info.name != 'upload_photo'}
+			<tr>
+				<td id="profile_field_regexp_label" >
+					Regexp
+				</td>
+				<td>
+					<input type="text" name="field_regexp" class="input_text" value="{$field_info.regexp}">
+				</td>
+			</tr>
+		{/if}
+		<tr>
+			<td>
+				<label for="join_member">Field on join page</label>
+			</td>
+			<td>
+				<input type="checkbox" name="field_join_member" id="join_member" value="1" onclick="show_field_attr_name( this.checked, 'join_input' )" {if $field_info.join_page} checked {/if} {if $field_info.base_field && !$field_info.editable_by_admin}disabled{/if}>
+			</td>
+		</tr>
+		{if $field_info.join_page}
+			{assign var=join_page_val value=field_value_s}
+		{else}
+			{assign var=join_page_val value=field_value_h}
+		{/if}
+		<tr id="join_input" class="{$join_page_val}">
+			<td id="profile_field_joinname_label" >
+				Name for join page*
+			</td>
+			<td>
+				{if $field_info.presentation == 'location'}
+                    <div class="location_label_cont">
+                    {lang_values_input section='profile_fields.label_join' key=$field_info.profile_field_id}</div>
+                    {lang_values_input section='profile_fields.label_join' key=112}<br />
+                    {lang_values_input section='profile_fields.label_join' key=113}<br />
+                    {lang_values_input section='profile_fields.label_join' key=114}<br />
+                    {lang_values_input section='profile_fields.label_join' key=111}<br />
+                    {lang_values_input section='profile_fields.label_join' key=56}<br />
+                {else}
+                    {lang_values_input section='profile_fields.label_join' key=$field_info.profile_field_id name='join_page_name' id="join_page_name"}<br />
+                {/if}
+			</td>
+		</tr>
+		{if $field_info.name != 'photo_upload'}
+		<tr>
+			<td>
+				<label for="view_member">Field on view page</label>
+			</td>
+			<td>
+				<input type="checkbox" name="field_view_member" id="view_member" value="1" onclick="show_field_attr_name( this.checked, 'view_input' )" {if $field_info.viewable_by_member} checked {/if} >
+			</td>
+		</tr>
+
+		{if $field_info.viewable_by_member}
+			{assign var=view_page_val value=field_value_s}
+		{else}
+			{assign var=view_page_val value=field_value_h}
+		{/if}
+		<tr  id="view_input" class="{$view_page_val}">
+			<td id="profile_field_viewname_label" >
+				Name for view page*
+			</td>
+			<td>
+				{if $field_info.presentation == 'location'}
+					<div class="location_label_cont">
+					{lang_values_input section='profile_fields.label_view' key=$field_info.profile_field_id}</div>
+						{lang_values_input section='profile_fields.label_view' key=112}<br />
+						{lang_values_input section='profile_fields.label_view' key=113}<br />
+						{lang_values_input section='profile_fields.label_view' key=114}<br />
+						{lang_values_input section='profile_fields.label_view' key=111}<br />
+						{lang_values_input section='profile_fields.label_view' key=56}<br />
+					{else}
+						{lang_values_input section='profile_fields.label_view' key=$field_info.profile_field_id name='view_page_name' id="view_page_name"}<br />
+					{/if}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="edit_member">Field on edit page</label>
+			</td>
+			<td>
+				<input type="checkbox" name="field_edit_member" id="edit_member" value="1" onclick="show_field_attr_name( this.checked, 'edit_input' )" {if $field_info.editable_by_member} checked {/if} {if $field_info.base_field && !$field_info.editable_by_admin && $field_info.name!='username'}disabled{/if}>
+			</td>
+		</tr>
+		{if $field_info.editable_by_member}
+			{assign var=edit_page_val value=field_value_s}
+		{else}
+			{assign var=edit_page_val value=field_value_h}
+		{/if}
+		<tr  id="edit_input" class="{$edit_page_val}">
+			<td id="profile_field_editname_label" >
+				Name for edit page*
+			</td>
+			<td>
+					{if $field_info.presentation == 'location'}
+						<div class="location_label_cont">{lang_values_input section='profile_fields.label_edit' key=$field_info.profile_field_id}</div>
+						{lang_values_input section='profile_fields.label_edit' key=112}<br />
+						{lang_values_input section='profile_fields.label_edit' key=113}<br />
+						{lang_values_input section='profile_fields.label_edit' key=114}<br />
+						{lang_values_input section='profile_fields.label_edit' key=111}<br />
+						{lang_values_input section='profile_fields.label_edit' key=56}<br />
+					{else}
+						{lang_values_input section='profile_fields.label_edit' key=$field_info.profile_field_id name='edit_page_name' id="edit_page_name"}<br />
+					{/if}
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>
+				<label for="field_search">Field on search form</label>
+			</td>
+			<td>
+				<input type="checkbox" name="field_search" id="field_search" value="1" onclick="show_field_attr_name( this.checked, 'search_input' )" {if $field_info.searchable} checked {/if} {if $field_info.presentation == 'age_range'}disabled{/if}>
+			</td>
+		</tr>
+
+		{if $field_info.searchable}
+			{assign var=search_page_val value=field_value_s}
+		{else}
+			{assign var=search_page_val value=field_value_h}
+		{/if}
+		<tr  id="search_input" class="{$search_page_val}">
+			<td id="profile_field_searchname_label" >
+				Name for search form*
+			</td>
+			<td>
+					{if $field_info.presentation == 'location'}
+						<div class="location_label_cont">{lang_values_input section='profile_fields.label_search' key=$field_info.profile_field_id}</div>
+						{lang_values_input section='profile_fields.label_search' key=112}<br />
+						{lang_values_input section='profile_fields.label_search' key=113}<br />
+						{lang_values_input section='profile_fields.label_search' key=114}<br />
+						{lang_values_input section='profile_fields.label_search' key=111}<br />
+						{lang_values_input section='profile_fields.label_search' key=56}<br />
+					{else}
+						{lang_values_input section='profile_fields.label_search' key=$field_info.profile_field_id name='search_name' id="search_page_name"}<br />
+					{/if}
+
+			</td>
+		</tr>
+		{/if}
+
+        {if $field_info.presentation == 'birthdate'}
+			{assign var=profile_list_label value=field_value_s}
+		{else}
+			{assign var=profile_list_label value=field_value_h}
+		{/if}
+        <tr id="profile_list_label" class="{$profile_list_label}" >
+            <td>
+                <label for="profile_list_member">Field on profile view/list page</label>
+            </td>
+            <td>
+                <input type="checkbox" name="field_profile_list_member" id="field_profile_list_member" value="1" onclick="show_field_attr_name( this.checked, 'profile_list_input' )" {if $field_info.profile_list_template} checked {/if} {if $field_info.base_field && !$field_info.editable_by_admin && $field_info.name!='username'}disabled{/if}>
+            </td>
+        </tr>
+        {if $field_info.profile_list_template && $field_info.presentation == 'birthdate' }
+            {assign var=profile_list_val value=field_value_s}
+        {else}
+            {assign var=profile_list_val value=field_value_h}
+        {/if}
+        <tr id="profile_list_input" class="{$profile_list_val}" >
+            <td>
+                Value for profile view/list page*
+                <br>{literal}{$value} - profile field value{/literal}
+            </td>
+            <td>
+                <br>{lang_values_input section='profile_fields.label_profile_list' key=$field_info.profile_field_id name='profile_list_value'}<br />
+            </td>
+        </tr>
+		<tr>
+			<td>
+				<label for="req_field"><br>Field is required</label>
+			</td>
+			<td>
+				<br><input type="checkbox" name="field_required" id="req_field" value="1" {if $field_info.required_field} checked {/if} {if $field_info.base_field && !$field_info.editable_by_admin}disabled{/if}>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Incorrect value error message*
+			</td>
+			<td>
+				{lang_values_input section='profile_fields.error_msg' key=$field_info.profile_field_id name='field_error_msg' id="field_error_msg"}
+			</td>
+		</tr>
+		{if $field_info.presentation == 'select'
+			|| $field_info.presentation == 'multiselect'
+			|| $field_info.presentation == 'multicheckbox'
+			|| $field_info.presentation == 'radio'
+			|| $field_info.presentation == 'fselect'
+			|| $field_info.presentation == 'fradio'}
+			{assign var=cols_count value=cols_count_s}
+		{else}
+			{assign var=cols_count value=cols_count_h}
+		{/if}
+		<tr id="cols_count" class="{$cols_count}">
+			<td id="profile_field_columnnum_label" >
+				Column size ( px or %)
+			</td>
+			<td>
+				<input type="text" name="field_values_column_size" id="field_values_cols_count" class="input_text" value="{$field_info.column_size}" size="4">
+			</td>
+		</tr>
+
+		{if $field_info.presentation == 'select' || $field_info.presentation == 'fselect'}
+			{assign var=first_select value=first_select_s}
+		{else}
+			{assign var=first_select value=first_select_h}
+		{/if}
+		<tr id="first_select" class="{$first_select}">
+			<td id="profile_field_selectinvite_label" >
+				Value selection invitation label
+			</td>
+			<td>
+				{lang_values_input section='profile_fields.select_invite_msg' key=$field_info.profile_field_id name='field_select_invite' id="field_select_invite"}
+			</td>
+		</tr>
+
+		{if $field_info.presentation == 'date' || $field_info.presentation == 'birthdate'}
+			{assign var=first_select_date value=first_select_date_s}
+		{else}
+			{assign var=first_select_date value=first_select_date_h}
+		{/if}
+		<tr id="first_select_date" class="{$first_select_date}">
+			<td id="profile_field_date_selectinvite_label" >
+				 Date values selection invitation labels
+			</td>
+			<td>
+			<table width="100%">
+			<tr>
+				<td>{lang_values_input section='profile_fields.select_invite_msg' key="`$field_info.profile_field_id`_year" name='field_select_year_invite' id="field_select_year_invite"}</td>
+				<td>{lang_values_input section='profile_fields.select_invite_msg' key="`$field_info.profile_field_id`_month" name='field_select_month_invite' id="field_select_month_invite"}</td>
+				<td>{lang_values_input section='profile_fields.select_invite_msg' key="`$field_info.profile_field_id`_day" name='field_select_day_invite' id="field_select_day_invite"}</td>
+			</tr>
+			</table>
+			</td>
+		</tr>
+
+
+		{if ( ( $field_info.presentation == 'text'
+			|| $field_info.presentation == 'password'
+			|| $field_info.presentation == 'textarea') && $field_info.confirm )}
+			{assign var=confirm_error_msg value=confirm_error_s}
+		{else}
+			{assign var=confirm_error_msg value=confirm_error_h}
+		{/if}
+		<tr id="confirm_error_msg" class="{$confirm_error_msg}">
+			<td id="profile_field_confirm_error_msg_label" >
+				Confirm field value error message*
+			</td>
+			<td>
+				{lang_values_input section='profile_fields.error_msg' key=confirm_`$field_info.profile_field_id` name='field_confirm_error_msg' id="field_confirm_error_msg"}
+			</td>
+		</tr>
+		{if (!$field_info.base_field || $field_info.editable_by_admin) && ( $field_info.profile_field_id != $field_info.reliant_field_info.profile_field_id || !$field_info.profile_field_id ) }
+		{if $field_info.name != 'photo_upload'}
+		<tr>
+			<td id="profile_field_depend_field_from_label" >Allow edit this field <b>only</b> for <br />( abort this option if field must be filled by all sexes ):</td>
+			<td>
+			<input type="hidden" name="reliant_field_id" value="6" />
+				{foreach from=$field_info.reliant_field_info.values item=reliant_value}
+				{assign var="value_checked" value=0}
+				{foreach from=$field_info.field_depended_values item=depended_value}
+					{if $depended_value == $reliant_value}
+						{assign var="value_checked" value=1}
+					{/if}
+				{/foreach}
+
+				{if $value_checked}
+					<input type="checkbox" name="depended_values[]" value="{$reliant_value}" checked />
+				{else}
+					<input type="checkbox" name="depended_values[]" value="{$reliant_value}" />
+				{/if}
+				{text section='profile_fields.value" key=`$field_info.reliant_field_info.name`_`$reliant_value`}
+				{/foreach}
+			</td>
+		</tr>
+		{/if}
+		{/if}
+		<tr>
+			<td colspan="2" align="right">
+				{if $field_info.profile_field_id}
+					<input type="submit" name="update_field" class="submit" value="Edit field">
+				{else}
+					<input type="submit" name="create_field" class="submit" value="Create">
+				{/if}
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+    	</td>
+		<td class="side"></td>
+	</tr>
+	<tr>
+		<td class="corner_left_b"></td>
+		<td class="side"></td>
+		<td class="corner_right_b"></td>
+	</tr>
+</table>
+</form>
+
+	<br clear="all">
+	{if $field_info.presentation == 'select'
+			|| $field_info.presentation == 'multiselect'
+			|| $field_info.presentation == 'multicheckbox'
+			|| $field_info.presentation == 'radio'
+			|| $field_info.presentation == 'fselect'
+			|| $field_info.presentation == 'fradio'}
+
+		<table width="100%">
+			<thead>
+				<tr>
+					<th colspan="2" id="profile_field_values_label" >
+						Values for `{$field_info.name}` field
+					</th>
+				</tr>
+				<tr>
+				{if $field_info.values}
+					<td>
+						Edit
+					</td>
+				{/if}
+					<td>
+						Add
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					{if $field_info.values}
+					<td valign="top">
+						<table cellspacing="0" cellpadding="0" width="100%">
+							{foreach item=value from=$field_info.values name=field_val}
+							<form action="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" method="POST" onsubmit="return ConfirmDelFieldValue();">
+								<tr class="{cycle values="tr_1,tr_2"}" {highlight}>
+									<td>
+										{if !$smarty.foreach.field_val.first}
+											<a class="arr_up" href="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}&value={$value.value}&action=up{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" id="profile_field_value_order_up" ></a>
+										{else}
+											<div class="arr_up_i"></div>
+										{/if}
+
+										{if !$smarty.foreach.field_val.last}
+											<a class="arr_down" href="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}&value={$value.value}&action=down{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" id="profile_field_value_order_down" ></a>
+										{else}
+											<div class="arr_down_i"></div>
+										{/if}
+									</td>
+									<td>
+										{lang_values_input section='profile_fields.value' key="`$field_info.name`_`$value.value`}
+									</td>
+									<td>
+										<input type="hidden" name="field_value" value="{$value.value}">
+				 						<input type="submit" name="delete_value" value="Delete" class="submit">
+									</td>
+								</tr>
+							</form>
+							{/foreach}
+						</table>
+					</td>
+					{/if}
+					<td>
+
+						{if !$field_info.matching}
+
+						{if $field_info.presentation != 'fselect' && $field_info.presentation != 'fradio'}
+							Maximum values allowed: 30
+						{else}
+							Allow unlimited number of values
+						{/if}
+
+							<br clear="all"/>
+							<br clear="all"/>
+
+							{if $field_info.values_count == 30 && $field_info.presentation != 'fselect' && $field_info.presentation != 'fradio'}
+								<div style="color: #DF5353;">Values limit</div>
+							{else}
+								<form action="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" method="POST" onsubmit="return CheckAddFieldValueForm();">
+								<table cellspacing="0" cellpadding="0" width="100%"	>
+									<tr class="tr_1">
+										<td>
+											New Value
+										</td>
+										<td>
+											{add_lang_values_input name='value' id='new_field_val'}
+										</td>
+									</tr>
+									{if $field_info.values}
+									<tr class="tr_2">
+										<td>
+										</td>
+											<td>
+												<input type="radio" name="where" value="end" id="end" checked ><label for="end"> At the end </label><br/>
+												<input type="radio" name="where" value="begin" id="begin"><label for="begin"> At the beginning</label><br/>
+												<input type="radio" name="where" value="after" id="after"><label for="after"> After&nbsp;</label>
+												<select name="field" onclick="document.getElementById( 'after' ).checked = true">
+													{foreach item=value from=$field_info.values}
+														<option value="{$value.order}">{text section='profile_fields.value key="`$field_info.name`_`$value.value`"}</option>
+													{/foreach}
+												</select>
+											</td>
+									</tr>
+									{/if}
+									<tr class="tr_1">
+										<td>
+										</td>
+										<td align="right">
+											<input type="submit" name="add_value" value="Add value" class="submit">
+										</td>
+									</tr>
+								</table>
+								</form>
+							{/if}
+							<div style="color: #DF5353; width: 200px; padding: 3px;" id="profile_field_value_change_type_msg" >
+								When you change field type from select/multicheckbox/radio to fselect/fradio and vice versa, field values WILL BE LOST.
+							</div>
+						{else}
+							This field is match for {text section='profile_fields.label key=$field_info.matching}<br>
+							<a href="{$field_info.matching_field_href}">Go to `{text section='profile_fields.label key=$field_info.matching}` field</a> to configure values
+						{/if}
+						<br clear="all"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	{elseif $field_info.presentation == 'age_range'}
+		<table>
+		<thead>
+			<tr>
+				<th colspan="2">
+					`{$field_info.name}` field values
+				</th>
+			</tr>
+			<tr>
+				<td>
+					Edit
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{if !$field_info.matching}
+				<form action="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" method="POST" onsubmit="return CheckChangeRangeForm();" >
+				<tr>
+					<td>
+						from <input type="text" name="age_range_val1" value="{$field_info.age_start}" id="age_range_val1" class="input_text" size="4"> to  <input type="text" name="age_range_val2" value="{$field_info.age_end}" id="age_range_val2" class="input_text" size="4">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="submit" name="change_range" value="Set range" class="submit">
+					</td>
+				</td>
+				</form>
+			{else}
+				<tr>
+					<td>
+						This field is match for {text section='profile_fields.label key=$field_info.matching}<br>
+						<a href="{$field_info.matching_field_href}">Go to `{text section='profile_fields.label key=$field_info.matching}`</a> to configure values
+					</td>
+				</tr>
+			{/if}
+		</tbody>
+	</table>
+	{elseif $field_info.presentation == 'date' || $field_info.presentation == 'birthdate'}
+		<table align="left">
+		<thead>
+			<tr>
+				<th colspan="2">
+					{$field_info.name} - year interval
+				</th>
+			</tr>
+			<tr>
+				<td>
+					Edit
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{if !$field_info.matching}
+				<form action="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}" method="POST" onsubmit="return CheckChangeRangeForm();" >
+				<tr>
+					<td>
+						Start year<input type="text" name="start_date" value="{$field_info.date_start}" id="date_start" class="input_text" size="4">
+						End year<input type="text" name="end_date" value="{$field_info.date_end}" id="date_end" class="input_text" size="4">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="submit" name="change_date" value="Set" class="submit">
+					</td>
+				</td>
+				</form>
+			{else}
+				<tr>
+					<td>
+						This field is match for {text section='profile_fields.label key=$field_info.matching}<br>
+						<a href="{$field_info.matching_field_href}">Go to `{text section='profile_fields.label key=$field_info.matching}`</a> to configure values
+					</td>
+				</tr>
+			{/if}
+		</tbody>
+	</table>
+	{/if}
+	{if $field_info.name == 'location'}
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2" id="profile_field_value_location_view_order_conf" >
+						field order on view page
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach from=$field_info.field_config.field_order item=_location_field name="location_order"}
+					<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+					<td width="30">
+						{if !$smarty.foreach.location_order.first}
+							<a class="arr_up" href="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}&field={$_location_field}&location_move=up"></a>
+						{else}
+							<div class="arr_up_i"></div>
+						{/if}
+						{if !$smarty.foreach.location_order.last}
+							<a class="arr_down" href="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$smarty.get.field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}&field={$_location_field}&location_move=down"></a>
+						{else}
+							<div class="arr_down_i"></div>
+						{/if}
+					</td>
+					<td>
+						{$_location_field}
+					</td>
+				</tr>
+				{/foreach}
+				</tr>
+			</tbody>
+		</table>
+	{/if}
+{include file='inc/_footer.html'}

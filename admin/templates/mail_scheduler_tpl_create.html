@@ -1,0 +1,58 @@
+{include file='inc/_header.html'}
+
+<div class="pr_top_add_field">
+	<a href="mail_scheduler_tpl.php">Go to mail list</a>
+</div>
+
+<div style="width: 70%">
+{block_page}
+<form action="" method="POST" >
+<table>
+	<thead>
+		<tr>
+			<th colspan="2" id="sched_create_mail_tpl_cap" >
+				Create Mail template
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_create_mail_tpl_name" >Name ( on latin language )</td>
+			<td><input type="text" name="mail_name" class="input_text" /></td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_create_mail_tpl_subject" >Subject</td>
+			<td><input type="text" name="mail_subject" class="input_text" size="50" /></td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_create_mail_tpl_body_txt" >Body txt</td>
+			<td><textarea name="mail_body_txt" cols="55" rows="15" ></textarea></td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_create_mail_tpl_body_html" >Body html</td>
+			<td><textarea name="mail_body_html" cols="55" rows="15" ></textarea></td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_create_mail_tpl_var_list" >List of mail variables</td>
+			<td>
+				{literal}
+				{$site_name} - Site Name<br />
+				{$site_url}- Main site URL<br />
+				{$profile_username} - Username of profile<br />
+				{$profile_email} - Email of profile<br />
+				{$profile_match_list} - List of profile's matches<br>
+				{$unsubscribe_url} - Unsubscribe url
+				{/literal}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="submit" name="create_mail" class="submit" value="Create" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+{include file='inc/_footer.html'}

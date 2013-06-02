@@ -1,0 +1,27 @@
+.forum_topic .list_item,
+.forum_topic .list_item td {
+	border-bottom: none;
+}
+.forum_topic .expandable_menu {
+	top: -40px;
+	right: 0px;
+}
+.forum_topic .expandable_menu .block_cap_c {
+	padding-right: 0px;
+}
+.forum_topic .block_cap_c {
+	padding-right: 181px;
+}
+.forum_topic .ctr_btn {
+	border-color: transparent;
+}
+
+.forum_topic .expandable_menu .block_cap,
+.forum_topic .expandable_menu .block_cap_r,
+.forum_topic .expandable_menu .block_cap_c,
+.forum_topic .expandable_menu .block_body,
+.forum_topic .expandable_menu .block_bottom,
+.forum_topic .expandable_menu .block_bottom_r,
+.forum_topic .expandable_menu .block_bottom_c {
+	background: #112750 none;
+}

@@ -1,0 +1,59 @@
+/* Sidebar CSS Styles */
+
+.sidebar a:link,
+.sidebar a:visited
+{
+	color: #DAE3E4;
+}
+
+.sidebar .block
+{
+	margin-bottom: 10px;
+	background: none;
+	border: 1px solid #666;
+	border-top: none;
+	color: #fff;
+}
+
+.sidebar .block_toolbar{
+	border-left: 1px solid #666;
+	border-right: 1px solid #666;
+}
+
+.sidebar .block_cap
+{
+	height: 16px;
+	border: 1px solid #666;
+	border-bottom: none;
+}
+
+.sidebar .block_null {
+	border: none;
+}
+
+.sidebar .block_cap h3
+{
+ 	font-family: << $base_font;
+	font-size: 10px;
+}
+
+.sidebar .block_cap_title {
+	font-size: 10px;
+	margin: 0 2px;
+}
+.sidebar input.text
+{
+	width: 93%;
+}
+
+.sidebar .profile_notice_cont ul li{
+	color: #000;
+}
+
+.sidebar .profile_notice_cont ul li a{ 
+	color: #8D2D00;
+}
+
+.sidebar .poll-ans-td{
+	color: #DAE3E4;
+}

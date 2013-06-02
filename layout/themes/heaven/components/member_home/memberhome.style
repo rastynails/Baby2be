@@ -1,0 +1,17 @@
+.memberhome .float_half_left {
+	width: 60%;
+}
+.memberhome .float_half_right {
+	width: 39%;
+}
+.memberhome .quick_search .block_body {
+	padding: 7px 6px 3px 15px; 
+}
+.memberhome .saved_lists .block {
+	margin: 0px;
+	padding-bottom: 10px;
+}
+.memberhome .tip .block_body_c {
+	border-top: none;
+	background: #e8edf2;
+}

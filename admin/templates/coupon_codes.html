@@ -1,0 +1,110 @@
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+{if $codes}
+<form method="POST">
+<input type="hidden" name="action" value="update" />
+<table width="100%">
+    <thead>
+        <tr>
+            <th colspan="4">Codes</th>
+        </tr>
+        <tr>
+            <td>Code</td>
+            <td>Start stamp</td>
+            <td>Expire stamp</td>
+            <td>Discount, %</td>
+            <td>Membership</td>
+            <td>Expired</td>
+            <td width="6%"></td>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach from=$codes item='code'}
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td><input type="text" name="code[{$code.id}]" value="{$code.code}" size="15" /></td>
+            <td><input type="text" name="start_ts[{$code.id}]" value="{$code.start_stamp}" size="9" /></td>
+            <td><input type="text" name="expire_ts[{$code.id}]" value="{$code.expire_stamp}" size="9" /></td>
+            <td><input type="text" name="discount[{$code.id}]" value="{$code.percent}" size="3" maxlength="3" /></td>
+            <td>
+                <select name="membership_id[{$code.id}]" style="width: 130px;">
+                    {foreach from=$ms item='m'}
+                        <option value="{$m.membership_type_id}"{if $code.membership_type_id == $m.membership_type_id} selected{/if}>{$m.label}</option>
+                    {/foreach}
+                </select>
+            </td>
+            <td>{if $code.expired}yes{else}no{/if}</td>
+            <td>
+                <a class="delete" title="Delete" href="javascript://" onclick="if ( confirm('Are you sure you want to delete coupon code?') ) document.location.href='{$smarty.const.URL_ADMIN}coupon_codes.php?remove={$code.id}';"></a>
+            </td>
+        </tr>
+        {/foreach}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7">
+                <input type="submit" value="Update" />
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</form>
+{/if}
+
+<br />
+<div style="float: left; width: 49%">
+<form method="POST">
+<input type="hidden" name="action" value="add" />
+<table width="50%">
+    <thead>
+        <tr>
+            <th colspan="2">Add code</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="{cycle values='tr_1,tr_2'}">
+           <td>Code:</td>
+           <td><input type="text" name="code" size="40" /></td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+           <td>Start stamp:</td>
+           <td><input type="text" name="start_stamp" value="{$date_start}" /></td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+           <td>Expire stamp:</td>
+           <td><input type="text" name="expire_stamp" value="{$date_expire}" /></td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+           <td>Discount percent:</td>
+           <td><input type="text" name="percent" value="20" maxlength="3" size="3" /> %</td>
+        </tr>
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td>Membership:</td>
+            <td>
+                <select name="membership_id">
+                {foreach from=$ms item='m'}
+                    <option value="{$m.membership_type_id}">{$m.label}</option>
+                {/foreach}
+                </select>
+        </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Add" />
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</form>
+</div>
+<div style="float: right; width: 49%;">{print_configs section=coupon_codes}</div>
+
+
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

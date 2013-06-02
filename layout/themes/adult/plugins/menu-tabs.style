@@ -1,0 +1,42 @@
+ul.menu-tabs {
+	background: image(menu.jpg) repeat-x left top;
+	line-height: 30px;
+	margin: 0px;
+	padding: 2px 0px ;
+	text-align: center;
+	margin-top: 71px;
+	height: 30px;
+	
+}
+
+ul.menu-tabs li.tab {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.menu-tabs li.tab a {
+	padding: 8px 0px 8px 9px;
+	background: none;
+	color: #fce562;
+}
+
+ul.menu-tabs li.tab a:hover,
+ul.menu-tabs li.tab a:active,
+ul.menu-tabs li.tab a.active {
+	background: none;
+	color: << $highlight_color;
+	text-decoration: none;
+}
+
+ul.menu-tabs li.tab a span {
+	padding: 8px 9px 8px 0px;
+	background: none;
+}
+
+ul.menu-tabs li.tab a:hover span,
+ul.menu-tabs li.tab a:active span,
+ul.menu-tabs li.tab a.active span {
+	background: none;
+}

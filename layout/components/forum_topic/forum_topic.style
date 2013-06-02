@@ -1,0 +1,72 @@
+
+.ctr_buttons .block_cap_title
+{
+	font-size: 10px;
+}
+
+.ctr_buttons
+{
+	position: relative;
+	width:170px;
+	float: right;
+	z-index:100;
+	margin-bottom: 24px;
+}
+
+.expandable_menu {
+	position: absolute;
+	width: 100%;
+}
+
+.ctr_btn
+{
+	margin: 1px;
+	font-size: << $small_font;
+	border: 1px solid #EEEEEE;
+	padding: 2px;
+}
+
+.forum_thumb
+{
+	width: 70px;
+	text-align: center;
+	padding: 20px 5px 5px;
+	vertical-align: top;
+}
+
+.new_post 
+{
+	float: right;
+	margin-left: 2px;
+}
+
+.time,
+.system_buttons
+{
+	text-align: right;
+	padding: 4px 2px;
+}
+
+.edited
+{
+	color: #008000;
+	font-size: << $small_font;
+	text-align: right;
+}
+.expandable_menu .block {
+	margin-bottom: 0px;
+}
+.post_text {
+	width: 692px;
+	word-wrap: break-word;
+}
+.attachments {
+	width: 692px;
+	word-wrap: break-word;
+}
+.forum_topic .block_cap {
+	overflow: hidden;
+}
+td.list_item {
+	width: 734px;
+}

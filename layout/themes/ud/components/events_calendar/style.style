@@ -1,0 +1,45 @@
+.event_calendar {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+
+.event_calendar td,
+.event_calendar td.active,
+.event_calendar td.current,
+.event_calendar th {
+	width: 14%;
+	padding: 6px 0;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+}
+
+.event_calendar td,
+.event_calendar th{
+	background: none;
+}
+
+.event_calendar td.current {
+	background: #c0c0c0;
+	font-weight: bold;
+	color: #FEE169;
+}
+
+.event_calendar td a {
+	color: #0A0DF0;
+}
+
+.event_calendar td a:hover {
+	color: #8D2D00;
+}
+
+.event_calendar td.link{
+	background:#ddd;
+}
+
+.event_calendar td.active a{
+	font-weight:bold;
+}
+
+

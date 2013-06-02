@@ -1,0 +1,7 @@
+.jcarousel-skin .jcarousel-container-horizontal {
+	width: 480px !important;
+}
+
+.jcarousel-skin .jcarousel-clip-horizontal {
+	width: 479px !important;
+}

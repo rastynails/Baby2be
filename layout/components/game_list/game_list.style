@@ -1,0 +1,30 @@
+
+.game_cont {
+	width: 49%;
+	float: left;
+	margin-bottom: 20px;
+	height: 130px;
+}
+
+.game_thumb {
+	float: left; width: 90px; 
+	margin-right: -90px;
+}
+
+.game_info {
+	float: left; 
+	margin-left: 20px;
+	width: 92%;
+	overflow: hidden;
+}
+.game_descr {
+	height: 60px;
+	overflow: hidden;
+}
+.game_odd {
+	margin-right: 15px;
+}
+
+.game_stat {
+	padding-top: 4px;
+}

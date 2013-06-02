@@ -1,0 +1,16 @@
+.page_header {
+	width: 1000px;
+	height: 126px;
+	background: none;
+	margin-top: 0px;
+}
+.logo {
+	background-position: 0px 0px;
+	height: 70px;
+	width: 309px;
+	float: left;
+}
+.main_menu {
+	width: 680px;
+	float: right;
+}

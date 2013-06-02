@@ -1,0 +1,54 @@
+{* admin Member Reports *}
+
+{include file='inc/_header.html'}
+<div style="width:49%;">
+{block_page}
+	{print_configs section='reports'}
+{/block_page}
+</div>
+
+{block_page}
+                
+<div class="profile_list_result_nav">
+	Results: {$result_range} |
+	Total: {$total_results_num} |
+	Results per page: {$rpp_select}
+</div>
+
+
+
+<div class="profile_list_page_nav">
+Pages: {$navigation_pages}
+</div>
+
+<form action="" method="post">
+<input type="hidden" name="command" id="command_field" />
+
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<td width="50%">Reported Content</td>
+			<td width="30%">Reported Member</td>
+			<td width="20%">Last Report Date</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+	{foreach from=$users_reports item='report'}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><a href="profile_reports.php?profile_id={$report.owner_id}">{$report.type}</a></td>
+			<td><a href="profile.php?profile_id={$report.owner_id}" title="administrate profile">{$report.owner_name}</a></td>
+			<td align="center">{$report.ts|date_format:"%b %e %y, %H:%M"}</td>
+		</tr>
+	{/foreach}
+	</tbody>
+</table>
+</form>
+
+{/block_page}
+
+
+<br clear="all" />
+</div>
+
+{include file='inc/_footer.html'}

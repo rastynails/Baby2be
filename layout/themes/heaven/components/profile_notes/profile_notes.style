@@ -1,0 +1,3 @@
+.profile_notes .tip .block_body_c div {
+	overflow: hidden;
+}

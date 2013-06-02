@@ -1,0 +1,9 @@
+.hot_list .hot_even {
+	padding: 1px 0px;
+}
+.hot_list .hot_odd {
+	padding: 1px 0px 1px 2px;
+}
+.hot_list .profile_thumb_wrapper img {
+	vertical-align: top;
+}

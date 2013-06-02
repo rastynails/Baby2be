@@ -1,0 +1,11 @@
+.important_tips ul {
+	padding-left: 6px;
+}
+.important_tips ul li {
+	padding: 5px 2px;
+}
+.tip .block_body {
+	background: #f7f7f0;
+	border: none;
+	font-size: 11px;
+}

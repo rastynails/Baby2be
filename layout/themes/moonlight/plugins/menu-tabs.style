@@ -1,0 +1,42 @@
+ul.menu-tabs{
+	background: transparent image(main-menu-r.png) no-repeat right;
+	display:inline-block;
+	width:100%;
+	padding:0px;
+}
+
+.main_menu ul.menu-tabs{
+	min-height:36px;
+	line-height:36px;
+}
+
+ul.menu-tabs li.tab a.active{
+	background: transparent image(main-menu-active.gif) repeat-x;
+	color:#fff;
+}
+
+ul.menu-tabs li.tab a:hover{
+	background: transparent image(main-menu-active.gif) repeat-x;
+	color: #393737;
+}
+
+ul.menu-tabs li.tab a.active span,
+ul.menu-tabs li.tab a:hover span{
+	background:none;
+}
+
+ul.menu-tabs li.tab a{
+	background:none;
+	color: #393737;
+	font-size: 14px;
+}
+
+ul.menu-tabs li.tab a span{
+	background:none;
+}
+
+.main_menu ul.menu-tabs li.tab a{
+	border-right:1px solid #8d8d8d;
+	border-left: 1px solid #cfcfcf;	
+	line-height:36px;
+}

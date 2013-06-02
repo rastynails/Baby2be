@@ -1,0 +1,20 @@
+<div class="lang_input_{$params.name}">
+	{if not $params.single }
+	<div class="language_tab_cont">
+		{foreach from=$params.languages key=lang_id item=lang}
+			<div {if $lang->default}id='{$params.name}_id'{/if} class="{if $lang->default}active_{/if}lang_tab lang_tab_{$params.name}_{$lang_id}" data-lang="{$lang_id}" onclick="select_tab(this,'{$params.name}',{$lang_id})" style="cursor:pointer">{$lang->abbrev}</div>
+		{/foreach}
+	</div>
+	<br clear='all'>
+	{/if}
+	<div class="lang_value_contener">
+
+		{foreach from=$params.languages key=lang_id item=lang}
+			{if $params.type == 'textarea'}
+				<textarea {if $lang->default}id='{$params.id}'{/if} data-lang="{$lang_id}" data-name="{$params.name}" class='lang_val_input' name='{$params.name}[{$lang_id}]' style="width:{$params.width};height:{$params.height};{if not $lang->default}display:none{/if}" {if $params.extra and $lang->default}{$params.extra}{/if}>{text section=$params.section key=$params.key lang_id=$lang_id}</textarea>
+			{else}
+				<input {if $lang->default}id='{$params.id}'{/if} data-lang="{$lang_id}" data-name="{$params.name}" class='lang_val_input lang_val_inputs_{$params.name}' type='text' name='{$params.name}[{$lang_id}]' style="width:{$params.width};{if not $lang->default}display:none{/if}" value='{text section=$params.section key=$params.key lang_id=$lang_id}' {if $params.extra and $lang->default}{$params.extra}{/if}>
+			{/if}
+		{/foreach}
+	</div>
+</div>

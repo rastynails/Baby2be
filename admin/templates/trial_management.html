@@ -1,0 +1,73 @@
+{* Admin Language Keys Template *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form action="{$smarty.const.URL_ADMIN}trial_management.php" method="GET" name="navigation_form">
+	<input type="hidden" name="sort_by" value="{$sort_by}" />
+<table align="center" cellspacing="1" class="table" width="70%">
+	<thead>
+		<tr>
+			<th>Page navigation</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr align="center" class="tr_1">
+			<td>Results {$page*$num_on_page-$num_on_page+1}-{$page*$num_on_page} | Total <b>{$total}</b> | Results per page 
+				<select name="num_on_page" onchange="javascript: document.navigation_form.submit();">
+					{html_options options=$options_data selected=$num_on_page}
+				</select>
+			</td>
+		</tr>
+		<tr align="center" class="tr_2">
+			<td>Pages 
+				{foreach item=page_num from=$pages}
+					{if $page_num != $page}
+						<a href="{$smarty.const.URL_ADMIN}trial_management.php?page={$page_num}&num_on_page={$num_on_page}&sort_by={$sort_by}">{$page_num}</a>
+						{else}{$page_num}
+					{/if}
+				{/foreach}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+</form>
+<br /><br />
+
+<table cellspacing="1" class="table" width="100%">
+	<thead>
+		<tr>
+			<th id="membership_claims_tbl_title_thead" colspan="4"> Profiles' Claims of Trial Memberships</th>
+		</tr>
+		<tr>
+			<td width="5%"></td>
+			<td id="membership_claims_tbl_sort_username_cell" width="15%">{if $sort_by == "profile_id"}{$sort_image}{/if}<a href="{$smarty.const.URL_ADMIN}trial_management.php?page={$page}&num_on_page={$num_on_page}&sort_by=profile_id&sort_type=y">Username</a></td>
+			<td id="membership_claims_tbl_sort_membership_type_name_cell" width="35%">{if $sort_by == "m_name"}{$sort_image}{/if}<a href="{$smarty.const.URL_ADMIN}trial_management.php?page={$page}&num_on_page={$num_on_page}&sort_by=m_name&sort_type=y">Membership type name</a></td>
+			<td id="membership_claims_tbl_sort_date_cell" width="35%">{if $sort_by == "claim_stamp"}{$sort_image}{/if}<a href="{$smarty.const.URL_ADMIN}trial_management.php?page={$page}&num_on_page={$num_on_page}&sort_by=claim_stamp&sort_type=y">Date</a></td>
+	</thead>
+	<form action="{$smarty.const.URL_ADMIN}trial_management.php?page={$page}&num_on_page={$num_on_page}&sort_by={$sort_by}" method="POST">
+	<tbody>
+	{section name=claim loop=$claims}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td><input type="checkbox" name="claims[]" value="{$claims[claim].profile_id},{$claims[claim].membership_type_id}" /></td>
+			<td><a href="{profile_url profile_id=$claims[claim].profile_id}">{$claims[claim].username}</a></td>
+			<td>{$claims[claim].m_name}</td>
+			<td>{$claims[claim].claim_stamp|date_format:"%A, %B %e, %Y"} {$claims[claim].claim_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+	{/section}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="4">With selected &nbsp;&nbsp;&nbsp;
+				<input type="submit" class="submit" name="grant_claims" value="Grant" />&nbsp;&nbsp;&nbsp;<input type="submit" class="submit" name="refuse_claims" value="Refuse" />
+			</th>
+		</tr>
+	</tfoot>
+	</form>
+</table>
+{/block_page}
+
+{include file='inc/_footer.html'}

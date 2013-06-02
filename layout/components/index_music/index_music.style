@@ -1,0 +1,99 @@
+
+
+ .thumb_cont {
+
+ 	width: 322px; 
+
+ 	margin: 0px auto;
+
+ }
+
+ 
+
+ .music_cont {
+
+ 	position: relative;
+
+ 	text-align: center;
+
+ }
+
+ 
+
+.music_preload {
+
+	height: 100%;
+
+	left: 0px;
+
+	top: 0px;
+
+	position: absolute;
+
+	width: 100%;
+
+	background: << .preloader;
+
+}
+
+
+
+.index_music .block_cap {
+
+	z-index: 100;
+
+}
+
+
+
+.index_music .block_toolbar {
+
+	margin: -3px;
+
+	z-index: 1;
+
+}
+
+
+
+.index_music .block {
+
+	margin-top: 0px;
+
+}
+
+.music_thumb {
+
+	width: 100px;
+
+	vertical-align: middle;
+
+}
+
+.music_thumb_list .music_thumb
+
+{
+
+	font-size: << $small_font;
+
+	float: left;
+
+	width: 100px;
+
+	margin: 0px 2px 5px 2px;
+
+	text-align: center;
+
+	overflow: hidden;
+
+}
+.music_friends_thumb
+{
+	background: image(music_list_friends_only.gif) no-repeat center;
+	width: 100px;
+	height: 75px;
+}
+
+.music_title {
+	padding: 5px 0px;
+}

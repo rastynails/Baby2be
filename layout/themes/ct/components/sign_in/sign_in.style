@@ -1,0 +1,18 @@
+.sign_in_cont-line, 
+.sign_in_cont-no_block label {
+	color: #06242f;
+}
+
+.sign_in_cont-line, 
+.sign_in_cont-no_block {
+	margin-left: 24px;
+	margin-top: 44px;
+	width: 100%;
+}
+
+*+html .sign_in_cont-line, 
+.sign_in_cont-no_block {
+	margin-left: 11px;
+	margin-top: 44px;
+	width: 100%;
+}

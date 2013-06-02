@@ -1,0 +1,102 @@
+.quick_search .field_mileage .content_container {
+	background-color:transparent;
+}
+#page_canvas .quick_search_index,
+.quick_search_index td {
+	color: #fff;
+	font-size: 11px;
+}
+.quick_search_index .block_cap_title {
+	font-size: 18px;
+	font-weight: bold;
+}
+.quick_search_index .block_cap_r,
+.quick_search_index .block_cap_c {
+	background: none;
+	padding: 0px;
+	height: 43px;
+}
+.quick_search_index .block_cap {
+	background: image(index_qsearch_cap.png) no-repeat;
+	border: none;
+	padding-top: 15px;
+}
+.quick_search_index .block_body,
+.quick_search_index .block {
+	margin-bottom: 0px;
+}
+.quick_search_index .block_body {
+	background: #67b801 image(index_qsearch_body.gif) repeat-x left top;
+}
+.quick_search_index .block_body_r {
+	border: none;
+}
+.quick_search_index .block_body_c {
+	padding: 5px 0px 0px 12px;
+}
+.quick_search_index .block_bottom {
+	height: auto;
+	background: image(index_qsearch_bottom.png) no-repeat;
+}
+.quick_search_index .block_bottom_r,
+.quick_search_index .block_bottom_c {
+	background: none;
+	height: 7px;
+	padding: 0px;
+}
+.quick_search_index .qfield {
+	float: left;
+	margin-right: 9px;
+	margin-bottom: 12px;
+	font-weight: normal;
+}
+.quick_search_index .input_group {
+	margin: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	min-width: 180px;
+}
+.quick_search_index ul.input_group {
+	width: 219px;
+}
+.quick_search_index .input_group .list_label {
+	padding-top: 0px;
+}
+.quick_search_index br {
+	line-height: 1px;
+	height: 1px;
+	font-size: 1px;
+}
+.quick_search_index .qindex_button {
+	float: right;
+	width: 89px;
+	-moz-box-shadow: none;
+}
+.quick_search_index .qindex_button input{
+	color:#FFFFFF;
+	font-weight:bold;
+	line-height:19px;
+	height:27px;
+	width:89px;
+	background: image(index_qsearch_btn.png) no-repeat;
+	border: none;
+	padding: 0px 0px 3px 7px;
+}
+.quick_search_index .q_right {
+	margin: 0px;
+}
+.quick_search_index .field_mileage {
+	margin: 0px 5px 0px 0px;
+	min-width: 182px;
+}
+.quick_search_index .field_mileage .content_container {
+	padding: 0px;
+	border: 0px;
+	background: transparent;
+}
+.quick_search_index .field_mileage .content_container td {
+	text-align: left;
+	width: auto;
+	padding-right: 9px;
+	padding-bottom: 2px;
+}

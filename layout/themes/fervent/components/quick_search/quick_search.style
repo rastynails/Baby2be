@@ -1,0 +1,76 @@
+.quick_search .block_cap {
+	background: image(block_cap_l.png) no-repeat;
+	border: none;
+}
+.quick_search .block_cap_r {
+	background: image(block_cap_r.png) no-repeat right top;
+}
+.quick_search .block_cap_c {
+	background: #fae2cd none;
+}
+.quick_search .block_body {
+	border: none;
+	background: #fae2cd none;
+}
+.quick_search .block_bottom {
+	background: image(block_bot_l.png) no-repeat;
+}
+.quick_search .block_bottom_r {
+	background: image(block_bot_r.png) no-repeat right top;
+}
+.quick_search .block_bottom_c {
+	background: #fae2cd none;
+}
+
+.index_quick_search .block_cap,
+.index_quick_search .block_cap_r,
+.index_quick_search .block_cap_c,
+.index_quick_search .block_bottom,
+.index_quick_search .block_bottom_r,
+.index_quick_search .block_bottom_c {
+	background: none;
+	border: none;
+}
+.index_quick_search .quick_search .block_body {
+	border-left: none;
+	border-right: none;
+	background: none;
+	min-height: 200px;
+	padding-bottom: 50px;
+}
+.quick_search hr {
+	border: 0px solid #fae2cd;
+	background-color: #ddc6a4;
+	color: #ddc6a4;
+	margin: 10px 0px 10px 0px;
+	height: 1px;
+}
+.quick_search,.quick_search td {
+	color: #584e4e;
+	font-size: 12px;
+}
+
+.index_quick_search .quick_search,
+.index_quick_search .quick_search td {
+	color: #d4a983;
+}	
+
+.index_quick_search .block_cap_title {
+	color: #fae2cd; 
+}
+
+.quick_search form b label {
+	font-size:13px;
+	color:#540808;
+}
+
+.index_quick_search .quick_search form b label {
+	color:#fae2cd;
+}
+.field_mileage {
+	margin: 5px;
+}
+
+.quick_search_age label {
+	padding-right:20px;
+}

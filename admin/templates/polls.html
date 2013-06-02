@@ -1,0 +1,131 @@
+{include file='inc/_header.html'}
+{literal}
+<style>
+	.answer{
+		background: #fff url('/layout/img/topic_check.png') no-repeat center center;
+	}
+</style>
+<script>
+TestForm = function(){
+	this.addAnswer = function(){
+		var $tr = $jq('#new_answer_tr');
+		
+		var answer_txt = $jq('#new_answer_txt').attr('value');
+
+		var idd = 'v'+(new Date()).valueOf();
+
+		var trHTML = 
+			'<tr>' +
+				'<td class="side answer">'+
+				'</td>'+
+
+				'<td class="side"><input id="'+idd+'" type="text" name="answer_txt[]" value= "" /></td>'+
+
+				'<td class="side"><a href="javascript://" onclick="cf.deleteAnswer( $jq(this).parent().parent() );">[-]</a></td>'+
+
+			'</tr>';
+
+		$jq(trHTML).insertBefore($tr);
+
+		$jq('#'+idd).attr('value', answer_txt);
+
+		$jq('#new_answer_txt').attr('value', '');
+		$jq('#new_answer_chbx').attr('checked', '');
+	}
+	
+	this.deleteAnswer = function($tr){
+		$tr.remove();
+	}
+}
+
+cf = new TestForm();
+
+</script>
+{/literal}
+<div style="float: left; width: 40%">
+<form method="post">
+<input type="hidden" name="command" value="addTest" />
+<table>
+	<tbody>
+		<tr>
+			<td colspan="3" align="center">
+				<b>New Poll</b>
+			</td>
+		</tr>
+	</tbody>		
+	<tbody>
+		<tr>
+			<td class="corner_left_t">
+				Q:
+			</td>		
+			<td class="side">
+				<input type="test" name="question" />
+			</td>
+			<td class="corner_right_t">
+			</td>
+		</tr>
+		<tr id="new_answer_tr">
+			<td class="side">
+			</td>
+			<td class="side">
+				<input id="new_answer_txt" type="text" name="answer_txt[]" />
+			</td>
+			<td class="side">
+				<a href="javascript://" onclick="cf.addAnswer()">[+]</a>
+			</td>
+		</tr>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td class="corner_left_b"></td>
+			<td class="side">
+				<input type="submit" value="create" />
+			</td>
+			<td class="corner_right_b"></td>
+		</tr>
+	</tfoot>	
+</table>
+</form>
+</div>
+<div style="float: right; width: 60%">
+{if $tests|count}
+<table>
+<form  method="post">
+<input id="hidden2" type="hidden" name="command" value="" />
+	<thead><tr><td colspan="3">Polls</td></tr></thead>
+	<tbody>
+	
+		{foreach name=foo from=$tests item=test}
+		<tr>
+			<td class="{if $smarty.foreach.foo.first}corner_left_t{else}side{/if}">
+				<input type="checkbox" name="test[{$test.id}]" />
+			</td>
+			<td class="side">
+				<a href="{$smarty.const.URL_ADMIN}poll.php?poll={$test.id}"> {$test.question} </a>
+			</td>
+			<td class="{if $smarty.foreach.foo.first}corner_right_t{else}side{/if}"></td>
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td class="corner_left_b" >
+				<input style="float: left;" type="checkbox" onclick="" />
+			</td>
+			<td class="side">
+				With Selected: <a href="javascript://"> <input type="submit" value="delete" onclick="$jq('#hidden2').attr('value', 'delete_test')"/> </a>
+			</td>
+			<td class="corner_right_b">
+			</td>
+		</tr>	
+	</tfoot>
+</form>	
+</table>
+{else}
+	No Items.
+{/if}
+
+</div>
+<br clear="all" /><br clear="all" />
+{include file='inc/_footer.html'}

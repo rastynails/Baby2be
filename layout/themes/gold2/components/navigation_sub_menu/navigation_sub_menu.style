@@ -1,0 +1,10 @@
+.submenu_wrap {
+	background: transparent image(submenu.png) repeat-x top left;
+}
+
+.submenu_wrap .submenu {
+	width: 1000px;
+	margin: 0px auto;
+	border: none;
+	padding: 0px;
+}

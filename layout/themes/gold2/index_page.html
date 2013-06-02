@@ -1,0 +1,22 @@
+{*  Theme: Gold2  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/gold2/httpdocs/index/index.style"}
+
+<div id="page_canvas" class="index_page">
+    <div class="index_page_header">
+        {component PageHeader}
+        <div class="index_box_top">
+            <div class="promo_image"></div>
+            <div class="index_quick_search">{component QuickSearch type="index"}</div>
+        </div>
+        <div class="index_box_bottom">
+            <p class="promo_text">{text %.promo.promo_index_avatar}</p>
+            <p><a class="join_button" href="member/join.php">Join</a><span>or</span><a class="sing_in_botton"  href="member/sign_in.php">Sign in</a></p>
+        </div>
+    </div>
+    <div id="footer">{component PageFooter}</div>
+</div>
+{ads pos='bottom'}
+{/canvas}

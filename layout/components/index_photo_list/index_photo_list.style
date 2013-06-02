@@ -1,0 +1,24 @@
+.photo_list_cont ul li.item{
+	display: block;
+	float: left;
+	margin:1px 5px 1px 1px;
+	padding: 0px;
+}
+
+.photo_list_cont ul {
+	padding: 1px 1px 1px 8px;
+}
+
+.photo_list_cont .item, .photo_list_cont .item img {
+	width:90px;
+	height:90px;
+}
+
+
+.photo_list_cont {
+	
+}
+
+.content_preloader {
+	height:50px;
+}

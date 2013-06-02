@@ -1,0 +1,149 @@
+{include file="inc/_header.html"}
+
+{block_page}
+<div style="float: left; width: 47%">
+<form action="" method="post">
+<table width="100%">
+	<thead>
+		<tr><td colspan="2" id="sched_settings_cap">Configure cron run time</td></tr>
+	</thead>
+	<tbody>
+        <tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+            <td id="sched_settings_cron_month_cap" >Month</td>
+            <td><input type="text" name="run_month" class="input_text" value="{$time_config.month}" size="1" /></td>
+        </tr>
+        <tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+            <td id="sched_settings_cron_day_cap" >
+                <input type="radio" name="day_type" value="week" {if $time_config.day_type=='week'}checked{/if}>day of week <br />
+                <input type="radio" name="day_type" value="month" {if $time_config.day_type=='month'}checked{/if}>day of month <br />
+            </td>
+            <td>
+                <select name="week_day"{if $time_config.day_type != 'week'} style="display: none;"{/if}>
+                    <option value="7"{if $time_config.day==7} selected="selected"{/if}>Sun</option>
+                    <option value="1"{if $time_config.day==1} selected="selected"{/if}>Mon</option>
+                    <option value="2"{if $time_config.day==2} selected="selected"{/if}>Tue</option>
+                    <option value="3"{if $time_config.day==3} selected="selected"{/if}>Wed</option>
+                    <option value="4"{if $time_config.day==4} selected="selected"{/if}>Thu</option>
+                    <option value="5"{if $time_config.day==5} selected="selected"{/if}>Fri</option>
+                    <option value="6"{if $time_config.day==6} selected="selected"{/if}>Sat</option>
+                </select>
+                <select name="month_day"{if $time_config.day_type != 'month'} style="display: none;"{/if}>
+                    {section name='md' loop=32 start=1}
+                    <option value="{$smarty.section.md.iteration}"{if $time_config.day==$smarty.section.md.iteration} selected="selected"{/if}>{$smarty.section.md.iteration}</option>
+                    {/section}
+                </select>
+                {*<input type="text" name="month_day" class="input_text" size="1" value="{$time_config.day}" {if $time_config.day_type != 'month'} style="display: none;"{/if} />*}
+                <input type="hidden" name="run_day" value="{$time_config.day}" />                           
+            </td>
+        </tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td id="sched_settings_cron_hour_cap">Hour : minute</td>
+			<td>
+			<select name="run_hour">
+                {section name=hours loop=24}
+                    {capture assign='hour'}{$smarty.section.hours.iteration}{/capture}
+                    <option value="{$hour}" {if $time_config.hour == $hour}selected{/if}>{$hour}</option>
+                {/section}
+			</select> :
+			<select name="run_minute">
+                <option value="0" {if $time_config.minute == 0}selected{/if}>00</option>
+                <option value="10" {if $time_config.minute == 10}selected{/if}>10</option>
+                <option value="20" {if $time_config.minute == 20}selected{/if}>20</option>
+                <option value="30" {if $time_config.minute == 30}selected{/if}>30</option>
+                <option value="40" {if $time_config.minute == 40}selected{/if}>40</option>
+                <option value="50" {if $time_config.minute == 50}selected{/if}>50</option>
+            </select>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="submit" name="save_config" class="submit" value="Save" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+<table width="100%">
+<tbody>
+       <tr class="tr_2">
+           <td style="width: 50%">Server current time</td><td>{$current_time}</td>
+       </tr>
+       <tr class="tr_2">
+           <td>Next run time</td><td>{$run_time}</td>
+       </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+{literal}
+$jq(function() {
+    $jq("input[name=day_type]").change(function(){
+        if ( $jq(this).val() == 'week' )
+        {
+            $jq("select[name=month_day]").hide();
+            $jq("select[name=week_day]").show();
+        }
+        else
+        {
+            $jq("select[name=week_day]").hide();
+            $jq("select[name=month_day]").show();
+        }
+    });
+
+    $jq("select[name=month_day], select[name=week_day]").change(function(){
+    	$jq("input[name=run_day]").val($jq(this).val());
+    });
+});
+{/literal}
+</script>
+</div>
+
+<div style="float: right; width: 47%">
+<form action="" method="POST">
+<input type="hidden" name="section" value="scheduler.match_list" />
+<table width="100%">
+	<thead>
+		<tr>
+			<td colspan="2" >Match list</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$match_list_config item=_match_config}
+		{if $_match_config.name != 'new_match_period' and $_match_config.name != 'new_matches' and $_match_config.name != 'match_period_measure'}
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td>{$_match_config.description}</td>
+			<td>
+				{if $_match_config.presentation == integer}
+						<input type="text" name="{$_match_config.name}" value="{$_match_config.value}" class="input_text" size="1" />
+					{elseif $_match_config.presentation == checkbox}
+						<input type="checkbox" name="{$_match_config.name}" value="1" {if $_match_config.value == 1}checked="checked"{/if} />
+				{/if}
+			</td>
+		</tr>
+		{/if}
+		{/foreach}
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td>{$match_list_config.new_matches.description}</td><td><input type="checkbox" name="{$match_list_config.new_matches.name}" value='1' {if $match_list_config.new_matches.value == 1}checked="checked"{/if} onclick="$('match_period_measure_id').disabled=!this.checked ; $('match_period_id').disabled=!this.checked" /></td>
+		</tr>
+		
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td>{$match_list_config.new_match_period.description}</td><td><input type="text" id="match_period_id" class="input_text" size="1" name="{$match_list_config.new_match_period.name}" value = "{$match_list_config.new_match_period.value}" {if not $match_list_config.new_matches.value}disabled{/if} />
+				<select name="{$match_list_config.match_period_measure.name}" id="match_period_measure_id" {if not $match_list_config.new_matches.value}disabled{/if}>
+						{foreach from=$match_list_config.match_period_measure.values item=value_info}
+							<option value="{$value_info.value}" {if $value_info.value==$match_list_config.match_period_measure.value}selected{/if}>{$value_info.label}</option>
+						{/foreach}
+				</select>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" ><input type="submit" name="save_configs" value="Save" class="submit" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+</div>
+{/block_page}
+
+{include file="inc/_footer.html"}

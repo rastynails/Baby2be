@@ -1,0 +1,126 @@
+{* Admin interface: finance *}
+{include file='inc/_header.html'}
+
+<div style="width: 72%; float: left">
+{block_page}
+<form method="POST" name="SearchForm" onsubmit="return CheckForm();">
+<table cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="finance_search_tbl_title" colspan="3">Search</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td><input type="radio" id="order" name="transaction_search_type" value="order"{if $search_type == "order"} checked{/if} /></td>
+			<td id="finance_search_tbl_order_number_cell"><label for="order">Order number</label></td>
+			<td><input type="text" id="order_number" maxlength="35" name="order" size="25" value="{$order}" onclick="getElementById('order').checked=true" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td><input type="radio" id="profile" name="transaction_search_type" value="profile" {if $search_type == "profile"}checked {/if}/></td>
+			<td id="finance_search_tbl_username_or_email_cell"><label for="profile">Member Username or Email</label></td>
+			<td><input type="text" id="profile_name" maxlength="40" name="profile" size="25" value="{$profile}" onclick="getElementById('profile').checked=true" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td><input type="radio" id="date" name="transaction_search_type" value="date"{if $search_type == "date"} checked{/if} /></td>
+			<td id="finance_search_tbl_date_from_to_cell"><label for="date">Payment date</label></td>
+			<td>
+			from <input type="text" id="date_from" maxlength="10" name="date_from" size="10" title="format: YYYY-mm-dd" value="{$date_from}" onclick="getElementById('date').checked=true" />
+			to <input type="text" id="date_to" maxlength="10" name="date_to" size="10" title="format: YYYY-mm-dd" value="{$date_to}" onclick="getElementById('date').checked=true" />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" align="right" colspan="3"><input type="submit" value="Search" />&nbsp; </td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+<div style="width: 25%; float:right">
+{block_page}
+<table align="center" cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Statistics</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="finance_stats_tbl_total_cell">Total:</td>
+			<td align="right"><b>{$total}</b></td>
+		</tr>
+		<tr>
+			<td id="finance_stats_tbl_total_refunded">Orders number:</td>
+			<td align="right"><b>{$ord_num}</b></td>
+		</tr>
+	</tbody>
+</table>
+{/block_page}
+</div>
+
+<br clear="all" />
+{block_page}
+
+<center>
+<form action="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}" method="post" name="on_page_form">
+Results: {math equation="$on_page*$page-$on_page+1" assign=v}<b>{if $number == 0}0{else}{$v}{/if}</b>-{if $page*$on_page < $number}{math equation="page*$on_page" page=$page assign=v}<b>{$v}</b>{else}<b>{$number}</b>{/if}  
+| Total: <b>{$number}</b>	 
+| Results per page: 
+<select name="on_page" onchange="javascript: document.forms['on_page_form'].submit();">
+{html_options options=$on_page_arr selected=$on_page}
+</select>
+</form>
+{if $page != 1}<a href="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page=1&on_page={$on_page}">First</a> | {/if}
+{if $page > 1}<a href="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$page-1}&on_page={$on_page}">Previous</a> | {/if}
+{counter start=0 skip=1 print=false}
+{foreach from=$arr item=element}
+{math equation="3-count+page" count=$count page=$page assign=d}
+{if $d < 0}{math equation="7-7" assign=d}{/if}
+{math equation="4-page" page=$page assign=d2}
+{if $d2 < 0}{math equation="7-7" assign=d2}{/if}
+	{if ($page >= $element && $page - $element < 4 + $d) || ($page < $element && $element - $page < 4 + $d2) }
+		{if $page == $element} [<b>{$element}</b>] {else} <b><a href="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$element}&on_page={$on_page}">{$element}</a></b> {/if}
+	{/if}
+	{counter assign=i print=false}
+{/foreach}
+{if $page < $i} | <a href="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$page+1}&on_page={$on_page}">Next</a>{/if}
+{if $page < $count} | <a href="{$smarty.const.URL_ADMIN}point_payments.php?transaction_search_type={$search_type}&order={$order}&profile={$profile}&date_from={$date_from}&date_to={$date_to}&page={$count}&on_page={$on_page}">Last</a>{/if}
+</center>
+
+<table align="left" width="100%">
+	<thead>
+		<tr>
+			<th colspan="7" id="finance_transaction_list_tbl_title_thead">Credits Payments</th>
+		</tr>
+		<tr>
+			<td>Order number</td>
+			<td>Member</td>
+			<td>Package</td>
+			<td>Amount</td>
+			<td>Payment Provider</td>
+			<td>Payment date</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$payments item='payment'}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td>{$payment.trans_id}</td>
+			<td>{if $payment.username == ''}Deleted{else}<a href="{profile_url profile_id=$payment.profile_id}">{$payment.username}</a>{/if}</td>
+			<td>{text section='user_points.packages' key=package_`$payment.package_id`} (<b>{$payment.points}</b> credits)</td>
+			<td>{$payment.income}</td>
+			<td>{text section='components.payment_selection' key=$payment.pp_id}</td>
+			<td>{$payment.sale_timestamp|date_format:"%b %e %y, %H:%M"}</td>
+		</tr>
+	{/foreach}
+	</tbody>
+</table>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

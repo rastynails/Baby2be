@@ -1,0 +1,36 @@
+.psv_cont {
+	margin-bottom: 10px;
+}
+.psv_status {
+	width: 310px;
+	padding: 0px 9px 0px 22px;
+	height: 35px;
+	line-height: 33px;
+	overflow: hidden;
+	background: image(status_bg.png) no-repeat 3px 0px;
+	font-size: 12px;
+	margin: 10px 0px;
+	color: #4F5A5E;
+}
+.psv_status img {
+	vertical-align: middle;
+}
+.psv_content .profile_activity {
+	padding-left: 22px;
+}
+.psv_content .psv_info {
+	padding-left: 22px;
+}
+.phv_header {
+	margin-bottom: 0px;
+}
+.phv_block .block_body {
+	padding: 9px 8px 8px 8px;
+	border-top: 1px solid #516a69;
+}
+.phv_block .block_cap {
+	display: none;
+}
+.profile_activity {
+	font-size: 11px;
+}

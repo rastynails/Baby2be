@@ -1,0 +1,11 @@
+.steps{
+	margin-bottom:10px;
+	text-align:right;
+	color: #C3E3FE;
+}
+
+.captcha
+{
+	padding:5px;
+	border-bottom:1px solid #EEEEEE;
+}

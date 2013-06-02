@@ -1,0 +1,14 @@
+.upload img {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.image_c, .submit_c {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.resend {
+    padding-top: 10px;
+    text-align: center;
+}

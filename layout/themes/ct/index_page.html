@@ -1,0 +1,30 @@
+{*  Theme: Color Touch II     *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/ct/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+	{component NavigationInventoryLine}
+	{component PageHeader}
+	{component NavigationSubMenu level=1}
+	<div id="content" style="padding-top: 6px; width: 818px;">
+		<div style="background: #b6daf2 url({$smarty.const.URL_LAYOUT}themes/ct/img/index_photo.jpg) no-repeat left bottom; width: 406px; height: 519px; float: left; margin-bottom: 4px; margin-left: -3px;">
+			<div style="width: 381px; float: left; margin: 3px 0 0 1px;">{component QuickSearch}</div>
+		</div>
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/ct/img/index_welcome.jpg) repeat-x; width: 347px; height: 109px; float: right; margin-right: 2px; color: #fff; padding: 30px; font-size: 14px;">
+			{text %.promo.promo_index_ct} 
+		 </div>
+		 <div style="background: url({$smarty.const.URL_LAYOUT}themes/ct/img/index_sign_in.jpg) no-repeat; width: 407px; height: 122px; float: right; margin-right: 2px;">
+			{component SignIn type="line"}
+		 </div>
+		<div class="float_half_right" style="width: 407px; margin-right: 2px;">
+			{component IndexProfileList lists='featured|online|new' count=12}
+		</div>
+	</div>
+	{*component PageSidebar*}
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

@@ -1,0 +1,22 @@
+.sidebar {
+	margin-top: 0px;
+	width: 190px;
+}
+.sidebar .block_cap_title {
+	font-size: 16px;
+	margin: 0px;
+}
+.sidebar .im_invitation .block_body {
+	background-color: #E8EDF2;
+	background-position: 10px center;
+	padding-left: 32px;
+}
+.sidebar .block_null .block_body {
+	border-left: 1px solid #f7f9fa;
+	border-right: 1px solid #d7dfe6;
+	background: #e8edf2 none;
+	padding: 3px 6px 3px 8px;
+}
+.sidebar .sign_in_cont .clearfix{
+	padding-top: 4px;
+}

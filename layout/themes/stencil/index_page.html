@@ -1,0 +1,62 @@
+{*  Theme: Stencil  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/stencil/httpdocs/index/index.style"}
+
+<div id="page_canvas">
+    {ads pos='top'}
+	<div class="clearfix">{component NavigationInventoryLine}</div>
+	<div class="index_top clearfix">
+		<div class="logo_wrap"><a class="logo" href="{$smarty.const.SITE_URL}"></a></div>
+		<div class="top_right">
+			{component SelectLanguage}
+			<div class="clr_div"></div>
+			{component FBCButton}
+		</div>
+		{component SignIn}
+		<div class="clr_div"></div>
+		<div class="index_photo_block">
+			<a href="{document_url doc_key=latest_photo}" class="index_photo_text"></a>
+			{component IndexPhotoPreview}
+		</div>
+		<div class="index_video_block">
+			<a href="{document_url doc_key=latest_video}" class="index_video_text"></a>
+			<div style="height:310px;">{component IndexVideoPlayer type='latest' width='310' height='252'}</div>
+			<div class="promo">{text %.promo.promo_index_stencil}</div>
+		</div>
+	</div>
+	{component NavigationMenuMain}
+	<div id="content">
+		<div class="content_top">
+			<div class="content_bot clearfix">
+				<div class="clearfix" style="padding: 7px 0px 15px;">
+					<div class="vert_block1">
+						<div class="block_tail_type1"><div class="block_body_type1 clearfix">{component IndexGroupList lists="latest|most_popular" count=3}</div></div>
+					</div>
+					<div class="vert_block2">
+						<div class="block_tail_type2"><div class="block_body_type2 clearfix">{component BlogIndexList count=4}</div></div>
+					</div>
+					<div class="vert_block3">
+						<div class="block_tail_type3"><div class="block_body_type3 clearfix">{component Shoutbox}</div></div>
+					</div>
+				</div>
+				<div class="float_half_left" >
+					<div class="block_tail_type4"><div class="block_body_type4 clearfix">{component ForumLastTopics count=3}</div></div>
+					{component IndexNews count=5 view_mode='mored|short'}
+					{component ClsIndexItems active='wanted'}
+				</div>
+				<div class="float_half_right">
+					<div class="block_tail_type4"><div class="block_body_type4 clearfix">{component EventIndexCalendar}</div></div>
+					{component QuickSearch}
+					{component IndexProfileList count=14 lists="featured|online|new" active="featured"}
+					{component IndexPhotoList count=8 lists="latest"}
+					{component IndexVideo lists='latest|toprated' active='toprated'}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

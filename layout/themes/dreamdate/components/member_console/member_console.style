@@ -1,0 +1,177 @@
+.member_console .thumb_container {
+	width: 102px;
+	height: 102px;
+	margin: 0 auto;
+}
+.member_console .thumb_container .profile_thumb {
+	width: 100px;
+	height: 100px;
+	border: 0px;
+}
+
+.links {
+	padding-left:20px;
+	padding-top:10px;
+}
+
+
+.open_list_btn {
+	
+}
+
+.my_profile_cap
+{
+	cursor: pointer;
+}
+
+.new_items a {
+	float: left;
+	text-align: left;
+	padding: 4px 0px;
+	margin: 1px 5px 0px 0px;
+	overflow: hidden;
+	background: none;
+	font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: underline;
+	width: 85px;
+}
+
+.new_items a:hover {
+	background: transparent;
+	text-decoration: none;
+}
+
+.new_items a div {
+	height: 20px;
+	width: 22px;
+	float: left;
+	margin-right: 5px;
+}
+
+.new_items .photo {
+	background: image(ico_photo.png) no-repeat center;
+}
+
+.new_items .blog {
+	background: image(ico_blog.png) no-repeat center;
+}
+
+.new_items .event {
+	background: image(ico_event.png) no-repeat center;
+}
+
+.new_items .video {
+	background: image(ico_video.png) no-repeat center;
+}
+
+.new_items .invite_friend {
+	background: image(ico_invite.png) no-repeat center;
+}
+
+.new_items .forum {
+	background: image(ico_forum.png) no-repeat center;
+}
+
+.links .mailbox {
+	margin-left: auto;
+	width: 45px;
+	height: 25px;
+	background: image(mailbox.png) center no-repeat;
+}
+
+
+.membership_container img {
+	vertical-align: middle;
+}
+.member_console .block {
+	margin-top: 0px;
+}
+.member_console .member_block .block_body {
+	background: image(member_console_bg.jpg) no-repeat;
+	min-height: 176px;
+}
+.member_console .member_block .center {
+	padding-top: 27px;
+}
+.member_console .member_block .block_cap {
+	height: auto;
+	min-height: 41px;
+	background: #000 image(member_console_y.jpg) repeat-y;
+	margin: 0px;
+	padding: 0px;
+}
+.member_console .member_block .block_cap_r {
+	height: auto;
+	min-height: 41px;
+	background: image(member_console_cap.jpg) no-repeat;
+	padding: 0px 5px;
+}
+.member_console .member_block .block_cap_c {
+	background: none;
+	height: auto;
+}
+.member_console .member_block .block_cap h3 {
+	padding-top: 10px;
+	float: none;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 20px;
+	font-family: Arial;
+}
+.member_console .member_block .block_cap br {
+	height: 1px;
+	line-height: 1px;
+}
+.member_console .sign_out {
+	display: block;
+	background: image(sign_out.png) no-repeat;
+	width: 69px;
+	height: 22px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #fff;
+	margin: 9px 0px 0px 59px;
+}
+#page_canvas .member_console .sign_out {
+	text-decoration: none;
+}
+
+.member_console .sign_out:hover {
+	color: #ccc;
+}
+.delete_thumb {
+	margin-top: -2px;
+	display: inline-block;
+}
+.member_console .block_null .block_body {
+	margin: 10px 0px 0px 30px;
+}
+.hot_list .center a {
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+}
+.hot_list .center a:hover {
+	color: #F96C9F;
+}
+.delete_thumb_wrap {
+	height: 15px;
+}
+
+#event_speed_dating_status
+{
+	padding-left: 25px;
+	font-weight: bold;
+	color: #fff;
+}
+.member_console .new_block .block_body {
+	margin-left: 9px;
+}
+.membership_container {
+	color: #fff;
+	margin-top: 5px;
+}

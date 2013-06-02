@@ -1,0 +1,42 @@
+{* Admin interface: memberships*}
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form method="POST">
+<input type="hidden" name="feature[-1]" value="0" />
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Features</th>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td align="center" width="60">Active</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$features item='feature'}
+			<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="feature_tbl_{$feature.feature_id}_left_cell">{$feature.name}</td>
+			<td align="center" style="padding:5px 0;">
+				{if $feature.active == 'yes'}{assign var=checked value=' checked'}{else}{assign var=checked value=''}{/if}
+				<input type="checkbox" name="feature[]" value="{$feature.feature_id}"{$checked} />
+			</td>
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+        	<td></td>
+			<td colspan="2">
+				<input type="submit" value="Save" name="command" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

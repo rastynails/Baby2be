@@ -1,0 +1,7 @@
+
+.gift_list .item{
+    width: 92px;
+    text-align: center;
+    float: left;
+    height: 100px;
+}

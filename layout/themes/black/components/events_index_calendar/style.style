@@ -1,0 +1,16 @@
+.event_calendar td, .event_calendar th {
+	background:#222222 none repeat scroll 0 0;
+	color: #fff;
+}
+
+.event_calendar td.link {
+	background:#444 none repeat scroll 0 0;
+}
+
+.event_calendar td a {
+	color:#8BD037;
+}
+
+.event_calendar td.current {
+	background:#777777 none repeat scroll 0 0;
+}

@@ -1,0 +1,14 @@
+ul.menu-ajax-block li.tab a:hover,
+ul.menu-ajax-block li.tab a:active,
+ul.menu-ajax-block li.tab a.active {
+	color: #fff;
+	background: transparent;
+}
+
+ul.menu-ajax-block li.active {
+	background: none;
+}
+ul.menu-ajax-block li.tab a {
+	font-weight: bold;
+	color: #666;
+}

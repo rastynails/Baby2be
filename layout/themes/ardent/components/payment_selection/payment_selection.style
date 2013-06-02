@@ -1,0 +1,17 @@
+.benefit, .available, .unavailable {
+	border-left: none;
+	border-right: none;
+	border-color: #103555;
+}
+.plan_box {
+	background-color: #e6e8d0;
+	color: #001636;
+}
+.td_2 {
+	background-color: #203e73;
+	color: #9bbbea;
+}
+.payment_selection td.current  {
+	background-color: #203e73;
+	color: #d1e3f1;
+}

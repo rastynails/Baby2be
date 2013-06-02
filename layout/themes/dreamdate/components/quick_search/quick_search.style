@@ -1,0 +1,91 @@
+.quick_search .field_mileage .content_container {
+	background-color:transparent;
+}
+.quick_search_index .block_cap_title {
+	display: none;
+}
+.quick_search_index .block_cap_r,
+.quick_search_index .block_cap_c {
+	background: none;
+}
+.quick_search_index .block_cap {
+	background: image(index_qsearch_cap.png) no-repeat;
+	height: 52px;
+	border: none;
+}
+.quick_search_index .block_body,
+.quick_search_index .block {
+	margin-bottom: 0px;
+}
+.quick_search_index .block_body {
+	background: #c8e67d image(index_qsearch_mid.jpg) no-repeat;
+	margin-left: 15px;
+	border-top: none;
+}
+.quick_search_index .block_bottom {
+	height: 9px;
+	background: image(index_qsearch_bot.png) no-repeat;
+	margin-left: 15px;
+}
+.quick_search_index .block_bottom_r,
+.quick_search_index .block_bottom_c {
+	height: 9px;
+}
+.quick_search_index .qfield {
+	float: left;
+	margin-right: 9px;
+	margin-bottom: 12px;
+	font-weight: normal;
+	color: #54523c;
+}
+.quick_search_index .input_group {
+	margin: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	min-width: 180px;
+}
+.quick_search_index ul.input_group {
+	width: 219px;
+}
+.quick_search_index .input_group .list_label {
+	padding-top: 0px;
+}
+.quick_search_index label,
+.quick_search_index .center {
+	color: #54523c;
+}
+.quick_search_index br {
+	line-height: 1px;
+	height: 1px;
+	font-size: 1px;
+}
+.quick_search_index .clearfix {
+	padding-left: 17px;
+}
+.quick_search_index .q_age {
+	padding-top: 2px;
+}
+.quick_search_index .qindex_button input{
+	float: left;
+	color:#FFFFFF;
+	font-weight:bold;
+	height:23px;
+	width:69px;
+	line-height:19px;
+	background: image(sign_in_btn.png) no-repeat;
+	border: none;
+	padding: 0px 0px 3px;
+}
+.quick_search_index .q_right {
+	margin: 0px;
+}
+.quick_search_index .field_mileage {
+	margin: 0px;
+}
+.quick_search_index .field_mileage .content_container {
+	background: transparent;
+	border: none;
+}
+.quick_search_index .field_mileage .content_container .value {
+	padding-left: 3px;
+}

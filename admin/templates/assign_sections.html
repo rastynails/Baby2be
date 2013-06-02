@@ -1,0 +1,108 @@
+{* Admin interface: Menu items manage *}
+{include file='inc/_header.html'}
+<div style="float:left; width: 450px">
+{block_page}
+	<form action="" method="POST">
+	<input type="hidden" name="action" value="sadmin_info_change" />
+	<table width="100%">
+		<thead>
+			<tr>
+				<td colspan="2" align="center">
+					Administrator info
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="tr_2">
+				<td>
+					Username<span style="color: green;">*</span> :
+				</td>
+				<td>
+					<input type="text" name="sadmin_username" value="{$sadmin_info_set.0.admin_username}" />		
+				</td>
+			</tr>
+			<tr class="tr_2">
+				<td>
+					New password
+				</td>	
+				<td>
+					<input type="text" name="sadmin_password" />	
+				</td>
+			</tr>
+			<tr class="tr_2">
+				<td>
+					Email:
+				</td>
+				<td>
+					<input type="text" name="sadmin_email" value="{$sadmin_info_set.0.email}" />
+				</td>	
+			</tr>	
+			<tr>		
+				<td colspan="2" align="right">
+					<input type="submit" value="Save" />		
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+{/block_page}
+</div>
+
+<div style="float: right; width: 210px;">
+{block_page}
+	<table>
+		<thead>
+			<tr><td style="color: #F2EA7E;">WARNING:</td></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="padding: 8px;">
+					Moderator will not be able to access admin panel if he is not assigned at least to one section.	
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{/block_page}
+</div>
+
+<div style="clear: both; padding-bottom: 5px;"></div>
+
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="action" value="assign_sections" >
+	<table width="100%">
+		<tbody>
+		{foreach from=$adm_sections.root_sections key='root_section' item='sections'}
+			<thead>
+				<tr>
+					<td colspan="2">
+						{$root_section}
+					</td>
+				</tr>
+			</thead>		
+			{foreach from=$sections key='file_key' item='section_info'}
+			<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+				<td>
+					{$section_info.label}
+				</td>
+				<td>
+					<input type="checkbox" name="sections[{$file_key}]" {if $section_info.access eq "y"}checked{/if} />
+				</td>
+			</td>
+			{/foreach}
+		{/foreach}
+		</tbody>
+		
+		<tfoot>
+			<tr>
+				<td colspan="2">
+					<input type="submit"  value="Save"/>
+				</td>
+			</tr>
+		</tfoot>		
+	</table>
+</form>
+
+{/block_page}
+
+{include file='inc/_footer.html'}

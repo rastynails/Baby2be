@@ -1,0 +1,5 @@
+
+.sign_up_cont .field input[type=text],.sign_up_cont .field input[type=password]
+{
+	width:95%;
+}

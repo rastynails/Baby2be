@@ -1,0 +1,1 @@
+<div class="remark smallmargin">{$item.content.text|out_format|censor:'music'}</div>

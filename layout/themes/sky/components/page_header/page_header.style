@@ -1,0 +1,16 @@
+/* -- component page header -- */
+
+.page_header {
+	background: #000 image(sky_header.jpg) no-repeat;
+	margin: 10px auto 0px;
+	width: 830px;
+	float: left;
+	height:185px;
+}
+
+.logo {
+	padding: 25px;
+	margin: 47px 0 0 200px;
+	height: 56px;
+	background: image(sky_logo.png) no-repeat;
+}

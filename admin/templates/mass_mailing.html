@@ -1,0 +1,238 @@
+{include file='inc/_header.html'}
+
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}mass_mailing.php" method="POST" >
+<table align="center" class="table" width="100%">
+	<thead>
+		<tr>
+			<th colspan="20" id="mass_mail_cap" >Mass Mailing</th>
+		</tr>
+		<tr>
+			<td id="mass_mail_profile_selection_cond_cap">Profiles selection</td>		
+			<td>
+                <div style="float:left;" >Compose message</div>
+                <div id="predefine_mail_templates" style="float:right; padding-right:15px;" ><div class="loading" style="display:none;"></div><a id="link_predefine_mail_templates" class="thead_a" href="#">Predefine templates</a></div>
+            </td>
+		</tr>
+	</thead>
+		<tbody>
+			<tr>
+				<td style="vertical-align: top">
+					<table width="100%" cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Sex</td>
+								<td>
+									{foreach from=$_pr_fields.sex->values item=sex_value}
+										<input type="checkbox" name="sex[]" value="{$sex_value}" id="sex_{$sex_value}" />
+										<label onclick="$( 'sex_{$sex_value}' ).checked=!$( 'sex_{$sex_value}' ).checked">{text section='profile_fields.value' key=sex_`$sex_value`}<br /></label>
+									{/foreach}
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Age range</td>
+								<td>
+									from
+									<select name="birthdate_start">
+									{foreach from=$int_from key=year item=item}
+										<option value="{$year}">{$year}</option>
+									{/foreach}
+									</select>
+									to
+									<select name="birthdate_end">
+									{foreach from=$int_to key=year item=item}
+										<option value="{$year}">{$year}</option>
+									{/foreach}
+									</select>
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Membership types</td>
+								<td>
+									{foreach from=$membership_types item=membership}
+                                        {if $membership.membership_type_id != 1}
+										<input type="checkbox" name="membership_type_id[]" value="{$membership.membership_type_id}" id="membership_type_{$membership.membership_type_id}" />
+										<label onclick="$( 'membership_type_{$membership.membership_type_id}' ).checked=!$( 'membership_type_{$membership.membership_type_id}' ).checked">{text section='membership.types' key=`$membership.membership_type_id`}<br /></label>
+                                        {/if}
+									{/foreach}
+								</td>
+							</tr>
+
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Status</td>
+								<td>
+									<select name="status" id="status">
+										<option value="">Any</option>
+										<option class="profile_select_status_active" value="active">Active</option>
+										<option class="profile_select_status_on_hold" value="on_hold">On hold</option>
+										<option class="profile_select_status_suspended" value="suspended">Suspended</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Reviewed</td>
+								<td>
+									<select name="reviewed">
+										<option value="">Any</option>
+										<option class="profile_reviewed_y" value="y">Yes</option>
+										<option class="profile_reviewed_n" value="n">No</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Email verified</td>
+								<td>
+									<select name="email_verified">
+										<option value="" >Any</option>
+										<option class="profile_email_verified_yes" value="yes">Yes</option>
+										<option class="profile_email_verified_no" value="no">No</option>
+										<option class="profile_email_verified_undefined" value="undefined">Undefined</option>
+									</select>
+								</td>								
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Activity more than</td>
+								<td>
+									<input type="text" name="activity_num" class="input_text" style="width: 30px; text-align:center;" />
+									day(s) ago
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Have photo</td>
+								<td>
+									<select name="has_photo">
+										<option value="0">Any</option>
+										<option value="y">yes</option>
+										<option value="n">no</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td>Have multimedia</td>
+								<td>
+									<select name="has_media">
+										<option value="0">Any</option>
+										<option value="y">yes</option>
+										<option value="n">no</option>
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td valign="top">
+                    <div style="position:relative;" >
+                        <div id="mail_template_box" class="floatbox_container" >
+                            <div id="mail_template_header" >
+                                <a href="javascript://" class="mail_template_box_close_link" ></a>
+                                <div>Mail templates</div>
+                            </div>
+                            <div id="mail_template_list" >
+                                <table width="100%" class="key_values_tbl">
+                                     <tr style="display:none">
+                                          <td class="td_1" width="16"></td>
+                                          <td class="td_2" >
+                                              <div class="tpl_text"></div>
+                                          </td>
+                                     </tr>
+                                     <tr class="tpl_button" >
+                                          <td colspan="2" >
+                                              <div style="float:right;">
+                                                  <input type="button" name="load" value="Load" >
+                                                  <input type="button" name="edit" value="Edit" >
+                                                  <input type="button" name="delete" value="Delete" >
+                                              </div>
+                                          </td>
+                                     </tr>
+                                </table>
+                                <div class="mail_template_box_close_link">
+                                    <a href="javascript://">Close</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+					<table width="100%">
+                        <tr class="{cycle values="tr_1, tr_2"}">
+                            <td>Subject</td>
+							<td>
+                                <input type="hidden" name="mail_template_id" id="mail_template_id" value="" />
+								<input type="text" name="msg_subject" id="msg_subject" class="input_text" style="width: 200px" id="mass_mail_letter_subject_input" />
+							</td>
+						</tr>
+						<tr class="{cycle values="tr_1, tr_2"}">
+							<td>Text</td>
+							<td>
+								<textarea name="msg_text" cols="45" rows="15" id="msg_text" mass_mail_letter_body_input ></textarea>
+                                <div style="padding-left:55px; padding-top:4px;">
+                                    <input type="submit" name="save_template" value="Save new template" class="submit" style="width:100px;" onclick="return checkComposeMsgForm();"/>
+                                    <input type="submit" name="edit_template" value="Edit template" class="submit" style="width:100px;" disabled="disabled" onclick="return checkComposeMsgForm();"/>
+                                </div>
+                            </td>
+						</tr>
+						<tr class="{cycle values="tr_1, tr_2"}">
+							<td id="mass_mail_letter_var_list">Letter vars</td>
+							<td>
+							{print_assign_vars vars=$assign_vars textarea='msg_text'}
+							</td>
+						</tr>
+					</table>
+					
+					<table width="100%">
+
+					   <thead>
+					       <tr><td>Send message</td></tr>
+					   </thead>
+					   <tbody>
+					       <tr>
+					           <td>
+					               <input type="radio" name="msg_type" value="external" id="msg-external" checked="checked" onchange="toggleMsgTypeContainers(this)" /> <label for="msg-external">Send to external email</label>
+					           </td>
+					           <td>
+					               <input type="radio" name="msg_type" value="internal" id="msg-internal" onchange="toggleMsgTypeContainers(this)" /> <label for="msg-internal">Send to internal mailbox</label>
+					           </td>
+					       </tr>
+					   </tbody>
+					</table>
+					
+					<div id="cont-msg-external">
+					<div style="background: #ffee9f; padding: 3px">
+					<table class="send_test_email_table" width="100%">
+						<thead>
+							<tr><td colspan="3">Send test email</td></tr>
+						</thead>
+						<tbody>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td style="text-align:left"><span style="cursor: help " title="Profile name whose info will be assigned to template vars">Profile Name</span></td>
+								<td id="email-label" style="text-align:left"><span style="cursor: help " title="Email address for sending test message">Test Email address</span></td>
+								<td></td>
+							</tr>
+							<tr class="{cycle values="tr_1, tr_2"}">
+								<td align="left"><input type="text" name="profile_name" class="input_text" size="25" /></td>
+								<td id="email-value" align="left"><input type="text" name="test_email" class="input_text" size="25" /></td>
+								<td align="left"><input type="submit" name="send_test_mail" class="submit" value="Send Test Message"/></td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					
+					</div>
+					
+					<table style="background: #fff">
+                        <tr>
+                            <td style="text-align:left">
+                                <label><input type="checkbox" name="as_html" id="as-html"> Send as HTML</label><br />
+                                <label><input type="checkbox" name="ignore_unsubscribe"> Ignore "Unsubscribe"</label><br /><br />
+                                <input type="submit" name="send" value="Send Message" class="submit" onclick="return checkComposeMsgForm();"/>
+                            </td>
+                        </tr>
+                    </table>
+					
+				</td>
+			</tr>
+		</tbody>
+</table>
+</form>
+{/block_page}
+
+{include file='inc/_footer.html'}

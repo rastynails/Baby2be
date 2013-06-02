@@ -1,0 +1,11 @@
+div.narrow {
+	width: 41%;
+}
+div.wide {
+	width: 58%;
+}
+.photo_list .block_body {
+	padding-left: 18px;
+}
+.photo_list .empty_active {
+}

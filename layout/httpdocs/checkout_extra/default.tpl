@@ -1,0 +1,3 @@
+{canvas}
+	{component $PaymentProvider}
+{/canvas}

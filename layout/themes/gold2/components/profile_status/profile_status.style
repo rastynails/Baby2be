@@ -1,0 +1,81 @@
+.status_bg .block_cap {
+	position: relative;
+}
+
+.profile_status_toggle {
+	float: right;
+	line-height: 25px;
+	background: image(menu_block.png) no-repeat right 0px;
+}
+
+.profile_status_toggle a {
+	display: block;
+	background: image(menu_block_tail.png) no-repeat left 0px;
+	padding: 0 12px;
+}
+
+.profile_status td {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 11px;
+}
+
+.profile_status td:first-child {
+	font-size: 12px;
+}
+
+.profile_status td span.bold {
+	font-weight: normal;
+	color:#5a4424;
+	font-size: 12px;
+}
+
+.user_status_form input[type=text] {
+    width: auto;
+	height: 22px;
+	margin-bottom: 8px;
+}
+
+.user_status_form .b_control {
+	width: 28px;
+	height: 28px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.user_status_form .b_control:hover {
+	background-color: #d2ae72;
+}
+
+.user_status_curr_value {
+	padding-bottom:6px;
+	line-height: 16px;
+	display: block;
+}
+
+.user_status_curr_value,
+.user_status_curr_value a {
+	color: #5a4424;
+    font-family: Arial;
+    font-size: 12px;
+	font-style: normal;
+}
+
+.user_status_curr_value a{
+	color: #5a4424;
+    font-style: italic;
+    line-height: 28px;
+    margin: 2px;
+}
+.user_status_curr_value a:hover{color: #ae6800;}
+
+.status_length {
+	display: block;
+	float: left;
+	clear: left;
+	white-space: nowrap;
+}
+
+.profile_status td.user_status_update_form {
+	padding:10px 0px 1px 0px;
+}

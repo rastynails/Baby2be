@@ -1,0 +1,20 @@
+.photo_block {
+	background: #e8edf2;
+	border-style: solid;
+	border-color: #f7f9fa #d7dfe6 #d7dfe6 #f7f9fa;
+	border-width: 1px;
+	margin: 0px 8px 9px 0px;
+}
+.photo_block .block {
+	margin: 0px;
+	padding: 7px;
+}
+.inactive_rate_list, .active_rate_list {
+	margin-bottom: 4px;
+}
+.photo_block .small {
+	font-size: 10px;
+}
+.details_cont {
+	width: 130px;
+}

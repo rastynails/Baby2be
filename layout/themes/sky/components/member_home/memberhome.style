@@ -1,0 +1,12 @@
+.memhome_link 
+{
+	float:left;
+	padding:0 0 10px;
+	width:50%;
+}
+
+.tip .block_body 
+{	
+	background:#CFE6F5;
+	border-top:none;
+}

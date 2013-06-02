@@ -1,0 +1,10 @@
+.item_list {
+	margin: 0pt auto; 
+	width: 620px;	
+}
+
+.cls_category .thumb {
+    width: 65px;
+}
+
+.cls_category .list_item { vertical-align: top; }

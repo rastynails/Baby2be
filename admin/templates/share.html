@@ -1,0 +1,127 @@
+{include file='inc/_header.html'}
+
+{block_page}
+    <form action="" method="POST">
+        <input type="hidden" name="share" value="{$share}" />
+        <table cellspacing="1" style="width:100%;">
+        <thead>
+        <tbody>
+            {if $share == "facebook_share"}
+                <tr class="tr_1">
+                    <td>Enabled </td>
+                    <td><input type="checkbox" name="enabled" value="1" {if $enabled}checked="checked"{/if}" /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>App ID </td>
+                    <td><input type="text" name="app_id" value="{$app_id}" /></td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Send Button</td>
+                    <td><input type="checkbox" name="send_button" value="1" {if $send_button}checked="checked"{/if} /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Layout Style</td>
+                    <td>
+                        <select name="layout_style">
+                            {foreach from=$layout_style.values item=item}
+                                <option value="{$item.value}" {if $layout_style.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Width</td>
+                    <td><input type="text" name="width" value="{$width}" /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Show faces</td>
+                    <td><input type="checkbox" name="show_faces" value="1" {if $show_faces}checked="checked"{/if} /></td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Verb to display</td>
+                    <td>
+                        <select name="verb_to_display">
+                            {foreach from=$verb_to_dislpay.values item=item}
+                                <option value="{$item.value}" {if $verb_to_dislpay.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Color Scheme</td>
+                    <td>
+                        <select name="color_scheme">
+                            {foreach from=$color_scheme.values item=item}
+                                <option value="{$item.value}" {if $color_scheme.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Font</td>
+                    <td>
+                        <select name="font">
+                            {foreach from=$font.values item=item}
+                                <option value="{$item.value}" {if $font.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+            {elseif $share == "twitter_share"}
+                <tr class="tr_1">
+                    <td>Enabled </td>
+                    <td><input type="checkbox" name="enabled" value="1" {if $enabled}checked="checked"{/if}" /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Show count</td>
+                    <td><input type="checkbox" name="show_count" value="1" {if $show_count}checked="checked"{/if} /></td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Large button</td>
+                    <td><input type="checkbox" name="large_button" value="1" {if $large_button}checked="checked"{/if} /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Opt-out of tailoring Twitter</td>
+                    <td><input type="checkbox" name="opt_out" value="1" {if $opt_out}checked="checked"{/if} /></td>
+                </tr>
+            {elseif $share == "google_share"}
+                <tr class="tr_1">
+                    <td>Enabled </td>
+                    <td><input type="checkbox" name="enabled" value="1" {if $enabled}checked="checked"{/if}" /></td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Size</td>
+                    <td>
+                        <select name="size">
+                            {foreach from=$size.values item=item}
+                                <option value="{$item.value}" {if $size.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr_1">
+                    <td>Annotation</td>
+                    <td>
+                        <select name="annotation">
+                            {foreach from=$annotation.values item=item}
+                                <option value="{$item.value}" {if $annotation.value == $item.value}selected="selected"{/if}>{$item.label}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr_2">
+                    <td>Width</td>
+                    <td><input type="text" name="width" value="{$width}" /></td>
+                </tr>
+            {/if}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"><input type="submit" class="submit" value="Save" /></td>
+            </tr>
+        </tfoot>
+        </table>
+    </form>
+{/block_page}
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,13 @@
+
+.profile_notes textarea {
+	height: 50px;
+	width: 96%;
+}
+
+.note_controls {
+	padding: 2px 2px 0px 0px;
+	float: right; 
+}
+.profile_notes {
+	overflow: hidden;
+}

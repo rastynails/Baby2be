@@ -1,0 +1,83 @@
+{* Admin interface: memberships*}
+{include file='inc/_header.html'}
+
+{block_page}
+	<form action="" method="POST">
+	<table align="left" width="100%">
+		<thead>
+			<tr>
+				<th colspan="4">User Credits Packages</th>
+			</tr>
+			<tr>
+				<td width="5%">&nbsp;</td>
+				<td width="25%">Price</td>
+				<td width="25%">Credits</td>
+				<td width="45%">Description</td>
+			</tr>
+		</thead>
+		{if $packages}
+		<tbody>
+		{foreach from=$packages item='p'}
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td><input type="checkbox" name="packages_arr[]" value="{$p.package_id}" /></td>
+				<td>{$curr}<input type="text" class="input_text" name="prices[{$p.package_id}]" maxlength="10" size="15" value="{$p.price}" /></td>
+				<td><input type="text" class="input_text" name="points[{$p.package_id}]" maxlength="6" size="15" value="{$p.points}" /></td>
+				<td>{lang_values_input name='package_desc' section='user_points.packages' key=package_`$p.package_id`}</td>
+			</tr>
+		{/foreach}
+		</tbody>
+		<tfoot align="right">
+			<th colspan="4">With selected &nbsp;&nbsp;&nbsp; <input type="submit" class="submit" name="update_packages" value="Update" />
+				<input type="submit" class="submit" name="delete_packages" value="Delete" onclick="if (confirm('Do you really want to delete this package')) return true; else return false;" />
+			</th>
+		</tfoot>
+		{else}
+		<tbody>
+		  <tr class="tr_2">
+		      <td align="center" colspan="4">No packages yet</td>
+		  </tr>
+		</tbody>
+		{/if}
+	</table>
+	</form>
+{/block_page}
+
+<div style="width: 50%; margin: 0px auto">
+{block_page}
+<form action="" method="POST" onsubmit="return checkAddNewPlan(this, 0);">
+	<input type="hidden" name="command" value="add_package" />
+	<table align="left" cellspacing="1" width="100%">
+	    <thead>
+	        <tr>
+	            <th colspan="2">Add a new package</th>
+	        </tr>
+	        <tr>
+	            <td width="40%">Price</td>
+	            <td width="40%">Credits</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr class="tr_1">
+	            <td>{$curr}<input type="text" class="input_text" maxlength="10" name="price" /></td>
+	            <td><input type="text" class="input_text" maxlength="6" name="points" /></td>
+	        </tr>
+	        <tr class="tr_2">
+	           <td colspan="2">
+	           <b>Package description</b>
+	           {lang_values_input name='package_desc' section='user_points.packages' type=textarea height=20}
+	           </td>
+	        </tr>
+	    </tbody>
+	    <tfoot>
+	       <tr>
+                <td colspan="2"><input type="submit" class="submit" value="Add" /></td>
+	       </tr>
+	    </tfoot>
+	</table>
+</form>
+{/block_page}
+</div>
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

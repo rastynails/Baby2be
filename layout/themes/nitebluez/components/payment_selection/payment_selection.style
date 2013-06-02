@@ -1,0 +1,26 @@
+.benefit, .available, .unavailable {
+	border-left: none;
+	border-right: none;
+	border-color: #97a4a9;
+}
+.plan_box {
+	background-color: #78868B;
+	color: #fff;
+}
+.td_2 {
+	background-color: #78868B;
+	color: #fff;
+}
+.membership_types_tbl {
+	background: transparent image(block_body.png);
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #576469 #6b777d #7c888d #5a676c;
+
+}
+.current {
+	color: #78868B;
+}
+.membership_desc {
+	color: #fff;
+}

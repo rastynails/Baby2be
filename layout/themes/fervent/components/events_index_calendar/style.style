@@ -1,0 +1,22 @@
+.event_calendar td.link {
+	background-color:#8c2f2f;
+}
+.event_calendar td a {
+	color: #fff7f1;
+	text-decoration: underline;
+}
+.event_calendar td a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.event_calendar td.current {
+	background-color: #df0007;
+	color: #fff;
+}
+.event_calendar td, .event_calendar th {
+	background-color: transparent;
+}
+
+.events_index_calendar .block_body {
+	padding: 10px 14px 10px;
+}

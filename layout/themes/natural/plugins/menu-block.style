@@ -1,0 +1,49 @@
+
+ul.menu-block {
+	text-align: right;
+	float: right;
+	font-size: 11px;
+	height: 20px;
+	padding: 3px 1px 0px 0px;
+}
+
+ul.menu-block li.tab {
+	display: block;
+	float: left;
+	clear: none;
+	margin: 0 1px 0 0;
+	height: 20px;
+	z-index: 100;
+	padding: 1px;
+}
+
+ul.menu-block li.tab a {
+	padding: 1px 5px 0;
+	display: block;
+	height: 17px;	
+	text-decoration: underline;
+}
+
+ul.menu-block li.tab a:hover,
+ul.menu-block li.tab a:active,
+ul.menu-block li.tab a.active {
+	background: transparent none;
+	text-decoration: none;
+	color: #236500;
+}
+
+ul.menu-block li.active {
+	background: transparent none;
+	height: 27px;
+	text-decoration: none;
+}
+
+ul.menu-block li.hover a,
+ul.menu-block li.active a {
+	color: #236500;
+	text-decoration: none;
+}
+
+.profile_details  ul.menu-block li.active {
+	background: transparent none;
+}

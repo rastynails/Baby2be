@@ -1,0 +1,24 @@
+.benefit, .available, .unavailable {
+	border-left: none;
+	border-right: none;
+	border-color: #C8CCCF;
+}
+.plan_box {
+	background-color: #758DA2;
+	color: #fff;
+}
+.td_2 {
+	background-color: #758DA2;
+	color: #fff;
+}
+.mem_diagram_header .other_cols .block_cap,
+.mem_diagram_header .other_cols .block_cap_r,
+.mem_diagram_header .other_cols .block_cap_c,
+.mem_diagram_header .first_col .block_cap,
+.mem_diagram_header .first_col .block_cap_r,
+.mem_diagram_header .first_col .block_cap_c {
+	background: none;
+}
+.current {
+	background: #E6E6E6;
+}

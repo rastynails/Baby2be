@@ -1,0 +1,35 @@
+
+ .thumb_cont {
+ 	width: 322px; 
+ 	margin: 0px auto;
+ }
+ 
+ .video_cont {
+ 	position: relative;
+ 	text-align: center;
+ }
+ 
+.video_preload {
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	background: << .preloader;
+}
+
+.index_video .block_cap {
+	z-index: 100;
+}
+
+.index_video .block_toolbar {
+	margin: -3px;
+	z-index: 1;
+}
+
+.index_video .block {
+	margin-top: 0px;
+}
+.video_title {
+	padding: 5px 0px;
+}

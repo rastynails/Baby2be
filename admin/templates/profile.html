@@ -1,0 +1,714 @@
+{* Admin Profile edit Template *}
+
+{include file='inc/_header.html'}
+
+<table cellpadding="0" cellspacing="0" width="100%">
+	<thead>
+		<tr><th colspan="2">Profile edit</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td valign="top">
+            	{block_page}
+				<form action="{$smarty.server.REQUEST_URI}" method="post">
+				<table>
+					<thead>
+						<tr><td colspan="2">Main profile info</td></tr>
+					</thead>
+					<tbody>
+					{foreach from=$main_profile_info key=section_id item=section}
+						{if $section_id}
+							<tr>
+								<td colspan="2" class="section_name">
+									{text section='profile_fields.section' key=$section_id}
+								</td>
+							</tr>
+							{foreach from=$section item=profile_field}
+								<tr class="{cycle values='tr_1,tr_2'} {if $profile_field.changed}highlight_changed{/if}" {highlight}>
+									<td>
+										{if $profile_field.smile}
+											<div class="smile_list_block_icon">
+											    <a class="references" href="javascript://" onclick="show_node( 'smile_{$profile_field.name}_cont' );"><img src="{$smarty.const.URL_ADMIN_IMG}smile_icon.gif" /></a>
+											</div>
+											<div id="smile_{$profile_field.name}_cont" class="smile_list_block_cont">
+											<div class="close_smile_list_block_cont" onclick="hide_node( 'smile_{$profile_field.name}_cont' );">x</div>
+												<table class="smile_list_block"><tbody>
+													{foreach from=$profile_field.smile item='smile' name='smile_loop'}
+														{if $smarty.foreach.smile_loop.iteration==1}
+															<tr>
+														{elseif $smarty.foreach.smile_loop.iteration==5 || $smarty.foreach.smile_loop.iteration==9 || $smarty.foreach.smile_loop.iteration==13}
+															</tr><tr>
+														{/if}
+															<td><a href="{$smile.href}" class="smile"><img src="{$smile.img}" /></a></td>
+													{/foreach}
+													</tr>
+												</tbody></table>
+											</div>
+										{/if}
+										{text section='profile_fields.label' key=$profile_field.profile_field_id}
+									</td>
+									<td>
+										{print_field_value field=$profile_field}
+									</td>
+								</tr>
+							{/foreach}
+						{/if}
+					{/foreach}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+
+								<div id="cont_edit_set_reviewed" {if $full_profile_info.reviewed == 'y'}class="cont_edit_set_reviewed_hide"{else}class="cont_edit_set_reviewed_show"{/if} id="view_profile_mark_as_reviewed_info">
+									<input type="checkbox" name="edit_set_reviewed" id="edit_set_reviewed" checked />
+									<label for="edit_set_reviewed">mark as reviewed</label>
+								</div>
+
+								<input type="submit" name="edit_profile" value="Save" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				</form>
+                {/block_page}
+			</td>
+
+			<td valign="top">
+            {block_page}
+				<table width="100%">
+					<thead>
+						<tr><td colspan="2" id="view_profile_summary_cap">Profile Summary</td></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td valign="top" align="left">
+								<div class="profile_card_item">
+									<b>{$full_profile_info.username}</b> &nbsp;{$full_profile_info.age} y/o
+								</div>
+								<br />
+								{if $full_profile_info.country}
+									<div class="profile_card_item" id="view_profile_location_info">
+										from<br />
+										<b>{$full_profile_info.country}</b>
+										<b>{$full_profile_info.state}</b>
+										<b>{$full_profile_info.city}</b>
+										{if $full_profile_info.zip}
+										, <b>{$full_profile_info.zip}</b>
+										{/if}
+									</div>
+								{/if}
+								<br />
+								<br />
+
+								<div class="profile_card_item" id="view_profile_status_info" >
+									Status:
+									<div class="label_profile_status_{$full_profile_info.status}" id="main_label_profile_status">
+											{$full_profile_info.status}
+									</div>
+
+									{if $_profile.activity_info.online}
+										<label class="label_profile_status_active" style="padding: 0px;">online now</label>
+									{elseif $_profile.activity_info.item}
+										{$_profile.activity_info.item_num} {text key=activity_`$_profile.activity_info.item` prefix='profile'}</td>
+									{/if}
+
+									Activity:
+										{if $full_profile_info.activity_info.online}
+										<br />
+											<div class="label_profile_status_active">
+												online now
+											</div>
+										{elseif $full_profile_info.activity_info.item}
+											<br />
+												&nbsp;&nbsp;<b>{$full_profile_info.activity_info.item_num} {text key=active_ago_`$full_profile_info.activity_info.item` section='i18n.date'}</b>
+										{else}
+											&nbsp;&nbsp;<b>hided</b>
+										{/if}
+										<br />
+										<br />
+								</div>
+								<div class="profile_card_item" id="view_profile_join_date_info" >
+									Join date: {$full_profile_info.join_stamp|date_format:"%D"}
+									{if $full_profile_info.join_ip != '0.0.0.0'}
+										<br class="clr" />
+										<div style="float: left; padding-top: 3px;">Join IP: {$full_profile_info.join_ip}</div>
+										{if $full_profile_info.is_ip_blocked}
+											<div class="unblock_profile_ip" id="block_ip" title="unblock memeber IP" onclick="blockProfileIP('{$full_profile_info.join_ip}');" id="view_profile_unblock_profile_ip_href" ></div>
+										{else}
+											<div class="block_profile_ip" id="block_ip" title="block member IP" onclick="blockProfileIP('{$full_profile_info.join_ip}');" id="view_profile_block_profile_ip_href" ></div>
+										{/if}
+									{/if}
+								</div>
+								<br class="clr" />
+								<br class="clr" />
+							</td>
+							<td align="left" valign="top">
+								<div id="profile_thumb_content">
+									<img src="{$full_profile_info.thumb_href}" />
+								</div>
+								<br />
+								{if $photo_ver_avaliable}
+					               <a href="{$smarty.const.URL_ADMIN}photo_verification.php?profile_id={$full_profile_info.profile_id}" >Photo Verification</a>
+					            {/if}
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="background: #EFEFEF">
+								<div style="margin-bottom: 5px; text-align: left;">
+								    <a class="label_profile_total_photo" id="jump_to_members_page" href="javascript://">Jump to member's page</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="background: #EFEFEF">
+								<!-- Profile photo info -->
+								<div class="cont_profile_photo_info">
+
+									{assign var=photo_width value=$profile_photo_width+60}
+
+									<div id="profile_photo_container" class="profile_photo_container" style="width: {$photo_width}px; background: #DFDFDF">
+
+										<div class="profile_photo_container_close" onclick="hidePhotoContainer( '{$full_profile_info.profile_id}' ); updatePhotosInfo( '{$full_profile_info.profile_id}' );">
+											Close
+										</div>
+											<div style="background: #95EFA1; float: left; padding: 2px; margin: 2px; font-weight: bold">
+											Active
+										</div>
+										<div style="background: #E3EF77; float: left; padding: 2px; margin: 2px; font-weight: bold">
+											Approval
+										</div>
+										<div style="background: #EF8D86; float: left; padding: 2px; margin: 2px; font-weight: bold">
+											Suspended
+										</div>
+										<iframe id="profile_photo_frame" class="profile_photo_frame" style="width: {$photo_width}px" src="">
+										</iframe>
+									</div>
+
+									<div id="profile_photo_link_total">
+										<a href="javascript://" onclick="showPhotoContainer( '{$full_profile_info.profile_id}' );" class="label_profile_total_photo">View photos (<b class="count">{$full_profile_info.photos_count.total}</b>)</a>
+									</div>
+								</div>
+
+
+								<div id="profile_photo_link_active">
+
+									<a href="javascript://" {if !$full_profile_info.photos_count.active.count} style="display:none" {/if} onclick="showPhotoContainer( '{$full_profile_info.profile_id}', 'active' );" class="label_profile_active_photo">active (<b class="count">{$full_profile_info.photos_count.active.count}</b>)</a>
+
+								</div>
+
+								<div id="profile_photo_link_approval">
+									<a href="javascript://" {if !$full_profile_info.photos_count.approval.count} style="display:none" {/if} onclick="showPhotoContainer( '{$full_profile_info.profile_id}', 'approval' );" class="label_profile_approval_photo">approval (<b class="count">{$full_profile_info.photos_count.approval.count}</b>)</a>
+								</div>
+
+								<div id="profile_photo_link_suspended">
+									<a href="javascript://" {if !$full_profile_info.photos_count.suspended.count} style="display:none" {/if} onclick="showPhotoContainer( '{$full_profile_info.profile_id}', 'suspended' );" class="label_profile_suspended_photo">suspended (<b class="count">{$full_profile_info.photos_count.suspended.count}</b>)</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="background: #EFEFEF;" align="left">
+
+								<div class="cont_profile_photo_info">
+
+									<div id="profile_music_container" class="profile_photo_container" style="width: 780px; height: 450px; background: #DFDFDF">
+
+										<div style="float: left; font-size: 12px; padding: 3px;"><b>Music manager</b></div>
+										<div class="profile_photo_container_close" onclick="hideMusicContainer( '{$full_profile_info.profile_id}' ); updateMusicCounters( '{$full_profile_info.profile_id}' );">
+											Close
+										</div>
+										<iframe id="profile_music_frame" class="profile_photo_frame" style="width: 770px; height: 420px" src="">
+										</iframe>
+									</div>
+
+
+								</div>
+
+								<div id="profile_music_link_total">
+									<a href="javascript://" onclick="showMusicContainer( '{$full_profile_info.profile_id}' );" class="label_profile_total_photo">View music (<b>{$full_profile_info.music_count.total}</b>)</a>
+								</div>
+
+								<div id="profile_music_link_active">
+									{if $full_profile_info.music_count.active.count}
+										<a href="javascript://" onclick="showMusicContainer( '{$full_profile_info.profile_id}', 'active' );" class="label_profile_active_photo"><b>active ({$full_profile_info.music_count.active.count}</b>)</a>
+									{/if}
+								</div>
+
+								<div id="profile_music_link_approval">
+									{if $full_profile_info.music_count.approval.count}
+										<a href="javascript://" onclick="showMusicContainer( '{$full_profile_info.profile_id}', 'approval' );" class="label_profile_approval_photo"><b>approval ({$full_profile_info.music_count.approval.count}</b>)</a>
+									{/if}
+								</div>
+
+								<div id="profile_music_link_suspended">
+									{if $full_profile_info.music_count.suspended.count}
+										<a href="javascript://" onclick="showMusicContainer( '{$full_profile_info.profile_id}', 'suspended' );" class="label_profile_suspended_photo"><b>suspended ({$full_profile_info.music_count.suspended.count}</b>)</a>
+									{/if}
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="background: #EFEFEF;" align="left">
+
+								<div class="cont_profile_photo_info">
+
+									<div id="profile_media_container" class="profile_photo_container" style="width: 780px; height: 450px; background: #DFDFDF">
+
+										<div style="float: left; font-size: 12px; padding: 3px;"><b>Multimedia manager</b></div>
+										<div class="profile_photo_container_close" onclick="hideMediaContainer( '{$full_profile_info.profile_id}' ); updateVideoCounters( '{$full_profile_info.profile_id}' );">
+											Close
+										</div>
+										<iframe id="profile_media_frame" class="profile_photo_frame" style="width: 770px; height: 420px" src="">
+										</iframe>
+									</div>
+
+
+								</div>
+
+								<div id="profile_media_link_total">
+									<a href="javascript://" onclick="showMediaContainer( '{$full_profile_info.profile_id}' );" class="label_profile_total_photo">View multimedia (<b>{$full_profile_info.media_count.total}</b>)</a>
+								</div>
+
+								<div id="profile_media_link_active">
+									{if $full_profile_info.media_count.active.count}
+										<a href="javascript://" onclick="showMediaContainer( '{$full_profile_info.profile_id}', 'active' );" class="label_profile_active_photo"><b>active ({$full_profile_info.media_count.active.count}</b>)</a>
+									{/if}
+								</div>
+
+								<div id="profile_media_link_approval">
+									{if $full_profile_info.media_count.approval.count}
+										<a href="javascript://" onclick="showMediaContainer( '{$full_profile_info.profile_id}', 'approval' );" class="label_profile_approval_photo"><b>approval ({$full_profile_info.media_count.approval.count}</b>)</a>
+									{/if}
+								</div>
+
+								<div id="profile_media_link_suspended">
+									{if $full_profile_info.media_count.suspended.count}
+										<a href="javascript://" onclick="showMediaContainer( '{$full_profile_info.profile_id}', 'suspended' );" class="label_profile_suspended_photo"><b>suspended ({$full_profile_info.media_count.suspended.count}</b>)</a>
+									{/if}
+								</div>
+							</td>
+						</tr>
+						{if $full_profile_info.total_mails > 0}
+						<tr>
+							<td colspan="2" style="background: #EFEFEF;" align="left">
+								<a href="javascript://" onclick="showMailboxContainer( '{$full_profile_info.profile_id}' );" class="label_profile_total_photo">View mailbox conversations ({$full_profile_info.total_mails})</a>
+								<div class="cont_profile_photo_info">
+									<div id="profile_mailbox_container" class="profile_photo_container" style="width: 776px; height: 450px; background: #DFDFDF">
+
+										<div style="float: left; font-size: 12px; padding: 3px;"><b>Mailbox Conversations</b></div>
+										<div class="profile_photo_container_close" onclick="hideMailboxContainer( );">Close</div>
+										<iframe id="profile_mailbox_frame" class="profile_photo_frame" style="width: 770px; height: 420px" src="">
+										</iframe>
+									</div>
+								</div>
+							</td>
+						</tr>
+						{/if}
+						<tr>
+							<td colspan="2" style="background: #EFEFEF;" align="left">
+								<a href="{$smarty.const.URL_ADMIN}referral_list.php?referrer_id={$full_profile_info.profile_id}" style="color:#6B7D8F;"><b>Referals ({$full_profile_info.total_referals})</b></a>
+							</td>
+						</tr>
+						<tr><td colspan="2"></td></tr>
+						<tr>
+						<td  colspan="2" width="280" class="admin_note_td">
+						  <span>Admin Notes</span><br />
+							<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:5px;" id="admin_notes_container">
+
+							<tr id="add_new_note_tr" onmouseout="this.className=''" onmouseover="this.className='active'">
+								<td width="15"></td>
+								<td class="add_new_note_cont" colspan="2">
+									<span class="add_new_label">Add New Note</span>
+									<div class="add_new_input" style="display:none">
+										<form>
+											<input type="text" name="new_note" value="" class="input_text" />
+											<input type="submit" value="add" class="submit" />
+										</form>
+									</div>
+								</td>
+							</tr>
+
+							<tr class="prototype_node" style="display:none">
+								<td width="15">
+									<div class="delete_admin_note_button"></div>
+								</td>
+
+								<td class="admin_note"></td>
+								<td class="admin_note_date"></td>
+								</tr>
+							</table>
+						</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right">
+								<label for="set_featured_profile">
+									Mark profile as <b>Featured</b> <input type="checkbox" name="set_featured_profile" id="set_featured_profile" {if $full_profile_info.featured == 'y'}checked{/if} />
+								</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+              {/block_page}
+
+                {block_page}
+                <table width="100%" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td colspan="2">Operational info</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="{cycle values='tr_1,tr_2'}">
+                        <td align="left">Status:</td>
+                        <td>
+                            <select name="profile_status" id="profile_status" class="profile_select_status_{$full_profile_info.status}">
+                            {if $full_profile_info.status == 'active'}
+                                <option value="active" class="profile_select_status_active" selected="selected">active</option>
+                            {else}
+                                <option value="active" class="profile_select_status_active">active</option>
+                            {/if}
+                            {if $full_profile_info.status == 'on_hold'}
+                                <option value="on_hold" class="profile_select_status_on_hold" selected="selected">on hold</option>
+                            {else}
+                                <option value="on_hold" class="profile_select_status_on_hold">on hold</option>
+                            {/if}
+                            {if $full_profile_info.status == 'suspended'}
+                                <option value="suspended" class="profile_select_status_suspended" selected="selected">suspended</option>
+                            {else}
+                                <option value="suspended" class="profile_select_status_suspended">suspended</option>
+                            {/if}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="{cycle values='tr_1,tr_2'}">
+                        <td align="left">Email verified:</td>
+                        <td>
+                            <select name="profile_email_verified" id="profile_email_verified" class="profile_email_verified_{$full_profile_info.email_verified}">
+                            {if $full_profile_info.email_verified == 'yes'}
+                                <option value="yes" class="profile_email_verified_yes" selected="selected">yes</option>
+                            {else}
+                                <option value="yes" class="profile_email_verified_yes">yes</option>
+                            {/if}
+                            {if $full_profile_info.email_verified == 'undefined'}
+                                <option value="undefined" class="profile_email_verified_undefined" selected="selected">undefined</option>
+                            {else}
+                                <option value="undefined" class="profile_email_verified_undefined">undefined</option>
+                            {/if}
+                            {if $full_profile_info.email_verified == 'no'}
+                                <option value="no" class="profile_email_verified_no" selected="selected">no</option>
+                            {else}
+                                <option value="no" class="profile_email_verified_no">no</option>
+                            {/if}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="{cycle values='tr_1,tr_2'}">
+                        <td align="left">Reviewed:</td>
+                        <td>
+                            <select name="profile_reviewed" id="profile_reviewed" class="profile_reviewed_{$full_profile_info.reviewed}">
+                            {if $full_profile_info.reviewed == 'y'}
+                                <option value="y" class="profile_reviewed_y" selected="selected">yes</option>
+                            {else}
+                                <option value="y" class="profile_reviewed_y">yes</option>
+                            {/if}
+                            {if $full_profile_info.reviewed == 'n'}
+                                <option value="n" class="profile_reviewed_n" selected="selected">no</option>
+                            {else}
+                                <option value="n" class="profile_reviewed_n">no</option>
+                            {/if}
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <br />
+
+                <table width="100%" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td colspan="2">Membership info</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="{cycle values='tr_2,tr_1'}">
+                        <td>Current membership:</td>
+                        <td>
+                            <b>{text section='membership.types' key=$full_profile_info.membership_type_id}</b> ({$full_profile_info.membership_info.type})
+                        </td>
+                    </tr>
+                    <tr class="{cycle values='tr_2,tr_1'}">
+                        <td>Expires:</td>
+                        <td>
+                        {if $full_profile_info.membership_info.type == 'trial' || $full_profile_info.membership_info.type == 'subscription'}
+                            {if $full_profile_info.membership_info.limit == 'unlimited'}
+                                never
+                            {else}
+                                in {print_membership_expiration expiration_stamp=$full_profile_info.membership_info.expiration_stamp}
+                            {/if}
+                        {/if}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br clear="all" />
+                            <div><a href="javascript://" onclick="show_node( 'current_memberships' );"><b>Manage profile memberships</b></a></div>
+
+                            {block_popup title="Manage profile memberships" width=360 node="current_memberships" bottom=10 left=-25}
+                                <table width="100%">
+                                <thead class="{cycle values='tr_1,tr_2'}">
+                                    <tr>
+                                        <td>name</td>
+                                        <td>type</td>
+                                        <td>amount</td>
+                                        <td>start stamp</td>
+                                        <td>expire stamp</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                {foreach from=$full_profile_info.membership_info.current_memberships item=membership}
+                                    <tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+                                        <td>{text section=membership.types key=$membership.membership_type_id}</td>
+                                        <td>{$membership.type}</td>
+                                        <td>
+                                        {if $membership.type == 'credits'}
+                                            {$membership.credits}
+                                        {else}
+                                            {if $membership.limit == 'unlimited'}unlimited{else}limited{/if}
+                                        {/if}
+                                        </td>
+                                        <td>{$membership.start_stamp|date_format}</td>
+                                        <td>{$membership.expiration_stamp|date_format}</td>
+                                        <td>
+                                        {if $membership.is_default == 'no'}
+                                            <a href="{$smarty.server.REQUEST_URI}&delete_membership=1&membership_id={$membership.membership_id}" class="delete" onclick="return confirm( 'Are you sure?' );"></a>
+                                        {else}
+                                            default
+                                        {/if}
+                                        </td>
+                                    </tr>
+                                {/foreach}
+                                </table>
+                            {/block_popup}
+
+                            {if $full_profile_info.membership_info.history}
+                                <br clear="all" />
+                                <div><a href="javascript://" onclick="show_node( 'profile_payment_history' )" ><b>View payment history</b></a></div>
+
+                                {block_popup title="Payment history" width=360 node="profile_payment_history" bottom=10 left=-25}
+                                    <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>order</td>
+                                            <td>date</td>
+                                            <td>provider</td>
+                                            <td>term</td>
+                                            <td>amount</td>
+                                            <td>refund</td>
+                                        </tr>
+                                    </thead>
+                                    {foreach from=$full_profile_info.membership_info.history item=transaction}
+                                        <tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+                                            <td>{$transaction.payment_provider_order_number}</td>
+                                            <td>{$transaction.order_stamp|date_format}</td>
+                                            <td>{text section='components.payment_selection' key=$transaction.fin_payment_provider_id}</td>
+                                            <td>
+                                            {if $transaction.type == 'credits'}
+                                                {$transaction.amount}
+                                                    {else}
+                                                {if $transaction.limit == 'unlimited'}
+                                                    unlimited
+                                                {else}
+                                                    {$transaction.period} {$transaction.unit}
+                                                {/if}
+                                            {/if}
+                                            </td>
+                                            <td>{$transaction.amount}</td>
+                                            <td>
+                                            {if $transaction.refund_stamp}
+                                                <div style="background: #EFB877">
+                                                    {$transaction.refund_stamp|date_format}
+                                                </div>
+                                            {/if}
+                                            </td>
+                                        </tr>
+                                    {/foreach}
+                                    </table>
+                                {/block_popup}
+                            {/if}
+
+                            <br clear="all" />
+                            <div><a href="javascript://" onclick="show_node( 'give_membership_cont' )"><b>Give membership</b></a></div>
+
+                            {block_popup title="Give membership" width=360 node="give_membership_cont" bottom=10 left=-25}
+                                <form action="{$smarty.server.REQUEST_URI}" method="post">
+                                    <table width="100%">
+                                    <tbody>
+                                    {foreach name='membership_types' from=$membership_types item=membership}
+                                       <tr>
+                                           <td><input type="radio" name="membership_type" value="{$membership.membership_type_id}" {if $smarty.foreach.membership_types.first}checked="checked"{/if} /></td>
+                                           <td>{text section='membership.types' key=$membership.membership_type_id}</td>
+                                           {if $membership.type=='subscription' || $membership.type=='trial'}
+                                               {if $membership.limit=='limited'}
+                                                   <td style="text-align: left;"><input type="text" name ="numbers[{$membership.membership_type_id}]" id="numbers[{$membership.membership_type_id}]" /> period
+                                                       <select name="units[{$membership.membership_type_id}]">
+                                                           <option value="days">day(s)</option>
+                                                           <option value="months">month(s)</option>
+                                                       </select> units
+                                                   </td>
+                                               {else}
+                                                   <td></td>
+                                               {/if}
+                                           {elseif $membership.type=='credits'}
+                                               <td style="text-align: left;"><input type="text" name="numbers[{$membership.membership_type_id}]" id="numbers[{$membership.membership_type_id}]" />  credits</td>
+                                           {/if}
+                                       </tr>
+                                    {/foreach}
+                                   </tbody>
+                                   <tfoot>
+                                       <tr>
+                                           <td colspan="3"><input type="submit" name="set_membership" value="Set membership" class="submit" onclick="return ValidateGiveMembershipForm(this.form);"  /></td>
+                                       </tr>
+                                   </tfoot>
+                                   </table>
+                                </form>
+                            {/block_popup}
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+
+                {if $show_credits}
+                <br />
+                <form method="post">
+                    <table width="100%">
+                    <thead>
+                        <tr>
+                            <td colspan="2">User credits</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="{cycle values='tr_2,tr_1'}">
+                            <td width="34%">Balance:</td>
+                            <td>{if !$balance}0{else}{$balance}{/if} credits</td>
+                        </tr>
+                        <tr class="{cycle values='tr_2,tr_1'}">
+                            <td>Give credits:</td>
+                            <td>
+                                <input type="text" name="credit_amount" size="5" maxlength="5" /> credits<br /><br />
+                                Write a comment (optional):
+                                <textarea name="credit_comment" style="width: 200px"></textarea><br />
+                                <div style="text-align: right"><input type="submit" value="Give" name="give_credits" /></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </form>
+                {/if}
+
+                {/block_page}
+
+                {block_page}
+				<table width="100%">
+					<tr class="tr_2" style="text-align:left">
+						<td width="40%">Site Moderator:</td>
+						<td>
+							<input type="checkbox" {if $full_profile_info.site_moderator}checked{/if} id="set_profile_site_moderator" />
+						</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr class="tr_2" style="text-align:left">
+						<td width="40%">Unsubscribed:</td>
+						<td><input type="checkbox" {if $full_profile_info.is_unsubscribed_mail}checked{/if} id="unsubscribed_chkbox" onclick="setProfileUnsubscribed({$full_profile_info.profile_id},this.checked)" />
+						</td>
+					</tr>
+				</table>
+                                <table width="100%">
+					<tr class="tr_2" style="text-align:left">
+						<td width="40%">Add to Hot list:</td>
+						<td><input type="checkbox" {if $full_profile_info.is_hot}checked{/if} id="add_to_hot_list" />
+						</td>
+					</tr>
+				</table>                
+                {/block_page}
+				{block_page}
+				<table width="100%">
+					<thead>
+						<tr>
+							<td colspan="2">
+								Send message to member
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="send_msg_info" colspan="2">
+							</td>
+						</tr>
+						<tr class="{cycle values='tr_1,tr_2'}">
+							<td>
+								Subject
+							</td>
+							<td align="left">
+								<div class="profile_message_subject_cont">
+									<input type="text" name="msg_subject" class="input_text" id="msg_subject" />
+									<div class="profile_message_assign_vars_cont"><a href="javascript://" onclick='show_node("profile_assign_vars_container")'>Letter vars</a>
+									{block_popup title="Variables" width=250 node="profile_assign_vars_container" bottom=10 left=-242}
+										<table width="100%">
+											<tbody>
+												<tr>
+													<td style="line-height:18px">
+														{literal}{$profile_username}{/literal} - profile's username <br />
+														{literal}{$profile_email}{/literal} - profile's email<br />
+														{literal}{$site_name}{/literal} - Site name<br />
+														{literal}{$site_url}{/literal} - Site url<br />
+														{literal}{$unsubscribe_url}{/literal} - Unsubscribe url
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									{/block_popup}
+									</div>
+								</div>
+							</td>
+
+						</tr>
+						<tr class="{cycle values='tr_1,tr_2'}">
+							<td>
+								Message
+							</td>
+							<td align="left">
+								<textarea name="msg_text" cols="30" rows="7" id="msg_text" ></textarea>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<table width="100%"><tr><td width="50%">Ignore "Unsubscribe"</td><td width="5%"><input type="checkbox" id="ignore_unsubscribe" name="ignore_unsubscribe"></td><td><input type="submit" name="send_msg" value="Send" onclick="sendMessageToProfile( '{$full_profile_info.profile_id}', $( 'msg_subject' ).value, $( 'msg_text' ).value , $( 'ignore_unsubscribe' ).checked )" /></td></tr></table>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+                {/block_page}
+				<br clear="all" />
+				<form action="{$smarty.server.REQUEST_URI}" method="POST" onsubmit="return confirm( 'Do you really want to delete profile?' )" >
+				<table width="100%" align="left">
+					<tr align="left">
+						<td align="left">
+							<input type="submit" name="profile_unregister" value="Unregister Profile" class="btn_profile_unreg" />
+						</td>
+                        <td>
+                            <input type="checkbox" name="with_blocking_ip" id="with_blocking_ip" value="1" /><label for="with_blocking_ip">blocking profile IP</label>
+                            <br/><br/>
+                            <input type="checkbox" name="with_profile_content" id="with_profile_content" checked="checked" value="1" /><label for="with_blocking_ip">with profile content</label>
+                        </td>
+					</tr>
+				</table>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{include file='inc/_footer.html'}

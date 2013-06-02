@@ -1,0 +1,88 @@
+{include file='inc/_header.html'}
+
+{block_page}
+
+<table width="99%">
+	<thead>
+		<tr>
+			<th colspan="2">
+				Send invitation to emails
+			</th>
+		</tr>
+	</thead>
+	<form action="{$smarty.const.URL_ADMIN}send_reg_invite.php" method="POST">
+	<tbody>
+		<tr>
+			<td valign="top">
+				<table>
+					<thead>
+						<tr>
+							<td>
+								determine emails by comma
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<textarea name="email_list" cols="50" rows="5"></textarea>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<input type="submit" name="send" value="Send invitation" class="submit" />
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</td>
+			<td>
+			Note: If members can register only by invitation from site 
+			than <b>{literal}{$invite_url}{/literal}</b> variable must be present in mail template
+			
+				<table width="99%">
+					<thead>
+						<tr>
+							<td>
+								HTML template
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								{edit_lang_values_btn section='mail_template' key='invite_admin_friend_code_body_html'}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<br class="clr" />
+				
+				<table width="99%">
+					<thead>
+						<tr>
+							<td>
+								Text template
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								{edit_lang_values_btn section='mail_template' key='invite_admin_friend_code_body_txt'}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+	</form>
+</table>
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

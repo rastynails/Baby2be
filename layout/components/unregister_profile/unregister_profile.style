@@ -1,0 +1,9 @@
+.text
+{
+	padding: 5px 0 0 5px;
+}
+
+.warning
+{
+	padding-bottom:5px;
+}

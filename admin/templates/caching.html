@@ -1,0 +1,88 @@
+{* Site cache config/manage template *}
+
+{include file='inc/_header.html'}
+
+{if $unit == 'caching'}
+    <div style="float: left; margin: 0 28px">
+    <form method="post">
+            {block_page}
+            <div style="font-size: 11px; font-weight: bold; text-align: center">
+                    <div style="margin-bottom: 9px">
+                            Language caching
+                            {if $language_caching}
+                                    <span style="color: #0BCF00">ENABLED</span>
+                            {else}
+                                    <span style="color: #CC0000">DISABLED</span>
+                            {/if}
+                    </div>
+                    {if $language_caching}
+                            <input name="action" type="hidden" value="turn_off_language_caching" />
+                            <input type="submit" value="Turn OFF language caching" />
+                    {else}
+                            <input name="action" type="hidden" value="turn_on_language_caching" />
+                            <input type="submit" value="Turn ON language caching" />
+                    {/if}
+            </div>
+            {/block_page}
+    </form>
+    </div>
+
+
+    {*<div style="float: left; margin: 0 28px">
+    <form method="post">
+            {block_page}
+            <div style="font-size: 11px; font-weight: bold; text-align: center">
+                    <div style="margin-bottom: 9px">
+                            Output caching
+                            {if $output_caching}
+                                    <span style="color: #0BCF00">ENABLED</span>
+                            {else}
+                                    <span style="color: #CC0000">DISABLED</span>
+                            {/if}
+                    </div>
+                    {if $output_caching}
+                            <input name="action" type="hidden" value="turn_off_output_caching" />
+                            <input type="submit" value="Turn OFF output caching" />
+                    {else}
+                            <input name="action" type="hidden" value="turn_on_output_caching" />
+                            <input type="submit" value="Turn ON output caching" disabled />
+                    {/if}
+            </div>
+            {/block_page}
+    </form>
+    </div>
+    *}
+
+    <div style="float: left; margin: 0 28px">
+    <form method="post">
+            {block_page}
+                    <div style="font-size: 10px; line-height: 14px; margin-bottom: 10px">
+                            Compiled Components php,<br />
+                            Forms javascript handlers,<br />
+                            Language cache, themes merged<br />
+                            CSS and images crops.
+                    </div>
+                    <input name="action" type="hidden" value="clear_all_compiled" />
+                    <input type="submit" value="Clear Compiled Resources + Cache" />
+            {/block_page}
+    </form>
+    </div>
+
+    <br clear="all" />
+{elseif $unit == 'cloudflair'}
+    {block_page}
+        {print_configs section='cloudflare' caption=' '}
+
+        <p>To enjoy CloudFlare site performance boost and speed acceleration, make sure you already have a fully filled-in account with CloudFlare (<a href="http://www.cloudflare.com/" target="_blank">www.cloudflare.com</a>). For more information on how to properly set up a CloudFlare Account, please refer to this <a href="https://www.skalfa.com/ca/docs/introduction_configuration_site_caching#cloudflair" target="_blank"><b>User Manual</b></a>.</p>
+
+        <p>WARNING</p>
+
+        <ul>
+            <li>Enabling this option will route site traffic through CloudFlare intelligent global network for increased security and performance optimization.</li>
+            <li>For cPannel/FTP access use a cache-bypassed host name, like direct.yoursitename.com instead of cPannel/FTP hostname provided by your hosting company.</li>
+            <li>After introducing any code or theme customization, login to your CloudFlare account (<a href="http://www.cloudflare.com/" target="_blank" >www.cloudflare.com</a>), navigate to Domain Settings and press Purge Cash for the changes to take effect.</li>
+        </ul>
+    {/block_page}
+{/if}
+
+{include file='inc/_footer.html'}

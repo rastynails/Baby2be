@@ -1,0 +1,132 @@
+.thumb_container {
+	width: 150px;
+	height: auto;
+}
+.member_console .profile_thumb_wrapper {
+	display: block;
+	padding: 0px 0px 0px 0px;
+}
+.delete_thumb {
+	display: block;
+	margin: 0px 0px 3px;
+}
+.membership_container {
+	margin: 4px 0px;
+	font-weight: bold;
+}
+.member_console .sign_out {
+	display: block;
+	text-align: right;
+	color: #fff;
+	padding: 3px 0px 6px;
+}
+.member_console .sign_out:hover {
+	text-decoration: underline;
+}
+.my_profile_menu .block_body {
+	padding: 6px 5px 4px 5px;
+}
+.my_profile_menu .block_cap_title {
+	float: left;
+	width: 128px;
+}
+.my_profile_menu .block_cap_c {
+	padding-right: 2px;
+}
+.my_profile_menu .block_expand,
+.my_profile_menu .block_collapse {
+	margin-top: 6px;
+}
+.my_profile_menu_cont ul.menu-vertical {
+	padding: 0px;
+}
+.my_profile_menu_cont ul.menu-vertical li {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px 0px 2px;
+	line-height: 16px;
+}
+.my_profile_menu_cont ul.menu-vertical li a {
+	display: block;
+	margin: 0px;
+	padding: 3px 16px 3px 5px;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	background-color: #3e5368;
+	border-color: #60758b #28384a #28384a #60758b;
+}
+.my_profile_menu_cont ul.menu-vertical li a:hover,
+.my_profile_menu_cont ul.menu-vertical li.active a {
+	text-decoration: none;
+	background-color: #3e5368;
+	border-color: #2c3d4e #445766 #425463 #2c3d4e;
+}
+.my_profile_menu_cont .icon_profile_view {
+	background: image(ico_console_profile.png) no-repeat 129px center;
+}
+.my_profile_menu_cont .icon_profile_edit {
+	background: image(ico_console_edit.png) no-repeat 127px center;
+}
+.my_profile_menu_cont .icon_photo_upload {
+	background: image(ico_console_photo.png) no-repeat 126px center;
+}
+.my_profile_menu_cont .icon_my_music {
+	background: image(ico_console_music.png) no-repeat 127px center;
+}
+.my_profile_menu_cont .icon_my_video {
+	background: image(ico_console_video.png) no-repeat 127px center;
+}
+.my_profile_menu_cont .icon_manage_blog {
+	background: image(ico_console_blog.png) no-repeat 126px center;
+}
+.my_profile_menu_cont .icon_recorder {
+	background: image(member_ico_myweb.png) no-repeat 126px center;
+}
+
+.new_items {
+	margin-left: 0px;
+}
+.new_items a {
+	background: none;
+	width: 51px;
+	margin: 0px 0px 0px 0px;
+	padding: 6px 0px 4px;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	background-color: #3e5368;
+	border-color: #60758b #273748 #273748 #60758b;
+	color: #fff;
+}
+.new_items a:hover {
+	text-decoration: none;
+	background-color: #4d6176;
+	border-color: #2c3d4e #445766 #425463 #2c3d4e;
+}
+.new_items a div {
+	height: 28px;
+	padding-bottom: 5px;
+}
+.new_items .photo {
+    background-image: image(add_ico_photo.png);
+    background-position: center center;
+}
+.new_items .blog {
+    background-image: image(add_ico_blog.png);
+    background-position: center center;
+}
+.new_items .event {
+    background-image: image(add_ico_event.png);
+    background-position: center center;
+}
+.new_items .video {
+    background-image: image(add_ico_video.png);
+    background-position: center center;
+}
+.new_items .invite_friend {
+    background-image: image(add_ico_invite.png);
+    background-position: center center;
+}
+.new_items .forum {
+    background-image: image(add_ico_forum.png);
+    background-position: center center;
+}

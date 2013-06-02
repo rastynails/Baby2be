@@ -1,0 +1,67 @@
+/* component Ajax Chat style */
+
+.chat_carcass_tbl {
+	width: 100%;
+}
+
+.chat_carcass_tbl td {
+	vertical-align: top;
+	padding: 2px;
+}
+
+.chat_windows_container {
+	height: 500px;
+	border: 1px solid #fff;
+	border-top: none;
+}
+
+.chat_carcass_tbl td.chat_room_divider {
+	border: 1px solid #CFCFCF;
+	background: #DFDFDF;
+	cursor: e-resize;
+}
+
+
+.chat_rooms_bar_resize_pointer {
+	position: fixed;
+	width: 4px;
+	background: #7F7F7F;
+}
+
+
+.chat_rooms_bar {
+	width: 200px;
+}
+
+.chat_rooms_container {
+	border: 1px solid #fff;
+	border-top: none;
+}
+
+
+.chat_input_form_container {
+	
+}
+
+.chat_inventory {
+	
+}
+
+
+.chat_input_container {
+	float: left;
+}
+
+.chat_input {
+	width: 490px;
+}
+
+
+.chat_send_btn_container {
+	float: right;
+}
+
+.chat_send_btn {
+	width: 117px;
+	font-weight: bold;
+}

@@ -1,0 +1,22 @@
+.menu-line {
+	list-style: none;
+	color:#666666;
+	font-size:11px;
+	margin:10px auto;
+	text-align:right;
+}
+
+.menu-line a
+{
+	color:#FDC85D;
+	text-align:center;
+}
+
+.menu-line li.line_menu_item {
+	display: inline;
+}
+
+.menu-line a.active
+{
+	font-weight:bold;
+}

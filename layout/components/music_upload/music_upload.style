@@ -1,0 +1,15 @@
+/* Music upload CSS */
+
+.frm_wrapper
+{
+	 position: relative;
+}
+
+.preloader {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+	height: 263px;
+}

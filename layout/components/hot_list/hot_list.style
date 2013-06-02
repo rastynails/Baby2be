@@ -1,0 +1,15 @@
+
+.hot_even {
+	padding: 2px 0 2px 0;
+	width: 70px;
+}
+
+.hot_odd {
+	padding: 2px 0 2px 4px;
+	width: 70px;
+}
+.hot_list .profile_thumb_wrapper {
+	display: inline-block;
+	height: 70px;
+	overflow: hidden;
+}

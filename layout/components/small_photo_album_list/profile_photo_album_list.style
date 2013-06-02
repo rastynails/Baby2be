@@ -1,0 +1,31 @@
+.small_photo_album_list ul {
+	padding: 2px;
+	clear: both;
+}
+
+.small_photo_album_list .item {
+	width:60px;
+	height:75px;
+	overflow: hidden;
+	font-size:11px;
+	display: block;
+	float:left;
+	margin:0 2px 5px 0;
+}
+
+.small_photo_album_list .item img, .profile_list_cont .item .image {
+	width:60px;
+	height:60px;
+}
+
+.small_photo_album_list .item {
+	text-align: center;
+}
+
+.small_photo_album_list .item a{
+	display: block;
+}
+
+.small_photo_album_list .active {
+	font-weight: bold;
+}

@@ -1,0 +1,30 @@
+.index_group_list .list_thumb {
+	height: 118px;
+	width: 100px;
+	background: image(group_thumb_bg.png) no-repeat;
+}
+.index_group_img {
+	display: block;
+	height: 90px;
+	padding: 6px 0px 0px 5px;
+}
+.index_group_img img {
+	width: 90px;
+	height: 90px;
+}
+.index_group_list .list_thumb .item_title {
+	height: 16px;
+	padding: 0px 5px;
+	overflow: hidden;
+	color: #191500;
+	text-align: center;
+}
+.index_group_list .list_thumb .item_title a {
+	color: #191500;
+}
+.index_group_list .list_block {
+	margin-left: 100px;
+}
+.index_group_btn {
+	text-align: right;
+}

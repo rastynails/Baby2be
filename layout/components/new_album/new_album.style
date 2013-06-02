@@ -1,0 +1,6 @@
+.new_album .album_privacy {
+	max-width: 165px;
+}
+.new_album input[type=text] {
+	width: 95%;
+}

@@ -1,0 +1,33 @@
+{include file='inc/_header.html'}
+
+{block_page}
+	<div class="email_settings">
+		{print_configs section='email.smtp'}
+	</div>
+	<div class="block_info">
+                Note: SMTP is required only if there is no Mail Server on your server. Otherwise, SMTP activation may cause inconveniences. <br /><br />
+		Some hosting companies don`t allow smtp connection to local mail server.
+	</div>
+{/block_page}
+
+{if $showTestConnection}
+
+{block_page}
+Make sure you test your SMTP connection before you start sending emails using it. Otherwise, your site may stop sending emails at all.
+<center><input type="button" value="Test Connection" id="testConnection" /></center>
+{/block_page}
+
+<script>
+    var rsp = "{$smarty.const.URL_ADMIN}email_settings.php?testConnection=1";
+{literal}
+    jQuery('#testConnection').click(function(){
+       jQuery.get(rsp, function( msg ) {
+           alert(msg);
+       });
+    });
+{/literal}
+</script>
+
+{/if}
+
+{include file='inc/_footer.html'}

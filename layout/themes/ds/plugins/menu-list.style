@@ -1,0 +1,20 @@
+.menu-list a:hover, .menu-list a.active
+{
+	background: #bad735;
+	text-decoration:none;
+	color: #000;
+}
+
+.menu-list a
+{
+	margin-right:1px;
+	padding:4px 7px;
+	text-decoration:none;
+	color: #4ec3ff;
+}
+
+.menu-list li
+{
+	list-style:none;
+	display:inline;
+}

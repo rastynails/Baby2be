@@ -1,0 +1,269 @@
+$body {
+	background: #4ea4d9 image(content_background.png) repeat-x;
+}
+
+$a_link {
+	color: #163573;
+}
+
+$content{
+	float:left;
+	border: 1px solid #fff;
+	margin-top:5px;
+	width:820px;
+	padding:4px;
+}
+
+$bread_crumb{
+	margin-top:5px;
+	margin-left:4px;
+}
+
+td {
+	color: #363535;
+}
+
+$blog_manage_list {
+	margin: 0 4px;
+}
+
+$sidebar {
+	float:right;
+	margin-top: 4px;
+}
+
+.sidebar .block_cap_c {
+	height: 20px;
+}
+
+.suggest_cont ul li {
+	background: #4EA4D9 image(sky_block_body.png);
+}
+
+.latest_activity {
+	background: image(sky_block_body.png) repeat;
+}
+.block_cap {
+	background: image(sky_block_cap.png [0, 0, 6, 21]) no-repeat;
+	border-top: none;
+	border-bottom: none;
+	padding-left: 6px;
+}
+
+.block_cap_r {
+	background: image(sky_block_cap.png [994, 0, 6, 21]) no-repeat right top;
+	padding-right: 6px;
+}
+
+.block_cap_c {
+	background: image(sky_block_cap.png [10, 0, 2, 21]) repeat-x;
+}
+
+$highlight_color {
+	color: #fff;
+}
+
+.block_body {
+	background: transparent image(sky_block_body.png) repeat;
+	background-color: transparent;
+	color: #363535;
+	margin-bottom: 14px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+$button {
+	background: #fff image(button.jpg) repeat-x bottom;
+	border: 1px solid #666;
+	color: #363535;
+}
+.memberhome_hrefs_cont .block {
+	color:#2C7BBF;
+}
+
+$table{
+	color: #363535;
+}
+
+.memberhome_hrefs_cont .block a {
+	color:#2C7BBF;
+}
+
+.memberhome_hrefs_cont .block a:hover {
+	color:#fff;
+}
+
+.important_tips .block li {
+	background:url(img/tips_arrow.png) no-repeat scroll 0 3px;
+	color: #fff;
+	padding-left: 20px;
+}
+
+$floatbox_container {
+	background: #86c1e5;
+}
+
+$floatbox_header {
+	background: #86c1e5;
+}
+
+$table_block_cap {
+	background: #fff;
+	border: 1px solid #none;
+	color:#E38E11;
+}
+
+$paging_a {
+	border: 1px solid #2C7BBF;
+	color: #363535;
+}
+
+#content .paging a:hover, 
+#content .paging a.active {
+	background-color: #ccc;
+}
+$span_paging {
+	color: #363535;
+}
+
+$item {
+	border-color: #fff;
+	color:#363535;
+}
+
+$block_toolbar{
+	background: #cfe6f5;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-top: none;
+}
+
+$active_field_mileage {
+	background: #fff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #363535;
+	border-bottom: none;
+	color: #363535;
+}
+
+$region_field_mileage{
+	background:#4ea4d9 none repeat scroll 0 0;
+	border:1px solid #163573;
+	color:#FFFFFF;
+}
+
+$small_font{
+	font-size: 11px;
+	border: 1px solid #163573;
+	background-color: #1f5aa6; 
+	color: #fff;
+
+}
+
+$small {
+	color: #363535;
+}
+
+$thumb_text_list_td_listing {
+	color: #363535;
+}
+
+$user_date {
+	color: #363535;
+}
+
+$subject_message {
+	color: #363535;
+}
+
+$video_list {
+	
+}
+.field_mileage .tab_container .active {
+	background-color: #fff;
+	border:1px solid #363535;
+	border-bottom: none;
+}
+
+$border {
+	background-color: #fff;
+	border:1px solid #363535;
+}
+
+$tab {
+	border-bottom: none;
+	background: #4ea4d9;
+	border:1px solid #363535;
+}
+
+.field_mileage select {
+	width: 130px;
+}
+
+#footer {
+	width: 830px;
+	float: left;
+}
+
+.forum_search_result .quotetop,
+.forum_post_list .quotetop 
+{
+	background:#A7D2EC image(css_img_quote.png) no-repeat scroll right center;
+	border-color:#2384BF;
+	border-style:dotted dotted none solid;
+	border-width:1px 1px 0 4px;
+	color:#FFFFFF;
+	font-size:10px;
+	font-weight:bold;
+	margin:8px auto 0;
+	padding:3px;
+}
+
+.forum_search_result .quotemain,
+.forum_post_list .quotemain 
+{
+	background:#7FCFFF none repeat scroll 0 0;
+	border-color: #17587F;
+	border-style:none dotted dotted solid;
+	border-width:0 1px 1px 4px;
+	color:#465584;
+	margin:0 auto 8px;
+	padding:4px;
+}
+.floatbox_container .block_cap,
+.floatbox_container .block_cap_r,
+.floatbox_container .block_cap_c {
+	background: none;
+}
+.floatbox_container .block_body {
+	margin: 0px;
+	border: none;
+}
+.select_language, .lang_abs .fbc_button {
+	float: right;
+}
+.profile_list_ads {
+	width: 815px;
+}
+body .newsfeed_comment_list .block_cap {
+	display: block;
+}
+.newsfeed_formatter_wrap .text_formatter {
+	top: -27px;
+}
+body .newsfeed_add_comment_form .block_cap_c {
+	min-height: 24px;
+}
+body .import_container table.form td.label {
+	color: #fff;
+}
+body .import_container table.form tr.list_odd td.label,
+body .import_container table.form tr.list_odd td.value {
+	color: #333;
+}
+body .import_container table.form td.check << $item {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}

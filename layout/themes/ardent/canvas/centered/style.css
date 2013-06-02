@@ -1,0 +1,9 @@
+#page_canvas {
+	margin: 0px 0px 0px 0px;
+	width: 100%;
+}
+#content {
+	width: auto;
+	margin: 0px auto;
+	float: none;
+}

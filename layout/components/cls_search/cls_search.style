@@ -1,0 +1,8 @@
+.cls_search {
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.cls_search input[type=text] {
+	margin-right: 8px;
+	width: 250px;
+}

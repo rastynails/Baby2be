@@ -1,0 +1,98 @@
+/* Payment Selection CSS Styles*/
+
+.membership_types_tbl {
+	width: 100%;
+}
+
+.membership_types_tbl td {
+	vertical-align: top;
+	padding: 1px;
+}
+
+.membership_types_tbl .block {
+	margin-bottom: 5px;
+}
+
+.membership_types_diagram td {
+	vertical-align: top;
+	padding: 1px;
+}
+
+.td_1 {
+	background: #aaa;
+	color: #363636;
+}
+
+.td_2 {
+	background: transparent;
+	color:#363636;
+}
+
+.membership_desc {
+	font-size: << $small_font;
+}
+
+.benefit {
+	border: 1px solid #3d1c14;
+	padding: 3px 4px 0px 4px;
+	border-top: none;
+	font-size: 11px;
+	height: 18px;
+}
+
+.current_status {
+	padding: 20px 0 0 5px;
+	color: #363636;
+}
+
+.plan_box {
+	background: #aaa;
+	padding: 2px;
+	font-size: << $small_font;
+	margin-top: 3px;
+	height: 47px;
+	color: #fff;
+}
+
+.plans {
+	vertical-align: top;
+}
+
+
+.available, .unavailable << $small_font {
+	
+	height: 19px;
+	padding-top: 2px;
+	border: 1px solid #000;
+	line-height: 17px;
+	text-align: center;
+	border-top: none;
+	background: image(mark.png) no-repeat center center;
+	padding-left: 24px;
+	color: #363636;
+}
+
+.unavailable {
+	background: none;
+	padding-left: 2px;
+}
+
+.amount {
+	/*font-weight: bold;*/
+	font-size: << $base_font;
+}
+
+.providers {
+	width: 50%;
+	float: right;
+	margin: 5px 0 10px;
+	text-align: right;	
+}
+
+.provider_logo {
+	padding-top: 5px;
+}
+
+.claim_btn {
+	display: none;
+}

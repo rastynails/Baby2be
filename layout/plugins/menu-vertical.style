@@ -1,0 +1,7 @@
+.menu-vertical a.active {
+	font-weight: bold;
+}
+
+ul.menu-vertical li {
+	list-style-type: disc;
+}

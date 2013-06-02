@@ -1,0 +1,10 @@
+.chat_windows_container{
+	background-color: #fff;
+	margin:0;
+}
+.chat_windows_cell .block_cap {
+	width: 597px;
+}
+.chat_bottom_container {
+	width: 600px;
+}

@@ -1,0 +1,21 @@
+.submenu 
+{
+	border-bottom:none;
+	font-size:11px;
+	padding:10px 0;
+	text-align:center;
+	width:820px;
+	background: image(dw_submenu.jpg) repeat-x;
+}
+
+*+html .submenu 
+{
+	border-bottom:none;
+	font-size:11px;
+	padding:10px 0;
+	text-align:center;
+	width:828px;
+	background: image(dw_submenu.jpg) repeat-x;
+	margin-top:44px;
+	margin-left: -4px;
+}

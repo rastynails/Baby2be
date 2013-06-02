@@ -1,0 +1,72 @@
+.main_menu ul.menu-tabs {
+	min-height: 27px;
+}
+ul.menu-tabs {
+	background: transparent image(menu.png) repeat-x left top;
+	line-height: 30px;
+	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+	height:30px;
+	width: 823px;
+	}
+	
+ul.menu-tabs li.tab {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+}
+
+ul.menu-tabs li.tab a {
+	padding: 7px 0px 8px 9px;
+	color: white;
+	font-size:12px;
+	font-weight: normal;
+	font-family: Tahoma;
+	border-right: 1px solid #5976bb;
+	border-left: 1px solid #82a3f0;	
+	background: none;	
+}
+
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span << ~{
+}
+
+ul.menu-tabs li.tab a:hover {
+	color: #fff;
+	text-decoration: none;
+	background: transparent image(menu-active.png) repeat-x left top;
+}
+
+ul.menu-tabs li.tab a:active,
+ul.menu-tabs li.tab a.active {
+	color: #FCC522;
+	background: transparent image(menu-active_hov.png) repeat-x left top;
+	text-decoration: none;
+}
+
+ul.menu-tabs li.tab a span {
+	padding: 8px 9px 8px 0px;
+	background: none;
+}
+
+*+html ul.menu-tabs li.tab a span {
+	padding: 8px 9px 8px 0px;
+	background: none;
+	color:#fff;
+}
+
+ul.menu-tabs li.tab a.active span << ~{
+}
+
+*+html ul.menu-tabs li.tab a {
+	padding: 0px 0px 8px 9px;
+	color: black;
+}
+body .main_menu ul.menu-tabs li.tab a {
+	line-height: 27px;
+}
+
+

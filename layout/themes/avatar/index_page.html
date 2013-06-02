@@ -1,0 +1,44 @@
+{*  Theme: Avatar    *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/avatar/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 1000px; margin: 0 auto;">
+	{ads pos='top'}
+	<div class="clearfix">
+			<div class="float_right">
+				{component SelectLanguage}
+				{component FBCButton}        
+			</div>
+			<div class="clr_div"></div>
+			{component NavigationInventoryLine}
+	</div>	
+	{component PageHeader}
+	{component NavigationSubMenu level=1}
+	<div id="content">
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/avatar/img/t_box.png) no-repeat  bottom; width: 100%; height: 665px;">
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/avatar/img/photo_index.png) no-repeat; width: 100%; height:492px;">
+				<div style="background:url({$smarty.const.URL_LAYOUT}themes/avatar/img/quick_search_pic.png) no-repeat  top; width: 100%; height: auto;width: 372px; float: right; margin: 20px 65px 0 0; padding-top: 36px;">{component QuickSearch}</div>
+			</div>
+			<div class="clearfix">    
+			  <div style="color: #13805f; font-weight: bold; font-size:14px; line-height:25px; width:755px; padding-left:20px; padding-top:49px; float:left;">
+				  {text %.promo.promo_index_avatar}
+			  </div>
+			  <div style="width:149px; height:149px; float:right; margin-right:28px; margin-top:-15px;"><img src="{$smarty.const.URL_LAYOUT}themes/avatar/img/join_login_button.png" usemap="#Map"/></div>
+			</div>
+		</div>
+		<div class="float_half_right" style="width:100%;">
+			{component IndexPhotoList lists='top_rated|most_commented|latest|most_viewed' count=7}
+		</div>
+		{*component PageSidebar*}
+		<div id="footer" style="width: 1000px;">{component PageFooter}</div>
+		{ads pos='bottom'}
+	</div>
+</div>
+
+<map name="Map" id="Map">
+<area shape="poly" coords="8,47,17,27,29,17,46,8,66,3,83,5,96,8,103,14,106,19,111,29,99,41,84,46,68,51,57,58,51,68,43,71,39,82,36,92,36,106,42,118,46,131,32,128,16,113,9,95,2,72" href="{document_url doc_key=join_profile}" />
+<area shape="poly" coords="123,25,128,31,136,46,140,62,143,82,138,98,131,111,121,118,113,127,98,133,82,136,72,136,60,125,51,113,47,100,45,85,54,73,63,64,74,56,86,50,100,46,113,41,119,34" href="{document_url doc_key=sign_in}" />
+</map>
+{/canvas}

@@ -1,0 +1,7 @@
+.list_container {
+	background-color: #2b262a;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	z-index: 100;
+}

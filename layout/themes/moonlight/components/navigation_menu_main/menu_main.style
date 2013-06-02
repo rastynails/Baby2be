@@ -1,0 +1,4 @@
+.main_menu{
+	background: transparent image(main-menu-l.png) no-repeat left;
+	padding-left: 6px;
+}

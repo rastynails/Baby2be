@@ -1,0 +1,335 @@
+$body {
+	background: image(background.jpg) repeat;
+}
+
+$a_link {
+	color: #9818fc;
+}
+
+$content{
+	float:left;
+	background: image(content.png) no-repeat 20px 0px;
+	margin-top:35px;
+	width:830px;
+	color: #363636;
+}
+
+$bread_crumb{
+	margin-top:5px;
+	margin-left:4px;
+}
+
+td {
+	color: #363636;
+}
+
+$form_th {
+	background:#eee;
+}
+
+.float_right a{
+	color: #6EF700 !important;
+}
+
+.forum_group_list table.form th,
+.forum_group_list .field_form th{
+	background:#eee;
+}
+
+$blog_manage_list {
+	margin: 0 4px;
+}
+
+$sidebar {
+	float:right;
+	margin: 0;
+}
+
+.forum_topic,
+.forum_topic_list,
+.forum_group_list,
+.mailbox_conversations_list,
+.profile_list_contener,
+.payment_selection{
+	padding: 0 4px;
+/*	background: #ddd;*/
+}
+
+.details_cont {
+	background: #ddd;
+}
+
+.latest_activity {
+	background: #ddd;
+}
+
+.block_cap {
+	border-top: none;
+	border-bottom: 1px dashed #000;
+	background: #ddd;
+}
+
+.block_cap_title {
+	color: #363636;
+}
+
+.block_toolbar {
+	background: #eee;
+}
+
+.member_console .block_null .block_body {
+	background: #eee;
+}
+
+.list_block .list_info {
+	background:none;
+}
+
+.indicator ul.simple li {
+	color:#555;
+}
+
+.indicator ul.simple li b{
+	color:#333;
+	text-decoration: underline;
+}
+
+$highlight_color {
+	color: #fff;
+}
+.block {
+	background: #ddd;
+}
+
+.block_body {
+	background-color: transparent;
+	background: #ddd;
+	color: #363636;
+	margin-bottom: 14px;
+	border: none;
+}
+
+$button {
+	background: #3d1c14 image(button.jpg) repeat-x bottom;
+	border: 1px solid #363636;
+	color: #363636;
+}
+
+$table{
+	color: #363636;
+}
+
+
+.memberhome_hrefs_cont .block a {
+	color:#9818FC;
+}
+
+.memberhome_hrefs_cont .block a:hover {
+	color:#fff;
+}
+
+.block_info{
+	background:#eee;
+}
+
+.profile_thumb {
+	border: 1px solid #444;
+}
+
+$floatbox_container {
+	background: #ccc;
+}
+
+.affiliate_sign_up .narrow {
+	background: #FFFFE1;
+}
+
+.affiliate_sign_up .narrow a{
+	margin: 3px;
+}
+
+.change_pass_cont .change_password a,
+.center_block a{
+	color: #6EF700;
+}
+
+.unregister_profile{
+	background: #ddd;
+	padding-bottom: 7px;
+}
+
+.tooltip table{
+	background: #aaa;
+{
+
+$table_block_cap {
+	background: #fff;
+	border: 1px solid #none;
+	color:#E38E11;
+}
+
+.profile_view{
+	background: #ddd;
+	padding-top: 7px;
+}
+
+$paging_a {
+	border: 1px solid #2C7BBF;
+	color: #f2e0ba;
+}
+
+$span_paging {
+	color: #f2e0ba;
+}
+
+.paging span {
+	color: #fff;
+}
+
+$item {
+	border-color: #eee;
+	color:#363636;
+}
+
+.list_item, .list_item td  {
+	background: #ddd;
+}
+
+$active_field_mileage {
+	background: #fff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #363535;
+	border-bottom: none;
+	color: #363535;
+}
+
+$region_field_mileage{
+	background:#4ea4d9 none repeat scroll 0 0;
+	border:1px solid #163573;
+	color:#FFFFFF;
+}
+
+$small_font{
+	font-size: 11px;
+	border: 1px solid #163573;
+	background-color: #1f5aa6; 
+	color: #fff;
+}
+
+$small {
+	color: #363535;
+}
+
+$thumb_text_list_td_listing {
+	color: #363535;
+}
+
+$user_date {
+	color: #363535;
+}
+
+$subject_message {
+	color: #363535;
+}
+
+$video_list {
+	
+}
+.field_mileage .tab_container .active {
+	background-color: #eee;
+	border:1px solid #363535;
+	border-bottom: none;
+}
+
+$border {
+	background-color: #aaa;
+	border:1px solid #363535;
+}
+
+$tab {
+	border-bottom: none;
+	background: #aaa;
+	border:1px solid #363535;
+}
+
+.field_mileage .country_list .country {
+	background: #555;
+	border: none;
+}
+
+.field_mileage select {
+	width: 130px;
+}
+
+.select_language {
+	color: #fff;
+}
+
+#footer {
+	width: 830px;
+	float: left;
+	background: #ddd;
+}
+
+.forum_search_result .quotetop,
+.forum_post_list .quotetop 
+{
+	background:#aaa image(css_img_quote.png) no-repeat scroll right center;
+	border-color:#555;
+	border-style:dotted dotted none solid;
+	border-width:1px 1px 0 4px;
+	color:#FFFFFF;
+	font-size:10px;
+	font-weight:bold;
+	margin:8px auto 0;
+	padding:3px;
+}
+
+.forum_search_result .quotemain,
+.forum_post_list .quotemain 
+{
+	background:#eee none repeat scroll 0 0;
+	border-color: #aaa;
+	border-style:none dotted dotted solid;
+	border-width:0 1px 1px 4px;
+	color:#363636;
+	margin:0 auto 8px;
+	padding:4px;
+}
+
+.suggest_cont ul li {
+	background: #666;
+}
+
+.bread_crumb a{
+	color: #6ef700 !important;
+}
+
+.bread_crumb b{
+	color: #eee !important;
+}
+
+.chat_input_container .chat_send_btn{
+	width: 97px;
+}
+
+.bread_crumb{
+	color: #eee;
+}
+
+.payment_selection {
+	background: #aaa;
+}
+.floatbox_container .block_body {
+	margin: 0px;
+}
+.select_language,.fbc_button {
+	float: right;
+}
+.profile_list_ads {
+	width: 817px;
+}
+.search_result_count {
+	color: #fff;
+}

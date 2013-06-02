@@ -1,0 +1,113 @@
+{* Admin interface: Skadate services *}
+{literal}
+<style>
+.photo_list
+{
+	
+}
+
+.list_item
+{
+	float: left;
+	list-style: none;
+	padding: 4px 2px 2px 2px;
+	text-align: center;
+}
+
+.list_item div {
+	padding-bottom: 2px;
+}
+
+.list_item img {
+	cursor: pointer;
+}
+</style>
+<script>
+	function show_fullsize(src) {
+		
+		$btn = $jq('<input type="button" value="close" />');
+		
+		$img = $jq('<img src="' + src + '" />').hide();
+
+		var box = new SK_FloatBox({
+			$contents: $jq('<div class="tmp_placeholder" style="height: 100px; width: 100px; background: url(img/loading.gif) no-repeat center;"></div>'),
+			$title: "",
+			$controls: $btn
+		});
+		
+		box.$body.append($img);
+		$img.load(function(){
+			var dimension = getPhotoSize($img.width(), $img.width());
+			$img.width( dimension.width );
+			$img.height( dimension.height );
+			box.$container.find(".tmp_placeholder").replaceWith($img.show());
+			var position = {
+				top:((jQuery(window).height()/2) - (box.$container.height()/2)),
+				left:((jQuery(window).width()/2) - (box.$container.width()/2))
+			};
+			box.$container.css(position);
+		});
+		
+		$btn.click(function(){
+			box.close();
+		});
+	}
+	
+	function select_all(checked) {
+		$jq(".list_item input:checkbox").attr("checked", checked);
+	}
+
+	function getPhotoSize(width, height)
+	{
+		var size = 700;
+		var w1 = Math.floor(size/height*width);
+		var h1 = Math.floor(size/width*height);
+		
+		if ( w1 <= size && w1 >= h1 || h1 >= size) {
+			var photo_dimension = { width : w1, height: size };
+		}
+		else {
+			var photo_dimension = { width : size, height: h1 };
+		}
+		
+		return photo_dimension;
+	}	
+	
+</script>
+{/literal}
+{include file='inc/_header.html'}
+{block_page}
+{paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}
+<form method="POST">
+	<ul class="photo_list">
+	{foreach from=$images item=image key=id}
+	<li class="list_item">
+		<div>
+			<a href="{$image.profile_url}">{$image.profile_username}</a>
+		</div>
+		<div>
+			<img src="{$image.bg_image}" onclick="show_fullsize('{$image.bg_image}');" height="100px">
+		</div>
+		<div>
+			<input type="checkbox" name="images[]" value="{$id}">
+			<input type="hidden" name="modes[{$id}]" value="{$image.bg_image_mode}">
+		</div>
+	</li>
+	{/foreach}
+	</ul>
+	<br clear="all" />
+	<br clear="all" />
+	<div style="float: left"><input type="checkbox" onclick="select_all(this.checked);"> Select All </div>
+	<div style="float:right">
+	
+		<input type="submit" name="delete_image" value="delete"> | 
+		<select name="image_status">
+			<option value="active">active</option>
+			<option value="approval">approval</option>
+		</select>
+		<input type="submit" name="set_status" value="set status">
+	</div>
+</form>
+{paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}
+{/block_page}
+{include file='inc/_footer.html'}

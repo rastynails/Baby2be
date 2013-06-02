@@ -1,0 +1,61 @@
+{include file='inc/_header.html'}
+
+{block_page}
+	Activated template: <b>{$active_theme.title}</b><br /><br />
+	<table width="100%">
+	<form method="post" id="markup_form">
+		<input type="hidden" name="theme_name" value="{$active_theme.theme_name}" />
+		<input type="hidden" name="action" id="form_action" value="save_code" />
+		<thead><tr><td colspan="2">Customize index page markup:</td></tr></thead>
+		<tbody>
+			<tr>
+				<td colspan="2"><textarea rows="40" style="width:100%; height: 500px;" name="page_code">{$active_theme.index_page_code}</textarea></td>
+			</tr>
+			<tr>
+				<td align="left"><input type="button" value="Reset" onclick="confirmPageReset()" /></td>
+				<td align="right"><input type="button" value="Save" onclick="savePageCode()" /></td>
+				</td>
+			</tr>
+			</tbody>
+	</form>
+	</table>	
+{/block_page}
+
+<div style="width: 90%; margin: 0 auto">
+{block_page}
+	{literal}
+	<table>
+	<thead>
+		<tr>
+			<td>List of available components</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2">
+		<td>
+		{component QuickSearch}<br />
+		{component IndexVideo lists='latest|toprated' active='toprated'}<br />
+		{component IndexVideoPlayer type='toprated' width='310' height='250'}<br />
+		{component IndexPhotoList lists = 'top_rated|most_commented|latest|most_viewed' count=8}<br />
+		{component IndexProfileList lists="featured|online|new" count=8}<br />
+		{component BlogIndexList }<br />
+		{component PageSidebar}<br />
+		{component ForumLastTopics}<br />
+		{component EventIndexCalendar view_mode='calendar|list' count=5}<br />
+		{component IndexNews count=5 view_mode='mored|short'}<br />
+		{component ClsIndexItems active='wanted'}<br />
+		{component IndexGroupList lists="latest|most_popular" count=4}<br />
+		{component Rss url='rss_url' title=Rss length=100 type=full count=10 block=true}<br />
+        {component Shoutbox}<br />
+        {component TotalMembersOnline}<br />
+        {component IndexMusic lists='latest|toprated' active='toprated'}<br />
+        {component Slideshow}
+		{/literal}
+		</td>
+		</tr>
+	</tbody>
+	</table>
+{/block_page}
+</div>
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,9 @@
+<files "post_checkout.php">
+	deny from all
+</files>
+<files "errors.log">
+	deny from all
+</files>
+<files "transactions.log">
+	deny from all
+</files>

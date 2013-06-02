@@ -1,0 +1,131 @@
+body {
+	background: #f9fcfe image(bg.jpg) repeat-x 50% 0px;
+}
+#content {
+	float: none;
+	width: auto;
+	background: image(promo.png) no-repeat -19px 0px;
+}
+.page_header {
+	height: 110px;
+}
+.promo {
+	float: left;
+	width: 346px;
+	padding: 369px 0px 42px 12px;
+	color: #154372;
+	font-size: 19px;
+	line-height: 20px;
+	margin-right: 54px;
+	background: image(index_text_shadow.png) no-repeat left bottom;
+}
+.index_quick_search {
+	float: right;
+	width: 280px;
+	padding: 69px 0px 0px 44px;
+	background: image(doves.png) no-repeat;
+}
+.index_quick_search .block_cap_title {
+	display: none;
+}
+.index_quick_search .block_cap_c {
+	height: 8px;
+	padding-top: 0px;
+	line-height: 8px;
+	min-height: 0px;
+}
+.index_quick_search .block_body_c {
+	padding:0px 10px 6px;
+}
+.index_quick_search .block_bottom {
+	display: none;
+}
+.index_quick_search input[type=submit] {
+	width: 198px;
+	height: 48px;
+	padding: 0px;
+	background: image(index_qsearch_btn.png) no-repeat;
+	border: none;
+	-moz-box-shadow: none;
+ 	-moz-border-radius: none;
+        -webkit-border-radius: none;
+}
+.index_quick_search input[type=submit]:hover {
+	background: image(index_qsearch_btn_hover.png) no-repeat;
+	border: none;
+}
+
+.index_buttons {
+	float: left;
+	width: 230px;
+	height: 77px;
+	padding: 368px 0px 0px;
+	background: image(index_buttons.png) no-repeat left bottom;
+}
+.index_buttons_bg {
+	background: image(index_buttons_shadow.png) no-repeat -5px bottom;
+	padding: 0px 0px 45px;
+}
+.index_buttons a {
+	width: 90px;
+	height: 74px;
+	float: left;
+	text-decoration: none;
+}
+.index_join {
+	margin-right: 36px;
+}	
+.promo_block {
+	padding-bottom: 8px;
+}
+.float_half_left {
+	width: 35%;
+}
+.float_half_right {
+	width: 59%;
+}
+body .index_video .block_toolbar,
+body .forum_last_topics .block_toolbar,
+body .index_blog_list .block_toolbar,
+body .events_index_calendar .block_toolbar,
+body .index_photo_list .block_toolbar,
+body .index_news .block_toolbar,
+body .cls_index_items .block_toolbar,
+body .index_group_list .block_toolbar {
+	float: right;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 0px;
+	height: auto;
+}
+.index_video .block_toolbar a,
+.forum_last_topics .block_toolbar a,
+.index_blog_list .block_toolbar a,
+.events_index_calendar .block_toolbar a,
+.index_photo_list .block_toolbar a,
+.index_news .block_toolbar a,
+.cls_index_items .block_toolbar a,
+.index_group_list .block_toolbar a {
+	display: block;
+	background: #0e4d8e image(button.gif) repeat-x left top;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #b8cad9 #3176b1 #0e4d8e #b8cad9;
+	color: #fff;
+	font-weight: bold;
+	-moz-box-shadow: 1px 1px 1px #66686a;
+ 	-moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+	padding: 2px 8px 2px 10px;
+}
+.index_video .block_toolbar a:hover,
+.forum_last_topics .block_toolbar a:hover,
+.index_blog_list .block_toolbar a:hover,
+.events_index_calendar .block_toolbar a:hover,
+.index_photo_list .block_toolbar a:hover,
+.index_news .block_toolbar a:hover,
+.cls_index_items .block_toolbar a:hover,
+.index_group_list .block_toolbar a:hover {
+	color: #fff;
+	text-decoration: none;
+	border-color: #3f3f3f;
+}

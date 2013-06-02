@@ -1,0 +1,71 @@
+{include file='inc/_header.html'}
+
+{block_page}
+	<div class="additional_settings">
+		{print_configs section=$section}
+	</div>
+{/block_page}
+
+<div style="width: 49%; float: left;">
+{block_page}
+<table cellspacing="0" align="left" width="100%">
+	<thead>
+		<tr>
+			<td colspan="3">Manage currencies</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>currency code</td>
+		<td>currency sign</td>
+		<td></td>
+	</tr>
+	{foreach from=$curencies item=currency}
+	<form action="" method="post">
+	<tr class="{cycle values='tr_1,tr_2'}">
+		<td>{$currency.label}</td>
+		<td>{$currency.value}</td>
+		<td>
+			<input type="hidden" name="config_id" value="{$currency.config_id}"/>
+			<input type="hidden" name="code" value="{$currency.label}"/>
+			<input type="submit" name="delete" value="Delete"/>
+		</td>
+	</tr>
+	</form>
+	{/foreach}
+	</tbody>
+</table>
+{/block_page}
+</div>
+
+<div style="width: 49%; float: right;">
+{block_page}
+<form action="" method="post">
+<table cellspacing="0" align="left" width="100%">
+	<thead>
+		<tr>
+			<td colspan="2">Add currency</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>currency code</td>
+		<td><input type="text" name="code"/></td>
+	</tr>
+	<tr>
+		<td>currency sign</td>
+		<td><input type="text" name="sign"/></td>
+	</tr>	
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="submit" name="add_currency" value="Add"/></td>
+		</tr>
+	</tfoot>	
+</table>
+</form>
+{/block_page}
+</div>
+
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,148 @@
+{* Admin interface: forum management *}
+{include file='inc/_header.html'}
+
+{block_page}
+	<div class="forum_group_list">
+	{foreach from=$group_list item=group name='forum_group_list'}
+	<div class="forum_group" id="forum_group_{$group.forum_group_id}">
+		<div class="forum_group_title">
+			<a href="javascript://" title="delete" class="forum_delete delete_forum_group"></a>
+			<a href="javascript://" title="edit" class="edit_forum_group"></a>
+			<a href="javascript://" title="up" class="forum_up" ></a>
+			<a href="javascript://" title="down" class="forum_down" ></a>	
+			<span class="forum_group_name">{$group.name}</span>
+		</div>
+		{foreach from=$group.forums item=forum}
+		<div class="forum" id="forum_{$forum.forum_id}">
+			<div class="forum_title">
+				<a href="javascript://" title="delete" class="forum_delete delete_forum"></a>
+				<a href="javascript://" title="edit" class="open_forum_edit_cont edit_forum"></a>
+				<a href="javascript://" title="up" class="forum_up" ></a>
+				<a href="javascript://" title="down" class="forum_down" ></a>	
+				<span class="forum_name">{$forum.name}</span>
+			</div>
+			<div class="forum_description">{$forum.description}</div>
+		</div>
+		{/foreach}
+	</div>
+	{/foreach}
+	</div>
+{/block_page}
+
+<div style="float: left; width: 49%">
+{block_page}
+	<table cellspacing="0" align="left" width="100%">
+		<thead>
+			<tr>
+				<td colspan="2">Add a new forum group</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" maxlength="254" size="40" id="new_forum_group_name"/></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2"><input type="button" id="new_group" value="Create"/></td>
+			</tr>
+		</tfoot>
+	</table>
+{/block_page}
+</div>
+
+<div style="float: right; width: 49%">
+{block_page}
+	<table cellspacing="0" align="left" width="100%">
+		<thead>
+			<tr>
+				<td colspan="2">Add a new forum</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Select forum group</td>
+				<td>
+					<select id="new_forum_group">
+					{foreach from=$group_list item=group}
+						<option value="{$group.forum_group_id}">{$group.name}</option>
+					{/foreach}
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td>Name</td>
+				<td><input type="text" maxlength="254" size="41" id="new_forum_name"/></td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td><textarea rows="3" cols="38" id="new_forum_description"></textarea></td>
+			</tr>		
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2"><input type="button" id="new_forum" value="Create"/></td>
+			</tr>
+		</tfoot>
+	</table>
+{/block_page}
+</div>
+
+{*Edit Forum Group*}
+<div style="display: none">
+	<div class="edit_forum_group_title"><b>Edit Forum Group</b></div>
+	<div class="edit_forum_group_content">
+	 <table>
+		<tr>
+			<td class="forum_label">Group Name</td>
+			<td class="forum_input"><input type="text" id="edit_forum_group_name" size="40" maxlength="254"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="forum_submit">
+				<input type="hidden" id="edit_forum_group_id"/>
+				<input type="button" id="edit_forum_group" class="forum_button" value="Edit"/>
+				<input type="button" id="cancel_edit_forum_group" class="forum_button" value="Cancel"/>
+			</td>
+		</tr>			
+	 </table>		 
+	</div>
+</div>
+
+{*Delete Forum Group Confirm*}	 
+<div style="display: none">
+	<div id="confirm_group_title">Delete Forum Group</div>
+	<div id="confirm_group_content">Are you sure you want delete forum group?</div>
+</div>
+
+{*Edit Forum*}
+<div style="display: none">
+	<div class="edit_forum_title"><b>Edit Forum Group</b></div>
+	<div class="edit_forum_content">
+	 <table>
+		<tr>
+			<td class="forum_label">Forum Name</td>
+			<td class="forum_input"><input type="text" id="edit_forum_name" size="40" maxlength="254"/></td>
+		</tr>
+		<tr>
+			<td class="forum_label">Description</td>
+			<td class="forum_input"><textarea rows="3" cols="38" id="edit_forum_description"></textarea></td>
+		</tr>		
+		<tr>
+			<td colspan="2" class="forum_submit">
+				<input type="hidden" id="edit_forum_id"/>
+				<input type="button" id="edit_forum" class="forum_button" value="Edit"/>
+				<input type="button" id="cancel_edit_forum" class="forum_button" value="Cancel"/>
+			</td>
+		</tr>			
+	 </table>		 
+	</div>
+</div>
+
+{*Delete Forum Confirm*}	 
+<div style="display: none">
+	<div id="confirm_forum_title">Delete Forum</div>
+	<div id="confirm_forum_content">Are you sure you want delete forum?</div>
+</div>
+<br clear="all" />
+{include file='inc/_footer.html'}

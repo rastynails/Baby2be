@@ -1,0 +1,68 @@
+.user-selector-list {
+    margin: 15px 9px 9px 15px;
+}
+.user-selector-send {
+    margin: 15px 25px 9px 15px;
+}
+.user-selector-item {
+    width: 44%;
+    float: left;
+    margin: 0px 9px 9px 0px;
+    background: image(user_selector_bg.png) repeat;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;    
+    border-radius: 4px;
+    padding: 9px;
+    color: #333;    
+}
+
+.user-selector-avatar {
+    margin-right: -50px;
+    float: left;
+}
+
+.user-selector-avatar, .user-selector-avatar img {
+    width: 50px;
+    height: 50px;
+}
+
+.user-selector-content {
+    margin-left: 50px;
+    padding-left: 9px;
+}
+.user-selector-item-title {
+    margin-bottom: 4px;
+}
+.user-selector-item-fields {
+    font-size: 11px;
+}
+.user-selector-send {
+    background: image(user_selector_bg.png) repeat;
+    padding: 9px 9px 9px 15px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;    
+    border-radius: 4px;
+    color: #333;
+}
+.usm-submit {
+    margin-top: 9px;
+}
+.usm-selected {
+    padding: 3px;
+    text-align: center;
+}
+.usi-selected {
+    position: relative;
+}
+.user-selector-check {
+    position: absolute;
+    background: image(user_selector_check.png) no-repeat;
+    height: 18px;
+    width: 18px;
+    display: none;
+    right: 9px;
+    bottom: 9px;
+}
+.usi-selected .user-selector-check {
+    display: block;
+}

@@ -1,0 +1,10 @@
+.link_container {
+	background-color:#1a1a1a;
+	font-size:13px;
+	font-weight:bold;
+	padding-bottom:13px;
+	padding-left:13px;
+	padding-right:13px;
+	padding-top:13px;	
+	text-align:center;
+}

@@ -1,0 +1,69 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+
+
+<div class="pr_top_add_field">
+	<a href="{$smarty.const.URL_ADMIN}ads_template_set_create.php">Create a new template set</a>
+</div>
+
+{block_page}
+	{if $all_template_sets}
+<table id="existing_sets_tbl" cellspacing="0" cellpadding="0" align="center" class="table">
+	<thead>
+		<tr>
+			<th id="existing_sets_tbl_head_cell" colspan="3">Existing template sets</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+    
+    
+	{foreach from=$all_template_sets  item='template_set'}
+		<form action="{$smarty.const.URL_ADMIN}ads_template_set.php" method="POST">
+		<input type="hidden" name="template_set_id" value="{$template_set.template_set_id}" />
+		<tr class="config_section">
+			<td colspan="2">
+				<div class="float_left">
+					{$template_set.name}
+				</div>
+			</td>
+		</tr>
+		
+		<tr class='tr_2'>
+			<td colspan="2">
+				<table class='tmpls_1'>
+					<thead>
+						<th colspan='2'>Templates</th>
+						<th>Country</th>												
+					</thead>
+					<tbody>
+					{foreach from=$template_set.templates  item='template'}
+					<tr class="{cycle values='tr_1,tr_2'}" >
+                        <td align="center" ><div title="{$template.name}" style="max-width: 87px; overflow: hidden;">{$template.name}</div></td>
+						<td align="center" ><div class='ads_tpl_view_2'>{$template.code}</div></td>
+						<td align="center" ><div title="{$template.Country_str_name}" style="max-width: 87px; overflow: hidden;">{$template.Country_str_name}</div></td>
+					</tr>
+					{/foreach}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr class='tr_1'>
+			<td colspan="2">				
+				<div class="float_right">
+					<a href="{$smarty.const.URL_ADMIN}ads_template_set_create.php?set_id={$template_set.template_set_id}"><input type="button" name="edit" value="Edit" onclick='location.href("{$smarty.const.URL_ADMIN}ads_template_set_create.php?set_id={$template_set.template_set_id}");' class="submit"/></a>
+					<input type="submit" name="delete" value="Delete" class="submit" onclick="return ConfirmForm_delete_template_set('{$template_set.name}')"/>
+				</div>
+			</td>
+		</tr>
+		</form>
+	{/foreach}
+	</tbody>
+	
+</table>
+{/if}
+{/block_page}
+
+
+<br clear="all" />
+{include file='inc/_footer.html'}

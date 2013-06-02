@@ -1,0 +1,58 @@
+{* Press Category Form Template *}
+
+<form method="POST" onsubmit="checkCategoryForm(this)">
+{if $tpl_mode == 'add'}
+	<input name="command" type="hidden" value="add_category" />
+{else}
+	<input name="command" type="hidden" value="update_category" />
+{/if}
+
+<table cellspacing="1" width="390" id="press_form_tbl">
+	<thead>
+		<tr><th colspan="2" id="press_form_tbl_head">{if $tpl_mode == 'add'}Add new category{else}Edit category: {$category.title}{/if}</th></tr>
+	</thead>
+	
+	<tbody>
+		<tr class="tr_1">
+			<td id="press_form_tbl_cell_title_left">Title</td>
+			<td id="press_form_tbl_cell_title_right"><input name="title" type="text" class="input_text" size="32" value="{$category.title}" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td id="press_form_tbl_cell_par_cat_left">Parent category</td>
+			<td id="press_form_tbl_cell_par_cat_right">
+				<select id="categories_select" name="parent_category_id">
+					<option value="0" style="color: #6f6f6f">[root]</option>
+					{$categories_options}
+				</select>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td id="press_form_tbl_cell_desc_left">Description</td>
+			<td id="press_form_tbl_cell_par_cat_right">
+				<textarea name="description" cols="50" rows="5">{$category.description}</textarea>
+			</td>
+		</tr>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				{if $tpl_mode == 'edit'}
+				<div style="float: left" id="press_form_tbl_cell_active">
+					<label>
+						<input name="active" type="checkbox" class="checkbox_L" value="1"{if $category.active == 'y'} checked{/if}>Active
+					</label>
+				</div>
+				<div style="float: right" id="press_form_tbl_cell_submit_cancel">
+					<input type="button" class="submit" value="Cancel" onclick="history.back(-1)" />
+				</div>
+				{/if}
+				<div style="float: right; margin: 0px 4px" id="press_form_tbl_cell_submit">
+					<input type="submit" class="submit" value="{if $tpl_mode == 'add'}Add category{else}Save{/if}" />
+				</div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+</form>

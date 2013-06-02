@@ -1,0 +1,90 @@
+/* component Shoutbox styles */
+
+.shoutbox_window {
+	padding: 0px;
+	overflow: auto;
+	margin-bottom: 10px;
+	overflow: auto;
+	height: 200px;
+	position: relative;
+}
+.shoutbox_window .small {
+	font-size: 10px;
+}
+.shoutbox_window ul {
+	padding: 0px;
+}
+.shoutbox_window li {
+	border-bottom: 1px solid;
+	border-color: #c8a469;
+	padding: 10px 0px 10px 0px;
+}
+.shoutbox_bottom {
+	padding: 15px 0px 5px 0px;
+	border-top: 1px solid;
+	border-color: #c8a469;
+}
+.shoutbox_bottom td {
+	color: << $base_font;
+}
+ .shoutbox_left {
+	float: left;
+}
+.shoutbox_right {
+	float: right;
+	text-align: left;
+	padding-top: 0px;
+	margin-top: 5px;
+}
+.shoutbox_input_container table td {
+	padding: 0px;
+}
+.shoutbox_input_container .add_smile_block {
+	height:272px;
+	left:28px;
+	position:absolute;
+	top:-274px;
+	width:306px;
+	z-index:100;
+}	
+.shoutbox_send_btn {
+	margin: 0px 0px 0px 6px;
+}
+.msg_text {
+	color: #5a4424;
+}
+.shoutbox_preloader {
+	height: 70px;
+	background-image: image(loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.shoutbox_avatar { 
+	width:45px; 
+	margin-right:9px;
+}
+.msg_block {
+	padding-bottom: 8px;
+	max-width: 205px;
+	width:expression(document.body.clientWidth > 205? "205px" : "auto"); /* для ie*/
+}
+
+.shoutbox_body {    
+    position: relative;
+}
+.shoutbox_body:hover .shoutbox_delete {
+   display: block;
+}
+.shoutbox_delete {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+.shoutbox_delete a {
+    display: block;
+    width: 11px;
+    height: 11px;
+    background: image(shoutbox_delete.png) no-repeat;
+}

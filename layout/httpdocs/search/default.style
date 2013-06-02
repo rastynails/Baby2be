@@ -1,0 +1,9 @@
+.search_page .float_half_left
+{
+	width:59%;
+}
+
+.search_page .float_half_right
+{
+	width:40%;
+}

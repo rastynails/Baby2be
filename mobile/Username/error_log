@@ -1,0 +1,2 @@
+[26-Mar-2013 07:55:18] PHP Fatal error:  Cannot redeclare user::usrSignIn() in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 480
+[26-Mar-2013 07:55:52] PHP Fatal error:  Cannot redeclare user::usrSignIn() in /home/deseos/public_html/skadatemaster/mobile/classes/user.class.php on line 480

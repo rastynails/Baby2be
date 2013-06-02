@@ -1,0 +1,29 @@
+{*  Theme: Usual Date *}
+{*  Author: Skadate   *}
+
+{canvas index}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+	{component FBCButton}{component SelectLanguage}
+	<div style="margin-bottom: 5px;">
+		{component NavigationMenuMain}
+	</div>
+    <div id="content">
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/ud/img/index_promo.png) no-repeat; width:593px; height: 383px; float: left;"></div>
+		<p style="width: 227px; color: #fff; float: right;">{text %.promo.promo_index_ud} </p>
+		<div style="width: 200px; height: 116px; float: right; margin-left: 20px; margin-top: 48px; margin-right: 4px; color: #fff;">
+			{component SignIn type="no_block"}
+		</div>
+		<div class="float_half_left" >
+			{component QuickSearch}
+		</div>
+		<div class="float_half_right">
+			{component IndexProfileList lists='featured|online|new' count=12}
+		</div>
+	</div>
+    {*component PageSidebar*}
+	<div id="footer" style="width: 830px;">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

@@ -1,0 +1,12 @@
+.splash_screen_cont{
+    width:250px;
+    overflow: hidden;
+    margin:0 auto;
+    padding-top: 300px;
+}
+.splash_screen_txt {
+	padding: 10px;
+}
+.splash_screen_btns {
+	padding: 5px 10px 5px;
+}

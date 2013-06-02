@@ -1,0 +1,10 @@
+.post_count, .topic_count 
+{
+	width:60px;
+}
+
+.last_post 
+{
+	width:170px;
+}
+

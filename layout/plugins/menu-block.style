@@ -1,0 +1,42 @@
+
+ul.menu-block {
+	
+        text-align: right;
+	float: right;
+	font-size: 11px;
+	height: 20px;
+	padding: 0px 1px 0px 0px;
+}
+ul.menu-block li.tab {
+	display: block;
+	float: left;
+	clear: none;
+	margin: 0 1px 0 0;
+	height: 20px;
+	z-index: 100;
+	padding: 1px;
+}
+
+ul.menu-block li.tab a {
+	padding: 1px 5px 0;
+	display: block;
+	height: 17px;	
+}
+
+ul.menu-block li.tab a:hover,
+ul.menu-block li.tab a:active,
+ul.menu-block li.tab a.active {
+	color: #fff;
+	background: #666;
+}
+
+ul.menu-block li.active {
+	background: transparent image(block_menu_active.png) no-repeat center center;
+	height: 27px;
+	position: relative;
+}
+
+ul.menu-block li.hover a,
+ul.menu-block li.active a {
+	color: #fff;
+}

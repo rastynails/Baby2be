@@ -1,0 +1,1 @@
+{text %toolbars.event_attendees count=$toolbarItem.count}

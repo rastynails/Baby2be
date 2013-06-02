@@ -1,0 +1,57 @@
+{* Admin reported video template *}
+<html>
+<head>
+	{foreach from=$_required_js_files item='js_file'}
+		<script src="{$js_file}" type="text/javascript"></script>
+	{/foreach}
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.URL_ADMIN_CSS}admin.css" />
+</head>
+
+<body {if $_js_onload}onload="{$_js_onload}"{/if}>
+<div id="view_media_object" style="width: 400px;">
+	{if $video.video_source != 'file'}
+		{$video.code}
+	{else}
+		{if $media_mode == 'flash_video'}
+			<p id="mediaplayer_container" style="margin: 0px;">
+			<script>
+				play_video( 'view_media_object',  '{$video.href}', '300', '300', '{$media_mode}', '{$swf_player_src}' );
+			</script 
+			</p>
+		{else}
+			<object id="media_object"
+				name="view_media_object"
+				width="300"
+				height="300"
+			  	classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95"
+			  	codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#version=5,1,52,701"
+			  	standby="loading microsoft windows media player components..."
+			  	type="application/x-oleobject">
+			
+			<param name="filename" value="{$video.href}">
+			<param name="animationatstart" value="false">
+			<param name="transparentatstart" value="false">
+			<param name="autostart" value="false">
+			<param name="showcontrols" value="true">
+			<param name="showtracker" value="false">
+			<param name="showaudiocontrols" value="true">
+			<param name="showstatusbar" value="true">
+			  
+			<embed name="view_media_object" id="media_object" type="application/x-mplayer2"
+				width="300"
+				height="300"
+				src="{$video.href}"
+				autostart="0"
+				showstatusbar="1"
+				showdisplay="0"
+				showcontrols="1"
+				controltype='1'	
+				showtracker='0'
+				pluginspage="http://www.microsoft.com/windows/downloads/contents/products/mediaplayer/">
+			</embed>
+			</object>
+		{/if}
+	{/if}
+</div>
+</body>
+</html>

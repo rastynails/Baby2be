@@ -1,0 +1,9 @@
+.change_pass_cont .change_password
+{
+	float:right;
+	margin-bottom:10px;
+}
+
+.profile_unregister {
+	color: #6EF700 !important;
+}

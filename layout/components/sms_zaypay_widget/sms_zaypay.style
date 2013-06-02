@@ -1,0 +1,75 @@
+
+body {
+    background: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+a:active, a:focus {
+    outline: 0;
+}
+img {
+    border: 0px;
+}
+
+.zaypay_container {
+    height: 412px;
+    border: 1px solid #ddd;
+    margin: 0px auto;
+    position: relative;
+    background: #EFEFEF;
+    font: 11px/16px "Lucida Grande", Verdana, sans-serif;
+}
+
+#header {
+    background: #fff;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+#logo a {
+    background: image(sms_provider_zaypay.jpg);
+    height: 48px;
+    width: 129px;
+    display: block;
+    text-indent: -4000px;
+}
+
+.zaypay_container h2{
+    color: #666;
+    font-size: 12px;
+    padding: 10px 2px;
+}
+
+#pcontent{
+    padding: 5px;
+}
+
+.zaypay_container label,
+.zaypay_container table td{
+    color: #666;
+}
+
+.form_pay td{
+    padding: 4px;
+}
+
+.powered_by_zp {
+    color: #666;
+    float: right;
+    text-transform: uppercase;
+}
+
+.foot-note {
+    position: absolute; 
+    bottom: 5px;
+    font-size: 9px;
+    height: 20px; width: 99%;
+}
+
+.foot-note a{
+    color: #666;
+}

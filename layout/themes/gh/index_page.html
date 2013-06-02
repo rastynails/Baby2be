@@ -1,0 +1,36 @@
+{*  Theme: Golden Heart   *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/gh/httpdocs/index/index.style"}
+
+<div id="page_canvas">
+    {ads pos='top'}
+	{component NavigationInventoryLine}
+	{component PageHeader}
+	<div id="content" style="padding: 0; width: 830px;">
+		<div style=" height: 411px; width: 828px; margin-bottom: 10px; background:  url({$smarty.const.URL_LAYOUT}themes/gh/img/heart.png) no-repeat center center; ">
+			<div class="float_half_left">
+					{component QuickSearch}
+			</div>
+			<div style="float: right; width: 244px; color: #f2e0ba; padding: 10px;">{text %.promo.promo_index_gh}<br /><br />
+			Best luck in your search, we hope to send plenty of interesting people your way!</div>
+			<a href="{document_url doc_key="join_profile"}" style="float: right; display: block; width: 351px; height: 256px;"><img src="{$smarty.const.URL_LAYOUT}themes/gh/img/join.png"></img></a>
+		</div>
+		<br clear="all" />
+		<div class="float_half_left" >
+			{component IndexPhotoList lists="latest|top_rated" active="latest" count = 12}
+			{component BlogIndexList lists="latest" count=4}
+		</div>
+		<div class="float_half_right">
+			{component Shoutbox}
+			{component IndexProfileList lists="featured|new" active="new" count = 12}
+			{component IndexVideo lists='latest|toprated' active='toprated'}
+		</div>
+	</div>
+	{component PageSidebar}
+	<div id="footer">{component PageFooter}</div>
+    {ads pos='bottom'}
+</div>
+
+{/canvas}

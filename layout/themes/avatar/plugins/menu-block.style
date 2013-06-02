@@ -1,0 +1,64 @@
+
+ul.menu-block {
+	text-align: right;
+	float: right;
+	font-size: 11px;
+	min-height: 20px;
+	height:auto;
+	/*padding: 17px 1px 0px 0px;*/
+}
+
+ul.menu-block li.tab {
+	display: block;
+	float: left;
+	clear: none;
+	margin: 0 1px 0 0;
+	height: 20px;
+	z-index: 100;
+	padding: 1px;
+}
+
+ul.menu-block li.tab a {
+	padding: 1px 5px 0;
+	display: block;
+	height: 17px;	
+	color: #09893C;
+}
+
+ul.menu-block li.tab a:hover{
+	background: transparent;
+	color: #09893C;
+	text-decoration:underline;
+}
+
+ul.menu-block li.tab a:active,
+ul.menu-block li.tab a.active{
+	background: transparent;
+	color: #035b26;
+}
+
+ul.menu-block li.active {
+	background: transparent;
+	height: 27px;
+}
+
+ul.menu-block li.hover a,
+ul.menu-block li.active a {
+	color: #4ffb0c;
+	font-weight: bold;
+}
+
+.profile_details  ul.menu-block li.tab a {
+	color: #09893C;
+}
+
+.mailbox_conversations_list ul.menu-block li.tab a:active, 
+.mailbox_conversations_list ul.menu-block li.tab a.active{
+	color:#fff;
+} 
+
+
+.mailbox_conversations_list ul.menu-block li.tab a,
+.mailbox_conversations_list ul.menu-block li.tab a:hover{
+	color:#4FFB0C
+}

@@ -1,0 +1,27 @@
+{* Video List CSS styles *}
+
+.video_list {
+	padding: 0px;
+}
+
+.video_info {
+	float: right;
+	margin-left: -115px;
+	width: 115px;
+}
+
+.video_thumb {
+	float: left;
+	margin-right: -100px;
+	width: 100px;
+	background: image(video_def_thumb.jpg) no-repeat;
+	height: 75px;
+}
+
+.video_body {
+	margin-left: 110px;
+	margin-right: 115px;
+	width: 290px;
+	overflow: hidden;
+	word-wrap: break-word;
+}

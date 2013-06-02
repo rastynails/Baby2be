@@ -1,0 +1,28 @@
+{*  Theme: Sunrise   *}
+{*  Author: Skadate  *}
+
+{canvas index}
+
+<div id="page_canvas">
+	{ads pos='top'}
+	{component NavigationInventoryLine}
+	<div id="content">
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/sunrise/img/header.jpg) no-repeat; width: 830px; height: 308px; margin: 0 0 0 -4px;">
+			{component FBCButton}{component SelectLanguage}
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/sunrise/img/logo.png) no-repeat 51px 40px; width: 426px; height: 106px;"></div>
+		</div>                   
+		<div style="margin:-59px 0 5px -4px; width:830px;">
+			{component NavigationMenuMain}
+		</div>
+		<div class="float_half_left" >
+			{component IndexProfileList lists='featured|online|new' count=5}
+		</div>
+		<div class="float_half_right">
+			{component IndexPhotoList lists='top_rated|most_commented|latest|most_viewed' count=8}
+		</div>
+	</div>
+    {component PageSidebar}
+	<div id="footer" style="width: 819px;">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

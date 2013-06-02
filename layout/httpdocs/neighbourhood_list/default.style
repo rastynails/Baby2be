@@ -1,0 +1,11 @@
+.neigh_table
+{
+	margin: 10px 0 0 10px;
+}
+
+.neigh_table input[type=text]
+{
+	margin-left: 4px;
+	margin-right: 4px;
+	width:40px;
+}

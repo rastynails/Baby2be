@@ -1,0 +1,185 @@
+{* Admin Payment Providers Template *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+<div style="width: 743px;">
+	{foreach from=$provider_arr item='provider'}
+   
+                
+		<form enctype="multipart/form-data" id="provider_form_{$provider.fin_payment_provider_id}" action="" method="POST">
+		<input type="hidden" name="command" value="save" />
+		<input type="hidden" name="provider_id" value="{$provider.fin_payment_provider_id}" />
+		<input type="hidden" name="status" value="{if $provider.status=='active'}active{else}inactive{/if}" />
+		<div style="border: 1px solid #BFBFBF; margin: 12px 2px;">
+		
+			<div class="div_2" style="padding: 3px; border-bottom: 1px solid #CFCFCF; font-weight: bold; font-size: 12px; cursor: pointer;" onclick="showProviderFields( '{$provider.fin_payment_provider_id}' );">
+				<div style="float: left;">
+				{if $provider.status == 'active'}<span style="color: #0BCF00; font-size: 10px;">ACTIVATED</span>
+				{elseif $provider.is_available=='n'}<span style="color: #ff0000; font-size: 10px;">NOT AVAILABLE</span>{/if}
+				{$provider.description}
+				</div>
+				{capture assign='provId'}{$provider.fin_payment_provider_id}{/capture}
+				{if isset($manuals.$provId)}<div style="float: right;"><a class="help_manual" title="Setup instructions" href="{$manuals.$provId}" target="_blank"></a></div>{/if}
+				<div class="clr"></div>
+			</div>
+		
+			<div id="provider_{$provider.fin_payment_provider_id}" {if $expanded == $provider.fin_payment_provider_id}{else}style="display: none"{/if}>
+                
+				<table style="width: 200px; float: left; margin: 5px;"><tbody>
+					<tr>
+						<td>Status</td>
+						<td>
+							{if $provider.is_available=='n'}
+								Disabled
+							{else}
+								<input type="button" value="{if $provider.status=='active'}Disable{else}Activate{/if}" onclick="activateProvider(this);" />
+							{/if}
+						</td>
+					</tr>
+					<tr>
+						<td>Label</td>
+						<td>{edit_lang_values_btn section='components.payment_selection' key=$provider.fin_payment_provider_id}</td>
+					</tr>
+					<tr>
+						<td>Recurring payments</td>
+						<td>{if $provider.is_recurring == 'y'}available{else}not available{/if}</td>
+					</tr>
+					<tr>
+						<td>Currency</td>
+						<td>
+							<select name="currency">
+							{html_options values=$provider.currencies selected=$provider.active_currency output=$provider.currencies}
+							</select>		
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">{text key=$provider.fin_payment_provider_id prefix='payment_selection'} icon on subscribe page:</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><img src="{$smarty.const.URL_USERFILES}{$provider.icon}" /></td>
+					</tr>
+					{if $provider.icon}
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="Delete icon" onclick='$("provider_form_{$provider.fin_payment_provider_id}")[0].value="delete_icon";'/>
+						</td>
+					</tr>
+					{/if}					
+					<tr>
+						<td colspan="2">
+							<input name="icon" type="file" class="input_file" />
+						</td>
+					</tr>
+				</tbody></table>
+				
+				<table style="float: left; margin: 5px;"><tbody>
+					{foreach from=$provider.fields item='field'}
+					<tr>
+						<td>{$field.description}</td>
+						<td>
+							{if $field.type == 'text'}
+								<input id="field_{$provider.fin_payment_provider_id}_{$field.name}" type="text" name="fields[{$field.name}]" value="{$field.value}" />
+							{elseif $field.type == 'password'}
+								<input id="field_{$provider.fin_payment_provider_id}_{$field.name}" type="password" name="fields[{$field.name}]" value="{$field.value}" />
+							{elseif $field.type == 'checkbox'}
+								<input type="hidden" name="fields[{$field.name}]" value="" />
+								<input id="field_{$provider.fin_payment_provider_id}_{$field.name}" type="checkbox" name="fields[{$field.name}]" {if $field.value}checked="checked"{/if} />
+							{elseif $field.type == 'select'}
+								<select id="field_{$provider.fin_payment_provider_id}_{$field.name}" name="fields[{$field.name}]">
+								{foreach from=$field.values item='value'}
+									<option value="{$value.value}" {if $value.value==$field.value}selected="selected"{/if}>{$value.label}</option>
+								{/foreach}
+								</select>
+							{/if}
+						</td>
+					</tr>
+					{/foreach}
+				</tbody></table>
+				<br clear="all" />
+				<br clear="all" />
+				
+				{if $provider.is_required_plan_synchronizing == 'y'}
+				<div>
+					<table style="margin: 5px;">
+						<tr>
+							<td colspan="2"><b>This provider requires site membership plans synchronization with your merchant account plans:</b></td>
+						</tr>
+						{foreach from=$provider.plans item=plan}
+						<tr>
+							<td>
+							{if $plan.type=='credits'}
+								{$plan.price} {text prefix='membership_type' key=$plan.membership_type_id}
+							{elseif $plan.is_recurring=='y'}
+								{$plan.price} per {$plan.period} {$plan.units} {text prefix='membership_type' key=$plan.membership_type_id}
+							{else}
+								{$plan.price} for {$plan.period} {$plan.units} {text prefix='membership_type' key=$plan.membership_type_id}
+							{/if}
+							</td>
+							<td>
+								<input type="text" name="plans[{$plan.membership_type_plan_id}]" value="{$plan.provider_plan_id}" />
+							</td>
+						</tr>
+						{/foreach}
+					</table>
+				</div>
+				
+                <div>
+                    <table style="margin: 5px;">
+                        <tr>
+                            <td colspan="2"><b>This provider requires site Points Packages synchronization with your merchant account products:</b></td>
+                        </tr>
+                        {foreach from=$provider.packages item='p'}
+                        <tr>
+                            <td>
+                                {$p.points} points for {$curr}{$p.price} 
+                            </td>
+                            <td>
+                                <input type="text" name="packages[{$p.package_id}]" value="{$p.product_id}" />
+                            </td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                </div>
+				
+				{/if}
+				
+				{if $provider.is_available=='y'}
+					<div style="text-align: center; margin: 5px; margin-top: 0px;"><input type="submit" value="Save" /></div>
+				{/if}
+			</div>
+            
+
+		</div>
+		</form>
+                   
+
+	{/foreach}
+</div>
+{/block_page}
+
+<br clear="all" />
+
+<table width="30%">
+	<tbody>
+		<tr>
+			<td id="payment_providers_currency_sign_cell">Currency sign:</td>
+			<td width="30%">{edit_lang_values_btn section='label' key='currency_sign'}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+<!-- 
+<table>
+	<tbody>
+		<tr>
+			<td><font style="color: #ff0000; font-weight: bold; font-size: 10px;">NOT AVAILABLE</font> - Contact Skadate support team to activate these payment providers</td>
+		</tr>
+	</tbody>
+</table>
+<div> -->
+	
+</div>
+{include file='inc/_footer.html'}

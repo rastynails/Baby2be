@@ -1,0 +1,30 @@
+{* Profile Video List CSS styles *}
+
+.video_list {
+	padding: 0px;
+}
+
+.video_info {
+	float: right;
+	margin-left: -150px;
+	width: 150px;
+}
+
+.video_thumb {
+	float: left;
+	margin-right: -100px;
+	width: 100px;
+}
+
+.video_body {
+	margin-left: 110px;
+	margin-right: 155px;
+	word-wrap: break-word;
+}
+
+html body .list_item hr {
+	border: 0px solid #ddc6a6;
+	background-color: #ddc6a6;
+	color: #112851;
+	height: 1px;
+}

@@ -1,0 +1,122 @@
+/* Sidebar CSS Styles */
+
+.sidebar{
+	float: right;
+	padding: 0px;
+	margin:11px 0px 11px 5px ;
+}
+
+.sidebar a:link,
+.sidebar a:visited
+{
+}
+/* .sidebar .block_null .block_bottom,.sidebar .block_null .block_bottom_r,.sidebar .block_null .block_bottom_c{
+	background: none;
+	height: 0px;
+}
+*/
+.sidebar .block
+{
+	margin-bottom: 10px;
+	background: none;
+	border: none;
+}
+
+.sidebar .block_toolbar
+{
+	background:#A5CE9F;
+	padding-right: 2px;
+}
+
+.sidebar ul.simple li {
+	color:#555555;
+}
+
+.sidebar ul.simple li a b{
+	color:#000;
+}
+
+.sidebar .block_cap,.sidebar .block_cap_r,.sidebar .block_cap_c,.sidebar .block_bottom,.sidebar .block_bottom_r,.sidebar .block_bottom_c
+{
+	height: 18px;
+}
+.sidebar .block_cap
+{
+	background: image(sign_in_l.png) no-repeat left top;
+	padding-left: 9px;
+}
+.sidebar .block_cap_r
+{
+	background: image(sign_in_r.png) no-repeat right top;
+	padding-right: 9px;
+}
+.sidebar .block_cap_c
+{
+	background: #a5ce9f;
+}
+.sidebar .block_bottom
+{
+	background: image(sign_in_bl.png) no-repeat left top;
+	padding-left: 9px;
+}
+.sidebar .block_bottom_r
+{
+	background: image(sign_in_br.png) no-repeat right top;
+	padding-right: 9px;
+}
+.sidebar .block_bottom_c
+{
+	background: #a5ce9f;
+}
+.sidebar .block_body {
+	background: #a5ce9f;
+	padding: 2px;
+}
+.sidebar .block_cap h3
+{
+ 	font-family: << $base_font;
+	font-size: 11px;
+	color: #0c6501;
+	float: none;
+	padding-top: 3px;
+}
+.sidebar .block_cap_title {
+	text-transform: none;
+	text-align: center;
+}
+.sidebar input.text
+{
+	width: 93%;
+}
+.sidebar_top {
+	padding-left:9px;
+	background: image(sb_top_l.png) no-repeat left top;
+	line-height: 9px;
+}
+.sidebar_top_r {
+	padding-right:9px;
+	background: image(sb_top_r.png) no-repeat right top;
+	line-height: 9px;
+}
+.sidebar_top_c,.sidebar_bot_c {
+	background: #60a857;
+	line-height: 9px;
+}
+.sidebar_bot {
+	padding-left:9px;
+	background: image(sb_bot_l.png) no-repeat left top;
+	line-height: 9px;
+}
+.sidebar_bot_r {
+	padding-right:9px;
+	background: image(sb_bot_r.png) no-repeat right top;
+	line-height: 9px;
+}
+.sidebar_cont {
+	background: #60a857;
+	padding: 10px 4px;
+}
+
+.fb_content .block_body {
+	padding: 3px;
+}

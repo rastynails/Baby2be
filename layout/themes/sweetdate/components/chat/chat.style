@@ -1,0 +1,109 @@
+/* component Ajax Chat style */
+
+.chat_carcass_tbl {
+	width: 100%;
+}
+
+.chat_carcass_tbl td {
+	vertical-align: top;
+	padding: 2px;
+}
+
+.chat_windows_container {
+	height: 500px;
+	border: none;
+	margin: 0px;
+	width: 560px;
+}
+
+.chat_carcass_tbl td.chat_room_divider {
+	border: 1px solid #CFCFCF;
+	background: #DFDFDF;
+	cursor: e-resize;
+}
+
+
+.chat_rooms_bar_resize_pointer {
+	position: fixed;
+	width: 4px;
+	background: #7F7F7F;
+}
+
+
+.chat_rooms_bar {
+	width: 200px;
+}
+
+.chat_rooms_container {
+	border: none;
+	border-top: none;
+	margin: 0px;
+}
+
+
+.chat_input_form_container {
+	
+}
+
+.chat_inventory {
+	
+}
+
+
+.chat_input_container {
+	float: left;
+}
+
+.chat_input {
+	width: 490px;
+}
+.chat_rooms_container .users_count {
+	color:#fff;
+}
+
+.chat_send_btn_container {
+	float: right;
+}
+.chat_rooms_container .chat_room_block {
+	margin-bottom: 0px;
+}
+.chat_input_container .chat_send_btn {
+	width: 89px;
+}
+.chat_windows_cell .block_cap,.chat_rooms_cell .block_cap {
+	background: #00b0da image(corn_blue_top_l.gif) no-repeat 0px bottom;
+}
+.chat_windows_cell .block_cap_r,.chat_rooms_cell .block_cap_r {
+	background: #00b0da image(corn_blue_top_r.gif) no-repeat right bottom;
+}
+.chat_windows_cell .block_cap_c,.chat_rooms_cell .block_cap_c {
+	background: #00b0da image(corn_blue_top_c.gif) repeat-x left bottom;
+}
+.chat_windows_cell .block_toolbar,.chat_rooms_cell .block_toolbar {
+	background: #00b0da;
+}
+.chat_windows_cell .block_toolbar_r,.chat_rooms_cell .block_toolbar_r {
+	border-left: 1px solid #0094ae;
+	border-right: 1px solid #f3f7f8;
+	background: #f0f0f0;
+}
+.chat_windows_cell .block_body,.chat_rooms_cell .block_body {
+	background: #00b0da;
+}
+.chat_windows_cell .block_body_r,.chat_rooms_cell .block_body_r {
+	border-left: 1px solid #0094ae;
+	border-right: 1px solid #f3f7f8;
+	background: #f0f0f0;
+}
+.chat_windows_cell .block_bottom,.chat_rooms_cell .block_bottom {
+	background: #00b0da image(corn_blue_bot_l.gif) no-repeat 0px top;
+}
+.chat_windows_cell .block_bottom_r,.chat_rooms_cell .block_bottom_r {
+	background: #00b0da image(corn_blue_bot_r.gif) no-repeat right top;
+}
+.chat_windows_cell .block_bottom_c,.chat_rooms_cell .block_bottom_c {
+	background: #00b0da image(corn_blue_bot_c.gif) repeat-x left top;
+}
+.chat_windows_cell .block_cap_title,.chat_rooms_cell .block_cap_title {
+	color: #fff;
+}

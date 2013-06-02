@@ -1,0 +1,94 @@
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form method="POST">
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Profile Questions Synchronization</th>
+		</tr>
+		<tr>
+			<td align="center">Profile Fields</td>
+			<td align="center">Facebook Fields</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$fields item=fbFields key=prField}
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td align="center">{$prField}</td>
+				<td align="center">
+					{if count($fbFields) > 1}
+						<select name="fields[{$prField}]">
+							<option value="">Select</option>
+							{foreach from=$fbFields item=fbField}
+								<option value="{$fbField}" {if $aliases[$prField] == $fbField}selected="selected"{/if}>{$fbField}</option>
+							{/foreach}
+						</select>
+					{else}
+						{$fbFields.0}
+					{/if}
+				</td>
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+        	<td></td>
+			<td colspan="2">
+				<input type="submit" value="Save" name="save" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+{block_page}
+<form method="POST">
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="2">Gender field settings</th>
+		</tr>
+		<tr>
+			<td align="center">Facebook gender</td>
+			<td align="center">Site gender</td>
+		</tr>
+	</thead>
+	<tbody>
+            <tr class="{cycle values='tr_1,tr_2'}">
+                <td align="center">male</td>
+                <td align="center">
+                    <select name="sexV[male]">
+                    {foreach from=$sexValues item="label" key="value"}
+                        <option value="{$value}" {if $value == $sexAliasing.male}selected="selected"{/if} >{$label}</option>
+                    {/foreach}
+                    </select>
+                </td>
+            </tr>
+            <tr class="{cycle values='tr_1,tr_2'}">
+                <td align="center">female</td>
+                <td align="center">
+                    <select name="sexV[female]">
+                        {foreach from=$sexValues item="label" key="value"}
+                            <option value="{$value}" {if $value == $sexAliasing.female}selected="selected"{/if} >{$label}</option>
+                        {/foreach}
+                    </select>
+                </td>
+            </tr>
+	</tbody>
+	<tfoot>
+		<tr>
+        	<td></td>
+			<td colspan="2">
+				<input type="submit" value="Save" name="save_sex_v" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+<br clear="all" />
+{include file='inc/_footer.html'}

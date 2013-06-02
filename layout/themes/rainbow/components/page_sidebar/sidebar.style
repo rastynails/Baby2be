@@ -1,0 +1,30 @@
+.sidebar {
+	float: right;
+	margin-top: 0px;
+	width: 190px;
+	padding-top: 66px;
+}
+.sidebar .block_cap_title {
+	font-size: 13px;
+	margin: 0px;
+}
+.sidebar .im_invitation .block_body {
+	background-color: #E8EDF2;
+	background-position: 10px center;
+	padding-left: 32px;
+}
+.sidebar .block_null .block_body {
+	padding: 0px 0px 0px 3px;
+	background: image(block_body_l.png) repeat-y;
+}
+.sidebar .block_null .block_body_r {
+	padding: 0px 3px 0px 0px;
+	background: image(block_body_r.png) repeat-y right top;
+}
+.sidebar .block_null .block_body_c {
+	background: #fff;
+	padding: 3px;
+}
+.sidebar .sign_in_cont .clearfix{
+	padding-top: 4px;
+}

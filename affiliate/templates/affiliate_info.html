@@ -1,0 +1,167 @@
+{* Affiliate interface: affiliate *}
+{include file='inc/_header.html'}
+
+{if !$is_verified}
+<br />
+Your affiliate account is not verified yet. Please, check your email for the verification link.
+<br />
+If you could not find one, please send again
+<br /><br />
+<form method="post">
+<input type="hidden" name="action" value="send_email" />
+<table align="left" width="35%">
+	<thead>
+		<tr>
+			<td>Enter e-mail</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><input type="text" name="email" /> <input type="submit" value="send" /></td>
+		</tr>
+	</tbody>
+</table>
+</form>
+<br clear="all" />
+{else}
+
+<div class="info_table">
+<form action="" method="POST">
+<table cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th colspan="2"> Affiliate </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td width="30%">Full name</td>
+			<td>
+				<div id="field_name">{$affiliate_info.full_name}</div>
+				<div id="input_name" style="display:none;"><input type="text" name="aff_info[full_name]" value="{$affiliate_info.full_name}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td>Password</td>
+			<td>
+				<div id="field_password">{$affiliate_info.password}</div>
+				<div id="input_password" style="display:none;"><input type="text" name="aff_info[password]" value="{$affiliate_info.password}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr class="tr_2">
+			<td>Email</td>
+			<td>
+				<div id="field_email">{$affiliate_info.email}</div>
+				<div id="input_email" style="display:none;"><input type="text" name="aff_info[email]" value="{$affiliate_info.email}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td>IM</td>
+			<td>
+				<div id="field_im">{$affiliate_info.im}</div>
+				<div id="input_im" style="display:none;"><input type="text" name="aff_info[im]" value="{$affiliate_info.im}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td>Phone</td>
+			<td>
+				<div id="field_phone">{$affiliate_info.phone}</div>
+				<div id="input_phone" style="display:none;"><input type="text" name="aff_info[phone]" value="{$affiliate_info.phone}"/></div>
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td>Address</td>
+			<td>
+				<div id="field_address">{$affiliate_info.address}</div>
+				<div id="input_address" style="display:none;"><textarea name="aff_info[address]">{$affiliate_info.address}</textarea></div>
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td>Payment details</td>
+			<td>
+				<div id="field_payment_details">{$affiliate_info.payment_details}</div>
+				<div id="input_payment_details" style="display:none;"><textarea name="aff_info[payment_details]">{$affiliate_info.payment_details}</textarea></div>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div id="field_edit"><a href="javascript://" onclick="ShowAffiliateInputFields( true );">[edit]</a></div>
+				<div id="input_btn" style="display:none; float: right">&nbsp;&nbsp;<input type="submit" value="save" /></div>
+				<div id="input_cancel" style="display:none;"><a href="javascript://" onclick="ShowAffiliateInputFields( false );">[cancel]</a></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+</div>
+
+<br clear="all" />
+<br clear="all" />
+
+<table width="70%">
+    <tr>
+        <td>Any of your affiliate links/banners on your site can reference to each page of the site but they must have the following query string: <font style="color:red;">?aff_id={$affiliate_info.affiliate_id}<br /><br /></font>
+            For example: <b>&nbsp;&nbsp;{$smarty.const.SITE_URL}<font style="color:red;">?aff_id={$affiliate_info.affiliate_id}</font></b></td>
+    </tr>
+</table>
+
+<br clear="all" />
+
+<div class="info_table">
+<form enctype="multipart/form-data" method="POST">
+<input type="hidden" name="action" value="add_image" />
+<table cellspacing="1" align="left" width="60%">
+    <thead>
+        <tr>
+            <th colspan="2">Add banner</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Image</td>
+        <td><input type="file" name="banner_image" /> <input type="submit" value="Upload" /></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+</div>
+
+{if $banners}
+<br clear="all" />
+<br clear="all" />
+
+<div class="info_table">
+<table cellspacing="1" align="left" width="100%">
+    <thead>
+        <tr>
+            <th colspan="2">Banners</th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach from=$banners item='b'}
+        <tr class="tr_{cycle values='1,2'}">
+            <td>
+            Image preview: <br /> 
+            <img src="{$b.image_url}" /><br />
+            Banner code:<br />
+            <textarea>{$b.code}</textarea>
+            </td>
+            <td align="center">
+                <a href="javascript://" onclick="if ( confirm('Are you sure you want to delete this banner?') ) document.location.href='{$smarty.const.SITE_URL}affiliate/affiliate_info.php?delete-banner={$b.id}';">Delete</a>
+            </td>
+        </tr>
+    {/foreach}
+    </tbody>
+</table>
+</div>
+{/if}
+<br clear="all" />
+
+{/if}
+
+{include file='inc/_footer.html'}

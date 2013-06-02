@@ -1,0 +1,96 @@
+
+.feed_day_cap << .block_cap {
+	background: #F7F7F7;
+	border: solid #DFDFDF;
+	border-width: 1px 0px 0px;
+	color: #7F7F7F;
+	font-weight: bold;
+	font-size: 11px;
+	height: none;
+	padding: 2px 2px 2px 4px;
+}
+
+.feed_day {
+	padding: 4px 1px 12px;
+}
+
+.feed {
+	border-bottom: 1px solid #EFEFEF;
+	padding: 4px;
+}
+
+.feed_time {
+	float: right;
+	font-size: 9px;
+	color: #7F7F7F;
+}
+
+.feed_body {
+	margin-left: 20px;
+	font-size: 11px;
+}
+
+
+/* feed event types */
+.feed-friend_add {
+	background: image(plus_icon.gif) no-repeat 4px 4px;
+}
+
+.feed-status_update {
+	background: image(person_icon.gif) no-repeat 4px 4px;
+}
+
+.feed-media_upload{
+	background: image(movie_icon.gif) no-repeat 4px 4px;
+}
+.feed-music_upload{
+	background: image(music_icon2.png) no-repeat 4px 4px;
+}
+
+.feed-photo_upload{
+	background: image(add_photo_icon.gif) no-repeat 4px 4px;
+}
+
+.feed-blog_post_add,
+.feed-news_post_add
+{
+	background: image(add_item_icon.gif) no-repeat 4px 4px;
+}
+
+.feed_items .profile_item {
+	float: left;
+	margin: 4px;
+	text-align: center;
+}
+
+.feed_items .profile_item a {
+	text-decoration: none;
+}
+
+.feed_items .profile_item a:hover span {
+	text-decoration: underline;
+}
+
+.feed_items .profile_item .username {
+	line-height: 16px;
+}
+
+.feed-add_group{
+	background: image(add_group.png) no-repeat 4px 4px;
+}
+
+.feed-event_add{
+	background: image(add_event.png) no-repeat 4px 4px;
+}
+
+.feed-video_comment,
+.feed-profile_comment,
+.feed-photo_comment,
+.feed-event_comment,
+.feed-group_comment,
+.feed-blog_post_comment,
+.feed-news_post_comment,
+.feed-music_comment
+{
+	background: image(add_comment.png) no-repeat 4px 4px;
+}

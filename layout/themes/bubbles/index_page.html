@@ -1,0 +1,41 @@
+{*  Theme: Bubbles  *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/bubbles/httpdocs/index/index.style"}
+
+<div id="page_canvas">
+	<div id="content">
+		{component NavigationInventoryLine}
+		{component PageHeader}
+		{component NavigationSubMenu level=1}
+		<div style="padding: 0px 0px 20px; ">
+			<div class="promo clearfix">
+				<div style="float: left; width: 335px; margin-top: -20px; position: relative;">
+					<div class="angel_blue"></div>
+					{component QuickSearch type=index}
+				</div>
+				<div style="float: right; width: 285px; margin:-27px 0px 0px;">
+					<a class="index_join" href="{document_url doc_key=join_profile}"></a>
+				</div>
+			</div>
+			<div class="sign_in_index_l"><div class="sign_in_index_r"><div class="sign_in_index_c clearfix">{component SignIn type=line}</div></div></div>
+		</div>
+		{component IndexProfileList count=7 lists="featured|online|new" active="featured"}
+		{component IndexPhotoList count=7 lists="top_rated|most_commented|latest|most_viewed"}
+		<div class="float_half_left" >
+			{component Shoutbox}
+			{component IndexVideo lists='toprated|latest' active='latest'}
+			{component ForumLastTopics}
+		</div>
+		<div class="float_half_right">
+			{component BlogIndexList}
+			{component EventIndexCalendar}
+		</div>
+		<br clear="all" />
+	</div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+
+{/canvas}

@@ -1,0 +1,39 @@
+.quick_search .block,
+.quick_search .block_body,
+.quick_search .block_cap_corner,
+.quick_search .block_bottom_corner {
+	background: none;
+	border: none;
+	padding-left: 18px;
+	color: #fff;
+}
+
+.quick_search .block_cap h3 {
+	color: #fff;
+}
+
+.quick_search .block_cap {
+	background: none;
+	border: none;
+
+}
+
+.index_photo_list .block,
+.index_photo_list .block_body,
+.index_photo_list .block_cap_corner,
+.index_photo_list .block_bottom_corner {
+	background: none;
+	border: none;
+	padding-left: 26px;
+	color: #fff;
+}
+
+.index_photo_list .block_cap {
+	background: none;
+	border: none;
+}
+
+.index_photo_list .block_toolbar {
+	background: none;
+	border: none;
+}

@@ -1,0 +1,16 @@
+.profile_carousel {
+    margin-top: 5px;
+    text-align: right;
+}
+
+.carousel_bt {
+}
+.profile_carousel_prev {
+	padding: 0px 6px 0px 0px;
+}
+.profile_carousel_next {
+	padding: 0px 0px 0px 6px;
+}
+.profile_carousel_back {
+	padding: 0px 6px;
+}

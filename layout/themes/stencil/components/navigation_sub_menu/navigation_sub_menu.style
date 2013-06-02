@@ -1,0 +1,11 @@
+.submenu {
+	border: none;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+	padding: 8px 2px 8px 7px;
+	background: #E6E6E6;
+	text-align: right;
+	float: right;
+	margin: 4px 0px 0px;
+}
+

@@ -1,0 +1,35 @@
+.expandable_menu .block_body{
+	background: #E5F3F6;
+}
+
+.expandable_menu .block{
+	background:none;
+}
+.ctr_buttons {
+	width: 180px;
+}
+
+.ctr_buttons .block_cap_title{
+	color:#0BAB4B;
+}
+
+.expandable_menu .block_expand, .expandable_menu .block_collapse{
+	margin-top:0;
+}
+.expandable_menu .block_cap,
+.expandable_menu .block_cap_r,
+.expandable_menu .block_cap_c {
+	height: 22px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.expandable_menu .block_cap_title {
+	margin-top: 0px;
+}
+
+.expandable_menu .block_bottom {
+	display: none;
+}
+.expandable_menu .block {
+	padding-bottom: 0px;
+}

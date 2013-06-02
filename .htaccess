@@ -1,0 +1,12 @@
+RewriteEngine on
+
+#Fix Rewrite
+#Options -Multiviews
+#RewriteBase /
+
+Options +FollowSymlinks
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ navigation.php
+
+RewriteRule .* - [E=HTTP_X_REQUESTED_WITH:%{HTTP:X-Requested-With}]

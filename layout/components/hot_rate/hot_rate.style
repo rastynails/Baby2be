@@ -1,0 +1,19 @@
+.sex_switch {
+	padding: 2px;
+}
+
+.rate_container .rate, .rate_container .skip {
+	float:left;
+}
+
+.rate_container .rate {
+	width: 250px;
+}
+
+.rate_container .skip {
+	padding: 17px 5px 0px 5px;
+}
+
+.rate_container {
+	margin-top: 0;
+}

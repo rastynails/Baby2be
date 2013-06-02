@@ -1,0 +1,32 @@
+ul.menu-tabs-small {
+	border-bottom:1px solid #666;
+	margin-top:20px;
+}
+
+ul.menu-tabs-small li.tab {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.menu-tabs-small li.tab a {
+	border-top:1px solid #666;
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+	color: #fff;
+	margin-left:2px;
+	padding:4px 3px 1px 8px;
+	background: none;
+	
+}
+
+ul.menu-tabs-small li.tab a:hover {
+	background: #888;
+}
+
+ul.menu-tabs-small li.tab a:active,
+ul.menu-tabs-small li.tab a.active {
+	text-decoration: none;
+	background-color:#555;
+}

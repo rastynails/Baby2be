@@ -1,0 +1,168 @@
+.gallery_cont, .gallery_cont_third
+{
+	float:left;
+	margin-bottom:5px;
+	margin-right:4px;
+	text-align:center;
+	width:33%;
+}
+
+
+.gallery_cont_third
+{
+	margin-right:0;
+}
+
+.membership_icon {
+	margin: 0px 6px 0px 0px;
+	display: inline;
+	vertical-align: top;
+	height: 29px;
+}
+
+.profile_list_thumb
+{
+	float:left;
+	margin-right:-100px;
+	padding-right:5px;
+	text-align:center;
+	width:100px;
+}
+
+.profile_activity, .profile_activity_gallery
+{
+	font-size:11px;
+	padding:3px 0;
+}
+
+.profile_activity_gallery
+{
+	padding-top:3px;
+	height:30px;
+}
+
+.profile_list_info
+{
+	margin-left:100px;
+	padding-left:5px;
+}
+
+
+.details_cont .profile_list_info
+{
+	margin-right:145px;
+	max-height:167px;
+	overflow-y:hidden;
+}
+
+.list_menu
+{
+	/*float:right;
+	height:auto;
+    padding-bottom:30px;
+	margin-left:0;
+	width:145px;*/
+}
+
+.list_menu a
+{
+	display:block;
+	font-size:11px;
+	margin-bottom:1px;
+	padding:3px 3px 3px 20px;
+	text-decoration:none;
+}
+
+.list_menu .block_profile {
+	background:image(block_list.png) no-repeat scroll center left;
+	margin:0px!important;
+	padding:0px!important;
+}
+
+.list_menu .unblock_profile{
+	background:image(unblock.png) no-repeat scroll center left;
+	margin:0px!important;
+	padding:0px!important;
+}
+
+.list_menu .bookmark, .list_menu .unbookmark, .list_menu .speed_dating_unbookmark{
+	background:image(bookmarks.png) no-repeat scroll center left;
+}
+.list_menu .send_friend_request, .list_menu .sent_friend_requests, .list_menu .remove_friend{
+	background:image(friend_request.png) no-repeat scroll center left;
+}
+
+.list_menu .cancel_request{
+	background:image(msg_icon.png) no-repeat scroll 3px 4px;
+}
+
+
+.list_menu .accept {
+	background:image(topic_check.png) no-repeat scroll center left;
+}
+
+.list_menu .decline {
+	background:image(block_list.png) no-repeat scroll center left;
+}
+
+.list_menu .block_group_profile {
+	background:image(topic_block.png) no-repeat scroll center left;
+}
+
+.list_menu .delete_group_profile {
+    background: image(block_list.png) no-repeat scroll center left;
+}
+
+.list_menu .unblock_group_profile{
+	background: image(unblock.png) no-repeat scroll center left;
+}
+
+.list_menu .accept_claim {
+	background: image(topic_check.png) no-repeat scroll center left;
+}
+
+.list_menu .decline_claim {
+	background: image(block_list.png) no-repeat scroll center left;
+
+}
+.list_menu .newsfeed_follow,
+.list_menu .newsfeed_unfollow {
+	background: image(follow.png) no-repeat scroll center left;
+}
+.list_menu .send_gift {
+	background: image(virtual_gift.png) no-repeat scroll center left;
+}
+.list_menu .fm_mark {
+	background: image(my_matches.png) no-repeat scroll center left;
+}
+.change_vm_cont
+{
+	padding-bottom:5px;
+	text-align:center;
+}
+
+.gall_location_cont
+{
+	font-size:11px;
+	height:30px;
+}
+
+.gallery_cont_third .block, .gallery_cont .block
+{
+	margin-bottom:0;
+}
+
+.details_cont .block
+{
+	margin-bottom:5px;
+}
+
+.ref_menu {
+	float:	right;
+	margin-left: 0;
+	width: 145px;
+}
+.loc_value {
+	height: 5em;
+	overflow: hidden;
+}

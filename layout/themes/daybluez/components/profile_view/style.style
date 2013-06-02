@@ -1,0 +1,65 @@
+.delete_cmp,.edit_cmp {
+	margin: 0px 0px 0px 1px;
+}
+.search_btns_wrap {
+	float: right;
+	font-size: 10px;
+	color: #B9DDCD;
+	margin: 0px 0px 0px;
+}
+.search_btns_wrap .profile_carousel {
+	margin: 0px;
+	padding: 0px 0px 10px;
+}
+.search_btns_wrap a {
+	font-size: 11px;
+}
+.search_btns a:hover {
+	text-decoration: none;
+}
+.search_btns .profile_carousel_prev {
+	padding-right: 2px;
+}
+.search_btns .profile_carousel_next {
+	padding-left: 2px;
+}
+.search_btns .profile_carousel_back {
+	padding: 0px 2px;
+}
+.report_btn {
+	float: right;
+	padding-left: 8px;
+}
+.profile_details .menu {
+	height: 25px;
+	padding-bottom: 3px;
+}
+.profile_details .menu ul.menu-block {
+	padding: 0px;
+}
+.member_actions {
+	padding: 0px 0px 0px 96px;
+}
+.member_actions a {
+	display: inline-block;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #aac2bd #4c6565 #4c6565 #aac2bd;
+	line-height: 21px;
+	height: 22px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 2px 0px 0px;
+	background: #90aaa4;
+	color: #fff;
+}
+.member_actions a:hover {
+	text-decoration: none;
+	background-color: #7a948f;
+	border-color: #99b2ae #4c6564 #4c6564 #99b2ae;
+}
+.member_actions div {
+    float: left;
+}
+.search_btns .profile_carousel {
+	width: 300px;
+}

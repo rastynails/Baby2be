@@ -1,0 +1,4 @@
+.item_list {
+	margin: 0pt auto; 
+	width: 620px;	
+}

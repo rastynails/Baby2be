@@ -1,0 +1,22 @@
+ul.menu-block li.active {
+	height: auto;
+	background: none;
+}
+#page_canvas ul.menu-block li.tab a {
+	text-decoration: underline;
+	font-size: 14px;
+}
+#page_canvas ul.menu-block li.active a {
+	background: none;
+	text-decoration: none;
+	font-weight: bold;
+	color: #191500;
+}
+#page_canvas ul.menu-block li.tab a:hover,
+#page_canvas ul.menu-block li.tab a:active,
+#page_canvas ul.menu-block li.tab a.active {
+	background: none;
+	text-decoration: none;
+	color: #191500;
+	font-weight: bold;
+}

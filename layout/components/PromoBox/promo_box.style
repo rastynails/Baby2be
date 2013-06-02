@@ -1,0 +1,8 @@
+/* Promo Box CSS Styles */
+
+.promo << $promo
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: << $border_sep;
+}

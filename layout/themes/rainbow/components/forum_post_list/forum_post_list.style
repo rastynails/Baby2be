@@ -1,0 +1,33 @@
+.block_post_list .block_cap {
+	background-image: image(block_cap_l_w.png);
+	border: none;
+}
+.block_post_list .block_cap_r {
+	background-image: image(block_cap_r_w.png);
+}
+.block_post_list .block_cap_c {
+	padding: 0px;
+	min-height: 6px;
+	font-size: 6px;
+	line-height: 6px;
+	background-image: image(block_cap_c_w.png);
+}
+.block_post_list .block .block_cap {
+	padding-left: 4px;
+	background: image(block_cap_l.png) no-repeat;
+	border: none;
+	height: auto;
+	margin: 0px 3px;
+	border-bottom: 1px solid #E3E3E3;
+}
+.block_post_list .block .block_cap_r {
+	padding-right: 4px;
+	background: image(block_cap_r.png) no-repeat right top;
+	height: auto;
+}
+.block_post_list .block .block_cap_c {
+	background: image(block_cap_c.png) repeat-x;
+	padding: 7px 2px 4px 0px;
+	min-height: 24px;
+	height: auto;
+}

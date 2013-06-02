@@ -1,0 +1,50 @@
+{* Admin interface: Skadate services *}
+{include file='inc/_header.html'}
+
+{block_page}
+<form method="get">
+	<span class="forum_group_name">Select chat</span> 
+	<select name="service" onchange="this.form.submit();">
+		<option value="chuppo">Chuppo Chat</option>
+		<option selected="selected" value="123_chat">123 Flash Chat</option>
+	</select>
+</form>
+{/block_page}
+
+{if $enable_chat}
+	{block_page}
+		<div class="additional_settings" style="width: 50%">
+			{print_configs section=$section}
+		</div>
+	{/block_page}
+	
+	{block_page}
+	<script type="text/javascript">
+		openSWF('{$flash_url}','790','600');
+	</script>
+	<noscript>
+		<DIV id="flashchat">
+		    <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,19,0" WIDTH="790" HEIGHT="600" id="topcmm_123flashchat">
+		    <PARAM NAME=movie VALUE="{$flash_url}?loading_bkground=false">
+		    <PARAM NAME=quality VALUE="high">
+		    <PARAM NAME="menu" value="false">
+		    <EMBED src="{$flash_url}?loading_bkground=false" quality=high menu=false WIDTH="790" HEIGHT="600" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" scale="noscale" name="topcmm_123flashchat" swLiveConnect="true"></EMBED>
+		   	</OBJECT>
+	   </DIV>
+	</noscript>
+	{/block_page}
+{else}
+	{block_page}<a href="http://www.skadate.com/ca/docs/introduction_management_advanced_services#chat" target="_blank"><b>Chat Installation Manual</b></a>{/block_page}
+{/if}
+
+{if $enable_123wm}
+	{block_page}
+		<div class="additional_settings" style="width: 50%">
+			{print_configs section='123_wm'}
+		</div>
+	{/block_page}
+{else}
+	{block_page}<a href="http://www.skadate.com/ca/docs/introduction_management_advanced_services#webmessenger" target="_blank"><b>Webmessenger Installation Manual</b></a>{/block_page}	
+{/if}	
+
+{include file='inc/_footer.html'}

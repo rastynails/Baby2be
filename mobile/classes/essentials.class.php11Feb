@@ -1,0 +1,145 @@
+<?php
+class Essentials
+ {
+     private $salt			=	"";
+	 private $dbHost		=	"";
+	 private $dbUser		=	"";
+	 private $dbPass		=	"";
+	 private $dbName		=	"";
+	private $url		=	"";
+	
+     public function getHashSalt()
+	  {
+	  		$salt		= SK_PASSWORD_SALT;	
+	   		return $salt;	
+	  }
+		
+	public function geturl()
+	  {     
+			$url		= SITE_URL;
+	   		return $url;
+	  }
+	 public function getDbHost()
+	  {     
+			$dbHost		= DB_HOST;
+	   		return $dbHost;
+	  }
+	 public function getDbUser()
+	  {     
+	        $dbUser 	= DB_USER;
+	   		return $dbUser;	
+	  } 
+     public function getDbPass()
+	  {     
+	        $dbPass		= DB_PASS;
+	   		return $dbPass;	
+	  }
+     public function getDbName()
+	  {		
+			$dbName		= DB_NAME;
+	   		return $dbName;	
+	  }	
+	 public function tblPrefix()
+	 {
+	 		$tblPrefix	= DB_TBL_PREFIX;
+	   		return $tblPrefix;	
+	 }
+	 public function getpasslen()
+	 {
+	 		return PASSLEN;	
+	 }
+	 public function getSiteEmail()
+	 {
+	 		return SITEMAIL;
+	 }
+	 public function GetAboutUs()
+	 {
+	 	$essence			=	new Essentials();
+		$langkey			=	$essence->tblPrefix().'lang_key';
+		$langvalue			=	$essence->tblPrefix().'lang_value';
+		$db1 				= 	new MySQL(true, $essence->getDbName(), $essence->getDbHost(), $essence->getDbUser(), $essence->getDbPass());
+		$sql				=	"SELECT `value` from $langvalue where `lang_key_id` = (SELECT `lang_key_id` from $langkey where `key`= 'about_us' and `lang_section_id` = 8)";
+		if($db1->Query($sql))
+		{
+			if($db1->RowCount())
+			{
+				$row	=	$db1->Row();
+				$response	=	array("About_us"=>$row->value);
+				echo json_encode($response);
+			}
+			else
+			{
+				$response	=	array("About_us"=>"NULL");
+				echo json_encode($response);
+			}
+		}
+	 }
+	  public function GetPrivacyPolicy()
+	{
+		$essence = new Essentials();
+		$langkey = $essence->tblPrefix().'lang_key';
+		$langvalue = $essence->tblPrefix().'lang_value';
+		$db1 = new MySQL(true, $essence->getDbName(), $essence->getDbHost(), $essence->getDbUser(), $essence->getDbPass());
+		$sql = "SELECT `value` from $langvalue where `lang_key_id` = (SELECT `lang_key_id` from $langkey where `key`= 'privacy_policy' and `lang_section_id` = 8)";
+		if($db1->Query($sql))
+		{
+			if($db1->RowCount())
+			{
+				$row = $db1->Row();
+				$response = array("Privacy"=>$row->value);
+				echo json_encode($response);
+			}
+			else
+			{
+				$response = array("Privacy"=>"NULL");
+				echo json_encode($response);
+			}
+		}
+	}
+	public function GetTerms()
+	{
+		$essence = new Essentials();
+		$langkey = $essence->tblPrefix().'lang_key';
+		$langvalue = $essence->tblPrefix().'lang_value';
+		$db1 = new MySQL(true, $essence->getDbName(), $essence->getDbHost(), $essence->getDbUser(), $essence->getDbPass());
+		$sql = "SELECT `value` from $langvalue where `lang_key_id` = (SELECT `lang_key_id` from $langkey where `key`= 'term_of_use' and `lang_section_id` = 8)";
+			if($db1->Query($sql))
+			{
+				if($db1->RowCount())
+				{
+					$row = $db1->Row();
+					$response = array("Terms"=>$row->value);
+					echo json_encode($response);
+				}
+				else
+				{
+					$response = array("Terms"=>"NULL");
+					echo json_encode($response);
+				}
+			}
+	}
+	public function GetFull()
+	{
+		$essence = new Essentials();
+		$langkey = $essence->tblPrefix().'lang_key';
+		$langvalue = $essence->tblPrefix().'lang_value';
+		$db1 = new MySQL(true, $essence->getDbName(), $essence->getDbHost(), $essence->getDbUser(), $essence->getDbPass());
+		$sql = "SELECT `value` from $langvalue where `lang_key_id` = (SELECT `lang_key_id` from $langkey where `key`= 'faq' and `lang_section_id` = 8)";
+			if($db1->Query($sql))
+			{
+				if($db1->RowCount())
+				{
+					$row = $db1->Row();
+					$response = array("FullVersion"=>$row->value);
+					echo json_encode($response);
+				}
+				else
+				{
+					$response = array("FullVersion"=>"NULL");
+					echo json_encode($response);
+				}
+			}
+	}
+
+  }
+?>

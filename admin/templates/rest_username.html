@@ -1,0 +1,66 @@
+{* Admin Link Categories Template *}
+{include file='inc/_header.html'}
+
+
+
+<div style="float:left; width:450px;">
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="command" value="del_username" />
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<td colspan="2">
+				<div>Restricted Usernames List</div>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+    {foreach from=$usernames.usernames item='item'}
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td style="width:93%;>
+				<div class="review_item_label">{$item.username}</div>
+			</td>
+			<td>
+				<input type="checkbox" name="usernames_arr[{$item.username_id}]" onclick="checkbox_onclick(this);" />
+			</td>
+		</tr>
+     {/foreach}
+	</tbody>
+    <tfoot>
+    	<tr>
+        	<td colspan="2" style="padding:3px; text-align:right; padding-top:5px;">
+            <input type="hidden" value="0" id="ch_counter" />
+            <input type="submit" value="Delete" disabled="disabled" id="action_submit" /></td>
+        </tr>
+    </tfoot>
+</table>
+</form>
+<div style="padding:5px; text-align:center;">
+{foreach from=$usernames.pages item='item'}
+<a{if $item.url} href="{$item.url}" style="font-weight:bold;"{/if}>{$item.label}</a>&nbsp;
+{/foreach}
+</div>
+{/block_page}
+</div>
+
+<div style="float:left; width:235px; padding-left:10px;">
+{block_page}
+<form action="" method="POST" onsubmit="check_form();">
+<input type="hidden" name="command" value="add_username" />
+<table cellspacing="0" width="100%">
+	<thead><td>Add username to list</td></thead>
+	<tbody>
+		<tr>
+			<td><input type="text" name="username" class="input_text" size="40" maxlength="25" id="username_field" onkeyup="check_field();" /></td>
+		</tr>
+	</tbody>
+	<tfoot><tr><td><input type="submit" class="submit" disabled="disabled" id="add_submit" value="Add" /></td></tr></tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+<br class="clr" />
+
+{include file='inc/_footer.html'}

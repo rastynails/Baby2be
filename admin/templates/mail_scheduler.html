@@ -1,0 +1,131 @@
+{include file='inc/_header.html'}
+
+
+{foreach from=$all_schedulers item=_statement}
+{block_page}
+<table width="100%">
+    <thead>
+        <tr>
+            <th id="scheduler_name_cap" >
+                {$_statement.name}
+            </th>
+        </tr>
+    </thead>
+</table>
+<form action="" method="POST" >
+<input type="hidden" name="statement_id" value="{$_statement.statement_id}" />
+<table width="100%">
+	<tbody>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td>Name</td>
+			<td>
+				<input type="text" name="statement_name" class="input_text" value="{$_statement.name}" />
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td>Type</td>
+			<td>
+				<select name="statement_type" />
+					<option value="mail" {if $_statement.type=='mail'}selected{/if} >send mail</option>
+					<!--<option value="delete" {if $_statement.type=='delete'}selected{/if} >delete profiles</option>-->
+					<option value="match" {if $_statement.type=='match'}selected{/if} >send matches</option>
+				</select>
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" id="mail_tpl_tr" >
+			<td>Mail template</td>
+			<td>
+				<select name="mail_tpl" >
+					{foreach from=$mail_list item=_mail_label key=_mail_key}
+					{if $_mail_key == $_statement.mail_template}
+						<option value="{$_mail_key}" selected>{$_mail_label}</option>
+					{else}
+						<option value="{$_mail_key}" >{$_mail_label}</option>
+					{/if}
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td id="sched_statement_profile_count_cap" >Profiles Count</td>
+			<td>at current moment: <b>{$_statement.profile_count}</b></td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td>Conditions</td>
+			<td>
+				{print_condition data=$_statement.conditions}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<input type="submit" name="delete_statement" value="Delete" class="submit" onclick="return confirm( 'Are you sure?' );" /> | 
+				<input type="submit" name="edit_statement" value="Save" class="submit" />
+			</td>
+		</tr>
+	</tfoot>	
+</table>
+</form>
+{/block_page}
+{/foreach}
+
+{block_page}
+<table width="100%">
+    <thead>
+        <tr>
+            <th id="scheduler_name_cap" >
+                Create new Scheduler
+            </th>
+        </tr>
+    </thead>
+</table>
+<form action="" method="POST" >
+	<table width="100%">
+		<tbody>
+			<tr class="{cycle values="tr_1, tr_2"}">
+				<td>Name</td>
+				<td><input type="text" name="statement_name" class="input_text" /></td>
+			</tr>
+				<td id="sched_statement_type_cap" >Type</td>
+				<td>
+					<select name="statement_type" />
+						<option value="mail">send mail</option>
+						{if $matchesEnabled}
+						  <option value="match">send matches</option>
+						{/if}
+					</select>
+				</td>
+			</tr>
+			<tr class="{cycle values="tr_1, tr_2"}" id="mail_tpl_tr" >
+				<td id="sched_statement_mail_tpl_cap" >Mail template</td>
+				<td>
+				{if $mail_list}
+					<select name="mail_tpl" >
+						{foreach from=$mail_list item=_mail_label key=_mail_key}
+						<option value="{$_mail_key}">{$_mail_label}</option>
+						{/foreach}
+					</select>
+				{else}
+					No mail templates avaivable. <a href="mail_scheduler_tpl.php?create=1">Create template</a>
+				{/if}
+				</td>
+			</tr>
+			<tr class="{cycle values="tr_1, tr_2"}">
+				<td id="sched_statement_conditions_cap" >Conditions</td>
+				<td>{print_condition}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="create_statement" class="submit" value="Create" />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</form>
+
+{/block_page}
+
+{include file='inc/_footer.html'}

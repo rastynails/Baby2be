@@ -1,0 +1,11 @@
+.memhome_link 
+{
+	float:left;
+	padding:0 0 10px;
+	width:50%;
+}
+
+.tip ul li
+{	
+	margin: 0 0 5px;
+}

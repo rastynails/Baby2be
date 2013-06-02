@@ -1,0 +1,6 @@
+.hot_list .clearfix {
+	padding-left: 10px;
+}
+.hot_list .profile_thumb_wrapper {
+	height: 75px;
+}

@@ -1,0 +1,80 @@
+.quick_search .block,
+.quick_search .block_cap_corner,
+.quick_search .block_body {
+	background: none;
+	border: none;
+}
+
+.quick_search .block_body{
+	padding: 0 0 0 20px;
+}
+
+.quick_search .block_cap {
+	background: image(quick_search.jpg) no-repeat;
+	width: 403px;
+	height: 30px;
+	border: none;
+	padding: 7px 0 0 5px;
+}
+
+.quick_search .block_cap_c,
+.quick_search .block_cap_r {
+	background: none;
+}
+
+.quick_search .block_cap_title {
+	color: #cf2c44;
+	text-transform: none;
+	margin: 3px;
+}
+
+.quick_search .content_container select {
+	width: 174px;
+}
+
+.quick_search hr {
+	background: none !important;
+	border:0 none !important;
+	clear: both !important;
+	height: 0 !important;
+}
+
+.quick_search .list_label {
+	padding: 0;
+}
+
+.sign_up_cont .block,
+.sign_up_cont .block_cap,
+.sign_up_cont .block_body {
+	background: none;
+	border: none;
+}
+
+.sign_up_cont .block_cap h3{
+	color: #06242F;
+	padding-top: 5px;
+}
+
+.sign_up_cont {
+	margin-left:24px;
+	width:200px;
+}
+
+.sign_up_cont label{
+	float: left;
+}
+
+.sign_in_cont-line, 
+.sign_in_cont-no_block {
+	margin-left:24px;
+	margin-top:15px;
+	position:relative;
+	width:100%;
+}
+
+#footer {
+	margin:0 0 -11px 0;
+}
+body .block_cap_title {
+	font-size: 18px;
+}

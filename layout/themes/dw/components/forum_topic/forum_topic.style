@@ -1,0 +1,7 @@
+.expandable_menu {
+	background: #ccc;
+}
+
+.expandable_menu .block {
+	margin-bottom: 0px;
+}

@@ -1,0 +1,39 @@
+.forum_thumb {
+	background: transparent none;
+}
+
+.edited {
+	color: #ff5d5d;
+}
+table.topic_tab {
+	background: #f7f7f0;
+	border: 1px solid #c7c7a9;
+}
+table.topic_tab .list_item {
+	border: none;
+	padding-left: 6px;
+}
+.post_table .list_item {
+	padding-left: 6px;
+}
+.post_table .forum_thumb, table.topic_tab .forum_thumb {
+	width: 96px;
+	height: 122px;
+	padding-left: 6px;
+	background-image: image(forum_line.gif);
+	background-repeat: no-repeat;
+	background-position: right 10px;
+}
+.topic_block .block_body {
+	padding: 0px;
+	margin-left: 1px;
+}
+.post_text {
+	width: 672px;
+}
+.attachments {
+	width: 672px;
+}
+td.list_item {
+	width: 690px;
+}

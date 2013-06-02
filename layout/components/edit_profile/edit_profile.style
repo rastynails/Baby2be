@@ -1,0 +1,46 @@
+.change_pass_cont .change_password
+{
+	float:right;
+	margin-bottom:10px;
+}
+
+.profile_unregister {
+	color: << $a_link;
+}
+
+.fbc_synch_c {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.progress_bar_wrap {
+	padding: 5px;
+	width: 90%;
+	margin: 0px auto;
+}
+.progress_bar_txt {
+	margin-right: 246px;
+	text-align: right;
+	padding-top: 2px;
+}
+.progress_bar_bg {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #eaeaea #d9d9da #d0d0d1 #dbdbdc;
+    padding: 3px;
+    width: 230px;
+    height: 12px;
+    float: right;
+    margin-left: -236px;
+    background: image(progress_bg.gif) repeat-x 0px 0px;
+}
+.progress_bar {
+    height: 12px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background: image(progress_x.gif) repeat-x 0px 0px;
+}

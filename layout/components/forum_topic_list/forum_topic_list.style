@@ -1,0 +1,27 @@
+.action_buttons
+{
+	text-align: right;
+	height: 8px;
+}
+
+.post_count, .topic_count 
+{
+	width:60px;
+}
+
+.last_post 
+{
+	width:170px;
+}
+
+.topic_block 
+{
+	background: transparent image(topic_block.png) no-repeat scroll center center;
+	width:25px;
+}
+
+.topic_stick 
+{
+	background: transparent image(topic_stick.png) no-repeat scroll center center;
+	width:25px;
+}

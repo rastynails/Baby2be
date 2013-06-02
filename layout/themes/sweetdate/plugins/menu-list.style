@@ -1,0 +1,23 @@
+.menu-list {
+	padding: 0px 15px 0px 0px;
+}
+.menu-list li {
+	list-style:none;
+	display:inline;
+	margin: 0px 0px 0px 10px;
+}
+
+#page_canvas .menu-list a {
+	padding:0px  0px 0px 0px;
+	text-decoration:underline;
+	color: #005cac;
+	display: inline-block;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+}
+#page_canvas .menu-list a:hover,
+#page_canvas .menu-list a.active {
+	text-decoration:none;
+	background: none;
+}

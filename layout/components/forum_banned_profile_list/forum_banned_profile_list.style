@@ -1,0 +1,9 @@
+.ban_list
+{
+	width: 35%;
+}
+
+.you_banned
+{
+	background-color: #FF947F;
+}

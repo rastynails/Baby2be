@@ -1,0 +1,14 @@
+/* -- component page header -- */
+
+.page_header << $page_header {
+	margin: 10px auto 0px;
+	height: 100px;
+        width: 830px;
+}
+
+.logo {
+	display: block;
+	height: 68px;
+	background: << $site_logo;
+	width: 340px;
+}

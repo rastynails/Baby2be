@@ -1,0 +1,89 @@
+{* Admin interface: affiliate list *}
+{include file='inc/_header.html'}
+
+{block_page}
+<table id="affilate_list_table" cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="affilate_list_table_head_cell" colspan="7">Affiliate list</th>
+		</tr>
+		<tr>
+			<td id="affilate_list_table_subhead_full_name_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=full_name&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Full name</a>
+			</td>
+			<td id="affilate_list_table_subhead_clicks_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=traffic&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Clicks</a>
+			</td>
+			<td id="affilate_list_table_subhead_signups_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=registration&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Signups</a>
+			</td>
+			<td id="affilate_list_table_subhead_subscriptions_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=sale&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Subscriptions</a>
+			</td>
+			<td id="affilate_list_table_subhead_balance_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=balance&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Balance</a>
+			</td>
+			<td id="affilate_list_table_subhead_paid_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=paid&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Paid</a>
+			</td>
+			<td id="affilate_list_table_subhead_status_cell">
+				<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=active&sort_order={$sort_order}&page={$page}&num_on_page={$num_on_page}">Status</a>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$affiliate_list item='affiliate'}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td><a href="{$smarty.const.URL_ADMIN}affiliate.php?affiliate_id={$affiliate.affiliate_id}">{$affiliate.full_name}</a></td>
+			<td>{if $affiliate.traffic == ''}0{else}{$affiliate.traffic}{/if}</td>
+			<td>{if $affiliate.registration == ''}0{else}{$affiliate.registration}{/if}</td>
+			<td>{if $affiliate.sale == ''}0{else}{$affiliate.sale}{/if}</td>
+			<td>{$affiliate.balance|string_format:"%.2f"}</td>
+			<td>{$affiliate.paid|string_format:"%.2f"}</td>
+			<td class="{if $affiliate.active == 'yes'}profile_status_active{else}profile_status_suspended{/if}">{if $affiliate.active == 'yes'}Active{else}Inactive{/if}</td>
+		</tr>
+	{/foreach}
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+{* Page Navigation *}
+<center>
+<form action="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by={$sort_by}" method="post" name="on_page_form">
+<span id="displayed_results_container">
+	Results: {math equation="$num_on_page*$page-$num_on_page+1" assign=var}<b>{if $total==0}0{else}{$var}{/if}</b>-{if $page*$num_on_page < $total}{math equation="$page*$num_on_page" assign=var2}<b>{$var2}</b>{else}<b>{$total}</b>{/if}
+</span> |
+<span id="total_affilates_num_container">
+	Total: <b>{$total}</b>
+</span> |
+<span id="results_per_page_container">
+	Results per page:
+	<select id="results_per_page_select" name="num_on_page" onchange="javascript: document.forms['on_page_form'].submit();">
+		{html_options options=$num_on_page_arr selected=$num_on_page}
+	</select>
+</span>
+</form>
+{if $page != 1}<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=affiliate_id&page=1&num_on_page={$num_on_page}">First</a> | {/if}
+{if $page > 1}<a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=affiliate_id&page={$page-1}&num_on_page={$num_on_page}">Previous</a> | {/if}
+{counter start=0 skip=1 print=false}
+{foreach from=$page_arr item=element}
+{math equation="3-$count+$page" assign=d}
+{if $d < 0}{assign var=d value=0}{/if}
+{math equation="4-$page" assign=d2}
+{if $d2 < 0}{assign var=d2 value=0}{/if}
+	{if ($page >= $element && $page - $element < 4 + $d) || ($page < $element && $element - $page < 4 + $d2) }
+		{if $page == $element} [<b>{$element}</b>] {else} <b><a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=affiliate_id&page={$element}&num_on_page={$num_on_page}">{$element}</a></b> {/if}
+	{/if}
+	{counter assign=i print=false}
+{/foreach}
+{if $page < $i} | <a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=affiliate_id&page={$page+1}&num_on_page={$num_on_page}">Next</a>{/if}
+{if $page < $count} | <a href="{$smarty.const.URL_ADMIN}affiliate_list.php?sort_by=affiliate_id&page={$count}&num_on_page={$num_on_page}">Last</a>{/if}
+</center>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

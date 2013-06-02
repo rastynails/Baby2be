@@ -1,0 +1,35 @@
+/* Sidebar CSS Styles */
+
+.sidebar a:link,
+.sidebar a:visited
+{
+}
+
+.sidebar .block {
+	margin-bottom: 10px;
+}
+
+.sidebar .block_body {
+	background: #626262;
+}
+
+.sidebar .indicator .block_body {
+	background: #DDFFDD;
+}
+
+.sidebar .block_cap
+{
+	background: #626262;
+	padding-left: 2px;
+}
+
+.sidebar .block_cap h3
+{
+ 	font-family: << $base_font;
+	font-size: 10px;
+}
+
+.sidebar input.text
+{
+	width: 93%;
+}

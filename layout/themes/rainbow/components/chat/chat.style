@@ -1,0 +1,21 @@
+.chat_input {
+	width: 472px;
+}
+.block-active .block_cap {
+	background-color: transparent;
+}
+.chat_rooms_container .chat_room_block .block_cap {
+	margin: 0px 2px;
+}
+.chat_rooms_container .users_count {
+	padding-left: 4px;
+}
+.chat_carcass_tbl td {
+	padding-top: 0px;
+}
+.block-active .block_cap {
+	border-color: #E3E3E3;
+}
+.chat_windows_container {
+	width: 580px;
+}

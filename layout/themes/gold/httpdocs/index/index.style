@@ -1,0 +1,38 @@
+.quick_search hr{ 
+	background: none repeat scroll 0 0 !important;
+	border:0 none;
+	clear:both;
+	height:0px;
+}
+
+#content {
+	background: none !important; 
+}
+
+.quick_search {
+	margin: 20px 0 0;
+}
+
+.quick_search .block_cap,
+.quick_search .block_body,
+.quick_search .block {
+	background: none;
+	border: none;
+	color: #000;
+}
+
+.quick_search .block_cap .block_cap_title {
+	color: #794700;
+}
+
+.quick_search .block_cap .block_cap_title {
+	margin: 2px 2px 2px 60px
+}
+
+.quick_search input[type=submit] {
+	width:63px;
+	height: 25px;
+	font-size: 12px;
+	margin: -7px;
+}
+

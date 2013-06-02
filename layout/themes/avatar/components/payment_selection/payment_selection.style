@@ -1,0 +1,41 @@
+.plan_box {
+	height:64px;
+}
+
+
+.current{
+	background:#77d57e;
+}
+
+.current_status{
+}
+
+.pay_by_sms{
+}
+
+.membership_types_tbl .block,
+.membership_types_tbl .block_body,
+.membership_types_tbl .block_bottom,
+.membership_types_tbl .block_bottom_c,
+.membership_types_tbl .block_bottom_r{
+	background:transparent;
+}
+
+.membership_types_tbl .block_cap,
+.membership_types_tbl .block_cap_c,
+.membership_types_tbl .block_cap_r{
+	margin-top:0px;
+	background:#295292;
+	height:18px;
+	padding:0px;
+	
+}
+
+.payment_selection{
+	padding-top: 10px;
+	background:#fff;
+}
+
+.membership_types_tbl .block_cap_title{
+	margin:0px 2px;
+}

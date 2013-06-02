@@ -1,0 +1,6 @@
+.expandable_menu .block_body {
+	background: #E5F3F6;
+}
+.expandable_menu {
+	top: -8px;
+}

@@ -1,0 +1,10 @@
+.submenu 
+{	
+	font-size:11px;
+	padding:10px 0;
+	text-align:center;
+	background: none;
+	width:830px;
+	float: left;
+	border: none;
+}

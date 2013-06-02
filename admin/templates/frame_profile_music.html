@@ -1,0 +1,125 @@
+{* Admin Profile photos manager Template *}
+<html>
+
+<head>
+	<script src="{$smarty.const.URL_STATIC}jquery.js" type="text/javascript"></script>
+	<script src="{$smarty.const.URL_STATIC}interface.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var $jq = jQuery.noConflict();
+	</script>
+	
+	{foreach from=$_required_js_files item='js_file'}
+		<script src="{$js_file}" type="text/javascript"></script>
+	{/foreach}
+	{if $header_js_code}
+	<script type="text/javascript">{$header_js_code}</script>
+	{/if}
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.URL_ADMIN_CSS}admin.css" />
+</head>
+
+<body {if $_js_onload}onload="{$_js_onload}"{/if} style="background: #DFDFDF">
+
+<form action="{$smarty.server.REQUEST_URI}" method="POST" >
+<table width="100%" cellpadding="0" cellspacing="0" id="profile_music_manager_tbl" >
+	<thead>
+		<tr>
+			<td colspan="2">
+				{page_messages}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{if $media_status}
+					Music files with status: {$media_status}
+				{else}
+					All music files
+				{/if}
+			</td>
+			<td>
+				<div style="background: #95EFA1; float: left; padding: 2px; margin: 2px; font-weight: bold">Active</div>
+				<div style="background: #E3EF77; float: left; padding: 2px; margin: 2px; font-weight: bold">Approval</div>
+				<div style="background: #EF8D86; float: left; padding: 2px; margin: 2px; font-weight: bold">Suspended</div> 
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="view_music_object" width="58%" align="center" style="vertical-align: top">
+				<p id="musplayer_container">Click <b>play</b> link</p>
+			</td>
+			<td valign="top">
+				<form action="{$smarty.server.REQUEST_URI}" method="POST" >
+				<table cellpadding="1" cellspacing="1" width="100%">
+				
+				<tbody>
+					<tr>
+						<td class="section_name" colspan="2" id="profile_music_video_list_cap" >
+						    Music
+						</td>
+					</tr>
+
+					{if $music_arr}
+						{foreach from=$music_arr item=video_info}
+							<tr>
+								<td class="profile_photo_{$video_info.status}_tr" width="10%">
+									<input type="checkbox" name="music_file_arr[]" value="{$video_info.music_id}" />
+								</td>
+								<td>
+									<table width="100%">
+										<tr>
+											<td width="100px"><img src="{if $video_info.thumb_img eq 'default'}{$smarty.const.SITE_URL}layout/img/music_list.gif{else}{$video_info.thumb_img}{/if}" width="100px" /></td>
+											<td style="vertical-align: top">
+											<div class="media_cup">
+											{if $video_info.music_source != 'file'}
+												<a href="javascript://" onclick="play_music( 'view_music_object',  '{$video_info.href}', '100%', '20', 'code', '', '{$video_info.music_id}' );"><b>play</b></a>
+											{else}
+												<a href="javascript://" onclick="play_music( 'view_music_object',  '{$video_info.href}', '100%', '20', '{$media_mode}', '{$swf_player_src}', '' );"><b>play</b></a>
+											{/if}</div>
+												<b>{$video_info.title}</b><br />
+												{$video_info.description} 
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						{/foreach}
+					{else}
+						<tr>
+							<td colspan="3">
+								<div class="page_notice">
+                                                                 {if $media_status}
+									No music files with status {$media_status}
+								{else}
+									No music files
+								{/if}
+								</div>
+							</td>
+						</tr>
+					{/if}
+				
+				</tbody>
+				<tfoot>
+					{if $music_arr}
+						<tr>
+							<td colspan="3">
+								Selected: <input type="submit" name="delete_music" value="Delete" class="submit" /> |
+								<input type="submit" name="set_status" value="Set status" class="submit" id="profile_music_set_status_btn" />
+								<select name="music_status">
+									<option value="active">Active</option>
+									<option value="approval">Approval</option>
+									<option value="suspended">Suspended</option>
+								</select>						 
+							</td>
+						</tr>
+					{/if}
+				</tfoot>
+				</table>
+				</form>
+			</td>
+		</tr>
+		
+	</tbody>
+</table>
+</form>
+</body>
+</html>

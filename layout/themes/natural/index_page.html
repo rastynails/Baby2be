@@ -1,0 +1,52 @@
+{*  Theme: Natural   *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/natural/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 100%; margin: 0px;">
+	<div id="line_1">
+		<table class="index_tab" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="bg_white"><span style="color: #fff">.</span></td>
+				<td class="cont_cell">
+					<div class="cont_div">
+						{*component NavigationInventoryLine*}
+						{component PageHeader}
+						<div class="or">
+							<a class="index_join" href="{document_url doc_key=join_profile}"> </a>
+							{text %.label.or}
+							<a class="index_signin" href="{document_url doc_key=sign_in}"> </a>
+						</div>
+						<div class="search_index">
+							{component QuickSearch}
+						</div> 
+					</div>
+				</td>
+				<td class="bg_orange"><span style="color: #FF8B02">.</span></td>
+			</tr>
+		</table>
+	</div>
+	<div id="line_2">
+		<div class="line_2_cont">
+			<div class="rounded_corn_left">
+				<div class="rounded_corn_right">
+					<div class="rounded_text">{text %.promo.promo_index_natural}</div>
+				</div>
+			</div>
+			<div class="block_index_line">
+				<div class="block_index_left">
+					{component IndexProfileList lists='featured|online|new' count=5}
+				</div>
+				<div class="block_index_right">
+					{component IndexPhotoList lists='top_rated|most_commented|latest|most_viewed' count=8}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="line_3">
+		<div id="footer">{component PageFooter}</div> 
+		{ads pos='bottom'}
+	</div>
+</div>
+{/canvas}

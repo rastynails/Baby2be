@@ -1,0 +1,21 @@
+.photo_block {
+	float:left;
+	margin:5px 8px 0 0;
+	width:32%;
+}
+
+.photo_cont {
+	height: 100px;
+	width: 100px;
+}
+
+.details_cont {
+	padding-left: 10px;
+	width: 147px;
+	word-wrap: break-word;
+}
+
+.clr_fix {
+	clear: both;
+	height: 0px;
+}

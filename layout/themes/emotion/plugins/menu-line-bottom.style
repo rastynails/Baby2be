@@ -1,0 +1,23 @@
+.menu-line-bottom a:hover, .menu-line-bottom a.active
+{
+	text-decoration:underline;
+}
+
+.menu-line-bottom a
+{
+	text-decoration:underline;
+}
+
+.menu-line-bottom li
+{
+	list-style:none;
+	
+	display:inline;
+}
+
+ul.menu-line-bottom {
+	width: 820px;
+	text-align: center;
+	background: none;
+	padding: 5px;
+}

@@ -1,0 +1,64 @@
+{* Admin interface: list of membership services *}
+{include file='inc/_header.html'}
+
+{block_page}
+<form method="POST" onsubmit="javascript: return CheckServiceForm(this);">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<thead>
+		<th id="membership_service_list_title_thead_cell" colspan="4">
+			Services
+		</th>
+		<tr>
+			<td>Name</td>
+			<td width="20%">Allow to use service for credits</td>
+			<td width="15%">Service cost, credits</td>
+            <td width="18%">Show service on diagram</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$services item=service name=services}
+	{if $service.active}
+	<tr class="{cycle values='tr_1,tr_2'}">
+		<td>
+			{$service.description}
+		</td>
+		<td align="center">
+			{if $service.use_credits==1}
+				{assign var=checked value=" checked"}
+			{else}
+				{assign var=checked value=""}
+			{/if}
+			<input type="hidden" name="use_credits[{$service.membership_service_key}]" value="0" />
+			<input type="checkbox" name="use_credits[{$service.membership_service_key}]" value="1"{$checked} />
+		</td>
+		<td align="center">
+            <input type="text" size="7" name="cost[{$service.membership_service_key}]" value="{$service.credits}" />
+		</td>
+		<td align="center">
+            {if $service.show == 'yes'}
+                {assign var=checked value=" checked"}
+            {else}
+                {assign var=checked value=""}
+            {/if}
+            <input type="hidden" name="show[{$service.membership_service_key}]" value="no" />
+            <input type="checkbox" name="show[{$service.membership_service_key}]" value="yes"{$checked} />
+        </td>
+	</tr>
+	{/if}
+	{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4">
+				<input type="submit" value="Save" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

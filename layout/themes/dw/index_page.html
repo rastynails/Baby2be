@@ -1,0 +1,33 @@
+{*  Theme: Dance Wild   *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/dw/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+	{component NavigationInventoryLine}
+	<div id="content">
+		{component PageHeader}
+		<div class="index clearfix">
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/dw/img/dw_index_couple.jpg) no-repeat; width: 727px; height: 531px; margin: 0 auto;">
+				<div style="float: left; margin-left: 4px; width: 25%">
+					{component SignIn}
+				</div>
+				<div style="width:200px; height: 150px; position: absolute; top: 414px; left:0px;"><a href="{document_url doc_key="join_profile"}"><img src="{$smarty.const.URL_LAYOUT}themes/dw/img/join_index_button.png"></a></div>
+				<div style="position: absolute; top:0px; right: 0px; width: 46%;">
+					<div style="background: url({$smarty.const.URL_LAYOUT}themes/dw/img/dw_index_qs.png) no-repeat; width:302px; height: 431px; padding: 0px 15px">
+						{component QuickSearch}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			{component IndexProfileList lists='featured' count=10}
+		</div>
+	</div>
+
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

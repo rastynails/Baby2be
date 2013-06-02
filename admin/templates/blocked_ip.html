@@ -1,0 +1,90 @@
+{include file='inc/_header.html'}
+
+{block_page}
+
+<table id="blocked_ip_manager_tbl" width="100%">
+	<thead>
+		<tr>
+			<th id="blocked_ip_manager_tbl_head_cell" colspan="2">Blocked IP manager</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<table id="blocked_ip_search_tbl">
+					<thead>
+						<tr>
+							<th id="blocked_ip_search_tbl_head_cell">Find blocked IP</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="blocked_ip_search_tbl_body_cell">
+							<form action="{$smarty.const.URL_ADMIN}blocked_ip.php" method="GET" />
+								<input id="blocked_ip_search_input" type="text" name="search_pattern" class="input_text" /> 
+								<input id="blocked_ip_search_submit_btn" type="submit" name="search_ip" value="Search" class="submit" />
+							</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br class="clr" />
+				{if $find_ip}
+					<table id="blocked_ip_search_result_tbl">
+						<thead>
+							<tr>
+								<th colspan="2" id="blocked_ip_search_result_tbl_head_cell">Search result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="blocked_ip_search_result_find_ip_cell">{$find_ip}</td>
+								<td id="blocked_ip_search_result_find_ip_delete_cell">
+									<a href="{$smarty.const.URL_ADMIN}blocked_ip.php?delete_ip={$find_ip}" class="delete"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br class="clr" />
+				{/if}
+				<table id="blocked_ip_note_tbl">
+					<thead>
+						<tr>
+							<td id="blocked_ip_note_tbl_head_cell">Note</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="blocked_ip_note_tbl_note_cell">Members with blocked IP <br /> can not Sign up again and Sign in from blocked IP.</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			
+			<td valign="top">
+				<table id="blocked_ip_add_ip_tbl">
+					<thead>
+						<tr>
+							<th id="blocked_ip_add_ip_tbl_head_cell">Add blocked IP</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="blocked_ip_add_ip_tbl_body_cell">
+							<form action="{$smarty.const.URL_ADMIN}blocked_ip.php" method="POST" />
+								<input type="text" name="add_pattern" class="input_text" /> 
+								<input type="submit" name="add_ip" value="Add IP" class="submit" />
+							</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+	
+</table>
+
+{/block_page}
+<br clear="all" />
+{include file='inc/_footer.html'}

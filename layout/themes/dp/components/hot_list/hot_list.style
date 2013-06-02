@@ -1,0 +1,6 @@
+.hot_list .profile_thumb_wrapper {
+	height: 72px;
+}
+.hot_even,.hot_odd {
+	width: 72px;
+}

@@ -1,0 +1,33 @@
+{* Admin Language Search Template *}
+
+{include file='inc/_header.html'}
+
+{include file='inc/form_lang_search.html'}
+
+{if $search_key || $missing_count}
+{block_page}
+	<table width="730px" class="lang_search_res">
+	<thead>
+		<tr>
+			<td>{if $missing_count}{$missing_count} missing labels for '{$lang}' language{else}Search result{/if}</td>
+		</tr>
+	</thead>
+	<tbody>
+	{if !$keys}
+		<tr><td>Nothing found</td></tr>
+	{else}
+	{foreach from=$keys item='lang_key'}
+		<tr class="{cycle values="tr_1, tr_2"}">
+			<td>
+				<span style="font-size: 10px; line-height: 18px;">{$lang_key.path}.{$lang_key.key}</span><br />
+				{edit_lang_values_btn section=$lang_key.path key=$lang_key.key match=''}
+			</td>
+		</tr>
+	{/foreach}
+	{/if}
+	</tbody>
+	</table>
+{/block_page}
+{/if}
+
+{include file='inc/_footer.html'}

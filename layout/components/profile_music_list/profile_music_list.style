@@ -1,0 +1,29 @@
+{* Profile Music List CSS styles *}
+
+.music_list {
+	padding: 0px;
+}
+
+.music_info {
+	float: right;
+	margin-left: -150px;
+	width: 150px;
+}
+
+.music_thumb {
+	float: left;
+	margin-right: -100px;
+	width: 100px;
+}
+
+.music_body {
+	margin-left: 110px;
+	margin-right: 155px;
+}
+
+.list_item hr {
+	border-style: none none solid;
+	border-width: medium medium 1px;
+	color:#eee;
+}
+

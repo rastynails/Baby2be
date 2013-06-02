@@ -1,0 +1,36 @@
+ul.menu-tabs-small {
+	float: left;
+	margin: 0px 0px 0px 0px;
+	border: none;
+	padding: 0px 0px 0px 0px;
+	background: none;
+	line-height: 25px;
+}
+ul.menu-tabs-small li.tab {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+ul.menu-tabs-small li.tab a {
+	display: block;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #60758b #14212f #131f2d #60758b;
+	height: 22px;
+	line-height: 22px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	background: #3e5368;
+	font-size: 11px;
+	color: #fff;
+}
+ul.menu-tabs-small li.tab a:hover {
+	background: #4d6176;
+	border-color: #6d8196 #152231 #152231 #6d8196;
+}
+ul.menu-tabs-small li.tab a:active,
+ul.menu-tabs-small li.tab a.active,
+ul.menu-tabs-small li.tab a.active:hover {
+	background: #3e5368;
+	border-color: #2c3d4e #3e5368 #435665 #2c3d4e;
+}

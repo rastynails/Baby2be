@@ -1,0 +1,97 @@
+{include file='inc/_header.html'}
+
+{block_page}
+	<div class="additional_settings">
+		{print_configs section=$section}
+	</div>
+{/block_page}
+
+
+{block_page}
+
+<div class="thead_td" style="font-size:12px; margin-bottom:10px;">Groups</div>
+<div class="classifieds_cat">
+{foreach  from=$groups item=group}
+	<div class="category" id="group_{$group.group_id}">
+		<div class="forum_title">
+			<input type="checkbox" name="groups[]" value="{$group.group_id}" class="float_left"/>
+			<a href="javascript://" title="delete" class="forum_delete delete_forum_group"></a>
+			<a href="javascript://" title="edit" class="edit_forum_group"></a>
+			<div style="margin-left: {$group.margin}px;">
+				<a href="javascript://" title="up" class="forum_up" ></a>
+				<a href="javascript://" title="down" class="forum_down" ></a>	
+				&nbsp;&nbsp;&nbsp;<span class="cls_groupname">{$group.name}</span>
+			</div>
+		</div>
+	</div>
+{/foreach}
+</div>
+<div style="margin: 3px; margin-left: 20px;">
+	<span>Move selected to:</span> 
+	<select id="move_parent_id">
+		<option value="0">Root</option>
+	{foreach from=$groups item=group}
+		<option value="{$group.group_id}">{$group.label}</option>
+	{/foreach}
+	</select>
+	<input type="button" value="Move" id="move_group"/>
+</div>
+
+{/block_page}
+
+<div style="width: 50%">
+{block_page}
+<table cellspacing="0" align="left" width="100%">
+	<thead>
+		<tr>
+			<td colspan="2">Add a new group</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" maxlength="254" size="40" id="new_group_name"/></td>
+		</tr>
+		<tr>
+			<td>Select group</td>
+			<td>
+				<select id="new_parent_id">
+					<option value="0">Root</option>
+				{foreach from=$groups item=group}
+					<option value="{$group.group_id}">{$group.label}</option>
+				{/foreach}
+				</select>		
+			</td>
+		</tr>		
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="button" id="add_group" value="Create"/></td>
+		</tr>
+	</tfoot>
+</table>
+{/block_page}
+</div>
+
+{*Edit Cls Group Thickbox*}
+<div style="display: none;">
+	<div class="edit_group_title">Edit category</div>
+	<div class="edit_group_content">
+		<input type="text" id="edit_group_name" name="edit_group_name"/>
+		<input class="forum_button" type="button" id="edit_group" value="Edit"/>
+	</div> 
+</div>
+
+{*Delete Cls Group Confirm*}	 
+<div style="display: none">
+<div style="display: none">
+	<div id="confirm_group_title">Delete Group</div>
+	<div id="confirm_group_content">
+		<span style="color:red; font-weight: bold;">Attention:</span> All group items will be deleted?<br/>
+		Are you sure you want to delete group?
+	</div>
+</div>
+</div>
+
+
+{include file='inc/_footer.html'}

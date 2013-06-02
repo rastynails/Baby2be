@@ -1,0 +1,143 @@
+body {
+	background: #fff7f1 image(main_bg.jpg) repeat 0 0;
+}
+
+#content {
+	float: none;
+	width: auto;
+}
+
+.index_page_header {
+	background: #670000 image(promo.jpg) no-repeat 50% 0px;
+}
+
+.shadow_top {background: transparent image(shd_top.png) repeat-x left top;}
+.shadow_bottom {background: transparent image(shd_bot.png) repeat-x left bottom;}
+
+.index_page_header .page_header {
+	background: none;
+}
+
+.page_header .main_menu {
+	display: none;
+}
+
+.page_header_wrap {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 542px;
+}
+
+.index_quick_search {
+	width: 313px;
+	padding: 0px;
+	background: none;
+	margin-left: 16px;
+}
+
+.index_quick_search .block_cap_title {
+	display: block;
+}
+
+html body  .index_quick_search .block_cap_c {
+ 	padding-top: 3px;
+ }
+ 
+.index_join {
+	margin-right: 36px;
+}	
+
+.promo_block {
+	padding-bottom: 8px;
+}
+
+body .index_video .block_toolbar,
+body .forum_last_topics .block_toolbar,
+body .index_blog_list .block_toolbar,
+body .events_index_calendar .block_toolbar,
+body .index_photo_list .block_toolbar,
+body .index_news .block_toolbar,
+body .cls_index_items .block_toolbar,
+body .index_group_list .block_toolbar {
+	float: right;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 0px;
+	height: auto;
+}
+
+.index_video .block_toolbar a,
+.forum_last_topics .block_toolbar a,
+.index_blog_list .block_toolbar a,
+.events_index_calendar .block_toolbar a,
+.index_photo_list .block_toolbar a,
+.index_news .block_toolbar a,
+.cls_index_items .block_toolbar a,
+.index_group_list .block_toolbar a {
+	background: #de2024 image(button.gif) repeat-x left top;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a00308;
+	color: #fff;
+	font-weight: normal;
+	font-size: 14px;
+	display: block;
+	padding: 7px 18px 5px 18px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-family: "Ubuntu", Arial;
+	font-weight: lighter;
+}
+
+.index_video .block_toolbar a:hover,
+.forum_last_topics .block_toolbar a:hover,
+.index_blog_list .block_toolbar a:hover,
+.events_index_calendar .block_toolbar a:hover,
+.index_photo_list .block_toolbar a:hover,
+.index_news .block_toolbar a:hover,
+.cls_index_items .block_toolbar a:hover,
+.index_group_list .block_toolbar a:hover {
+	text-decoration: none;
+	background-color: #da1c21;
+	border: 1px solid #ec2227;
+	background-image: none;
+	border-top: 1px solid #a00308;
+	border-left: 1px solid #a00308;
+}
+
+.index_content_wrap .photo_list_cont ul {
+	padding: 1px 1px 0px 1px;
+}
+
+.index_quick_search .quick_search .bottom_line {
+    
+}
+
+.qs_fields_sex, .qs_fields_match_sex, 
+.qs_fields_birthdate, .qs_fields_location {
+	border-bottom: 1px solid #8f3325;
+	margin-bottom: 5px;
+	padding-top: 3px;
+}
+
+.qs_fields_birthdate, .qs_fields_params {
+	padding-bottom: 5px;
+}
+
+
+.index_quick_search .quick_search .field_mileage{
+	margin: 0px;
+}
+.index_quick_search .quick_search .field_mileage .content_container {
+	margin: 0px;
+	padding: 0px 4px;
+}
+
+.index_quick_search .block {
+	margin: 0px;
+}
+
+.index_quick_search .field_mileage .content_container select ,
+.radius_first, .city_name {
+	margin: 5px 0px;
+}

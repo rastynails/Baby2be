@@ -1,0 +1,106 @@
+{* Admin interface: Menu items manage *}
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form action="" method="POST" onsubmit="return(confirm('Are you sure?'));">
+<input type="hidden" name="action" value="sadmin_delete" />
+<table style="width: 100%">
+	<thead>
+		<tr>
+			<td colspan="5" align="center">
+				Administrators
+			</td>
+		</tr>
+		<tr>		
+			<td width="4%"></td>
+			<td>id</td>			
+			<td>login</td>
+			<td>email</td>			
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$admin_info_set item=admin_info}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>		
+			<td>
+				<input type="checkbox" name="sadmin_info_set[][admin_id]" value="{$admin_info.admin_id}" />
+			</td>
+			<td>
+					{$admin_info.admin_id}
+			</td>			
+			<td>
+				<a href="{$smarty.const.URL_ADMIN}assign_sections.php?admin_id={$admin_info.admin_id}">
+					{$admin_info.admin_username}
+				</a>
+			</td>
+			<td>
+				{$admin_info.email}
+			</td>						
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+	<tr>
+    	<td></td>
+		<td colspan="5" style="padding:5px 10px;;">
+			With selected:
+			<input type="submit" value="delete" />
+		</td>
+	</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+<div style="float: left">
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="action" value="sadmin_add" />
+<table>
+	<thead>
+		<tr>
+			<td colspan="2" align="center">
+				Add new administrator
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2">
+			<td style="padding: 5px 10px;">
+				username:
+			</td>
+			<td style="padding: 5px 10px;">
+				<input type="text" name="sadmin_username" />		
+			</td>
+		</tr>
+		<tr class="tr_1">
+			<td>
+				password:
+			</td>	
+			<td>
+				<input type="text" name="sadmin_password" />	
+			</td>
+		</tr>
+		<tr class="tr_2">
+			<td>
+				email:
+			</td>
+			<td>
+				<input type="text" name="sadmin_email" />
+			</td>	
+		</tr>	
+		<tr>		
+        	<td>
+			<td style="padding: 5px 10px;" colspan="2" align="right">
+				<input type="submit" value="add" />		
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+{/block_page}
+</div>
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

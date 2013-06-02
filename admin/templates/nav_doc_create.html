@@ -1,0 +1,190 @@
+{* Admin interface: Create document *}
+{include file='inc/_header.html'}
+
+{literal}
+	<style>
+		.custom_code_container .lang_key_value_input{
+			width: 295px;
+		}
+		.custom_code_container textarea.lang_key_value_input{
+			height:110px;
+		}
+	</style>
+{/literal}
+
+{if $item_info.menu_item_id}
+	<div class="pr_top_add_field">
+	<a href="{$smarty.const.URL_ADMIN}nav_menu_create.php">Create new item</a>
+</div>
+{/if}
+
+<div>
+{block_page}
+                
+<table width='100%' cellpadding="0" cellspacing="0" border="0">
+	<thead>
+		<th colspan="100">
+			{if $doc_info.document_key}
+				Edit Document
+			{else}
+				Create Document
+			{/if}
+		</th>
+	</thead>
+	<form action="{$smarty.const.URL_ADMIN}nav_doc_create.php" method="POST" onsubmit="return {if $doc_info.document_key}CheckEditDocumentForm( this );{else}CheckAddDocumentForm( this );{/if}" >
+	<tbody>
+		<tr class="tr_item_main_info">
+			<td colspan="2">
+				Item Info
+			</td>
+		</tr>
+		<tr class="tr_1" {highlight}>
+                    <td align="right" id="nav_doc_create_doc_key_cap" style="width: 19%" >
+				Document Key
+			</td>
+                        <td>
+				{if $doc_info.document_key}
+					<b>{$doc_info.document_key}</b>
+					<input type="hidden" name="doc_key" value="{$doc_info.document_key}" />
+				{else}
+					<input type="text" class="input_text" name="doc_key" id="doc_name" value="{$doc_info.document_key}" onkeyup="convert_item_name( 'doc_name' )"/>
+				{/if}
+			</td>
+		</tr>
+		<tr class="tr_2" {highlight}>
+			<td align="right" id="nav_doc_create_doc_label_cap" >
+				Label
+			</td>
+			<td>
+				{lang_values_input name='doc_label' section=nav_doc_item key=$doc_info.document_key name='doc_label' id='doc_label_input_id'}
+			</td>
+		</tr>
+		<tr class="tr_1" {highlight}>
+			<td align="right" id="nav_doc_create_doc_parent_doc_cap" >
+				Parent Document
+			</td>
+			<td>
+				<select name="doc_parent" style="width:150px" >
+					<option value="">Root</option>
+					{print_select_parent documents=$documents selected=$doc_info.parent_document_key}
+				</select>
+			</td>
+		</tr>
+		<tr class="tr_2" {highlight}>
+			<td align="right" id="nav_doc_create_doc_url_cap" >
+				URL 
+			</td>
+			<td>
+				http://www.mysite.com/<input type="text" name="doc_url" class="input_text" value="{$doc_info.url}" />
+			</td>
+		</tr>
+		<tr class="tr_1" {highlight}>
+			<td align="center"><input id="document_type_fixed" type='radio' name='document_type' {if not $doc_info.custom}checked{/if} value='fixed' onclick='$jq("#document_custom_code_cont").fadeOut("slow")'></td><td><label for="document_type_fixed">Base Document</label></td>
+		</tr>
+		<tr class="tr_2" {highlight}>
+			<td align="center"><input id="document_type_custom" type='radio' {if isset($doc_info.custom) && !$doc_info.custom}disabled="disabled"{/if} name='document_type' {if $doc_info.custom}checked{/if} value='custom' onclick='$jq("#document_custom_code_cont").fadeIn("slow");SK_CustomPageEditor.getAddInstance().activateDefaultTab();'></td><td><label for="document_type_custom" {if  isset($doc_info.custom) && !$doc_info.custom}class="disabled"{/if}>Custom Document</label></td>
+		</tr>
+		<tr id='document_custom_code_cont' {if not $doc_info.custom}style="display:none"{/if}>
+                    <td colspan='2'>
+                        <table width='100%'>
+                            <tr  class="tr_item_main_info">
+                                <td colspan='2'>Page Content</td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' style="padding:5px" class="custom_code_container">
+                                    {editor_links name='custom_code' section='nav_doc_item.custom_code' key=$doc_info.document_key}
+				</td>
+                            </tr>
+			</table>	
+                    </td>
+		</tr>
+		
+		<!-- Page meta Info -->
+		
+		<tr class="tr_item_main_info">
+			<td colspan="2">
+				Page Meta
+			</td>
+		</tr>
+		
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td align="right" id="nav_doc_create_doc_key_cap" >
+				Title
+			</td>
+			<td>
+				{lang_values_input section='nav_doc_item.titles' key=$doc_info.document_key name='doc_title'}
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td align="right" id="nav_doc_create_doc_key_cap" >
+				Header
+			</td>
+			<td>
+				{lang_values_input section='nav_doc_item.headers' key=$doc_info.document_key name='doc_header'}
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td align="right" id="nav_doc_create_doc_key_cap" >
+				Meta keywords
+			</td>
+			<td>
+				{lang_values_input section='nav_doc_item.keywords' key=$doc_info.document_key name='doc_keywords'}
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td align="right" id="nav_doc_create_doc_key_cap" >
+				Description
+			</td>
+			<td>
+				{lang_values_input section='nav_doc_item.descriptions' key=$doc_info.document_key name='doc_description'}
+			</td>
+		</tr>
+		<!-- / Page meta Info -->
+		
+		<tr class="tr_item_main_info">
+			<td colspan="2">
+				Access Settings
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+				<td id="nav_doc_status_cap" >
+					<label for="status">
+						Status
+					</label>
+				</td>
+				<td>
+					<input type="checkbox" id="status" name="status" {if $doc_info.status || !$doc_info.document_key}checked{/if} onclick="manage_doc_access();" />
+				</td>
+			</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td id="nav_doc_member_available_cap" >
+				<label for="access_member">
+					Available for Member
+				</label>
+			</td>
+			<td>
+				<input type="checkbox" id="access_member" name="access_member" {if $doc_info.access_member}checked{/if} {if $doc_info.document_key && !$doc_info.status}disabled{/if} />
+			</td>
+		</tr>
+		<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+			<td id="nav_doc_guest_available_cap" >
+				<label for="access_guest">
+					Available for Guest
+				</label>
+			</td>
+			<td>
+				<input type="checkbox" id="access_guest" name="access_guest" {if $doc_info.access_guest}checked{/if} {if $doc_info.document_key && !$doc_info.status}disabled{/if} />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" align="right">
+				<input type="submit" class="submit" name="{if $doc_info.document_key}save{else}create{/if}" value="{if $doc_info.document_key}Save{else}Create{/if}" />
+			</td>
+		</tr>
+	</tfoot>
+</table>
+{/block_page}
+</div>
+{include file='inc/_footer.html'}

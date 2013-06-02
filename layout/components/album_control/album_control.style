@@ -1,0 +1,32 @@
+.album_control .edit_cont,
+.album_control .controls {
+	float: right;
+}
+
+.album_control .edit_cont, .album_control .edit_cont input.label {
+	width: 150px;
+}
+
+.album_control .edit_cont input.label {
+	position: absolute;
+	left: 100%;
+}
+
+.album_control .edit_cont {
+	position: relative;
+	overflow: hidden;
+	height: 20px;
+	margin-right: 2px;
+}
+
+.album_details_cont, .album_edit_cont {
+    margin: 10px auto 0px;
+    width: 60%;
+}
+
+.album_details_cont .block, .album_edit_cont .block {
+    margin-bottom: 0px;
+}
+.album_details_cont table, .album_edit_cont table {
+	table-layout: fixed;
+}

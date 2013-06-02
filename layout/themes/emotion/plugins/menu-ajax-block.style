@@ -1,0 +1,42 @@
+
+ul.menu-ajax-block {
+	text-align: right;
+	float: right;
+	font-size: 11px;
+	height: 20px;
+	padding: 5px 1px 0px 0px;
+}
+
+ul.menu-ajax-block li.tab {
+	display: block;
+	float: left;
+	clear: none;
+	margin: 0 1px 0 0;
+	height: 20px;
+	z-index: 100;
+}
+
+ul.menu-ajax-block li.tab a {
+	padding: 1px 5px 0;
+	display: block;
+	height: 17px;	
+}
+
+ul.menu-ajax-block li.tab a:hover{
+	background: #2F4986;
+}
+ul.menu-ajax-block li.tab a:active,
+ul.menu-ajax-block li.tab a.active{
+	color: #fff;
+	background: none;
+}
+
+ul.menu-ajax-block li.active {
+	background: transparent image(block_menu_active.png) no-repeat center bottom;
+	height: 24px;
+}
+
+ul.menu-ajax-block li.hover a,
+ul.menu-ajax-block li.active a {
+	color: #fff;
+}

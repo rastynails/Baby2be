@@ -1,0 +1,92 @@
+{include file='inc/_header.html'}
+
+<div style="margin: 0px auto; width: 500px" >
+{block_page}
+<b>List of mail variables</b><br /><br />
+{literal}
+{$site_name} - Site Name<br />
+{$site_url}- Main site URL<br />
+{$profile_username} - Username of profile<br />
+{$profile_email} - Email of profile<br />
+{$profile_match_list_html} - List of profile's matches in HTML mail template<br />
+{$profile_match_list_txt} - List of profile's matches in Text mail template<br>
+{$unsubscribe_url} - Unsubscribe url
+{/literal}
+{/block_page}
+</div>
+
+<div class="pr_top_add_field">
+	<a href="mail_scheduler_tpl.php?create=1">Create mail template</a>
+</div>
+
+{block_page}
+<table width="100%">
+	<thead><tr><th colspan="2" id="sched_mail_tpl_list_cap" >Mail list</th></tr></thead>
+</table>
+	{foreach from=$mail_list item=_mail_label key=_mail_name}
+	<table width="100%">
+		<thead><tr><td colspan="2">{$_mail_label}</td></tr></thead>
+		<tbody>
+			<tr class="{cycle values="tr_1, tr_2"}">
+				<td width="10%">Subject</td>
+				<td>{edit_lang_values_btn section='mail_template' key="scheduler_`$_mail_name`_subject"}</td>
+			</tr>
+			<tr class="{cycle values="tr_1, tr_2"}">
+				<td>Body txt</td>
+				<td>{edit_lang_values_btn section='mail_template' key="scheduler_`$_mail_name`_body_txt"}</td>
+			</tr>
+			<tr class="{cycle values="tr_1, tr_2"}">
+				<td>Body html</td>
+				<td>{edit_lang_values_btn section='mail_template' key="scheduler_`$_mail_name`_body_html"}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2">
+				<form action="" method="POST">
+					<input type="hidden" name="mail_name" value="{$_mail_name}" />
+					<span style="cursor: help" title="Profile name whose info will be assigned to template vars">Profile Name: </span><input type="text" name="profile_name" class="input_text" size="25" />
+					<span style="cursor: help" title="Email address for sending test message">Test Email address: </span><input type="text" name="test_email" class="input_text" size="25" />
+					&nbsp;&nbsp;<input type="submit" name="send_test_mail" class="submit" value="Send Test Email"/>&nbsp;|
+					<input type="submit" name="delete_mail" class="submit" value="Delete" onclick="return confirm( 'Are you sure?' );" />
+				</form>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	<br>
+	{/foreach}
+{/block_page}
+
+<div style="margin: 0px auto; width: 500px" >
+{block_page}
+<b>List of Match list variables</b><br /><br />
+{literal}
+{$profile_username} - Username of match profile<br />
+{$profile_url}- URL of match profile<br />
+{$profile_thumb} - Thumbnail URL of match profile<br />
+{/literal}
+{/block_page}
+</div>
+
+{block_page}
+<table>
+	<thead>
+		<tr>
+			<th colspan="2" >Configure Match List template</th>
+		</tr>
+		<tr>
+			<td>HTML</td>
+			<td>Text</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{edit_lang_values_btn section='mail_template' key="scheduler_match_list_html"}</td>
+			<td>{edit_lang_values_btn section='mail_template' key="scheduler_match_list_txt"}</td>
+		</tr>
+	</tbody>
+</table>
+{/block_page}
+	
+{include file='inc/_footer.html'}

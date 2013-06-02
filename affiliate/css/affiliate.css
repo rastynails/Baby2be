@@ -1,0 +1,380 @@
+/* --- Admin CSS File --- */
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background: #fff;
+	color: #23292f;
+	font-size: 11px;
+}
+
+
+/* -- Forms & Inputs -- */
+form
+{
+	margin: 0px;
+}
+
+select
+{
+	margin: 0px;
+	padding: 1px;
+	border: 1px solid #50798f;
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+textarea
+{
+	border: 1px solid #9badbf;
+	padding: 1px;
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+.input_text
+{
+	margin: 0px;
+	padding: 1px;
+	border: 1px solid #50798f;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.submit
+{
+	font-size: 10px;
+}
+
+
+
+
+
+/* -- Text & Labels -- */
+
+body, td, input, select, textarea
+{
+	font-family: Tahoma, Verdana;
+	font-size: 11px;
+}
+
+h1
+{
+	margin: 0px;
+	font-size: 18px
+}
+
+label
+{
+	color: #102a3f;
+}
+
+small, .small
+{
+	font-size: 10px;
+}
+
+code
+{
+	margin: 0px 4px;
+	color: #7f1f17;
+	font-family: "Courier New";
+	font-size: 11px;
+}
+
+b
+{
+	font-size: 10px;
+}
+
+i
+{
+	font-family: Verdana;
+	font-size: 11px;
+	color: #41525f;
+}
+
+.inactive
+{
+	color: #9f9f9f;
+}
+
+.content_separator
+{
+	display: block;
+	border-bottom: 2px solid #5a666f;
+	font-size: 17px;
+	font-weight: bold;
+	color: #4d585f;
+	cursor: default;
+}
+
+
+/* -- Tables & Blocks -- */
+
+table
+{
+	border-spacing: 1px;
+	border: 1px solid #cfcfcf;
+}
+
+table#base
+{
+	width: 762px;
+	margin: 4px auto;
+	border: 1px solid #dfdfdf;
+}
+
+.thead_th, thead th
+{
+	background: #3b4c5f;
+	padding: 2px 4px;
+	color: #fff;
+	font-family: Verdana;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	cursor: default;
+}
+
+.thead_td, thead td
+{
+	border: 1px solid #3b4c5f;
+	background: #6b7d8f;
+	padding: 2px 4px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	cursor: default;
+}
+
+.thead_td a:link, thead td a:link,
+.thead_td a:visited, thead td a:visited
+{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.thead_td a:active, thead td a:active,
+.thead_td a:hover, thead td a:hover
+{
+	color: #efe14a;
+}
+
+tbody td
+{
+	padding: 2px 4px;
+}
+
+tbody code
+{
+	margin: 0px 1px;
+	color: #1f0000;
+	font-family: "Courier New";
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.tr_result
+{
+	border-top: 1px solid #dfdfdf;
+	background: #f9f9ef;
+	text-align: left;
+	padding: 2px 2px 1px 2px;
+	color: #2f2f26;
+	cursor: default;
+	font-weight: bold;
+}
+
+tfoot td
+{
+	border-top: 1px solid #dfdfdf;
+	background: #f9f9ef;
+	text-align: right;
+	padding: 2px 2px 1px 2px;
+	color: #2f2f26;
+	cursor: default;
+}
+
+.tr_1
+{
+	background: #dfdfdf;
+	color: #1f2b3f;
+	cursor: default;
+}
+
+.tr_2
+{
+	background: #efefef;
+	color: #1f2b3f;
+	cursor: default;
+}
+
+.page_message
+{
+	margin: 6px 2px;
+	border: 2px solid #319f40;
+	padding: 4px;
+	background: #fff;
+	color: #3f3f3f;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.page_message code
+{
+	display: block;
+	margin: 6px;
+	border: 1px solid #000;
+	padding: 1px 3px;
+	background: #3f3f3f;
+	color: #ffe25f;
+	
+}
+
+.page_notice
+{
+	margin: 6px 2px;
+	border: 2px solid #ffe04f;
+	padding: 4px;
+	background: #fff;
+	color: #3f3f3f;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.page_error
+{
+	margin: 6px 2px;
+	border: 2px solid #bf2f38;
+	padding: 4px;
+	background: #fff;
+	color: #3f3f3f;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+/* -- Links -- */
+
+a:link, a:visited
+{
+	color: #354a5f;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #07477f;
+	text-decoration: underline;
+}
+
+.a_selected:link, .a_selected:visited
+{
+	color: #ffe87f;
+}
+
+.a_selected:hover
+{
+	color: #fff;
+}
+
+/* -- Pages styles -- */
+
+#top
+{
+	background: #3b6e9f;
+	color: #fff;
+	cursor: default;
+}
+
+#sidebar
+{
+	width: 144px;
+	border: 1px solid #bfbfbf;
+	-moz-border-radius: 4px;
+	padding: 4px 0px 0px 3px;
+	background: #efefef;
+}
+
+.sidebar_menu_item
+{
+	margin: 0px;
+	padding: 3px 5px;
+}
+
+.sidebar_menu_active
+{
+	height: 14px;
+	margin-right: -1px;
+	border: 1px solid #bfbfbf;
+	border-right: none;
+	-moz-border-radius: 4px 0px 0px 4px;
+	padding: 3px 5px;
+	background: #fff;
+	color: #0d456f;
+	font-weight: bold;
+	cursor: default;
+}
+
+
+#td_right
+{
+	padding: 4px 4px 0px 4px;
+}
+
+#tabs
+{
+	height: 17px;
+}
+
+.tab, .active_tab
+{
+	float: left;
+	width: 113px;
+	border: 1px solid #afafaf;
+	border-right: none;
+	border-bottom: none;
+	padding: 2px;
+	background: #efefef;
+	color: #354a5f;
+	font-size: 10px;
+	text-align: center;
+}
+
+.active_tab
+{
+	height: 14px;
+	margin: -1px 0px;
+	background: #fff;
+	color: #0c263f;
+	border: 1px solid #1b2d3f;
+	border-bottom: none;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#empty_tab
+{
+	float: left;
+	width: 2px;
+	height: 18px;
+	border-left: 1px solid #afafaf;
+}
+
+
+
+#content
+{
+	border: 1px solid #1b2d3f;
+	padding: 4px;
+}
+
+.info_table input[type=text],
+.info_table textarea
+{
+	width: 99%;
+}

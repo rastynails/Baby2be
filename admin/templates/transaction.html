@@ -1,0 +1,138 @@
+{* Admin interface: finance *}
+{include file='inc/_header.html'}
+
+{block_page}
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th id="finance_transaction_info_title_thead" colspan="2">Transaction information</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_order_id_left_cell" width="20%">Order ID</td>
+			<td>{$trans.payment_provider_order_number}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_payment_provider_left_cell">Payment Provider</td>
+			<td>{text section="components.payment_selection" key=$trans.fin_payment_provider_id}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_date_left_cell">Date</td>
+			<td>{$trans.order_stamp|date_format:"%A, %B %e, %Y"} {$trans.order_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_amount_left_cell">Amount</td>
+			<td>{$trans.amount}</td>
+		</tr>
+		{if $trans.coupon}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td>Coupon</td>
+            <td>{$trans.coupon} {if $trans.discount}({$trans.discount}% discount){/if}</td>
+		</tr>
+		{/if}
+		<tr class="{cycle values=tr_1,tr_2}">
+            <td colspan="2">&nbsp;</td>
+        </tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_membership_type_left_cell">Membership Type</td>
+			<td>{if $trans.is_deleted}{text section="membership.types" key=$trans.membership_type_id}{else}Deleted{/if}</td>
+		</tr>
+		{if $trans.type == "credits"}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_credits_left_cell">Credits</td>
+			<td>{if $trans.credits==''}0{else}{$trans.credits}{/if}</td>
+		</tr>
+		{else}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_start_date_left_cell">Start Date</td>
+			<td>{$trans.start_stamp|date_format:"%A, %B %e, %Y"} {$trans.start_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_expiration_date_cell">Expiration Date</td>
+			<td>{$trans.expiration_stamp|date_format:"%A, %B %e, %Y"} {$trans.expiration_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+		{/if}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_username_left_cell">Username</td>
+			<td><a href="{profile_url profile_id=$trans.profile_id}">{$trans.username}</a></td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_email_left_cell">Email</td>
+			<td>{$trans.email}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_last_activity_left_cell">Last Activity</td>
+			<td>{$trans.activity_stamp|date_format:"%A, %B %e, %Y"} {$trans.activity_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_payment_type_left_cell">Payment type</td>
+			<td>{if $trans.is_recurring=='y'}recurring{else}single{/if}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_payment_status_left_cell">Payment status:</td>
+			<td>
+				{if $trans.refund_stamp != ''}<font color="#bb6333">refunded</font>
+				{elseif $trans.status == 'deleted'}<font color="Red">deleted</font> - Transaction was approved by payment provider but profile/membership plan/membership type was deleted.
+				{else}<font color="#00cc00">active</font>{/if}
+			</td>
+		</tr>
+		{if $trans.refund_stamp != ''}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_chargeback_fine_left_cell">Chargeback Fine:</td>
+			<td>{$trans.amount_fine}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_comment_left_cell">Comment:</td>
+			<td>{$trans.comment|replace:"\n":"<br />"}</td>
+		</tr>
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td id="finance_transaction_info_refund_date_left_cell">Refund Date</td>
+			<td>{$trans.refund_stamp|date_format:"%A, %B %e, %Y"} {$trans.refund_stamp|date_format:"%H:%M:%S"}</td>
+		</tr>
+		{/if}
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+{/block_page}
+
+{if $trans.refund_stamp == '' && ($trans.status == 'approval' || $trans.status == 'deleted')}
+
+<div style="width: 65%; margin: 0px auto">
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}transaction.php?provider_id={$provider_id}&order={$trans.payment_provider_order_number}" method="POST" onsubmit="return checkIsDecimal( 'fine_amount', 'Enter the fine. If payment provider did not fine enter zero.' );">
+<input type="hidden" name="sale_id" value="{$trans.fin_sale_id}" />
+<table align="center" cellspacing="1" width="90%">
+	<thead>
+		<tr>
+			<th id="finance_transaction_info_refund_tbl_thead_title" colspan="2">Refund order</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_1">
+			<td id="finance_transaction_info_refund_tbl_chargeback_fine_cell">Chargeback Fine</td>
+			<td><input type="text" id="fine_amount" name="amount" /></td>
+		</tr>
+		<tr class="tr_2">
+			<td id="finance_transaction_info_refund_tbl_comment_cell">Comment</td>
+			<td><textarea name="comment" cols="40" rows="4"></textarea></td>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td align="right" colspan="2"><input type="submit" value="Refund" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+{/if}
+
+{include file='inc/_footer.html'}

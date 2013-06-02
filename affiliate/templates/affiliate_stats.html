@@ -1,0 +1,150 @@
+{* Admin interface: affiliate settings *}
+{include file='inc/_header.html'}
+
+{if !$is_verified}
+<br />
+Your affiliate account is not verified yet. Please, check your email for the verification link.
+<br />
+If you could not find one, please send again
+<br /><br />
+<form method="post">
+<input type="hidden" name="action" value="send_email" />
+<table align="left" width="35%">
+	<thead>
+		<tr>
+			<td>Enter e-mail</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><input type="text" name="email" /> <input type="submit" value="send" /></td>
+		</tr>
+	</tbody>
+</table>
+</form>
+<br clear="all" />
+{else}
+
+<table align="left" width="80%">
+	<thead>
+		<tr>
+			<td colspan="2"> Clicks </td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$affiliate.site item=site}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td>{$site.site}</td>
+			<td>{$site.count} clicks</td>
+		</tr>
+	{/foreach}
+		<tr class="tr_result">
+			<td>Total clicks</td>
+			<td>{if $affiliate.traffic}{$affiliate.traffic.count}{else}0{/if}</td>
+		</tr>
+		<tr class="tr_result">
+			<td>Total earnings</td>
+			<td>{if $affiliate.traffic}{$affiliate.traffic.amount}{else}0.00{/if}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+<table align="left" width="60%">
+	<thead>
+		<tr>
+			<td colspan="2"> Signups </td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_result">
+			<td width="70%">Total signups</td>
+			<td>{if !$affiliate.registration}0{else}{$affiliate.registration.count}{/if}</td>
+		</tr>
+		<tr class="tr_result">
+			<td>Total earnings</td>
+			<td>{if !$affiliate.registration.amount}0.00{else}{$affiliate.registration.amount}{/if}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+<table align="left" width="60%">
+	<thead>
+		<tr>
+			<td colspan="2"> Subscriptions </td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_result">
+			<td width="70%">Total subscriptions</td>
+			<td>{if !$affiliate.subscription}0{else}{$affiliate.subscription.count}{/if}</td>
+		</tr>
+		<tr class="tr_result">
+			<td>Total earnings</td>
+			<td>{if !$affiliate.subscription}0.00{else}{$affiliate.subscription.amount}{/if}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+<table width="220">
+	<tbody>
+		<tr style="font-weight:bold;">
+			<td width="80%">Total Earnings:</td>
+			<td>{$affiliate.total|string_format:"%.2f"}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+<table align="left" width="60%">
+	<thead>
+		<tr>
+			<th colspan="2">Payouts</th>
+		</tr>
+		<tr>
+			<td>Date</td>
+			<td>Amount</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$affiliate_payments item=payment name=payment_count}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td>{$payment.time_stamp|date_format:"%b %e/%y %H:%M"}</td>
+			<td>{$payment.amount|string_format:"%.2f"}</td>
+		</tr>
+	{/foreach}
+	{if $smarty.foreach.payment_count.total < 1}
+		<tr class="tr_1">
+			<td colspan="2" align="center">No</td>
+		</tr>
+	{/if}
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+
+<table width="220">
+	<tbody>
+		<tr style="font-weight:bold;">
+			<td width="80%">Balance:</td>
+			<td>{$affiliate.balance|string_format:"%.2f"}</td>
+		</tr>
+	</tbody>
+</table>
+
+<br clear="all" />
+<br clear="all" />
+{/if}
+
+{include file='inc/_footer.html'}

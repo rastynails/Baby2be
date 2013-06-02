@@ -1,0 +1,59 @@
+{include file='inc/_header.html'}
+{literal}
+<style>
+.no_content {
+    text-align: center;
+    padding: 20px 0;
+}
+</style>
+{/literal}
+{block_page}
+<div style="width: 800px;">
+
+    <div class="thead_td" style="font-size: 12px">Photo Verification Requests</div>
+    <br />
+    {paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}
+        {if empty($requestList)}
+            <div class="no_content">
+                No items
+            </div>
+        {else}
+	        <table>
+	            <thead>
+	                <tr>
+	                    <td>
+	                        Username
+	                    </td>
+	                    <td>
+	                        Date
+	                    </td>
+	                    <td>
+                            Request
+                        </td>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                {foreach from=$requestList item=item}
+	                    <tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+		                    <td>
+		                        <a href="{$item.userlink}">{$item.username}</a>
+		                    </td>
+		                    <td>
+	                            {$item.date}
+	                        </td>
+	                        <td>
+	                            <a href="{$item.url}" style="background: url(img/link.gif) center no-repeat; display: block; height: 15px;"></a>
+	                        </td>
+		                </tr>
+	                {/foreach}
+	            </tbody>
+	        </table>
+	    {/if}
+        
+        <br clear="all" />
+    {paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}
+    
+</div>
+{/block_page}
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,39 @@
+{* Affiliate Header Include Template *}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<title>{$_page.title}</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	{if $_meta_tags}
+		{foreach from=$_meta_tags item=tag}
+			{$tag}	
+		{/foreach}
+	{/if}
+	{foreach from=$_required_js_files item='js_file'}
+		<script src="{$js_file}" type="text/javascript"></script>
+	{/foreach}
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.URL_AFFILIATE_CSS}affiliate.css" />
+</head>
+
+<body {if $_js_onload}onload="{$_js_onload}"{/if}>
+<table id="base">
+	<tr>
+		<td colspan="2" id="top">
+			<h1>{$_header_site_name} Affiliate Program</h1>
+		</td>
+	</tr>
+	<tr>
+		<td id="sidebar" valign="top">
+			{$sidebar_menu}
+			<br clear="all" />
+		</td>
+		
+		<td id="td_right" valign="top">
+			<div id="tabs">{$tabs_menu}</div>
+			<div id="content">
+				{page_messages}
+			<!-- PAGE CONTENT -->
+

@@ -1,0 +1,2 @@
+<a href="{$item.content.href}">{$item.content.title|out_format|censor:'blog':true}</a><br />
+<div class="remark" style="paddig-top: 4px">{$item.content.text|smile|out_format:'blog'|censor:'blog'}</div>

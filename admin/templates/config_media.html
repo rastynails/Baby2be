@@ -1,0 +1,123 @@
+{include file='inc/_header.html'}
+
+{block_page}
+    <div style="width: 52%; float: left">
+	<form action="{$smarty.const.URL_ADMIN}config_media.php" method="POST" >
+	<table>
+		<thead>
+			<tr><th id="global_media_mode_tbl_head_cell">Global Video Mode</th></tr>
+			<tr><td id="global_media_mode_tbl_subhead_cell">Site global video mode configuration</td></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<div class="windows_mediaplayer_bg"></div>
+					<div style="padding: 5px; float: left"><input type="radio" id="wmode" name="media_mode" value="windows_media" {if $global_media_mode == 'windows_media'}checked{/if} />
+						<label for="wmode">Windows Media Player</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="windows_flashplayer_bg"></div>
+					<div style="padding: 5px; float: left"><input type="radio" id="fmode" name="media_mode" value="flash_video" {if $global_media_mode == 'flash_video'}checked{/if} />
+					<label for="fmode">Flash Player</label><br />
+					<i>Note: to enable this mode your hosting should meet<br /> <a href="http://www.skadate.com/server_requirements.php" style="font-weight: bold" >additional server requirements</a>.</i></div>
+				</td>			
+			</tr>					
+		</tbody>
+		<tfoot>
+			<tr>
+				<td id="global_media_mode_tbl_bottom_cell">
+					<input type="submit" name="set_global_media_mode" value="Set Mode" class="submit" />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	</form>
+    </div>
+    
+    <div style="width: 45%; float: right">
+	{if $global_media_mode == 'flash_video'}
+		{print_configs section=video.flash_mode}
+		<form enctype="multipart/form-data" action="{$smarty.const.URL_ADMIN}config_media.php" method="POST" >
+		<table>
+			<thead>
+				<tr><td colspan="2">Configure video watermark (for flash mode only)</td></tr>
+			</thead>
+			<tbody>
+				<tr class="tr_1">
+					<td>{$watermark_conf.enable_video_watermark.description}</td>
+					<td>
+						<input type="checkbox" name="enable_video_watermark" {if $watermark_conf.enable_video_watermark.value ==1}checked="checked"{/if} />
+					</td>
+				</tr>
+				{if $watermark_conf.enable_video_watermark.value == 1}
+				<tr class="tr_2">
+					<td>Watermark image</td>
+					<td><img src="{$smarty.const.URL_USERFILES}video_watermark_img_{$watermark_conf.watermark_img.value}.jpg" /><br />
+						<input type="file" name="video_watermark_file" />
+						<input type="submit" name="upload_videowatermark" value="Upload" class="submit" />					
+					</td>
+				</tr>
+				{/if}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><input type="submit" name="set_watermark" value="Save" class="submit" /></td>
+				</tr>
+			</tfoot>
+		</table>
+		</form>
+	{/if}
+	</div>
+	<br clear="all" />
+	
+	{print_configs section='site.additional.tags'}
+	{print_configs section=video.other_settings}
+	
+	<br clear="all" />
+	{if $enable_categories}
+	<div style="width: 49%; float: left">
+    <table width="100%">
+        <thead>
+            <tr><td colspan="2">Video categories</td></tr>
+        </thead>
+        <tbody>
+        {foreach from=$categories item='cat'}
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td>{edit_lang_values_btn section=video_categories key=cat_`$cat.id`}</td>
+            <td width="20" align="center">
+                <a class="delete" href="javascript://" onclick="if (confirm('Do you really want to delete the category?')) window.location.href='{$smarty.const.URL_ADMIN}config_media.php?del_cat={$cat.id}'; else return false;"></a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    </div>
+    
+    <div style="width: 49%; float: right">
+    <form action="{$smarty.const.URL_ADMIN}config_media.php" method="POST">
+    <input type="hidden" name="action" value="add_cat" />
+    <table width="100%">
+        <thead>
+            <tr><td>Add category</td></tr>
+        </thead>
+        <tbody>
+        <tr class="{cycle values='tr_1,tr_2'}">
+            <td>{lang_values_input name='cat_label' section=video_categories}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr><td><input type="submit" value="Add" /></td></tr>
+        </tfoot>
+    </table>
+    </form>   
+    </div>
+    </div>
+    
+    <br clear="all" />
+    {/if}
+{/block_page}
+
+{include file='inc/_footer.html'}

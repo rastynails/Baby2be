@@ -1,0 +1,73 @@
+.prototype_node
+{
+	display:none;
+}
+
+
+
+table.form td.label
+{
+	width:40%;
+	color:#363636;
+}
+
+table.form td.value
+{
+	width:60%;
+}
+
+.contact_list table
+{
+	font-size: <<$small_font;
+}
+
+.contact_list table td.label {
+	width:50%;
+}
+
+.contact_list table td.value {
+	width:40%;
+}
+
+.pointer
+{
+	cursor: pointer;
+}
+
+.contact_list .mobile_cont .list_items_cont
+{
+	overflow: auto;
+	height: 200px;
+}
+
+.drop_list_up 
+{
+	margin-top:5px;
+	margin-right:10px;
+	float:right;
+}
+
+.drop_list_down
+{
+	margin-top:5px;
+	margin-right:10px;
+	float:right;
+}
+
+.list_odd
+{
+	background-color: #555;
+}
+
+.preloader << $preloader{
+	width:98%;
+	position:absolute;	
+}
+
+.check_all
+{
+	padding-top:5px;
+	padding-left:1px;
+	margin-bottom:2px;
+}
+

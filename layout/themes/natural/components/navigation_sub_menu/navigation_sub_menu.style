@@ -1,0 +1,17 @@
+.submenu 
+{	
+	font-size:11px;
+	padding:9px 0 9px;
+	text-align:center;
+	background: image(bg_submenu_inner.jpg) no-repeat center top;
+	width:100%;
+	float: none;
+}
+body #page_canvas .submenu {
+	border: none;
+}
+body #page_canvas .submenu a {
+	font-size: 13px;
+	font-family: Verdana;
+	text-decoration: none;
+}

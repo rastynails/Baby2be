@@ -1,0 +1,471 @@
+{* Admin interface: list of profile fields*}
+{include file='inc/_header.html'}
+
+{if $smarty.get.f_page}
+    {assign var=td_colspan value=5}
+{else}
+    {assign var=td_colspan value=8}
+{/if}
+
+<div class="pr_top_add_field">
+    <div style="float: left; font-weight: normal; margin: 5px;" id="field_list_display_depended_from_label" >
+	Display fields for 
+        <select name="current_reliant_value" onchange="window.location='{$smarty.const.URL_ADMIN}profile_field_list.php?{if $smarty.get.f_page}f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}&current_reliant_value='+this.value">
+            <option value="0" >all</option>
+            {foreach from=$reliant_field_info.values item=reliant_value}
+                {if $reliant_value == $reliant_field_info.current_value}
+                    <option value="{$reliant_value}" selected >{text section="profile_fields.value" key="sex_`$reliant_value`"}</option>
+                {else}
+                    <option value="{$reliant_value}" >{text section="profile_fields.value" key="sex_`$reliant_value`"}</option>
+                {/if}
+            {/foreach}
+        </select>
+    </div>
+    <a href="{$smarty.const.URL_ADMIN}profile_field.php?{if $smarty.get.f_page}f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}">Create a new profile field</a>
+</div>
+
+{block_page}
+    <table cellspacing="1" width="100%">
+        <thead>
+            <tr>
+                <th colspan="{$td_colspan}">Profile field list</th>
+            </tr>
+        </thead>
+        {if $smarty.get.f_page}
+            <tbody>
+                <td colspan="5" class="f_page_main">
+                    Page:
+                    {foreach from=$pr_page_nums item=page_number name=page}
+                        {if ( $smarty.get.page_num == $page_number.number) || ( !$smarty.get.page_num && $page_number.number == 1) }
+                            {text section="profile_fields.page_`$smarty.get.f_page`" key=$page_number.number}
+                        {elseif $smarty.foreach.page.first || $smarty.foreach.page.last}
+                            <a href="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$page_number.number}">{text section="profile_fields.page_`$smarty.get.f_page`" key=$page_number.number}</a>
+                        {elseif !$smarty.foreach.page.last}
+                            <a href="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$page_number.number}">{text section="profile_fields.page_`$smarty.get.f_page`" key=$page_number.number}</a>
+                        {/if}
+                        {if !$smarty.foreach.page.last}
+                            |
+                        {/if}
+                    {/foreach}
+                </td>
+            </tbody>
+        {/if}
+    </table>
+
+    {if $pr_fields}
+        <ol class="drag-and-drop brd">
+            <li>
+                <div style="font-weight: bold;" class="clearfix">
+                    <div class="left-side">
+                        <div style="width: 50px" class="left-side brd">\</div>
+                        <div class="left-side brd">Name</div>
+                    </div>
+
+                    <div class="right-side">
+                        <div class="left-side brd" style="width: 95px;">Presentation</div>
+                        {if !$smarty.get.f_page}
+                            <div class="left-side brd">Join</div>
+                            <div class="left-side brd">Edit</div>
+                            <div class="left-side brd">View</div>
+                            <div class="left-side brd">Search</div>
+                        {else}
+                            <div class="left-side brd">Required</div>
+                        {/if}
+                        <div class="left-side brd">Base</div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    {/if}
+
+    <form action="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$smarty.get.page_num}" method="POST" name="field_list" onsubmit="return ConfirmFieldListForm( );">
+        <ol id="sort-table" class="drag-and-drop brd">
+            {foreach from=$pr_fields item=section name=sections}
+                <li class="no-nesting pro-text-hieght">
+                    <input type="hidden" name="profile_field_section_id" value="{$section.profile_field_section_id}" />
+                    <div class="title-clearfix pro-title" style="min-height: 31px;{if !$all} cursor: default;{/if}">
+                        {if !$smarty.get.f_page}
+                            <div class="left-side">
+                                <div style="width: 50px" class="left-side brd">
+                                    {if !$smarty.foreach.sections.first}
+                                        <a class="up up-enb" href="{$smarty.const.URL_ADMIN}profile_field_list.php?mov_sec_order=up&section_id={$section.profile_field_section_id}" id="field_list_move_section_up" ></a>
+                                    {else}
+                                        <a class="up up-dis"></a>
+                                    {/if}
+                                    {if !$smarty.foreach.sections.last}
+                                        <a class="down down-enb" href="{$smarty.const.URL_ADMIN}profile_field_list.php?mov_sec_order=down&section_id={$section.profile_field_section_id}" id="field_list_move_section_down" ></a>
+                                    {else}
+                                        <a class="down down-dis"></a>
+                                    {/if}
+                                </div>
+                                <div class="left-side">
+                                    {text section='profile_fields.section' key=$section.profile_field_section_id}
+                                </div>
+                            </div>
+                        {else}
+                            {if $section.profile_field_section_id}
+                                <div class="left-side" style="text-align: center; width: 95%">
+                                        {text section='profile_fields.section' key=$section.profile_field_section_id}
+                                </div>
+                            {/if}
+                        {/if}
+                    </div>
+                    <ol style="padding: 0; margin: 0">
+                    {foreach from=$section.fields item=field name=fields}
+                        <li class="menu-item">
+                            <input type="hidden" name="profile_field_id" value="{$field.profile_field_id}" />
+                            <input type="hidden" name="profile_field_section_id" value="{$field.profile_field_section_id}" />
+                            <div class="clearfix {cycle values='handler_1,handler_2'}" style="min-height: 31px;{if !$all} cursor: default;{/if}">
+                                <div class="left-side">
+                                    <div style="width: 50px" class="left-side brd">
+                                        <input type="checkbox" name="field_id[]" value="{$field.profile_field_id}"  id="{$field.profile_field_id}" class="flist_checkbox">
+                                        {if !$smarty.foreach.fields.first && !$smarty.get.f_page}
+                                            <a class="up up-enb" href="{$smarty.const.URL_ADMIN}profile_field_list.php?mov_field_order=up&field_id={$field.profile_field_id}" title="move up" id="field_list_move_field_up" ></a>
+                                        {elseif !$smarty.get.f_page}
+                                            <a class="up up-dis"></a>
+                                        {/if}
+                                        {if !$smarty.foreach.fields.last && !$smarty.get.f_page}
+                                            <a class="down down-enb" href="{$smarty.const.URL_ADMIN}profile_field_list.php?mov_field_order=down&field_id={$field.profile_field_id}" title="move down" id="field_list_move_field_down" ></a>
+                                        {elseif !$smarty.get.f_page}
+                                            <a class="down down down-dis"></a>
+                                        {/if}
+                                    </div>
+                                    <div class="left-side brd_2">
+                                        <a href="{$smarty.const.URL_ADMIN}profile_field.php?field_id={$field.profile_field_id}{if $smarty.get.f_page}&f_page={$smarty.get.f_page}{/if}{if $smarty.get.page_num}&page_num={$smarty.get.page_num}{/if}">{$field.name}</a>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <div class="left-side brd_2" style="width: 95px;">
+                                        {$field.presentation}
+                                    </div>
+                                    {if !$smarty.get.f_page}
+                                        <div class="left-side brd pro-center">
+                                            {if $field.join_page}
+                                                <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                            {/if}
+                                            <div class="pro-hidden">Join</div>
+                                        </div>
+                                        <div class="left-side brd pro-center">
+                                            {if $field.editable_by_member}
+                                                <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                            {/if}
+                                            <div class="pro-hidden">Edit</div>
+                                        </div>
+                                        <div class="left-side brd pro-center">
+                                            {if $field.viewable_by_member}
+                                                <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                            {/if}
+                                            <div class="pro-hidden">View</div>
+                                        </div>
+                                    {/if}
+                                    {if !$smarty.get.f_page}
+                                        <div class="left-side brd pro-center">
+                                            {if $field.searchable}
+                                                <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                            {/if}
+                                            <div class="pro-hidden">Search</div>
+                                        </div>
+                                    {else}
+                                        <div class="left-side brd pro-center">
+                                            {if $field.required_field}
+                                                <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                            {/if}
+                                            <div class="pro-hidden">Required</div>
+                                        </div>
+                                    {/if}
+                                    <div class="left-side brd pro-center">
+                                        {if $field.base_field}
+                                            <img src="{$smarty.const.URL_ADMIN_IMG}bs_field.gif" />
+                                        {/if}
+                                        <div class="pro-hidden">Base</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {/foreach}
+                    </ol>
+                </li>
+            {/foreach}
+        </ol>
+        <table>
+            <tbody>
+		{if $pr_fields}
+                    <tr>
+                        <td colspan="{$td_colspan}">
+                            <table border="0" width="100%">
+                                <tr>
+                                    <td class="f_list_foot">
+                                        <b>Selected:</b>
+                                        {if !$smarty.get.f_page}
+                                            Move to
+                                            <select name="new_field_section" id="field_list_move_field_to_section_selectbox" >
+                                                {foreach from=$pr_page_sections item=section}
+                                                    <option value="{$section.profile_field_section_id}">{text section='profile_fields.section' key=$section.profile_field_section_id}</option>
+                                                {/foreach}
+                                            </select>
+                                            <input type="submit" name="mov_field_section" value="Section" class="submit">&nbsp;|&nbsp;
+                                            <input type="submit" name="del_field" onclick="SetFormSubmitter( this.id );" id="del_field" value="Delete field" class="submit"><br><br>
+                                        {else}
+                                            {if $smarty.get.f_page != 'search'}
+                                                Move to
+                                                <select name="new_field_page" id="field_list_move_field_to_pagestep_selectbox" >
+                                                    {foreach from=$pr_page_nums item=page_num}
+                                                        <option value="{$page_num.number}">{text section="profile_fields.page_`$smarty.get.f_page`" key=$page_num.number}</option>
+                                                    {/foreach}
+                                                </select>
+                                                <input type="submit" name="mov_field_page" value="Page" class="submit">	&nbsp;|&nbsp;
+                                            {/if}
+                                            <input type="submit" name="del_field_from_page" id="del_field_from_page" onclick="SetFormSubmitter( this.id );" value="Delete from page" class="submit">
+                                        {/if}
+                                    </td>
+                                </tr>
+                            </table>
+                            <input type="hidden" id="form_submitter" name="form_submitter" value="">
+                        </td>
+                    </tr>
+		{/if}
+            </tbody>
+        </table>
+    </form>
+{/block_page}
+
+<table class="content_profiles" cellspacing="0" cellpadding="0" width="100%">        	
+    <tr>
+        <td class="corner_left_t"></td>
+        <td class="side">&nbsp;</td>
+        <td class="corner_right_t"></td>
+    </tr>
+    <tr>
+        <td class="side"></td>
+        <td class="side">
+    
+	{if !$smarty.get.f_page}
+            <br clear="all"/>
+            <br clear="all"/>
+            <table cellspacing="1" >
+            <thead>
+                <tr>
+                    <th colspan="5">Sections</th>
+                </tr>
+                <tr>
+                    <td align=left id="add_section_cap" >Add new section</td>
+                    {if $pr_page_sections.1.profile_field_section_id}
+                        <td align="left" id="delete_section_cap" >Delete section</td>
+                    {/if}
+                </tr>
+		<tbody>
+                    <tr>
+			<td>
+                            <form action="{$smarty.const.URL_ADMIN}profile_field_list.php" method="POST" onsubmit="return CheckAddSectionForm();">
+				<table>
+                                    <tr>
+                                        <td>Name in default language</td>
+                                        <td>{add_lang_values_input name='new_section_name' id='new_section_name'}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="submit" name="add_new_section" value="Add section" class="submit"></td>
+                                    </tr>
+				</table>
+                            </form>
+			</td>
+			{if $pr_page_sections.1.profile_field_section_id}
+                            <td>
+                                <form action="{$smarty.const.URL_ADMIN}profile_field_list.php" method="POST" onsubmit="return CheckDeleteSection();">
+                                    <table>
+                                        <tr>
+                                            <td>Select section</td>
+                                            <td>
+                                                <select name="list_del_section" id="list_del_section">
+                                                    <option value="0"></option>
+                                                    {foreach from=$pr_page_sections item=section}
+                                                        {if $section.profile_field_section_id != 1}
+                                                            <option value="{$section.profile_field_section_id}">{text section='profile_fields.section' key=$section.profile_field_section_id}</option>
+                                                        {/if}
+                                                    {/foreach}
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" name="delete_section" value="Delete section" class="submit"></td>
+                                        </tr>
+                                    </table>
+
+				</form>
+                            </td>
+			{/if}
+                    </tr>
+                </tbody>
+            <tfoot></tfoot>
+        </table>
+    </td>
+    <td class="side"></td>
+</tr>
+	<tr>
+		<td class="corner_left_b"></td>
+			<td class="side">&nbsp;</td>
+            	 <td class="corner_right_b"></td>
+	</tr>
+</table>    
+		
+		<br class="clr" />
+
+<table class="content_profiles" cellspacing="0" cellpadding="0" width="100%">        	
+	<tr>
+		<td class="corner_left_t"></td>
+			<td class="side">&nbsp;</td>
+				<td class="corner_right_t"></td>
+	</tr>
+		<tr>
+			<td class="side"></td>
+				<td class="side">
+	
+	{*print_configs section='navigation.settings' data=$nav_configs*}
+	{print_configs section='profile_fields.advanced' data=$prof_f_configs}
+
+		
+	{else}
+		{if $smarty.get.f_page != 'search'}
+		<br clear="all"/>
+		<br clear="all"/>
+		<table cellspacing="1"align="left">
+		<thead>
+			<tr>
+				<th colspan="5">{$smarty.get.f_page} pages</th>
+			</tr>
+			<tr>
+				<td align=left id="field_list_add_page_cap" >
+					Add page
+				</td>
+				{if $pr_page_nums.1.number}
+					<td align="left" id="field_list_delete_page_cap" >
+						Delete page
+					</td>
+				{/if}
+			</tr>
+		<tbody>
+		<tr>
+			<td>
+				<form action="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$smarty.get.page_num}" method="POST" onsubmit="return CheckAddPageForm();">
+				<table>
+					<tr>
+						<td>
+							Name in default language
+						</td>
+						<td>
+							{add_lang_values_input name='new_page_name' id='new_page_name'}
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<input type="submit" name="add_new_page" value="Add page" class="submit">	
+						</td>
+					</tr>
+				</table>
+				</form>
+			</td>
+			{if $pr_page_nums.1.number}
+				<td>
+					<form action="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$smarty.get.page_num}" method="POST" onsubmit="return CheckDeletePageForm();">
+					<table>
+						<tr>
+							<td>
+								Select page
+							</td>
+							<td>
+								<select name="list_del_page" id="list_del_page">
+									<option value="0"></option>
+									{foreach from=$pr_page_nums item=page_number name=page}
+										{if $page_number.number != 1}
+											<option value="{$page_number.number}">{text section="profile_fields.page_`$smarty.get.f_page`" key=$page_number.number}</option>
+										{/if}
+									{/foreach}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<input type="submit" name="delete_page" value="Delete page" class="submit">	
+							</td>
+						</tr>
+					</table>
+				</td>
+				</form>
+			{/if}
+		</tr>
+			</tbody>
+		<tfoot>
+		</tfoot>
+		</table>
+		</form>
+		{/if}
+		{if $field_not_in_page}
+		
+			<br clear="all"/>
+			<br clear="all"/>
+			
+			<form action="{$smarty.const.URL_ADMIN}profile_field_list.php?f_page={$smarty.get.f_page}&page_num={$smarty.get.page_num}" method="POST">
+			<table cellspacing="1" align="left">
+			<thead>
+				<tr>
+					<th colspan="5" id="field_list_add_field_to_page_cap" >Add field to a {$smarty.get.f_page} page</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						Select field
+					</td>
+					<td>
+						<select name="set_field_id">
+						{foreach from=$field_not_in_page item=field}
+							<option value="{$field.profile_field_id}">{text section='profile_fields.label' key=$field.profile_field_id}</option>
+						{/foreach}
+						</select>
+					</td>			
+				</tr>
+				{if $smarty.get.f_page != 'search'}
+					<tr>
+						<td>
+							Select page
+						</td>
+						<td id="preface">
+							<select name="set_field_page_num">
+								{foreach from=$pr_page_nums item=page_number}
+									<option value="{$page_number.number}">{text section="profile_fields.page_`$smarty.get.f_page`" key=$page_number.number}</option>
+								{/foreach}
+							</select>
+						</td>			
+					</tr>
+				{else}
+					<input type="hidden" name="set_field_page_num" value="1">
+				{/if}
+				<tr>
+					<td colspan="2" align="right">
+						<input type="submit" name="set_field" class="submit" value="Add">
+					</td>			
+				</tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+			</table>
+			</form>
+		{/if}
+	{/if}
+    
+    </td>
+			<td class="side"></td>
+		</tr>
+	<tr>
+		<td class="corner_left_b"></td>
+			<td class="side">&nbsp;</td>
+            	 <td class="corner_right_b"></td>
+	</tr>
+</table>    
+<br clear="all" />
+{include file='inc/_footer.html'}

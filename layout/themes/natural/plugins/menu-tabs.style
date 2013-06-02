@@ -1,0 +1,80 @@
+ul.menu-tabs {
+	float:right;
+	list-style-type:none;
+	margin: 0px;
+	padding:27px 0px 0px;
+	background: transparent none;
+	line-height: 14px;
+	text-align: right;
+}
+	
+*+html ul.menu-tabs {
+	float:right;
+	list-style-type:none;
+	margin: 0px;
+	padding:27px 0px 0px;
+	background: transparent none;
+	line-height: 14px;
+	text-align: right;
+}
+ul.menu-tabs li.tab {
+	display: inline;
+	list-style: none;
+	font-weight:bold;
+	color:#fdfbfb;
+	margin: 0px 0px 0px 16px;
+	padding: 0px;
+}
+
+ul.menu-tabs li.tab a {
+	padding: 0px;
+	font-weight:bold;
+	font-family: Verdana;
+	color:#fdfbfb;
+	font-size:12px;
+	background: none;
+}
+
+ul.menu-tabs li.tab a:hover {
+	text-decoration:none;
+	color:#15b200;
+	background: transparent none;
+}
+
+ul.menu-tabs li.tab a:active,
+ul.menu-tabs li.tab a.active {
+	text-decoration:none;
+	color:#15b200;
+	background: transparent none;
+}
+
+ul.menu-tabs li.tab a span {
+	padding: 0px;
+	color:#fdfbfb;
+	background: none;
+}
+
+ul.menu-tabs li.tab a.active span {
+	background: none;
+}
+
+ul.menu-tabs li.tab a:hover span, 
+ul.menu-tabs li.tab a:active span {
+	background: none;
+}
+ul.menu-tabs li.tab a:hover span,
+ul.menu-tabs li.tab a:active span,
+ul.menu-tabs li.tab a.active span {
+	color:#15b200;
+}
+*+html ul.menu-tabs li.tab a {
+	padding: 0px;
+}
+
+body .main_menu ul.menu-tabs li.tab a {
+	line-height: 20px;
+}
+body .main_menu ul.menu-tabs {
+	min-height: 15px;
+	height: 20px;
+} 

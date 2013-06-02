@@ -1,0 +1,152 @@
+{include file='inc/_header.html'}
+
+{*-----------------------
+Order By:
+<table>
+	<tr class="tr_1">
+		<td>
+			<select id="ext_order_by" name="ext_order_by" >
+				<option value="referral_id" {if $ext_order_by eq "referral_id"}selected{/if}>profile id</option>
+				<option value="total_referrals" {if $ext_order_by eq "total_referrals"}selected{/if}>personal referrals</option>
+				<option value="total_purchaser_referrals" {if $ext_order_by eq "total_purchaser_referrals"}selected{/if}>total paying referrals</option>
+				<option value="total_invites" {if $ext_order_by eq "total_invites"}selected{/if}>total invites</option>
+				<option value="total_transactions" {if $ext_order_by eq "total_transactions"}selected{/if}>total transactions</option>
+			</select>
+		</td>
+		<td>
+			<select id="ext_sort_order" name="ext_sort_order">
+				<option value="DESC" {if $ext_sort_order eq "DESC"}selected{/if}>DESC</option>
+				<option value="ASC" {if $ext_sort_order eq "ASC"}selected{/if}>ASC</option>
+			</select>
+		</td>
+		<td>
+			<button onclick="window.location ='{$ext_sort_by_url}&ext_order_by='+$('ext_order_by').value+'&ext_sort_order='+$('ext_sort_order').value">
+				ok
+			</button>
+		</td>
+	</tr>
+</table>
+-----------------------*}
+
+{block_page}
+<br />
+{view4MonthSelect selected=$default_month}
+<table width="100%">
+	<thead>
+		<tr>
+			<th colspan="11">
+				Referrer List
+			</th>
+		</tr>
+		<tr>
+			<td >
+				<a href="{$sort_by_url}&order_by=referral_id&sort_order={$sort_order}">
+					id
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=username&sort_order={$sort_order}">
+					username
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=email&sort_order={$sort_order}">
+					email
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=earn&sort_order={$sort_order}">
+					earning
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=total_invites&sort_order={$sort_order}">
+					total invites
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=total_referrals&sort_order={$sort_order}">
+					personal referrals
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=total_purchaser_referrals&sort_order={$sort_order}">
+					paid personal referrals
+				</a>
+			</td>
+			<td >
+				<a href="{$sort_by_url}&order_by=total_transactions&sort_order={$sort_order}">
+					total transactions
+				</a>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$referrals item='_referral'}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td>
+				{$_referral.referral_id}
+			</td>
+			<td>
+				<a href="{$smarty.const.URL_ADMIN}referral.php?referral_id={$_referral.referral_id}">
+					{$_referral.username}
+				</a>
+			</td>
+			<td>
+				{$_referral.email}
+			</td>
+			<td>
+				{$_referral.earn}
+			</td>
+			<td>
+				{$_referral.total_invites}
+			</td>
+			<td>
+				<a href="{$smarty.const.URL_ADMIN}referral_list.php?referrer_id={$_referral.referral_id}">
+					{$_referral.total_referrals}
+				</a>
+			</td>
+			<td>
+				{$_referral.total_purchaser_referrals}
+			</td>
+			<td>
+			<a href="{$smarty.const.URL_ADMIN}transaction_list.php?referrer_id={$_referral.referral_id}">
+				{$_referral.total_transactions}
+			</a>
+			</td>
+		</tr>
+	{/foreach}
+	</tbody>
+
+</table>
+<!--navigation-->
+<center>
+Results: {math equation="$num_on_page*$page-$num_on_page+1" assign=var}<b>{if $total==0}0{else}{$var}{/if}</b>-{if $page*$num_on_page < $total}{math equation="$page*$num_on_page" assign=var2}<b>{$var2}</b>{else}<b>{$total}</b>{/if}
+| Total: <b>{$total}</b><br />
+{if $page != 1}<a href="{$nav_url}">First</a> | {/if}
+{if $page > 1}
+	{if $page eq 2}
+		<a href="{$nav_url}">
+	{else}
+		<a href="{$nav_url}&page={$page-1}">
+	{/if}
+	Previous</a> |
+{/if}
+{counter start=0 skip=1 print=false}
+{foreach from=$page_arr item=element}
+{math equation="3-$count+$page" assign=d}
+{if $d < 0}{assign var=d value=0}{/if}
+{math equation="4-$page" assign=d2}
+{if $d2 < 0}{assign var=d2 value=0}{/if}
+	{if ($page >= $element && $page - $element < 4 + $d) || ($page < $element && $element - $page < 4 + $d2) }
+		{if $page == $element} [<b>{$element}</b>] {else} <b><a href="{$nav_url}&page={$element}">{$element}</a></b> {/if}
+	{/if}
+	{counter assign=i print=false}
+{/foreach}
+{if $page < $i} | <a href="{$nav_url}&page={$page+1}">Next</a>{/if}
+{if $page < $count} | <a href="{$nav_url}&page={$count}">Last</a>{/if}
+
+</center>
+{/block_page}
+<!--/navigation-->
+{include file='inc/_footer.html'}

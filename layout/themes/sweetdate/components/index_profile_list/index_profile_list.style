@@ -1,0 +1,3 @@
+.profile_list_cont .list .item {
+	height: 80px;
+}

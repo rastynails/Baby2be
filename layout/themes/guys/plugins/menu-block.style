@@ -1,0 +1,25 @@
+ul.menu-block li.tab a:hover,
+ul.menu-block li.tab a:active,
+ul.menu-block li.tab a.active{
+	background:none;
+}
+
+ul.menu-block li.active{
+	height:56px;
+	 
+}
+
+
+
+
+.profile_details ul.menu-block li.tab a:hover,
+.profile_details ul.menu-block li.tab a:active,
+.profile_details ul.menu-block li.tab a.active,
+.center_block ul.menu-block li.tab a:hover,
+.center_block ul.menu-block li.tab a:active,
+.center_block ul.menu-block li.tab a.active{
+	color:#0E4D01;
+	text-decoration:underline;
+	background:none;
+}
+

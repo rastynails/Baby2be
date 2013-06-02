@@ -1,0 +1,13 @@
+.special_block_top{background:image(special_block_top.gif) no-repeat;width:252px;height:7px;}
+.special_block_mid{background:image(special_block_mid.gif) repeat-y;width:238px;padding:0 7px 5px;}
+.special_block_bot{background:image(special_block_bot.gif) no-repeat;width:252px;height:19px;}
+
+
+.colorCode{width:52px;}
+table.colorPicker{border-collapse:separate !important;border-spacing:3px !important;}
+table.colorPicker td{width:20px;height:20px;padding:0;}
+
+.color_picker_wrap {
+	width: 252px;
+	margin: 0px auto;
+}

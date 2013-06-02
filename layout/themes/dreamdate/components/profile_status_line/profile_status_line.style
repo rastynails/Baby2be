@@ -1,0 +1,24 @@
+.profile_status_line {
+	float: right;
+	padding-top: 5px;
+}
+.profile_status_line .status {
+	width: auto;
+	float: left;
+	margin-right: 7px;
+}
+.profile_status_line .status .status_value {
+	margin-right: 5px;
+	font-weight: bold;
+}
+.profile_status_line .membership {
+	float: left;
+	margin-right: 7px;
+}
+.profile_status_line .membership_value a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.profile_status_line .membership_value a:hover {
+	text-decoration: none;
+}

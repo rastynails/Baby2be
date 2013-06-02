@@ -1,0 +1,68 @@
+{* Admin Language Tree *}
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+{paging total=$paging.total on_page=$paging.on_page pages=$paging.pages}
+
+<form method="post" id="groups_form">
+<input type="hidden" name="action" />
+<table align="left" width="100%">
+	<thead>
+		<tr>
+			<th colspan="4">Groups</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Group</td>
+			<td>Description</td>
+			<td>Status</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$groups item='group'}
+		<tr class="{cycle values=tr_1,tr_2}">
+			<td><input type=checkbox name="groups_arr[]" value="{$group.group_id}" /></td>
+			<td width="42%">
+				<div style="width: 90px; float: left; height: 90px">
+					<a href="{$group_url}?group_id={$group.group_id}">
+					   <img src="{$smarty.const.URL_USERFILES}thumb_group_{$group.group_id}_{$group.photo}.jpg" />
+					</a>
+				</div>
+				<div style="float: left; padding-left: 10px; width: 195px">
+					Title: <b>
+					<div style="width: 100px; overflow: hidden;"><a href="{$group_url}?group_id={$group.group_id}">{$group.title}</a></b></div>
+					Type:<br /> {if $group.browse_type eq 'public'}<b>Public</b> (anyone can browse){else}<b>Private</b> (only members can browse){/if}<br /> 
+					{if $group.join_type eq 'open'}<b>Open</b> (anyone can join){else}<b>Closed</b> (by invitation only){/if}<br />
+					Members: <b>{$group.members_count}</b><br />
+					Creator: <b>{$group.username}</b><br />
+					Created: <b>{$group.creation_stamp|date_format:"%b %e %y, %H:%M"}</b>
+				</div> 
+			<td style="vertical-align: top"><div style="width: 290px; overflow: hidden;">{$group.description|truncate:550}</div></td>
+			<td>{$group.status}</td>
+		</tr>
+	{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4" align="right">
+				With selected: set status 
+					<select name="status">
+						<option value="active">Active</option>
+						<option value="suspended">Suspended</option>
+						<option value="approval">Approval</option>
+					</select>
+					<input type="button" class="submit" value="Set" onclick="checkSetStatus()" />
+					<input type="button" class="submit" value="Delete" onclick="checkDelete()" />					
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

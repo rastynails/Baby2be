@@ -1,0 +1,16 @@
+.forum_thumb
+{
+	padding:20px 5px 5px;
+	text-align:center;
+	vertical-align:top;
+	width:70px;
+}
+
+.search_result_bread
+{
+	background-color: << .block_info;
+	font-weight: bold;
+	margin-bottom:5px;
+	margin-top:5px;
+	padding:3px;
+}

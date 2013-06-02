@@ -1,0 +1,8 @@
+Hi,
+
+Here is your new Member Account Password:
+
+Password: {%PASSWORD%}
+
+Best wishes,
+{%SIGNATURE%}

@@ -1,0 +1,4 @@
+.menu-line,
+.menu-line a {
+	color: #5c5d60;
+}

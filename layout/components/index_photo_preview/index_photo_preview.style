@@ -1,0 +1,39 @@
+/*Index Photo Preview*/
+.ipp_latest_bg {
+	padding-bottom: 10px;
+}
+.ipp_latest {
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.ipp_latest_bg a {
+	height: 250px;
+	display: block;
+}
+.ipp_no_content {
+	background: image(no_photo_big.jpg) no-repeat center center;
+}
+.ipp_small_no_content {
+	background: image(no_photo_small.jpg) no-repeat center center;
+	height: 100px;
+}
+.ipp_rated {
+	float: left;
+	width: 100px;
+	margin-right: 10px;
+	overflow: hidden;
+}
+.ipp_commented {
+	float: left;
+	width: 100px;
+	margin-right: 10px;
+	overflow: hidden;
+}
+.ipp_viewed {
+	float: left;
+	width: 100px;
+	overflow: hidden;
+}
+.ipp_image  {
+	height: 100px;
+}

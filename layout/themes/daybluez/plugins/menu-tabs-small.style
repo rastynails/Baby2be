@@ -1,0 +1,33 @@
+ul.menu-tabs-small {
+	float: left;
+	margin: 0px 0px 0px 0px;
+	border: none;
+	padding: 0px 0px 0px 0px;
+	background: none;
+	line-height: 25px;
+}
+ul.menu-tabs-small li.tab {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+ul.menu-tabs-small li.tab a {
+	display: block;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #aac2bd #4c6565 #4c6565 #aac2bd;
+	height: 22px;
+	line-height: 22px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 2px 0px 0px;
+	background: #90aaa4;
+	font-size: 11px;
+	color: #fff;
+}
+ul.menu-tabs-small li.tab a:hover,
+ul.menu-tabs-small li.tab a:active,
+ul.menu-tabs-small li.tab a.active,
+ul.menu-tabs-small li.tab a.active:hover {
+	background: #7a948f;
+	border-color: #99b2ae #4c6564 #4c6564 #99b2ae;
+}

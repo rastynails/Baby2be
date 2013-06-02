@@ -1,0 +1,313 @@
+{include file='inc/_header.html'}
+
+{if $unit == 'security'}
+    {block_page}
+        <div class="additional_settings">
+            {print_configs section='site.additional.profile' exclude='captcha_on_join,enable_no_follow' caption=' '}
+        </div>
+    {/block_page}
+{elseif $unit == 'country'}
+    {block_page}
+        {print_configs section='security' exclude='enable' caption=' '}
+        <table id="antispam-countries" style="width: 100%">
+            <thead>
+                <tr class="watchdog_caption">
+                    <td class="td-caption" align="center">Available Countries</td>
+                    <td></td>
+                    <td class="td-caption" align="center">Blocked Countries</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ol id="whiteList" class="drag-and-drop country-list">
+                            {foreach from=$countries.white item='black'}
+                                <li class="{cycle values='tr_1,tr_2'}">
+                                    <div class="country">
+                                        <input type="hidden" name="code" value="{$black.code}" />
+                                        <input type="checkbox" />&nbsp;<span>{$black.name}</span>
+                                    </div>
+                                </li>
+                            {/foreach}
+                        </ol>
+                    </td>
+                    <td style="text-align: center;">
+                        <div>
+                            <input type="button" name="move-to-left" value="&nbsp;&gt;&nbsp;" /><br /><br />
+                            <input type="button" name="move-to-right" value="&nbsp;&lt;&nbsp;" />
+                        </div>
+                    </td>
+                    <td>
+                        <ol id="blackList" class="drag-and-drop country-list">
+                            {foreach from=$countries.black item='white'}
+                                <li class="{cycle values='tr_1,tr_2'}">
+                                    <div class="country">
+                                        <input type="hidden" name="code" value="{$white.code}" />
+                                        <input type="checkbox" />&nbsp;<span>{$white.name}</span>
+                                    </div>
+                                </li>
+                            {/foreach}
+                        </ol>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="watchdog_caption">
+                    <td width="1%" style="text-align: left"><input type="checkbox" name="selectAllWhiteList">&nbsp;<span style="font-weight: bold;color: #485F75;font-size: 12px;">Check all</span></td>
+                    <td></td>
+                    <td width="1%" style="text-align: left"><input type="checkbox" name="selectAllBlackList">&nbsp;<span style="font-weight: bold;color: #485F75;font-size: 12px;">Check all</span></td>
+                </tr>
+            </tfoot>
+        </table>
+    {/block_page}
+{elseif $unit == 'search'}
+    {block_page}
+        <table id="securitySearch" width="100%">
+            <tbody>
+                <tr>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Find blocked IP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input id="ip_value" class="input_text" type="text" />
+                                        <input id="ip_search" class="submit" value="Search" type="button" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br class="clr">
+                    </td>
+                    <td valign="top">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Add IP to black list</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <form method="POST" action="">
+                                            <input type="hidden" name="action" value="add_ip" />
+                                            <input class="input_text" name="ip_address" type="text" />
+                                            <input class="submit" value="Add" name="add_ip" type="submit" />
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cleafix">
+            <div class="float_left" style="width: 49.5%; padding-left: 11px;">
+                <table id="blocked_ip_note_tbl">
+                    <thead>
+                        <tr>
+                            <td id="blocked_ip_note_tbl_head_cell">Note</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="blocked_ip_note_tbl_note_cell">Members with blocked IP/E-mail <br> can not Sign up again and Sign in from blocked IP/E-mail.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="float_left" style="width: 30%; text-align: right; padding-top: 50px;">
+                <form method="POST" action="">
+                    <input type="hidden" name="action" value="empty_list" />
+                    <input class="submit" value="Empty white list" type="submit" onclick="return confirm('Are you sure?');">
+                </form>
+            </div>
+        </div>
+        <br clear="all">
+        <br clear="all">
+        <div id="searchResult" style="display: none">
+            <form method="POST" action="" name="searchForm">
+                <input type="hidden" name="action" value="delete_ip" />
+                <input type="hidden" name="ip_value" value="" />
+                <input type="hidden" name="listType" value="" />
+                <table style="margin: 0 auto">
+                    <tbody>
+                        <tr class="tr_1">
+                            <td style="padding: 7px"><div id="list_type" style="width: 16px; height: 16px" class="" title="Is spam"></div></td>
+                            <td style="padding-left: 15px; padding-right: 15px"><label id="ip_label"></label></td>
+                            <td style="padding: 7px 10px 7px 7px">
+                                <input id="ip_change" type="submit" name="ip_change" value="Into white list" />
+                            </td>
+                            <td style="padding: 7px 10px 7px 7px">
+                                <input type="submit" name="delete_ip" value="Delete" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    {/block_page}
+{elseif $unit == 'status'}
+    {block_page}
+        {print_configs section='security' exclude='enable_block_ip' caption='StopForumSpam IP blocking'}
+        <table align="left" cellpadding="0" cellspacing="0" width="99%">
+            <thead>
+                <tr>
+                    <th>Statistics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tr_1">
+                    <td class="config_description">Spammers joins blocked today</td>
+                    <td class="config_value">{$status.count_spam_attempt.value}</td>
+                </tr>
+                <tr class=" tr_2">
+                    <td class="config_description">Total IP's in StopForumSpam database</td>
+                    <td class="config_value">{$status.count_ip_list.value}</td>
+                </tr>
+                <tr class="tr_1">
+                    <td class="config_description">Total Emails in StopForumSpam database</td>
+                    <td class="config_value">{$status.count_email_list.value}</td>
+                </tr>
+                <tr class=" tr_2">
+                    <td class="config_description">Database last update</td>
+                    <td class="config_value">{$status.time_update_database.value|spec_date}</td>
+                </tr>
+            </tbody>
+	</table>
+    {/block_page}
+{elseif $unit == 'blocked_ip'}
+    {block_page}
+        <table id="blocked_ip_manager_tbl" width="100%">
+            <thead>
+		<tr>
+                    <th id="blocked_ip_manager_tbl_head_cell" colspan="2">Blocked IP manager</th>
+		</tr>
+            </thead>
+            <tbody>
+		<tr>
+                    <td>
+                        <table id="blocked_ip_add_ip_tbl">
+                            <thead>
+                                <tr>
+                                    <th id="blocked_ip_add_ip_tbl_head_cell">Add blocked IP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="blocked_ip_add_ip_tbl_body_cell">
+                                        <form action="{$smarty.const.URL_ADMIN}security.php?unit=blocked_ip" method="POST" />
+                                            <input type="text" name="add_pattern" class="input_text" />
+                                            <input type="submit" name="add_ip" value="Add IP" class="submit" />
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br class="clr" />
+
+                        {if $find_ip}
+                            <table id="blocked_ip_search_result_tbl">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" id="blocked_ip_search_result_tbl_head_cell">Search result</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="blocked_ip_search_result_find_ip_cell">{$find_ip}</td>
+                                            <td id="blocked_ip_search_result_find_ip_delete_cell">
+                                                <a href="{$smarty.const.URL_ADMIN}security.php?unit=blocked_ip&delete_ip={$find_ip}" class="delete"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+
+                            <br class="clr" />
+                        {/if}
+                        <table id="blocked_ip_note_tbl">
+                            <thead>
+                                <tr>
+                                    <td id="blocked_ip_note_tbl_head_cell">Note</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="blocked_ip_note_tbl_note_cell">Members with blocked IP <br /> can not Sign up again and Sign in from blocked IP.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+			</td>
+
+			<td valign="top">
+                            <table id="blocked_ip_search_tbl">
+                                <thead>
+                                    <tr>
+                                        <th id="blocked_ip_search_tbl_head_cell">Find blocked IP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="blocked_ip_search_tbl_body_cell">
+                                            <form action="{$smarty.const.URL_ADMIN}security.php?unit=blocked_ip" method="POST" />
+                                                <input id="blocked_ip_search_input" type="text" name="search_pattern" class="input_text" />
+                                                <input id="blocked_ip_search_submit_btn" type="submit" name="search_ip" value="Search" class="submit" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+			</td>
+                    </tr>
+            </tbody>
+        </table>
+    {/block_page}
+{elseif $unit == 'blocked_ip_list'}
+    {block_page}
+        <table id="blocked_ip_list_tbl">
+            <thead>
+                <tr>
+                    <th id="blocked_ip_list_tbl_head_cell" colspan="2">List of blocked IP</th>
+                </tr>
+                    <tr>
+                        <td id="blocked_ip_list_tbl_subhead_cell" colspan="2">
+                            <label for="blocked_ip_list_result_per_page_select">Display IPs per page</label>
+                            <select id="blocked_ip_list_result_per_page_select" name="limit" onchange="location.href='security.php?unit=blocked_ip_list&_page=1&_limit='+this.value">
+                                <option value="10" {if $current_limit == 10}selected{/if}>10</option>
+                                <option value="30" {if $current_limit == 30}selected{/if}>30</option>
+                                <option value="50" {if $current_limit == 50}selected{/if}>50</option>
+                                <option value="100" {if $current_limit == 100}selected{/if}>100</option>
+                            </select>
+                        </td>
+                    </tr>
+            </thead>
+
+            <tbody id="blocked_ip_list_tbl_tbody">
+                {foreach from=$_blocked_list_info.list item=_item name=ip_list}
+                    <tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+                        <td>{$_item}</td>
+                        <td width="20" align="center">
+                            <a href="{$smarty.const.URL_ADMIN}security.php?unit=blocked_ip_list&_limit={$current_limit}&_page={$current_page}&delete_ip={$_item}{if $smarty.foreach.ip_list.total==1}&last_ip=1{/if}" class="delete"></a>
+                        </td>
+                    </tr>
+                {/foreach}
+            </tbody>
+
+            {if $_blocked_list_info.total > $current_limit}
+                <tfoot>
+                    <tr>
+                        <td id="blocked_ip_list_tbl_bottom_cell" colspan="2">{$navigation_pages}</td>
+                    </tr>
+                </tfoot>
+            {/if}
+        </table>
+    {/block_page}
+{/if}
+
+{include file='inc/_footer.html'}

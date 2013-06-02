@@ -1,0 +1,30 @@
+{*  Theme: Victory     *}
+{*  Author: Skadate  *}
+
+{canvas index}
+{include_style file="themes/victory/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+	{component NavigationInventoryLine}
+	{component PageHeader}
+	<div id="content">
+		<div style="background: url({$smarty.const.URL_LAYOUT}themes/victory/img/vc_promo_index.png) no-repeat 41px 37px; width: 100%; height: 461px;">
+			<div style="width: 262px; float: left; margin: 42px 0 0 54px;">{component QuickSearch}</div>
+			<div style="width: 246px; height: 145px; float: right; margin-left: 20px; margin-top: 34px; margin-right: 41px; background: url({$smarty.const.URL_LAYOUT}themes/victory/img/sign_in_index.png) no-repeat;">
+				{component SignIn type="no_block"}
+			</div>
+			<div style="width: 246px;  float: right; margin-top: 4px; margin-left: 20px; margin-right: 41px; background: url({$smarty.const.URL_LAYOUT}themes/victory/img/index_sign_up.png) no-repeat;"> {component SignUp}</div>
+		</div>
+		<div class="float_half_left" >
+			{component IndexProfileList lists='featured|online|new' count=5}
+		</div>
+		<div class="float_half_right">
+			{component IndexPhotoList lists='top_rated|most_commented|latest|most_viewed' count=8}
+		</div>
+	</div>
+	{*component PageSidebar*}
+	<div id="footer" style="width: 830px;">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

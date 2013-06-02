@@ -1,0 +1,17 @@
+.list_menu .send_friend_request, 
+.list_menu .sent_friend_requests, 
+.list_menu .remove_friend,
+.list_menu .cancel_request{
+	background-color:#FBFCFA;
+}
+
+.list_menu .bookmark, 
+.list_menu .unbookmark,
+.list_menu .speed_dating_unbookmark {
+	background-color:#FBFCFA;
+}
+
+.list_menu .block_profile,
+.list_menu .unblock_profile {
+	background-color:#FBFCFA;	
+}

@@ -1,0 +1,44 @@
+.index_video .block_body_c {
+	padding: 15px 6px 0px 15px;
+}
+.video_cont {
+	
+}
+.video_cont .float_left {
+	width: 494px;
+}
+.video_player {
+	float: none;
+	width: 474px;
+	height: 351px;
+	padding: 10px;
+	background: image(bg_video_player.png) no-repeat;
+}
+.video_title {
+	text-align: left;
+	float: none;
+	font-size: 15px;
+	padding: 5px;
+	display: block;
+	font-family: 'Ubuntu', Trebuchet MS, Helvetica, Arial, Verdana, Sans Serif;
+}
+.video_thumb_list  {
+	float: right;
+	width: 150px;
+}
+.video_thumb_list .video_thumb {
+	float: none;
+	margin: 0px;
+	width: 129px;
+	padding: 5px;
+	background: image(bg_video_thumb.png) no-repeat;
+	margin-bottom: 3px;
+}
+.video_thumb_title {
+	display: block;
+	padding-top: 7px;
+}
+.video_thumb_list .video_def_thumb {
+	width: 129px;
+	height: 97px;
+}

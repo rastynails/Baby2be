@@ -1,0 +1,135 @@
+{* Ajax Chat Configs template *}
+
+{include file='inc/_header.html'}
+
+
+<div style="float: left; margin-bottom: 20px;">
+<form id="chat_history_config_form" method="post">
+	<input type="hidden" name="action" value="save_history_config" />
+	<table>
+		<thead>
+			<tr>
+				<td colspan="3">Chat History</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td class="corner_left_t">
+					<input type="radio" name="chat_history_type" id="chat_history_type_recent_msg_num"
+						value="recent_msg_num"{if $chat_history_type=='recent_msg_num'} checked="checked"{/if}
+						disabled="disabled" />
+				</td>
+				<td class="side">
+					<label for="chat_history_type_recent_msg_num">Number of recent Chat messages to display</label>
+				</td>
+				<td class="corner_right_t">
+					<input type="text" name="recent_msgs_num" id="chat_history_recent_msgs_num_input"
+						size="2" maxlength="3" value="{$chat_history_recent_msgs_num}" disabled="disabled" />
+					<span style="padding: 5px">messages</span>
+				</td>
+			</tr>
+			
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td class="side">
+					<input type="radio" name="chat_history_type" id="chat_history_type_by_time"
+						value="by_time"{if $chat_history_type=='by_time'} checked="checked"{/if}
+						disabled="disabled" />
+				</td>
+				<td class="side">
+					<label for="chat_history_type_by_time">Keep chat messages displaying for</label>
+				</td>
+				<td class="side">
+					<input type="text" name="chat_history_time_digit"
+						size="2" maxlength="2" value="{$chat_history_time->digit}" disabled="disabled" />
+					
+					<select name="chat_history_time_unit" disabled="disabled">
+					{foreach from=$time_units item=unit}
+						<option value="{$unit}"{if $unit==$chat_history_time->unit} selected="selected"{/if}>{$unit}</option>
+					{/foreach}
+					</select>
+				</td>
+			</tr>
+		</tbody>
+		
+		<tfoot>
+			<tr>
+            	<td class="corner_left_b"></td>
+				<td class="corner_right_b" colspan="3">
+					<input type="submit" id="chat_history_config_form_submit" value="Save" disabled="disabled" />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</form>
+</div>
+
+<div style="float: left">
+<form method="post">
+	<input type="hidden" name="action" value="save_rooms_config" />
+	<table id="chat_rooms_tbl" class="table">
+		<thead>
+			<tr><th id="chat_rooms_tbl_head_cell" colspan="3">Chat Rooms</th></tr>
+			<tr>
+				<td class="corner_left_t">Name</td>
+				<td class="side">Active</td>
+				<td class="corner_right_t">Delete</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+		{foreach from=$chat_rooms item='room'}
+			<tr>
+				<td class="side" id="chat_room_name-{$room->chat_room_id}">
+					{lang_values_input section='components.chat.rooms' key=$room->chat_room_id}
+				</td>
+				<td class="side">
+					<input type="checkbox" class="chat_room_checkbox" name="active_rooms[{$room->chat_room_id}]"
+						value="1" {if $room->active}checked {/if}/>
+				</td>
+				<td class="side">
+					<a class="delete" href="#delete({$room->chat_room_id})"><a>
+				</td>
+			</tr>
+		{/foreach}
+		</tbody>
+		
+		<tfoot>
+			<tr>
+            	<td class="corner_left_b"></td>
+				<td colspan="3" class="corner_right_b">
+					<input type="submit" id="chat_rooms_save_btn" value="Save" disabled />
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+
+</form>
+
+<br clear="all" />
+
+{block_page}
+<form method="post">
+	<input type="hidden" name="action" value="create_room" />
+	<table id="create_new_room_tbl">
+		<thead>
+			<tr><td>Create New Room</td></tr>
+		</thead>
+		<tbody>
+			<tr><td>{add_lang_values_input name='room_name'}</td></tr>
+		</tbody>
+		<tfoot>
+			<tr><td><input id="create_chat_room_btn" type="submit" class="submit" value="Create" disabled /></td></tr>
+		</tfoot>
+	</table>
+</form>
+{/block_page}
+
+</div>
+{block_page}
+    {print_configs section='site.additional.im'}
+    {print_configs section='site.additional.shoutbox'}
+{/block_page}
+<br clear="all" />
+
+{include file='inc/_footer.html'}

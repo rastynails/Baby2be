@@ -1,0 +1,63 @@
+.member_console .thumb_box .thumb_container {
+	width: 111px;
+	height: 142px;
+}
+.member_console .thumb_box .img_size_100 {
+	background-image: image(member_bl_frame.png);
+	width: 111px;
+	height: 142px;
+}
+.member_console .thumb_box .profile_thumb_wrapper {
+	padding: 6px 0px 0px 5px;
+	display:block;
+}
+.member_console .membership_container {
+	margin-top: -33px;
+}
+.member_console .thumb_box .center {
+	position: relative;
+}
+.member_console .thumb_box .membership_container {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	left: 0;
+	top: 0;
+	line-height: 29px;
+}
+.new_items a {
+	width: 51px;
+}
+.my_profile_menu_cont ul.menu-vertical {
+	padding: 1px 8px;
+}
+.my_profile_menu_cont ul.menu-vertical li.item {
+	margin-bottom: 3px;
+	padding: 3px 0px 3px;
+	border-bottom: 1px dashed #73a2b7;
+	list-style-type: none;
+}
+.my_profile_menu_cont ul.menu-vertical li.item a {
+	font-size: 11px;
+	font-weight: bold;
+}
+.member_console .thumb_box .block_toolbar {
+	background: #F2F9FB;
+	height: auto;
+	text-align: center;
+}
+.member_console .thumb_box .block_toolbar a {
+	background-image: image(button_blue.gif);
+	background-color: #5abde4;
+	color: #22789d;
+	border:1px solid #008cc5;
+	padding: 4px 5px;
+	font-weight: bold;
+	-moz-box-shadow: 2px 2px 2px #888;
+ 	-moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+	min-width: 65px;
+	line-height: 15px;
+	display: inline-block;
+	text-align: center;
+}

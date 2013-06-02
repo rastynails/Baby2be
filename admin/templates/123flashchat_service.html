@@ -1,0 +1,67 @@
+{* Admin interface: Skadate services *}
+{include file='inc/_header.html'}
+
+<div style="width: 100%; float: left">
+{block_page}
+
+<table width="106%" align="left" id="123flashchat_access_table" style="width:100%;">
+	<thead>
+		<tr>
+			<td id="123flashchat_access_table_head_cell" colspan="2"><h2>123 Flash Chat Options</h2></td>
+		</tr>
+		<tr>
+		  <td colspan="2"  ><font id="setting_saved" color="#FF0000"></font></td>
+	  </tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2">
+			<td width="19%" id="123flashchat_access_table_enable_123flashchat_left_cell">
+		  <label >Hosting mode:(<font color="#FF0000">*</font>)</label></td>
+			<td width="81%" id="123flashchat_access_table_enable_123flashchat_right_cell">
+			<select name="fc_running_mode" id="fc_running_mode"  >
+		<option value="1" >Chat server is hosted by your own</option>
+		<option value="2">Chat server is hosted by 123FlashChat.com</option>
+		<option value="0" selected="selected">Chat server is hosted by 123FlashChat.com free of charge</option>
+		</select>			</td>
+		</tr>
+		<tr class="tr_1">
+		  <td ></td>
+		  <td id="123flashchat_access_table_enable_123flashchat_right_cell">Select the hosting mode for your chat.<br />
+	      Chat server is hosted by 123FlashChat.com free of charge -&gt; You can get free chat hosting from 123FlashChat.com<br />
+	      Chat server is hosted by 123FlashChat.com -&gt; You should pay for our chat hosting service.<br />
+	      Chat server is hosted by your own -&gt; You should download 123 Flash Chat Software.</td>
+	    </tr>
+		
+
+		<tr class="tr_2">
+			<td id="123flashchat_access_table_name_left_cell">
+				<label >Client location:(<font color="#FF0000">*</font>)</label></td>
+			<td id="123flashchat_access_table_name_right_cell"><input name="fc_client_location" type="text" class="input_text" id="fc_client_location"  size="60" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td ></td>
+			<td id="123flashchat_access_table_password_right_cell"> Please fill in the local client URL or Host URL of your chat client.</td>
+		</tr>
+				<tr class="tr_2">
+			<td id="123flashchat_access_table_name_left_cell">
+				<label >Chat room name:</label></td>
+			<td id="123flashchat_access_table_name_right_cell"><input name="fc_room_name" type="text" class="input_text" id="fc_room_name"  size="60" /></td>
+		</tr>
+		<tr class="tr_1">
+			<td ></td>
+			<td id="123flashchat_access_table_password_right_cell">If you  select &quot;Chat server is hosted by 123flashchat.com free of charge.&quot; hosting mode,<br /> 
+		    please fill in chat room name.</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td id="123flashchat_access_table_bottom_cell" colspan="2">
+				<input type="submit" name="save" value="Submit" id="submit" />			</td>
+		</tr>
+	</tfoot>
+</table>
+
+{/block_page}
+</div>
+<script language="javascript" src="../123flashchat/server_js.js"></script>
+{include file='inc/_footer.html'}

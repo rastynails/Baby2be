@@ -1,0 +1,150 @@
+{* Admin interface: list of profile fields*}
+{include file='inc/_header.html'}
+{include_php file='inc.colors.php'}
+{if $notice}
+	<div class="page_notice">
+		{$notice}
+	</div>
+{/if}
+{block_page}
+{print_configs section=photo.general}
+{print_configs section='site.additional.profile_list' exclude='display_photo_count'}
+<br clear="all" />
+<br clear="all" />
+
+<form enctype="multipart/form-data" action="{$smarty.const.URL_ADMIN}config_photo.php" method="POST" onsubmit="return CheckWaterMarkForm( this )">
+<input type="hidden" name="command" value="save_watermark" />
+
+<input type="hidden" name="txt_color" id="txt_color" value="{$watermark_configs.txt_color.value}" />
+<input type="hidden" name="bg_color" id="bg_color" value="{$watermark_configs.bg_color.value}" />
+
+<table>
+	<tr>
+		<td id="watermark_head_cell" class="config_section">Watermark</td>
+		<td id="photo_preview_head_cell" class="config_section">Preview</td>
+	</tr>
+	<tr>
+		<td>
+		
+			<table cellspacing="1">
+				<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+					<td id="watermark_disabled_cell" colspan="2" onclick="$('watermark_off').checked = true;">
+						<input type="radio" id="watermark_off" class="r_ch_lang" name="watermark" value="0" {if !$watermark_configs.watermark.value}checked{/if} />
+						<label for="watermark_off">{$watermark_configs.watermark.values.0.label}</label>
+					</td>
+				</tr>
+				<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+					<td id="watermark_text_radio_cell" onclick="$('watermark_text').checked = true;">
+						<input type="radio" id="watermark_text" class="r_ch_lang" name="watermark" value="1" {if $watermark_configs.watermark.value == 1}checked{/if} />
+						{$watermark_configs.watermark.values.1.label}
+					</td>
+					<td id="watermark_text_input_cell" onclick="$('watermark_text').checked = true;">
+						<input id="watermark_text_input_text" type="text" name="txt" value="{$watermark_configs.txt.value}" id="watermark_txt" class="input_text" style="color:{$watermark_configs.txt_color.value};background-color:{$watermark_configs.bg_color.value}" />
+						<select id="watermark_text_font_size_select" name="txt_size">
+						{foreach from=$watermark_configs.txt_size.values key='font_size' item='val_info'}
+							<option value="{$font_size}" {if $font_size == $watermark_configs.txt_size.value}selected{/if}>{$font_size}</option>
+						{/foreach}
+						</select>
+						<input id="watermark_text_font_color_btn" class="txt_palette_btn" accesskey="f" name="txt_palette" type="button" onclick="hide_palette('bg_colorbox');show_palette('txt_colorbox')" />
+						<input id="watermark_text_bg_color_btn" class="bg_palette_btn" accesskey="g" name="bg_palette" type="button" onclick="hide_palette('txt_colorbox');show_palette('bg_colorbox')" />
+						
+						<table id="txt_colorbox" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td>
+										<div id="f_palette_cap">Select font color</div>
+										<div class="close_btn" onclick="hide_palette('txt_colorbox')">x</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									{foreach from=$colors item='color'}
+										<div class="f_color" style="background-color: {$color}" title="{$color}" onclick="SetTextColor('{$color}'); hide_palette('txt_colorbox');"></div>
+									{/foreach}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="txt_colorbox_shadow"></div>
+						<table id="bg_colorbox" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td>
+										<div id="f_palette_cap">Select background color</div>
+										<div class="close_btn" onclick="hide_palette('bg_colorbox')">x</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									{foreach from=$colors item='color'}
+										<div class="f_color" style="background-color: {$color}" title="{$color}" onclick="SetBackGroundColor('{$color}'); hide_palette('bg_colorbox');"></div>
+									{/foreach}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="bg_colorbox_shadow"></div>
+													
+					</td>
+				</tr>
+				<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+					<td id="watermark_image_radio_cell" onclick="$('watermark_image').checked = true;">
+						<input type="radio" id="watermark_image" class="r_ch_lang" name="watermark" value="2" {if $watermark_configs.watermark.value == 2}checked{/if} />
+						{$watermark_configs.watermark.values.2.label}
+					</td>
+					<td id="watermark_image_upload_form_cell" onclick="$('watermark_image').checked = true;">
+						<br />
+						
+						{if !$watermark_configs.img.value}
+							<div id="watermark_image_no_image_container" class="imp_msg">No image aviable</div>
+						{else}
+							<div id="watermark_image_image_container" class="imp_msg">
+								<img src="{$smarty.const.URL_USERFILES}photo_watermark_img_{$watermark_configs.img.value}.png" />
+							</div>
+						{/if}
+						<input type="hidden" name="img" value="{$watermark_configs.img.value}" />
+						<br/>
+						<input id="watermark_image_upload_input" name="watermark_img" type="file" class="input_file" />
+						<br /clear="all">
+						<span id="watermark_image_upload_note">Upload .gif, .jpg and .png files only!</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="watermark_tbl_bottom" colspan="2" align="right">
+						<input type="submit" class="submit" name="submit" value="Apply" />
+					</td>
+				</tr>
+			</table>
+		</td>
+		</form>
+		
+		<form enctype="multipart/form-data" action="{$smarty.const.URL_ADMIN}config_photo.php" method="POST">
+		<input type="hidden" name="command" value="redraw_img" />
+		<td align="right">
+			<div id="preview_image_container" style="background-image:url({$smarty.const.URL_USERFILES}photo_preview.jpg?{$uniqid});background-repeat:no-repeat;background-position:center;">
+				<img src="{$smarty.const.URL_USERFILES}sp.gif" width="{$image_configs.preview_width.value}" height="{$image_configs.preview_height.value}" />
+			</div>
+			{if $convertation_in_process}
+				Conversion in progress...
+				<br />
+				<span><b>{$unprocessed_photo}</b> photos remaining.</span>
+			{else}
+				<input id="apply_to_all_photos_btn" type="submit" class="submit" name="submit" value="Apply to all photos"/>
+			{/if}
+			<br clear="all" />
+			<br clear="all" />
+			<div class="block_info" style="width: 230px; text-align: center">
+				These settings are applied to all photos but profile thumbnails. 
+			</div>
+		</td>
+		</form>
+	</tr>
+</table>
+
+<br clear="all" />
+<div style="width:50%">
+	{print_configs section="photo.watermark.additional"}
+</div>
+{/block_page}
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,24 @@
+.sidebar .sign_in_cont .field input {
+	width: 92%;
+}
+.sign_in_cont input[type=submit] {
+	width: 107px;
+	height: 46px;
+	padding: 0px;
+	background: image(sign_in_btn.png) no-repeat;
+ 	-moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+	-moz-box-shadow:none;
+	border: none;
+}
+body .sign_in_cont input[type=submit]:hover{
+	background: image(sign_in_btn.png) no-repeat;
+	border: none;
+}
+body .sign_in_cont input[type=submit]:disabled {
+	background: image(sign_in_btn.png) no-repeat;
+	border: none;
+}
+.sign_in_cont .input_bg {
+	margin: 6px 0px;
+}

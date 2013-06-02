@@ -1,0 +1,44 @@
+
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form method="post">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <thead>
+        <tr>
+            <td>Action</td>
+            <td width="13%">Give credits</td>
+            <td width="17%">Send notification</td>
+            <td width="11%">Amount</td>
+        </tr>
+    </thead>
+    <tbody>
+
+    {foreach from=$actions item='action'}
+    <tr class="{cycle values='tr_1,tr_2'}">
+        <td>{text section='user_points.actions' key=$action.action_name}</td>
+        <td align="center">
+            <input type="hidden" name="active[{$action.action_id}]" value="0" />
+            <input type="checkbox" name="active[{$action.action_id}]" value="1"{if $action.active} checked{/if} />
+        </td>
+        <td align="center">
+            <input type="hidden" name="notify[{$action.action_id}]" value="0" />
+            <input type="checkbox" name="notify[{$action.action_id}]" value="1"{if $action.notify} checked{/if} />
+        </td>
+        <td><input type="text" name="credits[{$action.action_id}]" value="{$action.credits}" size="7" /></td>
+    </tr>
+    {/foreach}
+
+    </tbody>
+    
+    <tfoot>
+        <tr><td colspan="4"><input type="submit" value="Save" /></td></tr>
+    </tfoot>
+</table>
+</form>
+
+{/block_page}
+<br clear="all" />
+
+{include file='inc/_footer.html'}

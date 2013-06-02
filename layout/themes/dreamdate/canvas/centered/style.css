@@ -1,0 +1,15 @@
+#page_canvas {
+	margin:auto;
+	width: 1029px;
+}
+#content {
+	padding: 0px;
+	background: image(sign_in_bg.jpg) no-repeat 0px 32px;
+	min-height: 700px;
+}
+#page_canvas .page_header {
+	background: transparent none;
+}
+.page_header .submenu {
+	display: none;
+}

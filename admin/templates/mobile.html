@@ -1,0 +1,42 @@
+{* admin Profile Messages template *}
+
+{include file='inc/_header.html'}
+
+<div style="width:90%;">
+	{block_page}
+	
+	<form action="" method="POST" >
+	<table style="width: 100%">
+		<thead>
+			<tr>
+				<td colspan="2" >SkaDate ME {if $version}(version {$version}){/if}</td>
+			</tr>
+		</thead>
+		<tbody>
+			<input type="hidden" name="section" value="mobile" />
+			{foreach from=$mobile_configs item=config}
+			<tr class="{cycle values="tr_1, tr_2"}" {highlight}>
+				<td>{$config.description}</td>
+				<td>
+				{if $config.presentation == checkbox}
+					<input type="checkbox" name="{$config.name}" value="1" {if $config.value == 1}checked="checked"{/if} />
+				{elseif $config.presentation == varchar}
+					{if $config.name == 'mobile_directory'}{$smarty.const.DIR_SITE_ROOT}{/if}
+					<input type="text" name="{$config.name}" value="{$config.value}" />
+				{/if}
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+		<tfoot>
+		<tr>
+			<td colspan="2" ><input type="submit" name="save_configs" value="Save" class="submit" /></td>
+		</tr>
+	</tfoot>
+	</table>
+	</form>		
+	{/block_page}
+</div>
+
+<br clear="all" />
+{include file='inc/_footer.html'}

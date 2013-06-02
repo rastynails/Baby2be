@@ -1,0 +1,3 @@
+<files "log.txt">
+	deny from all
+</files>

@@ -1,0 +1,114 @@
+.sign_in_cont .field input,
+.sign_up_cont .field input {
+	width:96%;
+}
+.sign_up_cont .field input[type=checkbox] {
+	width: auto;
+	margin-right: 5px;
+	vertical-align: bottom;
+}
+
+.floatbox_body .block_toolbar {
+	margin: -4px;
+}
+
+.floatbox_body .block {
+	margin: 0;
+}
+
+.sign_in_cont-line .field {
+	float: left;
+	padding: 2px;
+}
+
+.sign_in_cont-line .button {
+	padding-top: 16px;
+}
+
+.sign_in_cont-line {
+	position: relative;
+}
+
+.sign_in_cont-line .forgot_password {
+	left:80px;
+	position:absolute;
+	top:20px;
+	width:120px;
+}
+.sign_in_cont-line, .sign_in_cont-no_block {
+	position: relative;
+}
+
+.sign_in_cont-no_block .forgot_password {
+	position:absolute;
+	bottom:2px;
+	left:2px;
+	width:80%;
+}
+.remember {
+	float: left;
+}
+.fb_content .sign_in_btn {
+	float: right;
+}
+.sidebar .sign_in_cont .field label,
+.sidebar .sign_in_cont .remember label  {
+	font-size: 10px;
+}
+.sidebar .sign_in_cont .fb_content .clearfix {
+	padding-left: 2px;
+	padding-top: 5px;
+}
+body .input_invitation {
+	color: #87888C;
+}
+.sign_in_cont .input_name {
+	background: image(sign_in_input_tail.png) no-repeat right top;
+	padding: 0px 5px 0px 0px;
+}
+.sign_in_cont .input_pass {
+	background: image(sign_in_input_tail.png) no-repeat right top;
+	padding: 0px 5px 0px 0px;
+}
+#page_canvas .sign_in_cont a,
+#page_canvas .sidebar .sign_in_cont a {
+	color: #005cac;
+}
+#page_canvas .sign_in_cont input[type=text], 
+#page_canvas .sign_in_cont input[type=password] {
+	border: none;
+	background: transparent image(sign_in_input.png) no-repeat left top;
+	padding: 8px 0px 8px 10px;
+	margin: 0px;
+}
+.sign_in_cont .field {
+	margin-bottom: 0px;
+	padding-bottom: 9px;
+}
+.sign_in_cont .fb_content .clearfix {
+	padding-left: 2px;
+	padding-top: 0px;
+	margin-top: -3px;
+}
+.sign_in_cont .block_toolbar {
+	text-align: left;
+	padding: 0px 0px 0px 7px;
+}
+.sign_in_cont .form_field_error {
+	margin: 0px;
+}
+.sign_in_document .block_cap,
+.sign_in_document .block_cap_r,
+.sign_in_document .block_cap_c,
+.sign_in_document .block_body,
+.sign_in_document .block_body_r,
+.sign_in_document .block_body_c,
+.sign_in_document .block_bottom,
+.sign_in_document .block_bottom_r,
+.sign_in_document .block_bottom_c,
+.sign_in_document .block_toolbar,
+.sign_in_document .block_toolbar_r,
+.sign_in_document .block_toolbar_c {
+	border: none;
+	background: none;
+}

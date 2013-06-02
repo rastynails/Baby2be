@@ -1,0 +1,37 @@
+{*  Theme: Rosen Red   *}
+{*  Author: Skadate  *}
+
+{canvas index}
+
+{include_style file="themes/rr/httpdocs/index/index.style"}
+
+<div id="page_canvas" style="width: 830px; margin: 0 auto;">
+	{ads pos='top'}
+    {component NavigationInventoryLine}
+    <div id="content">
+		<br />
+		<div class="clearfix"> 
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/rr/img/index_logo.jpg) no-repeat; width: 294px; height: 55px; margin-left: 44px; float: left;"></div>
+			<div class="float_right">{component FBCButton}{component SelectLanguage}</div>
+		</div>
+		<div style="height: 439px; width: 100%; margin-bottom: 45px;">
+			<div style="background: url({$smarty.const.URL_LAYOUT}themes/rr/img/rr_index_couple.jpg) no-repeat; width: 719px; height: 439px; margin: 0 auto;">
+				<div class="index">
+					<div style="margin: 4px 13px 0 0; float: right; width: 49%;">
+						{component QuickSearch}
+						<div style="width: 178px; height: 46px; margin: auto;">
+							<a href="{document_url doc_key="join_profile"}"><img src="{$smarty.const.URL_LAYOUT}themes/rr/img/join_index_button.jpg"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="float_half_left" style="margin-left: 52px;">
+			{*component IndexVideo lists='latest|toprated' active='toprated'*}
+			{component SignIn type=line}
+		</div>
+	</div>
+	<div id="footer">{component PageFooter}</div>
+	{ads pos='bottom'}
+</div>
+{/canvas}

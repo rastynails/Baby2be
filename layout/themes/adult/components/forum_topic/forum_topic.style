@@ -1,0 +1,8 @@
+.expandable_menu .block_cap 
+{
+	margin-top: 0px;
+}
+.forum_thumb, 
+.list_item {
+	background: #eee;
+}

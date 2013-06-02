@@ -1,0 +1,35 @@
+ul.menu-tabs {
+	background: #000;
+	text-align: left;
+	font-family: "Arial Narrow", Arial, sans-serif;
+	padding: 0px 10px 0px 22px;
+}
+.main_menu ul.menu-tabs li.tab a {
+	background: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 0px 16px 4px 0px;
+}
+#page_canvas .main_menu ul.menu-tabs li.tab a {
+	text-decoration: none;
+}
+.main_menu ul.menu-tabs li.tab a span {
+	background: none;
+	padding: 0px;
+}
+ul.menu-tabs li.tab a.active,
+ul.menu-tabs li.tab a:hover,
+ul.menu-tabs li.tab a:active {
+	background: none;
+	color: #fff;
+}
+ul.menu-tabs li.tab a:hover {
+	color: #aca7a7;
+}
+ul.menu-tabs li.tab a:hover span,
+ul.menu-tabs li.tab a:active span,
+ul.menu-tabs li.tab a.active span {
+	background: none;
+}

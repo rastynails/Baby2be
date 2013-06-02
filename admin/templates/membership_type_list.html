@@ -1,0 +1,238 @@
+{* Admin interface: membership types*}
+{include file='inc/_header.html'}
+
+{block_page}
+
+<form action="{$smarty.const.URL_ADMIN}membership_type_list.php" method="POST" name="membership_types_list">
+<input type="hidden" name="command" value="default_membership_type" />
+<table cellspacing="1" align="left" width="100%">
+	<thead>
+		<tr>
+			<th id="membership_types_title_thead" colspan="7">Membership types</th>
+		</tr>
+		<tr>
+			<td width="7%">&nbsp;</td>
+			<td id="membership_types_name_thead_cell" width="19%">Name</td>
+			<td id="membership_types_description_thead_cell" width="34%">Description</td>
+			<td id="membership_types_type_thead_cell" width="11%">Type</td>
+			<td id="membership_types_limit_thead_cell"	width="9%">Period</td>
+			<td id="membership_types_default_thead_cell" width="7%">Set as Default</td>
+			<td width="13%">Available for</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach item=membership_type from=$mship_type_list name=membership_type_list}
+		<tr class="{if $membership_type.membership_type_id==$membership_type_id}selected_cp{else}{cycle values='tr_1_cp,tr_2_cp'}{/if}" {highlight}>
+			<td>
+				{if !$smarty.foreach.membership_type_list.first}
+					<a class="arr_up" href="{$smarty.const.URL_ADMIN}membership_type_list.php?membership_type_id={$membership_type.membership_type_id}&move_order=up"></a>
+				{else}
+					<div class="arr_up_i"></div>
+				{/if}
+				{if !$smarty.foreach.membership_type_list.last}
+					<a class="arr_down" href="{$smarty.const.URL_ADMIN}membership_type_list.php?membership_type_id={$membership_type.membership_type_id}&move_order=down"></a>
+				{else}
+					<div class="arr_down_i"></div>
+				{/if}
+			</td>
+			<td onclick="window.location.href='membership_type.php?membership_type_id={$membership_type.membership_type_id}'">{text section="membership.types" key=$membership_type.membership_type_id}</td>
+			<td>{edit_lang_values_btn section=membership.types.desc key=$membership_type.membership_type_id}</td>
+			<td>{if $membership_type.membership_type_id != 1}{$membership_type.type}{else}guest{/if}</td>
+			<td>{if $membership_type.membership_type_id != 1}{$membership_type.limit}{/if}</td>
+			<td align="center">
+				{if $membership_type.type == subscription && $membership_type.limit == unlimited && $membership_type.membership_type_id != 1} 
+				<input type="radio" name="default_membership_type_id" value="{$membership_type.membership_type_id}"{if $membership_type.membership_type_id == $def_mem_type} checked{/if} onchange="javascript: membership_types_list.submit()" />
+				{/if}
+			</td>
+			<td align="center">
+				{foreach from=$membership_type.available_for_sex item=sex_id name=available_for}
+					{text section=profile_fields.value key=sex_`$sex_id`}{if !$smarty.foreach.available_for.last},{/if}
+				{/foreach}
+			</td>
+		</tr>
+	{/foreach}
+	</tbody>
+</table>
+</form>
+{/block_page}
+
+{block_page}
+    {print_configs section='site.additional.subscribe'}
+{/block_page}
+
+<div style="width: 39%; float: left;">
+{block_page}
+<form action="" method="POST">
+<input type="hidden" name="command" value="default_reg_membership_type" />
+<table width="100%">
+	<thead>
+		<tr>
+			<th id="membership_types_given_on_registration_thead" colspan="2">Given on registration</th>
+		</tr>
+		<tr>
+			<td>Sex</td>
+			<td>Membership type</td>
+		</tr>
+	</thead>
+	<tbody>
+		{foreach from=$given_on_reg key=_sex_id item='_sex'}
+		<tr class="{cycle values='tr_1,tr_2'}" align="center">
+			<td width="40%">{text section=profile_fields.value key=sex_`$_sex_id`}</td>
+			<td>
+				<select name="given_on_reg[{$_sex_id}]">
+					{foreach from=$_sex.membership_types item='_membership_type_id'}
+						<option value="{$_membership_type_id}" {if $_sex.default == $_membership_type_id} selected{/if}>{text section=membership.types key=$_membership_type_id}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2"><input type="submit" value="Update" /></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+</div>
+
+<div style="width: 58%; float: right;">
+{block_page}
+<div class="membership_expiration">
+    {print_configs section='membership.expiration'}
+</div>
+<div>
+    <table>
+    <thead>
+        <tr><td colspan="2">Membership expiration email templates</td></tr>
+    </thead>
+    <tbody>
+        <tr class="tr_1">
+            <td>Subject</td>
+            <td>{edit_lang_values_btn section=mail_template key=membership_expiration_notification_subject}</td>    
+        </tr>
+        <tr class="tr_2">
+            <td>Body (HTML)</td>
+            <td>{edit_lang_values_btn section=mail_template key=membership_expiration_notification_body_html}</td>    
+        </tr>
+        <tr class="tr_1">
+            <td>Body (TXT)</td>
+            <td>{edit_lang_values_btn section=mail_template key=membership_expiration_notification_body_txt}</td>    
+        </tr>
+    </tbody>
+    </table>
+</div>
+{/block_page}
+</div>
+<br clear="all" />
+
+
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}membership_type_list.php" method="POST" name="creat_membership_type">
+<table width="100%">
+	<thead>
+		<tr>
+			<th id="membership_types_create_membership_type_thead" colspan="2">Create a new membership type</th>
+		</tr>
+		<tr>
+			<td width="40%" id="membership_types_create_membership_type_name_cell" width="50%"> Name </td>
+			<td width="60%" id="membership_types_create_membership_type_description_cell" class="thead_td">Description</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2">
+			<td>{add_lang_values_input name='membership_name'}</td>
+			<td>{add_lang_values_input name='membership_description'}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table width="100%">
+	<thead>
+		<tr>
+			<td id="membership_types_create_membership_type_type_cell" width="25%"> Type </td>
+			<td id="membership_types_create_membership_type_limit_cell" width="25%"> Limit </td>
+			<td>Available for</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="tr_2" style="vertical-align: top">
+			<td width="33%">
+				<label><input type="radio" id="subscription" name="membership_type" value="subscription" checked /> subscription</label><br />
+				<label><input type="radio" name="membership_type" value="trial" onclick="document.getElementById('limited').checked=true" /> trial</label>
+			</td>
+			<td width="33%">
+				<label><input type="radio" name="membership_limit" id="limited" value="limited" checked /> limited</label><br />
+				<label><input type="radio" name="membership_limit" value="unlimited" onclick="document.getElementById('subscription').checked=true" /> unlimited</label>  
+			</td>
+			<td width="33%">
+				{foreach from=$field_sex->values item='value'}
+					<label><input type="checkbox" name="available_for[]" value="{$value}" /> {text section=profile_fields.value key=`$field_sex->name`_`$value`}</label><br />
+				{/foreach}
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" align="right"><input type="submit" class="submit" name="creat_membership" value="Create" /></td>
+		</tr>
+	</tfoot>
+</table>
+
+</form>
+{/block_page}
+
+
+<!-- <td id="membership_types_create_membership_type_type_cell" width="25%"> Type </td>
+<td id="membership_types_create_membership_type_limit_cell" width="25%"> Limit </td>
+
+
+<form action="{$smarty.const.URL_ADMIN}membership_type_list.php" method="POST" name="creat_membership_type">
+<table cellspacing="1" align="left" width="100%">
+			
+			<td></td>
+			<td id="membership_types_create_membership_type_available_for_cell" class="thead_td" align="center">
+				
+			</td>
+		</tr>
+	</tbody> 
+</table>
+</form>
+-->
+
+{*print_configs section='membership.plan' section_label=false*}
+
+{block_page}
+<table width="100%">
+	<thead>
+		<tr>
+			<td width="45%">Description</td>
+			<td width="35%">Your plan structure</td>
+			<td width="20%">Sample</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="membership_types_plan_template_single_cell">This plan structure used on subscribe page for single payments' plans</td>
+			<td>{edit_lang_values_btn section='membership' key='plan_structure'}</td>
+			<td>{$sample_plan.single}</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="membership_types_plan_template_recurring_cell">This plan structure used on subscribe page for recurring payments' plans</td>
+			<td>{edit_lang_values_btn section='membership' key='plan_structure_recurring'}</td>
+			<td>{$sample_plan.recurring}</td>
+		</tr>
+		<tr class="{cycle values='tr_1,tr_2'}">
+			<td id="membership_types_plan_template_trial_cell">This plan structure used on subscribe page for free trial plans</td>
+			<td>{edit_lang_values_btn section='membership' key='plan_structure_free_trial'}</td>
+			<td>{$sample_plan.free_trial}</td>
+		</tr>
+	</tbody>
+</table>
+{/block_page}
+
+<br clear="all" />
+
+{include file='inc/_footer.html'}

@@ -1,0 +1,23 @@
+.action_buttons
+{
+	text-align: right;
+	height: 14px;
+}
+.search_key
+{
+	width: 200px;
+}
+.search_in
+{
+	width: 212px;
+	height: auto;
+}
+.forum_search
+{
+	float: right;
+	margin-left: 2px;
+}
+#content {
+	word-wrap: break-word;
+	overflow: hidden;
+}

@@ -1,0 +1,132 @@
+{* Admin interface: Skadate services *}
+
+{include file='inc/_header.html'}
+{literal}
+<style>
+.list_item
+{
+	float: left;
+	list-style: none;
+	padding: 4px 2px 2px 2px;
+	text-align: center;
+}
+
+.list_item div {
+	padding-bottom: 2px;
+}
+
+.list_item img {
+	cursor: pointer;
+}
+
+.photo_cont {
+	width:100px;
+	height: 100px;
+	position: relative;
+}
+
+.photo_mark {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.pp_photo {
+	background: url(img/lock.gif) center no-repeat;
+}
+.fo_photo {
+	background: url(img/profile.png) center no-repeat;
+}
+</style>
+
+{/literal}
+{if count($photos)}
+	{block_page}
+	<div class="thead_td" style="font-size: 12px">Photos</div>
+	<br />
+	{paging total=$paging.photo.total on_page=$paging.photo.on_page pages=$paging.photo.pages var=p_page}
+	<form method="POST">
+		
+		<ul class="photo_list">
+		{foreach from=$photos item=photo key=id}
+		<li class="list_item">
+			<div>
+				<a href="{$photo.profile_url}">{$photo.profile_username}</a>
+			</div>
+			<div class="photo_cont">
+				{if $photo.type == 'friends_only'}
+					<div class="photo_mark fo_photo" title="Friend Only Photo"></div>
+				{elseif $photo.type == 'password_protected'}
+					<div class="photo_mark pp_photo" title="Password Protected Photo"></div>
+				{/if}
+				<img src="{$photo.photo_thumb_src}" onclick="show_fullsize('{$photo.photo_view_src}');">
+			</div>
+			<div>
+				<input type="checkbox" name="photos[]" value="{$id}">
+			</div>
+		</li>
+		{/foreach}
+		</ul>
+		<br clear="all" />
+		<br clear="all" />
+{paging total=$paging.photo.total on_page=$paging.photo.on_page pages=$paging.photo.pages var=p_page}
+		<br clear="all" />
+		<div style="float: left"><input type="checkbox" onclick="select_all(this);"> Select All </div>
+		<div style="float:right">
+		
+			<input type="submit" name="delete_photo" value="delete"> | 
+			<select name="photo_status">
+				<option value="active">active</option>
+				<option value="approval">approval</option>
+				<option value="suspended">suspended</option>
+			</select>
+			<input type="submit" name="set_status" value="set status">
+		</div>
+	</form>
+	
+	{/block_page}
+{/if}
+{if count($thumbs)}
+	<br />
+	{block_page}
+	<div class="thead_td" style="font-size: 12px">Thumbnails</div>
+	<br />
+	{paging total=$paging.thumb.total on_page=$paging.thumb.on_page pages=$paging.thumb.pages var=t_page}
+	<form method="POST">
+		<ul class="photo_list">
+		{foreach from=$thumbs item=photo key=id}
+		<li class="list_item">
+			<div>
+				<a href="{$photo.profile_url}">{$photo.profile_username}</a>
+			</div>
+			<div style="width:100px; height: 100px">
+				<img src="{$photo.photo_thumb_src}">
+			</div>
+			<div>
+				<input type="checkbox" name="photos[]" value="{$id}">
+			</div>
+		</li>
+		{/foreach}
+		</ul>
+		<br clear="all" />
+		<br clear="all" />
+		{paging total=$paging.thumb.total on_page=$paging.thumb.on_page pages=$paging.thumb.pages var=t_page}
+		<br clear="all" />
+		<div style="float: left"><input type="checkbox" onclick="select_all(this);"> Select All </div>
+		<div style="float:right">
+		
+			<input type="submit" name="delete_photo" value="delete"> | 
+			<select name="photo_status">
+				<option value="active">active</option>
+				<option value="approval">approval</option>
+				<option value="suspended">suspended</option>
+			</select>
+			<input type="submit" name="set_status" value="set status">
+		</div>
+	</form>
+	
+	{/block_page}
+{/if}
+{include file='inc/_footer.html'}

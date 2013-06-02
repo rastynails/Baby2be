@@ -1,0 +1,4 @@
+.rss_footer {
+    padding: 2px 2px 0px;
+    text-align: right;
+}

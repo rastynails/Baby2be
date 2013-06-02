@@ -1,0 +1,19 @@
+.submenu {
+	float: right;
+	padding: 0px;
+	line-height: 20px;
+	border: none;
+	margin: 24px 0px 0px;
+}
+.submenu .menu-list {
+	padding: 0px;
+}
+.submenu .menu-list li {
+	padding: 0px 7px;
+	margin: 0px;
+}
+.submenu .menu-list li a {
+	padding: 0px;
+	background: none;
+	color: #fff;
+}

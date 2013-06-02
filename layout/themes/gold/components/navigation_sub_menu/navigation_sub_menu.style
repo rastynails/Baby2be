@@ -1,0 +1,11 @@
+.submenu 
+{	
+	font-size:11px;
+	padding:2px 0;
+	text-align:center;
+	background: image(sub_menu.png) repeat-x;
+	width: 830px;
+	float: right;
+	border: none;
+	margin:0 0 0 -6px;
+}

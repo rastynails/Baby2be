@@ -1,0 +1,15 @@
+.hot_list .block_body {
+	padding-left: 11px;
+}
+.hot_list .profile_thumb {
+	width: 80px;
+}
+.hot_list .hot_odd {
+	padding-left: 7px;
+}
+.hot_list .profile_thumb_wrapper {
+	height: 80px;
+}
+.hot_even,.hot_odd {
+	width: 80px;
+}

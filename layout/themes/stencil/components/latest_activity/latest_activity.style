@@ -1,0 +1,4 @@
+.feed_time {
+	font-family: Arial, sans-serif;
+	font-size: 9px;
+}

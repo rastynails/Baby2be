@@ -1,0 +1,55 @@
+{include file='inc/_header.html'}
+<br clear="all" />
+
+<div class="pr_top_add_field">
+	<a href="{$smarty.const.URL_ADMIN}ads_template_set.php">Back</a>
+</div>
+{block_page}
+
+<form action="{$smarty.const.URL_ADMIN}ads_template_set_create.php" method="POST"  onsubmit="return CheckForm_create_template_set(this);">
+<input type="hidden" name="template_set_id" value="{$smarty.get.set_id}" />
+<table id="new_set_template_form_table" cellspacing="1" align="center" class="table">
+		<thead>
+			<tr>
+				<th id="new_set_form_table_head_cell" colspan="3">
+				{if $smarty.get.set_id}
+					Edit menu template set
+				{else}
+					Create new template set
+				{/if}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td id="new_set_form_table_set_name_left_cell" align="right">
+					<label for="set_name">Set name</label>
+				</td>
+				<td id="new_set_form_table_set_name_right_cell">
+					<input type="text" name="set_name" id="set_name" value="{$template_set.name}" class="input_text" />
+				 					
+				</td>
+			</tr>
+
+			{print_tmpls all_templates=$all_templates all_countries=$all_countries template_set=$template_set}
+		 
+			<tr>
+				<td colspan="2" align="right">
+					{if $smarty.get.set_id}
+						<input id="save_set_submit_btn" type="submit" name="save" value="Save" class="submit" />
+					{else}
+						<input id="new_set_submit_btn" type="submit" name="create" value="Create" class="submit" />
+					{/if}					
+					
+				</td>
+			</tr>
+		</tbody>
+</table>
+</form>
+{/block_page}
+
+
+
+<br clear="all" />
+{include file='inc/_footer.html'}

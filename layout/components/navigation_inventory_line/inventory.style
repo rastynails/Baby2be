@@ -1,0 +1,12 @@
+/* Inventory Line CSS Styles */
+
+.inventory_line {
+	margin: 0px auto;
+	padding: 5px 0px;
+	font-size: << $small_font;
+}
+
+.inventory_line a {
+	text-align: center;
+	color: << $highlight_color;
+}

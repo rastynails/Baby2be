@@ -1,0 +1,41 @@
+ul.menu-list {
+    padding: 12px 0px 9px 0px;
+}
+
+ul.menu-list li.item {
+	margin-bottom: 0;
+	padding: 0;
+	line-height: 30px;
+	white-space: nowrap;
+}
+
+.menu-list a {
+	margin-right: 0px;
+    padding: 0px 12px;
+	font-family: "Ubuntu", Arial;
+	font-weight: lighter;
+}
+
+.menu-list a,
+.menu-list a:hover {
+	color: #5a4e4e;
+	font-size: 13px;
+	text-decoration: none;
+	font-weight: normal;
+	background: none;
+}
+.menu-list a:hover {
+	color: #df0007;
+}
+.menu-list a.active,
+.menu-list a.active:hover {
+	background: none;
+	font-weight: normal;
+	color: #df0007;
+}
+
+.menu-list a:hover,
+.menu-list a.active:hover {
+	text-decoration: underline ;
+}
+

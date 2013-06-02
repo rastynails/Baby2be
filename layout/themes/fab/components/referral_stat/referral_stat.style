@@ -1,0 +1,9 @@
+.referral_stat table.form th {
+	background: #394F64;
+}
+.referral_stat .block_body {
+	border-top: 1px solid #4D667E;
+}
+.list_odd {
+	background-color: #4D667E;
+}

@@ -1,0 +1,45 @@
+{include file="inc/_header.html"}
+
+{block_page}
+
+<table id="blocked_ip_list_tbl">
+	<thead>
+		<tr>
+			<th id="blocked_ip_list_tbl_head_cell" colspan="2">List of blocked IP</th>
+		</tr>
+		<tr>
+			<td id="blocked_ip_list_tbl_subhead_cell" colspan="2">
+				<label for="blocked_ip_list_result_per_page_select">Display IPs per page</label>
+				<select id="blocked_ip_list_result_per_page_select" name="limit" onchange="location.href='blocked_ip_list.php?_page=1&_limit='+this.value">
+					<option value="10" {if $current_limit == 10}selected{/if}>10</option>
+					<option value="30" {if $current_limit == 30}selected{/if}>30</option>
+					<option value="50" {if $current_limit == 50}selected{/if}>50</option>
+					<option value="100" {if $current_limit == 100}selected{/if}>100</option>
+				</select>
+			</td>
+		</tr>
+	</thead>
+	
+	<tbody id="blocked_ip_list_tbl_tbody">
+	{foreach from=$_blocked_list_info.list item=_item name=ip_list}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td>{$_item}</td>
+			<td width="20" align="center">
+				<a href="{$smarty.const.URL_ADMIN}blocked_ip_list.php?_limit={$current_limit}&_page={$current_page}&delete_ip={$_item}{if $smarty.foreach.ip_list.total==1}&last_ip=1{/if}" class="delete"></a>
+			</td>
+		</tr>
+	{/foreach}
+	</tbody>
+	
+	{if $_blocked_list_info.total > $current_limit}
+	<tfoot>
+		<tr>
+			<td id="blocked_ip_list_tbl_bottom_cell" colspan="2">{$navigation_pages}</td>
+		</tr>
+	</tfoot>
+	{/if}
+</table>
+
+{/block_page}
+
+{include file="inc/_footer.html"}

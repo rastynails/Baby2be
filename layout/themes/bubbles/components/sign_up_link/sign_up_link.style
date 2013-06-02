@@ -1,0 +1,21 @@
+.sign_up_link .block_cap {
+	background-image: image(top_blue_l.png);
+}
+.sign_up_link .block_cap_r {
+	background-image: image(top_blue_r.png);
+}
+.sign_up_link .block_cap_c {
+	background-image: image(top_blue_c.gif);
+	height: 9px;
+	padding-top: 0px;
+}
+.sign_up_link .block_body {
+	background-color: #A8D4E1;
+}
+.link_container {
+	padding: 3px 7px;
+	background: #A9D4E2;
+}
+#page_canvas .link_container a {
+	color: #1f5d79;
+}

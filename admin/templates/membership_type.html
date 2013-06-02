@@ -1,0 +1,282 @@
+{* Admin interface: memberships*}
+{include file='inc/_header.html'}
+
+{block_page}
+<table width="100%">
+	<thead>
+		<tr>
+			<th style="text-align:center">Membership type: {edit_lang_values_btn section='membership.types' key=$membership_type_id}</th>
+		</tr>
+	</thead>
+</table>
+<br />
+
+{if $membership_type_id != 1 }
+{if $is_default_membership_type}{assign var=disabled value=' disabled'}{/if}
+<div style="width:48%; float: left">
+<form action="" method="POST">
+	<input type="hidden" name="command" value="available_for" />
+	<table>
+		<thead>
+		<tr><th id="membership_type_available_for_sex_cell">Available for:</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="70%">
+					{foreach from=$membership_info.available_for_sex item=_value key=_sex_id}
+						<label><input type="checkbox" name="available_for[]" value="{$_sex_id}"{if $_value} checked{/if}{$disabled} />{text section=profile_fields.value key=sex_`$_sex_id`}</label>
+					{/foreach}
+				</td>
+			</tr>
+			<tr>
+				<td class="tfoot_td"><input type="submit" value="Save"{$disabled} /></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+</div>
+
+<div style="width:48%; float: right">
+<form name='membership_icon_upload_form' enctype="multipart/form-data"  action="" method="POST">
+	<table width="100%">
+		<thead>
+			<tr>
+				<th colspan="5">Membership Type icon</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="2" width="30%" align="center">
+				{if $membership_type_icon_uploded}
+					<img src="{getMembershipTypeIconUrl type_id = $membership_type_id}"><br /><br />
+					<a href="javascript://" onclick="$('membership_type_icon_command').value='delete_membership_type_icon' ; document.forms.membership_icon_upload_form.submit()">delete</a>
+				{/if}
+					<input id="membership_type_icon_command" type="hidden" name="command" value="add_membership_type_icon" />
+				</td>
+				<td width="70%">
+					<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+					<input type="file" name="membership_type_icon_upload" class="input_file" >
+				</td>
+			</tr>
+				<tr><td class="tfoot_td"><input type="submit" class="submit" value="Upload"></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+</div>
+{/if}
+{/block_page}
+<br clear="all" />
+
+{if $membership_info.type=='subscription' && $membership_info.limit!='unlimited' && $membership_type_id != 1}
+<div style="width: 70%">
+{block_page}
+	<form action="{$smarty.const.URL_ADMIN}membership_type.php?membership_type_id={$membership_type_id}" method="POST" onsubmit="return (checkPlansForm(this, 0) && checkIfPlansSelected(this))">
+	<table align="left" width="100%">
+		<thead>
+			<tr>
+				<th colspan="5">Price planning</th>
+			</tr>
+			<tr>
+				<td width="7%">&nbsp;</td>
+				<td width="31%">Price</td>
+				<td width="31%">Period</td>
+				<td width="20%">Unit</td>
+				<td width="10%">Type</td>
+			</tr>
+		</thead>
+		<tbody>
+		{section name=plans loop=$mem_plans}
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td><input type="checkbox" name="plan_id_arr[]" value="{$mem_plans[plans].membership_type_plan_id}" /></td>
+				<td><input type="text" class="input_text" name="price_{$mem_plans[plans].membership_type_plan_id}" maxlength="10" size="15" value="{$mem_plans[plans].price}" /></td>
+				<td><input type="text" class="input_text" name="period_{$mem_plans[plans].membership_type_plan_id}" maxlength="6" size="15" value="{$mem_plans[plans].period}" /></td>
+				<td><select name="unit_{$mem_plans[plans].membership_type_plan_id}">
+						<option value="days"{if $mem_plans[plans].units == 'days'} selected{/if}> day(s) </option>
+						<option value="months"{if $mem_plans[plans].units == 'months'} selected{/if}> month(s) </option>
+					</select>
+				</td>
+				<td>
+					<select name="type_{$mem_plans[plans].membership_type_plan_id}">
+						<option value="n"{if $mem_plans[plans].is_recurring == 'n'} selected{/if}> single </option>
+						<option value="y"{if $mem_plans[plans].is_recurring == 'y'} selected{/if}> recurring </option>
+					</select>
+				</td>
+			</tr>
+		{/section}
+		</tbody>
+		<tfoot align="right">
+			<th colspan="5">With selected &nbsp;&nbsp;&nbsp; <input type="submit" class="submit" name="update_plans" value="Update" />
+				<input type="submit" class="submit" name="delete_plans" value="Delete" />
+			</th>
+		</tfoot>
+	</table>
+	</form>
+{/block_page}
+</div>
+
+<div style="width: 70%">
+{block_page}
+	<form action="{$smarty.const.URL_ADMIN}membership_type.php?membership_type_id={$membership_type_id}" method="POST" onsubmit="return checkAddNewPlan(this, 0);">
+	<input type="hidden" name="command" value="add_plan" />
+	<table align="left" width="100%">
+		<thead>
+			<tr>
+				<th id="membership_type_add_plan_thead" colspan="4">Add a new plan</th>
+			</tr>
+			<tr>
+				<td width="35%">Price</td>
+				<td width="35%">Period</td>
+				<td width="20%">Unit</td>
+				<td width="10%">Type</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="tr_1">
+				<td><input type="text" class="input_text" maxlength="10" size="15" name="price" /></td>
+				<td><input type="text" class="input_text" maxlength="6" size="15" name="period" /></td>
+				<td>
+					<select name="unit">
+						<option value="days" selected> day(s) </option>
+						<option value="months"> month(s) </option>
+					</select>
+				</td>
+				<td>
+					<select name="is_recurring">
+						<option value="n" selected> single </option>
+						<option value="y"> recurring </option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+			<tr>
+				<th align="right" colspan="4"><input type="submit" class="submit" value="Add" /></th>
+			</tr>
+	</table>
+	</form>
+{/block_page}
+</div>
+<br clear="all" />
+
+{elseif $membership_info.type == 'trial' && !$membership_info.paid_by_sms}
+{block_page}
+	<form action="{$smarty.const.URL_ADMIN}membership_type.php?membership_type_id={$membership_type_id}" method="POST" onsubmit="return checkPlansForm(this, 0)">
+	<table align="left" cellspacing="1" width="100%">
+		<thead>
+			<tr>
+				<th id="membership_type_plans_for_trial_thead" colspan="3">Price planning</th>
+			</tr>
+			<tr>
+				<td width="40%">Price</td>
+				<td width="40%">Period</td>
+				<td width="20%">Unit</td>
+			</tr>
+		</thead>
+		<tbody>
+		{section name=plans loop=$mem_plans}
+			<tr class="{cycle values='tr_1,tr_2'}">
+				<td>
+					<input type="hidden" name="plan_id_arr[]" value="{$mem_plans[plans].membership_type_plan_id}" />
+					<input type="text" class="input_text" name="price_{$mem_plans[plans].membership_type_plan_id}" maxlength="10" size="15" value="{$mem_plans[plans].price}" />
+				</td>
+				<td><input type="text" class="input_text" name="period_{$mem_plans[plans].membership_type_plan_id}" maxlength="6" size="15" value="{$mem_plans[plans].period}" /></td>
+				<td><select name="unit_{$mem_plans[plans].membership_type_plan_id}">
+						<option value="days"{if $mem_plans[plans].units == 'days'} selected{/if}> day(s) </option>
+						<option value="months"{if $mem_plans[plans].units == 'months'} selected{/if}> month(s) </option>
+					</select>
+				</td>
+			</tr>
+		{/section}
+		</tbody>
+		<tfoot>
+			<tr>
+				<th align="right" colspan="3"><input type="submit" class="submit" name="update_plans" value="Update" />
+											<input type="submit" class="submit" name="delete_plans" value="Delete" />&nbsp;&nbsp;
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+	</form>
+{/block_page}
+
+	{if $smarty.section.plans.total < 1}
+		<form action="{$smarty.const.URL_ADMIN}membership_type.php?membership_type_id={$membership_type_id}" method="POST" onsubmit="return checkAddNewPlan(this, 0);">
+		<input type="hidden" name="command" value="add_plan" />
+		<table align="left" cellspacing="1" width="100%">
+			<thead>
+				<tr>
+					<th colspan="3">Add a new plan</th>
+				</tr>
+				<tr>
+					<td width="40%">Price</td>
+					<td width="40%">Period</td>
+					<td width="20%">Unit</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="tr_1">
+					<td><input type="text" class="input_text" maxlength="10" size="15" name="price" /></td>
+					<td><input type="text" class="input_text" maxlength="6" size="15" name="period" /></td>
+					<td><select name="unit">
+							<option value="days" selected> day(s) </option>
+							<option value="months"> month(s) </option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+				<tr>
+					<th colspan="3"><input type="submit" class="submit" value="Add" /></th>
+				</tr>
+			<tfoot>
+			</tfoot>
+		</table>
+		</form>
+
+		<br clear="all" />
+		<br clear="all" />
+
+	{/if}
+{/if}
+
+{block_page}
+<form action="{$smarty.const.URL_ADMIN}membership_type.php?membership_type_id={$membership_type_id}" method="POST" name="mem_permissions_list" onsubmit="return checkSubmitForm( this )">
+<input type="hidden" name="action" id="action" value="post" />
+<table align="left" cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th colspan="4">{edit_lang_values_btn section='membership.types' key=$membership_type_id}</th>
+		</tr>
+		<tr>
+			<td id="membership_type_permission_tbl_service_cell" width="35%"> Service </td>
+			<td id="membership_type_permission_tbl_description_cell" width="35%"> Description </td>
+			<td id="membership_type_permission_tbl_permission_cell" width="15%"> Permission </td>
+			<td id="membership_type_permission_tbl_limit_cell" width="15%">Limit</td>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach from=$mem_permissions item='permission'}
+		{if $permission.active}
+		<tr class="{cycle values='tr_1,tr_2'}" {highlight}>
+			<td onclick="document.getElementById('{$permission.membership_service_key}').checked=!document.getElementById('{$permission.membership_service_key}').checked"> {text section="membership.services" key=$permission.membership_service_key} </td>
+			<td onclick="document.getElementById('{$permission.membership_service_key}').checked=!document.getElementById('{$permission.membership_service_key}').checked"> {$permission.description} </td>
+			<td align="center"> <input type="checkbox" name="service_key[]" value="{$permission.membership_service_key}" id="{$permission.membership_service_key}"{$permission.available} /> </td>
+			<td>{if $permission.is_limited=='y' && $membership_type_id!=1}<input type="text" name="service_limit[{$permission.membership_service_key}]" value="{$permission.service_limit}" size="2" maxlength="2" /> <span style="font-size: 10px; white-space: nowrap;">per day</span>{/if}</td>
+		</tr>
+		{/if}
+	{/foreach}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th align="right" colspan="3">
+				<input type="submit" class="submit" name="save_permissions_settings" value="Save settings" />
+				{if $membership_type_id != 1}
+					<input type="submit" class="submit" name="delete_membership_type" value="Delete membership type" onclick="javascript: deleteMembershipType();" />&nbsp;&nbsp;{/if}
+			</th>
+			<th><input type="checkbox" name="checkall" onclick="checkAll( this.form, this.checked );" />Check all</th>
+		</tr>
+	</tfoot>
+</table>
+</form>
+{/block_page}
+
+{include file='inc/_footer.html'}

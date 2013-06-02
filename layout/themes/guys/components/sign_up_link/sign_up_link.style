@@ -1,0 +1,10 @@
+.link_container{
+	background: transparent none;
+}
+
+.sign_up_link .block_bottom,
+.sign_up_link .block_bottom_r,
+.sign_up_link .block_bottom_c{
+	background:none;
+	height:0px;
+}

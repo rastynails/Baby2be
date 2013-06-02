@@ -1,0 +1,22 @@
+/* -- component page header -- */
+
+.page_header {
+	background: none;
+	margin: 0px auto 0px;
+	width: 830px;
+	height: 100px;
+	padding: 43px 0px 0px;
+}
+
+.logo {
+	padding: 3px;
+	background: image(logo.png) no-repeat;
+	margin:0px 0 0 41px;
+}
+
+.page_header .menu-tabs {
+	padding:0;
+	width: 828px;
+	margin-left: -4px;
+
+}
