@@ -21,6 +21,6 @@
 		{/block}
 	{/if}
 	
-	{component HotList}
+	{* component HotList *}
 
 {/container}
