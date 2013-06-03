@@ -10,5 +10,4 @@
 	display: block;
 	height: 68px;
 	background: << $site_logo;
-	width: 340px;
 }

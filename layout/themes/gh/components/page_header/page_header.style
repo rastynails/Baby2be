@@ -5,13 +5,12 @@
 	margin: 10px auto 0px;
 	width: 830px;
 	float: left;
-	height:129px;
+	height:265px;
 }
 
 .logo {
 	padding: 25px;
-	margin: 0px 0 0 200px;
-	height: 23px;
+	height: 183px;
 	background: image(logo.png) no-repeat;
 	clear: right;
 }
