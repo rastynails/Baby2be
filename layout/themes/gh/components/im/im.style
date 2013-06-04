@@ -1,12 +1,12 @@
 .im_window {
-	background:#663300 image(gh_bg.jpg) repeat-x;
+	background-color:#663300;
 	float: left;
 	padding: 2px;
 	overflow: auto;	
 }
 
 .im_sidebar {
-	background:#663300 image(gh_bg.jpg) repeat-x;
+	background-color: #663300;
 	border-left: 1px solid #aaa;
 }
 
