@@ -1,5 +1,5 @@
 $body {
-	background-color: #663300;
+	background: none repeat scroll 0 0 #663300;
 }
 
 $a_link {
