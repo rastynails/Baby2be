@@ -1,6 +1,0 @@
-.chat_windows_container {
-	background: #eee;
-}
-.chat_windows_cell .block_cap {
-	width: 610px;
-}

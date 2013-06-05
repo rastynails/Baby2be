@@ -1,6 +1,0 @@
-.photo_list_cont .list {
-	padding-left: 19px;
-}
-.photo_list_cont ul li.item {
-	margin: 5px 18px 5px 0px;
-}

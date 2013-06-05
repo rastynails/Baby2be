@@ -1,1 +1,0 @@
-{$item.string|censor:'comment'}

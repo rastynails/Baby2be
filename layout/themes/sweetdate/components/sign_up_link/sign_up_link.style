@@ -1,7 +1,0 @@
-#page_canvas .sign_up_link .block_cap_c {
-	line-height: 2px;
-	min-height: 7px;
-}
-#page_canvas .sidebar .sign_up_link a {
-	color: #005cac;
-}

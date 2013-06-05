@@ -1,8 +1,0 @@
-div.member_actions a {
-	background:#D96C91;
-	color: #fff;
-}
-div.member_actions a:hover {
-	background:#fff;
-	color: #D96C91;
-}

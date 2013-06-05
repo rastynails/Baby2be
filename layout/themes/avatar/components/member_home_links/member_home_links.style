@@ -1,9 +1,0 @@
-.memhome_link a{
-	color: #2b2b2b;
-}
-.memberhome_hrefs_cont .block_body {
-	padding: 5px 0px 5px 3px;
-}
-.memberhome_hrefs_cont .block_body_c{
-	padding-bottom:5px;
-}

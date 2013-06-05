@@ -1,6 +1,0 @@
-.sidebar .block {
-	margin-bottom: 7px;
-}
-.sidebar .block_cap_title {
-	font-size: 12px;
-}

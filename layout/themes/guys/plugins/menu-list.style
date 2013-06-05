@@ -1,8 +1,0 @@
-.menu-list a:link, .menu-list a:visited, .menu-list .a_fake{
-	color:#fff;
-}
-
-ul.menu-list a:hover, ul.menu-list a.active{
-	background:none;
-	color:#167403;
-}

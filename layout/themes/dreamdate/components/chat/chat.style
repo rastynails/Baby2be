@@ -1,7 +1,0 @@
-.chat_windows_container {
-	background: none;
-	margin: 1px;
-	height: 500px;
-	overflow: auto;
-	width: 568px;
-}

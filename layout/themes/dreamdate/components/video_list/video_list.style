@@ -1,6 +1,0 @@
-.video_body a {
-	font-weight: bold;
-}
-.video_body {
-	width: 269px;
-}

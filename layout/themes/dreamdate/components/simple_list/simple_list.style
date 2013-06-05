@@ -1,6 +1,0 @@
-.simple_list .item {
-	height: 83px;
-}
-.simple_list .list_cont ul.list {
-	padding-left: 9px;
-}

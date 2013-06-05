@@ -1,2 +1,0 @@
-{text %feeds.`$item.string`}
-                   

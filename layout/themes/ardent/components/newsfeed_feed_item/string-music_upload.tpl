@@ -1,1 +1,0 @@
-{text %feeds.music_upload url=$item.content.url title=$item.content.title|out_format|censor:'music':true}

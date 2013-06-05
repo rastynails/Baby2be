@@ -1,7 +1,0 @@
-.sign_in_cont-line, .sign_in_cont-no_block label {
-	color: #fff;
-}
-.sign_in_cont-no_block .forgot_password a{
-	color: #fff;
-	text-decoration: underline;
-}

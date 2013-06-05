@@ -1,5 +1,0 @@
-.submenu {
-	border: none;
-	background: image(submenu.png) no-repeat 2px 0px;
-	min-height: 16px;
-}

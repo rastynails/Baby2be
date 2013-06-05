@@ -1,6 +1,0 @@
-.profile_list_cont ul {
-	padding: 12px 0px 0px 10px;
-}
-.profile_list_cont ul li {
-	margin: 0px 10px 5px 0px;
-}

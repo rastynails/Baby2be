@@ -1,6 +1,0 @@
-.submenu{
-	border:none;
-	background: transparent image(sub_menu_bg.gif) repeat-x bottom;
-	padding-bottom:1px;
-} 
-

@@ -1,1 +1,0 @@
-<a href="{$toolbarItem.href}">{text %toolbars.album_link label=$toolbarItem.label}</a>

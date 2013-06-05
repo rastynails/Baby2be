@@ -1,8 +1,0 @@
-.group_cont {
-	height: 142px;
-	margin-bottom: 7px;
-}
-.group_odd {
-	width: 50%;
-	margin-right: 8px;
-}

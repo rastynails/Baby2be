@@ -1,6 +1,0 @@
-div.narrow {
-	width: 41%;
-}
-div.wide {
-	width: 58%;
-}

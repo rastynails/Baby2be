@@ -1,3 +1,0 @@
-#page_canvas a.forum_pm {
-    background: transparent image(mhome_mailbox.png) no-repeat center 3px;
-}

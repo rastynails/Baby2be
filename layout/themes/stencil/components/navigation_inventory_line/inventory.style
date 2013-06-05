@@ -1,8 +1,0 @@
-/* Inventory Line CSS Styles */
-
-.inventory_line {
-	padding: 5px 1px 9px 7px;
-	background: #000;
-	float: right;
-	margin: 4px 0px 22px;
-}

@@ -1,9 +1,0 @@
-.quick_search .field_mileage .content_container {
-	background-color:transparent;
-}
-.quick_search hr {
-	display: none;
-}
-.quick_search br {
-	clear: all;
-}

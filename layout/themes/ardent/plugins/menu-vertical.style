@@ -1,8 +1,0 @@
-.my_profile_menu_cont ul.menu-vertical li a.active {
-	font-weight: normal;
-	color: #F76FFF;
-}
-
-ul.menu-vertical li {
-	list-style-type: disc;
-}

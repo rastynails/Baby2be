@@ -1,5 +1,0 @@
-.profile_gift_list .no_content {
-	padding-top: 110px;
-	background: image(gift_example.jpg) no-repeat center 4px;
-	min-height: 15px;
-}

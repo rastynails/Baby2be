@@ -1,6 +1,0 @@
-.referral_stat .block_body {
-	border-top: 1px solid #576469;
-}
-.list_odd {
-	background-color: #6F7E84;
-}

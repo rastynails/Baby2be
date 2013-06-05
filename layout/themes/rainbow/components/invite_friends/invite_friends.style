@@ -1,6 +1,0 @@
-.fb_float_right {
-	float: right;
-}
-.invite_form_cont input[type=submit] {
-	margin-top: 5px;
-}

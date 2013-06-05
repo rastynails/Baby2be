@@ -1,7 +1,0 @@
-.expandable_menu .block_body {
-	background: #ccc;
-}
-
-.forum_thumb {
-	background: #eee;
-}

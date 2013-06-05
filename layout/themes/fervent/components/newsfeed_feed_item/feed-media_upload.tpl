@@ -1,1 +1,0 @@
-<div class="remark smallmargin">{$item.content.text|out_format|censor:'video'}</div>

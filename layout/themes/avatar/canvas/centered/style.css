@@ -1,9 +1,0 @@
-#page_canvas {
-	margin:auto;
-	width: 1016px;
-}
-
-#content{
-	width: 1000px;
-	background: image(sign_in_bg.png) no-repeat  137px top;
-}

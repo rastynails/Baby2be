@@ -1,4 +1,0 @@
-.upload_photo .float_half_left,
-.upload_photo .float_half_right {
-	width:46%;
-}

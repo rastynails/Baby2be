@@ -1,9 +1,0 @@
-.jcarousel-skin .jcarousel-container-horizontal {
-	width: 495px;
-}
-.jcarousel-skin .jcarousel-clip-horizontal {
-	width: 493px;
-}
-.jcarousel-skin .active {
-	border-color: #b40004;
-}

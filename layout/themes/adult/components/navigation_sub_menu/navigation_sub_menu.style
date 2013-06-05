@@ -1,9 +1,0 @@
-.submenu 
-{
-	border-bottom:1px solid #CC3333;
-	font-size:11px;
-	padding:10px 0;
-	text-align:center;
-	width:830px;
-	background: #eee;
-}

@@ -1,8 +1,0 @@
-.search_page .float_half_left {
-	width: 56%;
-}
-
-.search_page .float_half_right {
-	width: 42%;
-	margin-right: 12px;
-}
