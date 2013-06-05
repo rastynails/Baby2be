@@ -1,5 +1,5 @@
 $body {
-	background: none repeat scroll 0 0 #663300;
+	background: none repeat scroll 0 0 #d9cfc0;
 }
 
 $a_link {
@@ -52,7 +52,7 @@ $sidebar {
 }
 
 .block_cap {
-	background:image(gh_block_cap.jpg) repeat-x;
+	background: #08b5df;
 	border-top: none;
 	border-bottom: none;
 }
@@ -83,10 +83,7 @@ $highlight_color {
 	background-color: transparent;
 	color: #fff;
 	margin-bottom: 14px;
-	border-left: 1px solid #3d1c14;
-	border-right: 1px solid #3d1c14;
-	border-bottom: 1px solid #3d1c14;
-
+	border: 1px solid #aea69a;
 }
 
 $button {

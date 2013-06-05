@@ -1,5 +1,5 @@
 ul.menu-tabs {
-	background: image(gh_menu.jpg) repeat-x left top;
+	background: #d9cfc0;
 	line-height: 30px;
 	margin: 0px;
 	padding: 0px 0px 2px 0px;
@@ -24,8 +24,7 @@ ul.menu-tabs li.tab a {
 ul.menu-tabs li.tab a:hover,
 ul.menu-tabs li.tab a:active,
 ul.menu-tabs li.tab a.active {
-	background: transparent image(gh_active_menu.jpg) repeat-x left top;
-	color: #fff;
+	background: #663400;
 	text-decoration: none;
 }
 

@@ -1,12 +1,12 @@
 .im_window {
-	background: none repeat scroll 0 0 #663300;
+	background: none repeat scroll 0 0 #d9cfc0;
 	float: left;
 	padding: 2px;
 	overflow: auto;	
 }
 
 .im_sidebar {
-	background: none repeat scroll 0 0 #663300;
+	background: none repeat scroll 0 0 #d9cfc0;
 	border-left: 1px solid #aaa;
 }
 
