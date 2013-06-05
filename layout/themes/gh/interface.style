@@ -1,5 +1,5 @@
 $body {
-	background: #d9cfc0 image(bg.png) repeat-x top;
+	background: #d9cfc0 image(bg.gif) repeat-x top;
 }
 
 $a_link {
