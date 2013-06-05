@@ -134,7 +134,7 @@ $form = form_QuickSearch::__set_state(array(
 			var handler = this;
 			params.action = "process_mileage";
 			$.ajax({
-						url: "http://www.matingdating.dk/field_responder.php",
+						url: "http://www.baby2be.dk/field_responder.php",
 						method: "post",
 						dataType: "json",
 						data: params,
@@ -339,7 +339,7 @@ $form = form_QuickSearch::__set_state(array(
 						action: "location_get_city"
 					};
 					$.ajax({
-								url: "http://www.matingdating.dk/field_responder.php",
+								url: "http://www.baby2be.dk/field_responder.php",
 								method: "post",
 								dataType: "json",
 								data: params,
@@ -436,7 +436,7 @@ $form = form_QuickSearch::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_QuickSearch',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%2510/103/10379A4F%25%25form_QuickSearch.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%2510/103/10379A4F%25%25form_QuickSearch.js',
   ),
    'frontend_handler' => NULL,
 ));

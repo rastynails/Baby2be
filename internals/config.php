@@ -2,7 +2,7 @@
 
 // Site Roots
 define('DIR_SITE_ROOT', '/var/www/');
-define('SITE_URL', 'http://www.matingdating.dk/');
+define('SITE_URL', 'http://www.baby2be.dk/');
 
 define('SK_PASSWORD_SALT', '517fae5756f6f');
 

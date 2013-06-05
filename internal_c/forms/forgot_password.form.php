@@ -54,7 +54,7 @@ $form = form_ForgotPassword::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_ForgotPassword',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%2562/622/622D9B8F%25%25form_ForgotPassword.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%2562/622/622D9B8F%25%25form_ForgotPassword.js',
   ),
    'frontend_handler' => NULL,
 ));

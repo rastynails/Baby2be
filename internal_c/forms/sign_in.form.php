@@ -92,7 +92,7 @@ $form = form_SignIn::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_SignIn',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%25C2/C21/C21D8BEB%25%25form_SignIn.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%25C2/C21/C21D8BEB%25%25form_SignIn.js',
   ),
    'frontend_handler' => NULL,
 ));

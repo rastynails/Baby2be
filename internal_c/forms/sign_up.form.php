@@ -186,7 +186,7 @@ $form = form_SignUp::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_SignUp',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%25DE/DE6/DE65EBD5%25%25form_SignUp.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%25DE/DE6/DE65EBD5%25%25form_SignUp.js',
   ),
    'frontend_handler' => NULL,
 ));

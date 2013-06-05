@@ -35,13 +35,13 @@ $form = form_Join::__set_state(array(
         'request_result' => '""',
         'refresh_image' => 'function($input){
 				$.ajax({
-							url: "http://www.matingdating.dk/field_responder.php",
+							url: "http://www.baby2be.dk/field_responder.php",
 							method: "post",
 							dataType: "json",
 							data: {action: "change_captcha_image"},
 							success: function(result){
 							 	if (result){
-									$input.parents(".captcha_container:eq(0)").find("img").attr("src","http://www.matingdating.dk/captcha/image.php?img_id="+result);
+									$input.parents(".captcha_container:eq(0)").find("img").attr("src","http://www.baby2be.dk/captcha/image.php?img_id="+result);
 									$input.val("");								
 								}
 							 }
@@ -125,7 +125,7 @@ $form = form_Join::__set_state(array(
 
 					var handler = this;
 						$.ajax({
-								url: "http://www.matingdating.dk/field_responder.php",
+								url: "http://www.baby2be.dk/field_responder.php",
 								method: "post",
 								dataType: "json",
 								data: {action: "check_username_exists", username: $input.val()},
@@ -195,7 +195,7 @@ $form = form_Join::__set_state(array(
 
 				handler.fields[$input.parents("tr:eq(0)").attr("class")] = $input.val();
 				$.ajax({
-							url: "http://www.matingdating.dk/field_responder.php",
+							url: "http://www.baby2be.dk/field_responder.php",
 							method: "post",
 							dataType: "json",
 							data: {action: "process_location", changed_item : $input.parents("tr:eq(0)").attr("class") , value : $input.val(), param : param},
@@ -370,7 +370,7 @@ $form = form_Join::__set_state(array(
 						action: "location_get_city"
 					};
 					$.ajax({
-								url: "http://www.matingdating.dk/field_responder.php",
+								url: "http://www.baby2be.dk/field_responder.php",
 								method: "post",
 								dataType: "json",
 								data: params,
@@ -460,13 +460,13 @@ $form = form_Join::__set_state(array(
         'validate' => 'function( value ) {}',
         'onConstruct' => 'function( $input, form_handler ) {}',
         'displayLoading' => 'function( value ) {
-					this.$input.before(\'<img src="http://www.matingdating.dk/layout/img/loading.gif" />\');
+					this.$input.before(\'<img src="http://www.baby2be.dk/layout/img/loading.gif" />\');
 				}',
         'focus' => 'function() {
 					this.$iframe.get(0).contentWindow.$userfile.focus();
 				}',
         'showLoading' => 'function() {
-					this.$input.before(\'<img src="http://www.matingdating.dk/layout/img/loading.gif" />\');
+					this.$input.before(\'<img src="http://www.baby2be.dk/layout/img/loading.gif" />\');
 				}',
         'hideLoading' => 'function() {
 					this.$input.prev().remove();
@@ -878,7 +878,7 @@ $form = form_Join::__set_state(array(
 					var handler = this;
 					
 						$.ajax({
-								url: "http://www.matingdating.dk/field_responder.php",
+								url: "http://www.baby2be.dk/field_responder.php",
 								method: "post",
 								dataType: "json",
 								data: {action: "check_email_exists", email: $input.val()},
@@ -1550,7 +1550,7 @@ $form = form_Join::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_Join',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%251C/1C7/1C7273FE%25%25form_Join.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%251C/1C7/1C7273FE%25%25form_Join.js',
   ),
    'frontend_handler' => NULL,
 ));

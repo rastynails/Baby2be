@@ -53,7 +53,7 @@ $form = form_UserStatus::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_UserStatus',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%2552/52C/52CC38AA%25%25form_UserStatus.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%2552/52C/52CC38AA%25%25form_UserStatus.js',
   ),
    'frontend_handler' => NULL,
 ));

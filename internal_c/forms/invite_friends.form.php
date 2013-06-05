@@ -77,7 +77,7 @@ $form = form_InviteFriends::__set_state(array(
    'frontend_data' => 
   array (
     'js_class' => 'form_InviteFriends',
-    'js_file' => 'http://www.matingdating.dk/external_c/gh/%25%252A/2AC/2AC7386F%25%25form_InviteFriends.js',
+    'js_file' => 'http://www.baby2be.dk/external_c/gh/%25%252A/2AC/2AC7386F%25%25form_InviteFriends.js',
   ),
    'frontend_handler' => NULL,
 ));
