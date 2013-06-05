@@ -2,7 +2,7 @@
 
 .page_header {
 	background: none;
-	margin: 10px auto 0px;
+	margin: 0;
 	width: 830px;
 	float: left;
 }

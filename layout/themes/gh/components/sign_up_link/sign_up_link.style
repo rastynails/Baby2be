@@ -1,5 +1,5 @@
 .link_container {
-	background-color:#8A3803;
+	background-color: #08b5df;
 	font-size: << $large_font;
 	font-weight: bold;
 	padding: 13px;	
@@ -7,5 +7,9 @@
 }
 
 .link_container a:hover{
-	color:#fff;
+	color: #663400;
+}
+
+.link_container a{
+	color: #fff;
 }

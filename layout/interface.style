@@ -89,7 +89,7 @@ $button {
 }
 
 $button_hover {
-	border: 1px solid #3F3F3F;
+	border: 1px solid #663400;
 }
 
 

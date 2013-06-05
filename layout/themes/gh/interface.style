@@ -1,5 +1,5 @@
 $body {
-	background: url(bg.png) repeat scroll 0 0 #d9cfc0;
+	background: #d9cfc0 image(bg.png) repeat-x top;
 }
 
 $a_link {
@@ -58,7 +58,7 @@ $sidebar {
 }
 
 .block_toolbar {
-	background: #444;
+	background: #e7ded0;
 }
 
 .list_block .list_info {
@@ -87,9 +87,9 @@ $highlight_color {
 }
 
 $button {
-	background: #3d1c14 image(button.jpg) repeat-x bottom;
-	border: 1px solid #666;
-	color: #f2e0ba;
+	background: #08B5DF;
+	border: 1px solid #fff;
+	color: #fff;
 }
 .memberhome_hrefs_cont .block {
 	color:#2C7BBF;
