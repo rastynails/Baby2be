@@ -5,11 +5,9 @@
 	margin: 10px auto 0px;
 	width: 830px;
 	float: left;
-	height:265px;
 }
 
 .logo {
-	padding: 25px;
 	height: 183px;
 	background: image(logo.png) no-repeat;
 	clear: right;

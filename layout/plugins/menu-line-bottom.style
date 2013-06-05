@@ -16,6 +16,6 @@
 ul.menu-line-bottom {
 	width: auto;
 	text-align: center;
-	background:#F0F0F0 none repeat scroll 0 0;
+	background:none;
 	padding: 5px;
 }

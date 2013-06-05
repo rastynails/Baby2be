@@ -18,6 +18,6 @@
 ul.menu-line-bottom {
 	width: 100%;
 	text-align: center;
-	background:#682002 none repeat scroll 0 0;
+	background: none;
 	padding: 5px;
 }
