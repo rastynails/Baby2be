@@ -20,7 +20,7 @@ $bread_crumb{
 }
 
 td {
-	color: #f2e0ba;
+	color: #000;
 }
 
 $form_th {
@@ -96,7 +96,7 @@ $button {
 }
 
 $table{
-	color: #f2e0ba;
+	color: #000;
 }
 
 
@@ -133,16 +133,16 @@ $table_block_cap {
 
 $paging_a {
 	border: 1px solid #2C7BBF;
-	color: #f2e0ba;
+	color: #000;
 }
 
 $span_paging {
-	color: #f2e0ba;
+	color: #000;
 }
 
 $item {
 	border-color: #682002;
-	color:#f2e0ba;
+	color:#000;
 }
 
 $active_field_mileage {
@@ -239,7 +239,7 @@ $tab {
 	border-color: #2F1400;
 	border-style:none dotted dotted solid;
 	border-width:0 1px 1px 4px;
-	color:#F2E0BA;
+	color:#000;
 	margin:0 auto 8px;
 	padding:4px;
 }

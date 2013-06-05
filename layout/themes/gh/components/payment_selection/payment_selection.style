@@ -72,7 +72,7 @@
 	border-top: none;
 	background: image(mark.png) no-repeat center center;
 	padding-left: 24px;
-	color: #f2e0ba;
+	color: #000;
 }
 
 .unavailable {
