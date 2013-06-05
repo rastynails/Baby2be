@@ -22,5 +22,5 @@
 }
 
 #content {
-	background: image(sign_in_pic.png) no-repeat 0px 138px;
+	background: none;
 }

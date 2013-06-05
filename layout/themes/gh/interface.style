@@ -149,9 +149,9 @@ $active_field_mileage {
 	background: #fff;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #363535;
+	border-color: #663400;
 	border-bottom: none;
-	color: #363535;
+	color: #663400;
 }
 
 $region_field_mileage{
@@ -169,19 +169,19 @@ $small_font{
 }
 
 $small {
-	color: #363535;
+	color: #663400;
 }
 
 $thumb_text_list_td_listing {
-	color: #363535;
+	color: #663400;
 }
 
 $user_date {
-	color: #363535;
+	color: #663400;
 }
 
 $subject_message {
-	color: #363535;
+	color: #663400;
 }
 
 $video_list {
@@ -189,19 +189,19 @@ $video_list {
 }
 .field_mileage .tab_container .active {
 	background-color: #000;
-	border:1px solid #363535;
+	border:1px solid #663400;
 	border-bottom: none;
 }
 
 $border {
 	background-color: none;
-	border:1px solid #363535;
+	border:1px solid #663400;
 }
 
 $tab {
 	border-bottom: none;
 	background: #444;
-	border:1px solid #363535;
+	border:1px solid #663400;
 }
 
 .field_mileage .country_list .country {
@@ -249,7 +249,7 @@ $tab {
 }
 
 .group .indicator div {
-    color: #363535;
+    color: #663400;
 }
 .floatbox_container .block_body {
 	border: none;
