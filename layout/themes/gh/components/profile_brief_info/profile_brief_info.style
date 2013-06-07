@@ -1,5 +1,5 @@
 div.member_actions a {
-	background-color:#682002;
+	background-color:#663400;
 	float: left;
 	font-size: 11px;
 	margin-right: 2px;

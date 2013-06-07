@@ -9,6 +9,6 @@
 
 .logo {
 	height: 183px;
-	background: image(logo.png) no-repeat;
+	background: image(logo.png) no-repeat center center;
 	clear: right;
 }

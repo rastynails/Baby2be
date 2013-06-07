@@ -8,10 +8,11 @@
 	font-size: << $small_font;
 	width: 830px;
 	float: left;
+	position: absolute;
 }
 
 .inventory_line a
 {
 	text-align: center;
-	color: #FDC85D;
+	color: #fff;
 }

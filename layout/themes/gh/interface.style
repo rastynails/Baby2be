@@ -24,13 +24,13 @@ td {
 }
 
 $form_th {
-	background:#682002;
+	background:#663400;
 	color: #fdc85d;
 }
 
 .forum_group_list table.form th,
 .forum_group_list .field_form th{
-	background:#682002;
+	background:#663400;
 }
 
 $blog_manage_list {
@@ -101,7 +101,7 @@ $table{
 
 
 .memberhome_hrefs_cont .block a {
-	color:#FDC85D;
+	color: #058CAA;
 }
 
 .memberhome_hrefs_cont .block a:hover {
@@ -113,7 +113,7 @@ $table{
 }
 
 .block_info {
-	background-color: #682002;
+	background-color: #663400;
 }
 
 .profile_thumb {
@@ -141,7 +141,7 @@ $span_paging {
 }
 
 $item {
-	border-color: #682002;
+	border-color: #663400;
 	color:#000;
 }
 
