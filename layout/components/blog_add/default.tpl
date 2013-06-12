@@ -23,10 +23,6 @@
                         <td class="value all_row_width">{input name='blog_title'}</td>
                     </tr>
                     <tr>
-                    	<td class="label">{label %.components.blog_add.field_label_tags for='blog_tags'}</td>
-                        <td class="value all_row_width">{input name='blog_tags'}</td>
-                    </tr>
-                    <tr>
                         <td class="label">{label %.components.blog_add.field_label_text for='blog_text'}</td>
                         <td class="value">{input name='blog_text'}</td>
                     </tr>
