@@ -11,7 +11,7 @@ $content{
 	background: none;
 	margin-top:5px;
 	width:830px;
-	color: #fff;
+	color: #663400;
 }
 
 $bread_crumb{
@@ -20,7 +20,7 @@ $bread_crumb{
 }
 
 td {
-	color: #000;
+	color: #663400;
 }
 
 $form_th {
@@ -75,13 +75,13 @@ $sidebar {
 }
 
 $highlight_color {
-	color: #fff;
+	color: #663400;
 }
 
 .block_body {
 	background: none;
 	background-color: transparent;
-	color: #fff;
+	color: #663400;
 	margin-bottom: 14px;
 	border: 1px solid #aea69a;
 }

@@ -181,6 +181,7 @@ input[type=button]:disabled {
 	float: left;
 	margin: 2px;
 	cursor: default;
+	color: #fff;
 }
 
 .block_submit {
