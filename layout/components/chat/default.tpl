@@ -44,20 +44,6 @@
 	<table class="chat_carcass_tbl" cellspacing="0">
 		<tbody>
 			<tr>
-				<td class="chat_windows_cell">
-					{block_cap id="active_window_title" title=%loading}{/block_cap}
-					<div {id="chat_windows_container"} class="chat_windows_container">
-						<div style="height: 1px"></div>
-					</div>
-				</td>
-				<td class="chat_rooms_cell">
-					{block_cap title=%rooms}{/block_cap}
-					<div {id="chat_rooms_container"} class="chat_rooms_container"></div>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
 				<td>
 					<div class="chat_bottom_container">
 					<form {id="chat_input_form"} onsubmit="return false">
@@ -74,7 +60,19 @@
 					</div>
 				</td>
 			</tr>
-		</tfoot>
+			<tr>
+				<td class="chat_windows_cell">
+					{block_cap id="active_window_title" title=%loading}{/block_cap}
+					<div {id="chat_windows_container"} class="chat_windows_container">
+						<div style="height: 1px"></div>
+					</div>
+				</td>
+				<td class="chat_rooms_cell">
+					{block_cap title=%rooms}{/block_cap}
+					<div {id="chat_rooms_container"} class="chat_rooms_container"></div>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 {/if}
 	
