@@ -86,6 +86,10 @@ $highlight_color {
 	border: 1px solid #aea69a;
 }
 
+.block_body_c {
+	color: #fff;
+}
+
 $button {
 	background: #08B5DF;
 	border: 1px solid #fff;
