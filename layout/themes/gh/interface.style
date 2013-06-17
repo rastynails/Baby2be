@@ -6,6 +6,10 @@ $a_link {
 	color: #058caa;
 }
 
+.profile_actions a:link, .profile_actions a:visited {
+	color: #fff;
+}
+
 $content{
 	float:left;
 	background: none;
@@ -146,7 +150,7 @@ $span_paging {
 
 $item {
 	border-color: #663400;
-	color:#000;
+	color: #663400;
 }
 
 $active_field_mileage {
